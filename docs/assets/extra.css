@@ -1,7 +1,7 @@
 [data-md-color-scheme="text2sparql"] {
-  --md-primary-fg-color:        #3ea8dd;
-  --md-primary-fg-color--light: #c5e7ff;
-  --md-primary-fg-color--dark:  #00344b;
+  --md-primary-fg-color:        #ffa363;
+  --md-primary-fg-color--light: #ffd696;
+  --md-primary-fg-color--dark:  #fa7030;
 }
 
 :root {
@@ -57,3 +57,4 @@
   -webkit-mask-image: var(--md-admonition-icon--food-outline);
   mask-image: var(--md-admonition-icon--food-outline);
 }
+
