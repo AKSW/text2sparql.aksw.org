@@ -1,0 +1,51 @@
+---
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+
+  default:
+    summary: |
+      List documented tasks
+    silent: true
+    cmds:
+      - task --list
+
+  clean:
+    desc: Clean up working directory
+    run: once
+    cmds:
+      - rm -rf site .cache
+
+  install:
+    desc: Install needed dependencies
+    cmds:
+      - poetry install
+
+  check:
+    desc: Run complete test suite
+    deps:
+      - check:links
+
+  check:links:
+    desc: Check outgoing links
+    deps:
+      - install
+    cmds:
+      - poetry run linkcheckMarkdown -r docs 2>&1 | grep -v "ResourceWarning"
+
+  build:
+    desc: Build the page
+    deps:
+      - task: install
+    cmds:
+      - poetry run mkdocs build --strict
+
+  serve:
+    desc: Serve the page on localhost
+    deps:
+      - task: install
+    cmds:
+      - poetry run mkdocs serve
+

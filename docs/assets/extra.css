@@ -1,0 +1,59 @@
+[data-md-color-scheme="text2sparql"] {
+  --md-primary-fg-color:        #3ea8dd;
+  --md-primary-fg-color--light: #c5e7ff;
+  --md-primary-fg-color--dark:  #00344b;
+}
+
+:root {
+  --md-admonition-icon--session: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3h8a2 2 0 0 1 2-2 2 2 0 0 1 2 2h8v2h-1v11h-5.75L17 22h-2l-1.75-6h-2.5L9 22H7l1.75-6H3V5H2V3m3 2v9h14V5H5Z"/></svg>');
+}
+.md-typeset .admonition.session,
+.md-typeset details.session {
+  border-color: rgb(0 184 212);
+}
+.md-typeset .session > .admonition-title,
+.md-typeset .session > summary {
+  background-color: rgb(235 247 255);
+}
+.md-typeset .session > .admonition-title::before,
+.md-typeset .session > summary::before {
+  background-color: rgb(0 184 212);
+  -webkit-mask-image: var(--md-admonition-icon--session);
+  mask-image: var(--md-admonition-icon--session);
+}
+
+:root {
+  --md-admonition-icon--coffee-break: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 21v-2h18v2H2M20 8V5h-2v3h2m0-5a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V3h16m-4 2H6v8a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5Z"/></svg>');
+}
+.md-typeset .admonition.coffee-break,
+.md-typeset details.coffee-break {
+  border-color: rgb(127, 85, 57);
+}
+.md-typeset .coffee-break > .admonition-title,
+.md-typeset .coffee-break > summary {
+  background-color: rgb(127, 85, 57, 0.1);
+}
+.md-typeset .coffee-break > .admonition-title::before,
+.md-typeset .coffee-break > summary::before {
+  background-color: rgb(127, 85, 57);
+  -webkit-mask-image: var(--md-admonition-icon--coffee-break);
+  mask-image: var(--md-admonition-icon--coffee-break);
+}
+
+:root {
+  --md-admonition-icon--food-outline: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1 22c0 .54.45 1 1 1h13c.56 0 1-.46 1-1v-1H1v1M8.5 9C4.75 9 1 11 1 15h15c0-4-3.75-6-7.5-6m-4.88 4c1.11-1.55 3.47-2 4.88-2s3.77.45 4.88 2H3.62M1 17h15v2H1v-2M18 5V1h-2v4h-5l.23 2h9.56l-1.4 14H18v2h1.72c.84 0 1.53-.65 1.63-1.47L23 5h-5Z"/></svg>');
+}
+.md-typeset .admonition.food-outline,
+.md-typeset details.food-outline {
+  border-color: rgb(43, 147, 72);
+}
+.md-typeset .food-outline > .admonition-title,
+.md-typeset .food-outline > summary {
+  background-color: rgba(43, 147, 72, 0.1);
+}
+.md-typeset .food-outline > .admonition-title::before,
+.md-typeset .food-outline > summary::before {
+  background-color: rgb(43, 147, 72);
+  -webkit-mask-image: var(--md-admonition-icon--food-outline);
+  mask-image: var(--md-admonition-icon--food-outline);
+}

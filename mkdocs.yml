@@ -1,0 +1,196 @@
+---
+# {{{ Main site config
+site_name: "TEXT2SPARQL’24"
+site_url: https://text2sparql.aksw.org/
+repo_url: https://github.com/aksw/text2sparql.aksw.org
+edit_uri: ./edit/develop/docs
+# https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#custom-syntax-theme
+extra_css:
+  - assets/extra.css
+extra:
+  # https://squidfunk.github.io/mkdocs-material/reference/?h=status#setting-the-page-status
+  status:
+    new: Recently added or extended
+    deprecated: Deprecated
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/?h=social#social-links
+  social:
+    - icon: fontawesome/brands/creative-commons
+      link: >
+        https://github.com/aksw/text2sparql.aksw.org/blob/main/LICENSE
+    - icon: fontawesome/brands/github
+      link: https://github.com/aksw/text2sparql.aksw.org
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
+  # https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#cookie-consent
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+# }}}
+
+# {{{ Theme configuration
+theme:
+  name: material
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/
+  language: en
+  palette:
+    scheme: text2sparql
+
+  # https://squidfunk.github.io/mkdocs-material/customization/#extending-the-theme
+  custom_dir: overrides
+
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  favicon: assets/favicon.ico
+  logo: assets/logo.png
+
+  features:
+    # add button to dismiss the current announcement
+    - announce.dismiss
+    # on search highlight all occurrences after following the link
+    - search.highlight
+    # allows to deep link to the current search query and result
+    - search.share
+    # search will display the likeliest completion for the last word
+    - search.suggest
+    # sidebar is scrolled so that the active anchor is always visible
+    - toc.follow
+    # allow numeric annotion markers in block and inline comments
+    - content.code.annotate
+    # same label tabs are linked and switch to the same label
+    - content.tabs.link
+    # replaces the browser tooltips
+    - content.tooltips
+    # documents can be directly attached to sections, which is particularly
+    # useful for providing overview pages.
+    - navigation.indexes
+    # clicks on all internal links will be intercepted and dispatched via XHR
+    # without fully reloading the page
+    - navigation.instant
+    # top-level sections are rendered in a menu layer below the header
+    # - navigation.tabs
+    # top level sections will lock below the header and always remain visible
+    - navigation.tabs.sticky
+    # add back-to-top button
+    - navigation.top
+    # URL in the address bar is automatically updated with the active anchor as
+    # highlighted in the table of contents.
+    - navigation.tracking
+    # left sidebar will expand all collapsible subsections by default
+    # - navigation.expand
+    # significantly smaller HTML files for documentation projects with huge
+    # navigation hierarchies.
+    # - navigation.prune
+    # top-level sections are rendered as groups in the sidebar for viewports
+    # above 1220px
+    # - navigation.sections
+    # - header.autohide
+    # - toc.integrate
+
+  # 404 page
+  static_templates:
+    - 404.html
+
+  # Necessary for search to work properly
+  include_search_page: false
+  search_index_only: true
+
+  icon:
+    logo: logo
+    # https://squidfunk.github.io/mkdocs-material/reference/annotations/
+    admonition:
+      note: fontawesome/solid/note-sticky
+      abstract: fontawesome/solid/book
+      info: fontawesome/solid/circle-info
+      tip: fontawesome/solid/bullhorn
+      success: fontawesome/solid/check
+      question: fontawesome/solid/circle-question
+      warning: fontawesome/solid/triangle-exclamation
+      failure: fontawesome/solid/bomb
+      danger: fontawesome/solid/skull
+      bug: fontawesome/solid/robot
+      example: fontawesome/solid/flask
+      quote: fontawesome/solid/quote-left
+# }}}
+
+# {{{ Extensions to the markdown processor
+markdown_extensions:
+  # multi extension: https://python-markdown.github.io/extensions/extra/
+  - extra
+  # converts ASCII dashes, quotes and ellipses to their HTML entity equivalents
+  - smarty
+  # ordered list will not continue when an unordered item comes and vice versa
+  - sane_lists
+  # add HTML attributes and CSS classes to Markdown inline and block elements
+  - attr_list
+  # writing Markdown inside of HTML
+  - md_in_html
+  # https://squidfunk.github.io/mkdocs-material/reference/annotations/
+  - admonition
+  # collapsible admonitions
+  - pymdownx.details
+  # support for syntax highlighting of code blocks
+  - pymdownx.highlight:
+      anchor_linenums: true
+  # support for syntax highlighting of inline code blocks
+  - pymdownx.inlinehilite
+  # adds the ability to embed content from arbitrary files into a document
+  - pymdownx.snippets
+  # https://squidfunk.github.io/mkdocs-material/reference/formatting/#adding-keyboard-keys
+  - pymdownx.keys
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#tasklist
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  # allows the usage of content tabs, a simple way to group related content
+  - pymdownx.tabbed:
+      alternate_style: true
+  # arbitrary nesting of code and content blocks inside each other
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  # generates a Table of Contents from a Markdown document with [TOC]
+  - toc:
+      permalink: '¤'
+      baselevel: 1
+      # toc_depth: 4
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+# }}}
+
+# {{{ Extensions to mkdocs - some of them are used by material theme
+plugins:
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/
+  - search:
+      lang: en
+  # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
+  - awesome-pages
+  # https://github.com/fralau/mkdocs_macros_plugin
+  # - macros
+  # https://github.com/midnightprioriem/mkdocs-autolinks-plugin
+  - autolinks
+  # https://github.com/blueswen/mkdocs-glightbox
+  - glightbox
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/
+  - social:
+      cards: true
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
+  # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+# }}}
+
+# {{{ Less important mkdocs configuration
+# https://www.mkdocs.org/user-guide/configuration/#watch
+watch:
+  - overrides
+# }}}
