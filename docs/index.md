@@ -6,6 +6,10 @@ title: "First International TEXT2SPARQL Challenge (TEXT2SPARQL24)"
 
 ## Abstract
 
+!!! info inline end ""
+
+    ![Logo](assets/logo.png)
+
 The TEXT2SPARQL Challenge is a competitive and collaborative benchmark designed to push the boundaries of natural language processing (NLP) and Semantic Web technologies, with a particular emphasis on Neurosymbolic AI approaches.
 This challenge focuses on translating natural language questions into SPARQL queries, a structured query language for interacting with data in Resource Description Framework (RDF) formats, which are often used in knowledge graphs.
 Neurosymbolic AI - a hybrid approach combining neural network-based models with symbolic reasoning techniques—plays a crucial role in this challenge by addressing both the interpretative power of neural networks and the logical precision of symbolic methods.
