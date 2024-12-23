@@ -1,8 +1,8 @@
 ---
 icon: material/rules
-title: "Guidelines"
+title: "Submission Guidelines"
 ---
-# Guidelines
+# Submission Guidelines
 
 The submission will be held into two stages (1) results and (2) papers.
 
