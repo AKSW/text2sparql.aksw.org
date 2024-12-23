@@ -1,5 +1,5 @@
 ---
-icon: material/emoji_events
+icon: material/fontawesome-solid-trophy
 title: "Challenge"
 ---
 # Challenge
