@@ -1,6 +1,6 @@
 ---
 icon: material/home
-title: "First International TEXT2SPARQL Challenge (TEXT2SPARQL24)"
+title: "First International TEXT2SPARQL Challenge (TEXT2SPARQL25)"
 ---
 # First International TEXT2SPARQL Challenge
 
