@@ -1,12 +1,18 @@
 ---
 icon: material/rules
-title: "Submission Guidelines"
+title: "Dates & Submission Guidelines"
 ---
-# Submission Guidelines
+# Dates & Submission Guidelines
+
+## Dates
+
+TBA
+
+## Submission Guidelines
 
 The submission will be held into two stages (1) results and (2) papers.
 
-## Rules
+### Results
 
 - Every competing team should submit their results using the paper template.
 
@@ -17,7 +23,7 @@ The submission will be held into two stages (1) results and (2) papers.
   - Title, Authors, and respective affiliations;
   - To facilitate your result submission, we prepared a template: TBA
     
-## Paper
+### Paper
 
 - Every competing approach should submit a 12 pages article written in English describing the method in the style of the Springer Publications format for Lecture Notes in Computer Science (LNCS). For further instructions, you can check the Springer Conference Proceeding templates at Springer submission guidelines.
 
