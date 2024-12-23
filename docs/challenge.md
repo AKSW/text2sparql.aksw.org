@@ -1,5 +1,5 @@
 ---
-icon: material/fontawesome-solid-trophy
+icon: material/trophy
 title: "Challenge"
 ---
 # Challenge
