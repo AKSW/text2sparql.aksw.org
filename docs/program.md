@@ -1,5 +1,5 @@
 ---
-icon: material/calendar_month
+icon: material/calendar-month
 title: "Program"
 ---
 # Program
