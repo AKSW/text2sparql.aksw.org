@@ -1,5 +1,5 @@
 ---
-icon: material/rules
+icon: material/file_check
 title: "Dates & Submission Guidelines"
 ---
 # Dates & Submission Guidelines
