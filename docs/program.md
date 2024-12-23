@@ -1,7 +1,7 @@
 ---
 icon: material/calendar_month
-title: "Agenda"
+title: "Program"
 ---
-# Agenda
+# Program
 
 TBA
