@@ -1,6 +1,6 @@
 ---
 # {{{ Main site config
-site_name: "TEXT2SPARQL’24"
+site_name: "TEXT2SPARQL’25"
 site_url: https://text2sparql.aksw.org/
 repo_url: https://github.com/aksw/text2sparql.aksw.org
 edit_uri: ./edit/develop/docs
