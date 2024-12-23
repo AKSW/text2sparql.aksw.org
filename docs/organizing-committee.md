@@ -14,7 +14,7 @@ icon: material/account-group
 [:material-link:](https://aksw.org/EdgardMarx)
 [:simple-googlescholar:](https://scholar.google.com/citations?user=1jAHNZIAAAAJ&hl=en)
 
-Edgard is Principal Data Scientist @eccenca and Project Manager at the Leipzig University of Applied Sciences (HTWK) working on Natural Language Processing (NLP) focusing on Question Answering, Semantic Search systems, Data Management, and Digital Twins for large enterprises. He haas 10+ years of experience in software engineering, project management, and designing innovative solutions.
+Edgard is Principal Data Scientist @eccenca and Project Manager at the Leipzig University of Applied Sciences (HTWK) working on Natural Language Processing (NLP) focusing on Question Answering, Semantic Search systems, Data Management, and Digital Twins for large enterprises. He has 10+ years of experience in software engineering, project management, and designing innovative solutions.
 
 ---
 ## Sebastian Tramp

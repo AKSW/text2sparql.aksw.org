@@ -1,4 +1,7 @@
 nav:
     - Home: index.md
     - Organizing Committee: organizing-committee.md
+    - Challenge: challenge.md
+    - Dates & Guidelines: guidelines.md
+    - Program: program.md
 
