@@ -21,7 +21,7 @@ TBA
 
 ## Evaluation Metrics
 
-Evaluation in the Text2SPARQL challenge is centered on robust, well-established metrics tailored to the nuances of KGQA tasks. 
+Evaluation in the Text2SPARQL challenge is centered on robust, well-established metrics tailored to the nuances of Text2SPARQL tasks. 
 These include Precision, Recall, and F1-score. Precision assesses the proportion of correct answers among those returned by the system, highlighting accuracy. 
 Recall evaluates the system's ability to retrieve all relevant answers, emphasizing coverage. 
 F1-score, a harmonic mean of Precision and Recall, provides a balanced measure that considers both the quality and completeness of the answers.
