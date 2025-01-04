@@ -29,7 +29,7 @@ icon: material/account-group
 
 !!! info inline end ""
 
-    ![Tommaso Soru](http://tommaso-soru.it/images/tom.jpg)
+    ![Tommaso Soru](https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=9aI21r8AAAAJ&citpid=7)
 
 [:material-linkedin:](https://www.linkedin.com/in/sebastiantramp/)
 [:material-link:](http://tommaso-soru.it/)
