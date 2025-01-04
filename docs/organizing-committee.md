@@ -5,9 +5,7 @@ icon: material/account-group
 
 ## Edgard Marx (contact person)
 
-!!! info inline end ""
-
-    ![Edgard Marx](assets/people/Edgard.png)
+![Edgard Marx](assets/people/Edgard.png)
 
 [:material-linkedin:](https://www.linkedin.com/in/edgardmarx/)
 [:material-link:](https://aksw.org/EdgardMarx)
