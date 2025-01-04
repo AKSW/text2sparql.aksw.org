@@ -3,6 +3,7 @@ icon: material/home
 title: "First International TEXT2SPARQL Challenge (TEXT2SPARQL25)"
 ---
 # First International TEXT2SPARQL Challenge
+### Co-Located with Text2KG at ESWC25
 
 ## Abstract
 
