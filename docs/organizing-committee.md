@@ -64,4 +64,5 @@ icon: material/account-group
 - Ricardo Marcasini, USP, Brazil
 - Sanju Tiwari, Sharda University, India
 - Gong Cheng, Nanjing University, China
+- Andreas Both, HTWK, Germany
 - Gustavo Publio, Schwarz IT, Germany
