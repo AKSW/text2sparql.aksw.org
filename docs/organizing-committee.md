@@ -5,7 +5,7 @@ icon: material/account-group
 
 ## Edgard Marx (contact person)
 
-![Edgard Marx](assets/people/Edgard.png)
+![Edgard Marx](assets/people/Edgard.png){ width="300" }
 
 [:material-linkedin:](https://www.linkedin.com/in/edgardmarx/)
 [:material-link:](https://aksw.org/EdgardMarx)
@@ -14,9 +14,7 @@ icon: material/account-group
 ---
 ## Sebastian Tramp
 
-!!! info inline end ""
-
-    ![Sebastian Tramp](assets/people/Seebi.png)
+![Sebastian Tramp](assets/people/Seebi.png){ width="300" }
 
 [:material-linkedin:](https://www.linkedin.com/in/sebastiantramp/)
 [:material-link:](https://aksw.org/SebastianTramp)
@@ -25,9 +23,7 @@ icon: material/account-group
 ---
 ## Tommaso Soru
 
-!!! info inline end ""
-
-    ![Tommaso Soru](https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=9aI21r8AAAAJ&citpid=7)
+![Tommaso Soru](https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=9aI21r8AAAAJ&citpid=7){ width="300" }
 
 [:material-linkedin:](https://www.linkedin.com/in/sebastiantramp/)
 [:material-link:](http://tommaso-soru.it/)
@@ -36,9 +32,7 @@ icon: material/account-group
 ---
 ## Diego Moussallem
 
-!!! info inline end ""
-
-    ![Diego Moussallem](https://www.dice-research.org/static/eb1525f3c7ee039449a76234e6367b60/fd013/moussallem.jpg)
+![Diego Moussallem](https://www.dice-research.org/static/eb1525f3c7ee039449a76234e6367b60/fd013/moussallem.jpg){ width="300" }
 
 [:material-linkedin:](https://linkedin.com/in/diegomoussallem)
 [:material-link:](https://www.dice-research.org/DiegoMoussallem)
