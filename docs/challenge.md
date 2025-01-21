@@ -17,7 +17,13 @@ This push towards multilingual capabilities ensures broader accessibility and us
 
 ## Benchmark Dataset
 
-TBA
+### training set:
+
+The training set for this benchmark dataset is designed to facilitate the development of advanced models capable of translating natural language questions into SPARQL queries. Participants are encouraged to leverage any publicly available resources on the web for training purposes, ensuring a broad and diverse foundation for model development. This includes the use of existing Text2SPARQL benchmarks such as DBNQA, QALD, and LC-QuAD, which provide valuable question-query pairs spanning a variety of domains and complexities. These resources offer rich datasets featuring diverse linguistic structures, logical formulations, and domain-specific ontologies, making them ideal for enhancing both the generalizability and precision of SPARQL query generation models. By integrating insights from these established benchmarks and other freely available web resources, participants can build robust systems capable of handling the linguistic nuances and logical challenges inherent in natural language to SPARQL translation.
+
+### test set:
+
+The test set along with the result will be available after individual candidate evaluation.
 
 ## Evaluation Metrics
 
