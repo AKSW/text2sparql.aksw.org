@@ -19,14 +19,9 @@ The submission will be held into two stages (1) results and (2) papers.
 
 ### Results
 
-- Every competing team should submit their results using the paper template.
-
-- The only information mandatory in the result submission is as follows:
-
-  - A table containing the performance of your approach in comparison with the baseline;
-  - A link to an open repository containing the code used for training and all the necessary resources, including files and pre-trained models to replicate the results;
-  - Title, Authors, and respective affiliations;
-  - To facilitate your result submission, we prepared a template: TBA
+- Every competing team should register and submit their results using the paper template.
+- Your method will be evaluated trough an service API.
+- Instructions on how to register and publish your API mehod can be found on the Challenge page, subsection Evaluation/[Process](https://text2sparql.aksw.org/challenge/#process).
     
 ### Paper
 
