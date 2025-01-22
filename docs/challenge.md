@@ -28,7 +28,7 @@ Dumps:
 - [dbpedia_2015-10.nt](https://downloads.dbpedia.org/2015-10/dbpedia_2015-10.nt)
 
 - [labels_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/labels_en.ttl.bz2)
-- [labels_es.ttl.bz2]https://downloads.dbpedia.org/2015-10/core-i18n/es/labels_es.ttl.bz2)
+- [labels_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/labels_es.ttl.bz2)
   
 - [short_abstracts_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/short_abstracts_en.ttl.bz2)
 - [short_abstracts_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/short_abstracts_es.ttl.bz2) 
