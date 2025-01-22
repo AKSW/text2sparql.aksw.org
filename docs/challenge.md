@@ -19,7 +19,9 @@ This push towards multilingual capabilities ensures broader accessibility and us
 ## Knowledge Graphs for Evaluation
 The evaluation process for this challenge will involve two distinct Knowledge Graphs, each selected to assess different aspects of model performance. These are:
 
-### DBpedia (Large Knowledge Graph): As one of the most comprehensive and widely used knowledge graphs, DBpedia represents a large-scale, open-domain dataset derived from Wikipedia. It contains a vast array of topics, relationships, and entities, providing a robust testing ground for models designed to handle complex, diverse, and large knowledge graphs. Evaluating on DBpedia will measure the ability of models to scale effectively and manage queries involving extensive datasets.
+### DBpedia (Large Knowledge Graph)
+
+As one of the most comprehensive and widely used knowledge graphs, DBpedia represents a large-scale, open-domain dataset derived from Wikipedia. It contains a vast array of topics, relationships, and entities, providing a robust testing ground for models designed to handle complex, diverse, and large knowledge graphs. Evaluating on DBpedia will measure the ability of models to scale effectively and manage queries involving extensive datasets.
 
 Dumps:
 - [labels_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/labels_en.ttl.bz2)
@@ -30,7 +32,9 @@ Dumps:
 - [mappingbased_literals_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_literals_en.ttl.bz2)
 - [mappingbased_objects_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_objects_en.ttl.bz2)
 
-### Corporate Knowledge Graph (Small Knowledge Graph): This smaller, domain-specific knowledge graph represents a corporate setting, where the dataset is compact and highly specialized. It is designed to test a model's ability to adapt to restricted and domain-focused data environments. This evaluation highlights performance in scenarios where precision, domain relevance, and understanding of specialized ontologies are critical.
+### Corporate Knowledge Graph (Small Knowledge Graph)
+
+This smaller, domain-specific knowledge graph represents a corporate setting, where the dataset is compact and highly specialized. It is designed to test a model's ability to adapt to restricted and domain-focused data environments. This evaluation highlights performance in scenarios where precision, domain relevance, and understanding of specialized ontologies are critical.
 
 By evaluating models separately on these two knowledge graphs, the challenge ensures a comprehensive assessment of scalability, adaptability, and domain-specific reasoning. This dual evaluation also provides insights into the generalizability of models across knowledge graph sizes and complexities, reflecting real-world applications in both open-domain and specialized environments.
 
