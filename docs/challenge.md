@@ -6,7 +6,7 @@ title: "Challenge"
 
 ## Description
 
-The Text2SPARQL challenge is a benchmark designed to assess and enhance the ability of systems to translate natural language questions into SPARQL queries effectively. 
+The TEXT2SPARQL'25 challenge is a benchmark designed to assess and enhance the ability of systems to translate natural language questions into SPARQL queries effectively. 
 This task, central to Neural SPARQL Machines (NSpM), aims to bridge the gap between human language and structured knowledge representation. 
 This challenge addresses the evolving needs of NSpM systems, emphasizing the importance of handling complex, multilingual datasets while maintaining accuracy and robustness.
 
@@ -17,50 +17,65 @@ This push towards multilingual capabilities ensures broader accessibility and us
 
 
 ## Knowledge Graphs for Evaluation
+
 The evaluation process for this challenge will involve two distinct Knowledge Graphs, each selected to assess different aspects of model performance. These are:
 
 ### DBpedia (Large Knowledge Graph)
 
-As one of the most comprehensive and widely used knowledge graphs, DBpedia represents a large-scale, open-domain dataset derived from Wikipedia. It contains a vast array of topics, relationships, and entities, providing a robust testing ground for models designed to handle complex, diverse, and large knowledge graphs. Evaluating on DBpedia will measure the ability of models to scale effectively and manage queries involving extensive datasets.
+As one of the most comprehensive and widely used knowledge graphs, DBpedia represents a large-scale, open-domain dataset derived from Wikipedia.
+It contains a vast array of topics, relationships, and entities, providing a robust testing ground for models designed to handle complex, diverse, and large knowledge graphs.
+Evaluating on DBpedia will measure the ability of models to scale effectively and manage queries involving extensive datasets.
 
-Dumps:
+??? example "Dumps"
 
-- [dbpedia_2015-10.nt](https://downloads.dbpedia.org/2015-10/dbpedia_2015-10.nt)
+    - [dbpedia_2015-10.nt](https://downloads.dbpedia.org/2015-10/dbpedia_2015-10.nt)
+    
+    - [labels_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/labels_en.ttl.bz2)
+    - [labels_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/labels_es.ttl.bz2)
+      
+    - [short_abstracts_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/short_abstracts_en.ttl.bz2)
+    - [short_abstracts_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/short_abstracts_es.ttl.bz2) 
+    
+    - [infobox_properties_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/infobox_properties_en.ttl.bz2)
+    - [infobox_properties_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/infobox_properties_es.ttl.bz2)
+      
+    - [instance_types_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_en.ttl.bz2)
+    - [instance_types_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/instance_types_es.ttl.bz2)
+      
+    - [instance_types_transitive_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_transitive_en.ttl.bz2)
+    - [instance_types_transitive_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/instance_types_transitive_es.ttl.bz2)
+    
+    - [mappingbased_literals_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_literals_en.ttl.bz2)
+    - [mappingbased_literals_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/mappingbased_literals_es.ttl.bz2)
+    
+    - [mappingbased_objects_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_objects_en.ttl.bz2)
+    - [mappingbased_objects_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/mappingbased_objects_es.ttl.bz2)
+      
+    - [persondata_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/persondata_en.ttl.bz2)
 
-- [labels_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/labels_en.ttl.bz2)
-- [labels_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/labels_es.ttl.bz2)
-  
-- [short_abstracts_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/short_abstracts_en.ttl.bz2)
-- [short_abstracts_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/short_abstracts_es.ttl.bz2) 
+### Corporate Knowledge (Small Knowledge Graph)
 
-- [infobox_properties_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/infobox_properties_en.ttl.bz2)
-- [infobox_properties_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/infobox_properties_es.ttl.bz2)
-  
-- [instance_types_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_en.ttl.bz2)
-- [instance_types_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/instance_types_es.ttl.bz2)
-  
-- [instance_types_transitive_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_transitive_en.ttl.bz2)
-- [instance_types_transitive_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/instance_types_transitive_es.ttl.bz2)
+This smaller, domain-specific knowledge graph represents a corporate setting, where the dataset is compact and highly specialized.
+It is designed to test a model's ability to adapt to restricted and domain-focused data environments.
+This evaluation highlights performance in scenarios where precision, domain relevance, and understanding of specialized ontologies are critical.
 
-- [mappingbased_literals_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_literals_en.ttl.bz2)
-- [mappingbased_literals_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/mappingbased_literals_es.ttl.bz2)
+By evaluating models separately on these two knowledge graphs, the challenge ensures a comprehensive assessment of scalability, adaptability, and domain-specific reasoning.
+This dual evaluation also provides insights into the generalizability of models across knowledge graph sizes and complexities, reflecting real-world applications in both open-domain and specialized environments.
 
-- [mappingbased_objects_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_objects_en.ttl.bz2)
-- [mappingbased_objects_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/mappingbased_objects_es.ttl.bz2)
-  
-- [persondata_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/persondata_en.ttl.bz2)
+??? example "Dumps"
 
-### Corporate Knowledge Graph (Small Knowledge Graph)
-
-This smaller, domain-specific knowledge graph represents a corporate setting, where the dataset is compact and highly specialized. It is designed to test a model's ability to adapt to restricted and domain-focused data environments. This evaluation highlights performance in scenarios where precision, domain relevance, and understanding of specialized ontologies are critical.
-
-By evaluating models separately on these two knowledge graphs, the challenge ensures a comprehensive assessment of scalability, adaptability, and domain-specific reasoning. This dual evaluation also provides insights into the generalizability of models across knowledge graph sizes and complexities, reflecting real-world applications in both open-domain and specialized environments.
+    - [prod-vocab.ttl](data/prod-vocab.ttl) - Ontology (13 classes, 30 properties)
+    - [prod-inst.ttl ](data/prod-inst.ttl) - Data (2626 described resources, 26587 statements)
 
 ## Benchmark Dataset
 
 ### training set:
 
-The training set for this benchmark dataset is designed to facilitate the development of advanced models capable of translating natural language questions into SPARQL queries. Participants are encouraged to leverage any publicly available resources on the web for training purposes, ensuring a broad and diverse foundation for model development. This includes the use of existing Text2SPARQL benchmarks such as DBNQA, QALD, and LC-QuAD, which provide valuable question-query pairs spanning a variety of domains and complexities. These resources offer rich datasets featuring diverse linguistic structures, logical formulations, and domain-specific ontologies, making them ideal for enhancing both the generalizability and precision of SPARQL query generation models. By integrating insights from these established benchmarks and other freely available web resources, participants can build robust systems capable of handling the linguistic nuances and logical challenges inherent in natural language to SPARQL translation.
+The training set for this benchmark dataset is designed to facilitate the development of advanced models capable of translating natural language questions into SPARQL queries.
+Participants are encouraged to leverage any publicly available resources on the web for training purposes, ensuring a broad and diverse foundation for model development.
+This includes the use of existing Text2SPARQL benchmarks such as DBNQA, QALD, and LC-QuAD, which provide valuable question-query pairs spanning a variety of domains and complexities.
+These resources offer rich datasets featuring diverse linguistic structures, logical formulations, and domain-specific ontologies, making them ideal for enhancing both the generalizability and precision of SPARQL query generation models.
+By integrating insights from these established benchmarks and other freely available web resources, participants can build robust systems capable of handling the linguistic nuances and logical challenges inherent in natural language to SPARQL translation.
 
 ### test set:
 
@@ -68,8 +83,9 @@ The test set along with the result will be available after individual candidate 
 
 ## Evaluation Metrics
 
-Evaluation in the Text2SPARQL challenge is centered on robust, well-established metrics tailored to the nuances of Text2SPARQL tasks. 
-These include Precision, Recall, and F1-score. Precision assesses the proportion of correct answers among those returned by the system, highlighting accuracy. 
+Evaluation in the Text2SPARQL challenge is centred on robust, well-established metrics tailored to the nuances of Text2SPARQL tasks. 
+These include Precision, Recall, and F1-score.
+Precision assesses the proportion of correct answers among those returned by the system, highlighting accuracy. 
 Recall evaluates the system's ability to retrieve all relevant answers, emphasizing coverage. 
 F1-score, a harmonic mean of Precision and Recall, provides a balanced measure that considers both the quality and completeness of the answers.
 
@@ -77,3 +93,4 @@ Beyond these metrics, the challenge incorporates an analysis of query complexity
 This involves evaluating the structural features of generated SPARQL queries, such as the number of triple patterns, joins, and modifiers like LIMIT and GROUP BY. 
 This complexity analysis provides deeper insights into the system's capability to handle diverse and intricate queries. 
 By combining quantitative metrics with complexity analysis, the evaluation framework ensures a comprehensive assessment of NSpM systems, pushing the boundaries of their capabilities and fostering innovation in the field.
+
