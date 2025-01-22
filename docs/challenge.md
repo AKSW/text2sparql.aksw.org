@@ -85,7 +85,60 @@ By integrating insights from these established benchmarks and other freely avail
 
 The test set along with the result will be available after individual candidate evaluation.
 
-## Evaluation Metrics
+## Evaluation
+
+### Process
+
+In order to attend the challenge, you have to deploy and provide your text2sparql service API somewhere on the web, and register your service for the challenge by adding your data to [CHALLENGERS.yaml](https://github.com/AKSW/text2sparql.aksw.org/blob/develop/CHALLENGERS.yaml).
+Here is an example section you need to provide to us:
+
+``` yaml
+  - api: "https://example.org/api/"
+    authors:
+      - name: "Max Muster"
+        affiliation: "Group A @ Example University"
+      - name: "Erika Muster"
+        affiliation: "Group A @ Example University"
+```
+
+The deployed service needs to provide a simple API which is described in an [OpenAPI specification](https://petstore.swagger.io/?url=https://text2sparql.aksw.org/openapi.json).
+Basically you have to support two GET parameters, `dataset` and `question`.
+In addition to that, here is an example implementation using FastAPI:
+
+??? example
+
+    ``` python
+    """text2sparql-api"""
+
+    import fastapi
+    
+    app = fastapi.FastAPI(
+        title="TEXT2SPARQL API Example",
+    )
+    
+    KNOWN_DATASETS = [
+        "https://text2sparql.aksw.org/2025/dbpedia/",
+        "https://text2sparql.aksw.org/2025/corporate/"
+    ]
+    
+    @app.get("/")
+    async def get_answer(question: str, dataset: str):
+        if dataset not in KNOWN_DATASETS:
+            raise fastapi.HTTPException(404, "Unknown dataset ...")
+        return {
+            "dataset": dataset,
+            "question": question,
+            "query": "... SPARQL here ..."
+        }
+    ```
+
+Your registration is done, if we merge your data into our repository.
+After that, the evaluation starts.
+
+For all kinds of problems or other communication, simply create a [repository issue](https://github.com/AKSW/text2sparql.aksw.org/issues).
+
+
+### Metrics
 
 Evaluation in the Text2SPARQL challenge is centred on robust, well-established metrics tailored to the nuances of Text2SPARQL tasks. 
 These include Precision, Recall, and F1-score.
