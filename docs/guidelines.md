@@ -7,8 +7,8 @@ title: "Dates & Submission Guidelines"
 ## Dates
 
 - Release of training data and instructions: January 21st, 2025 PST
-- Result submission deadline: May 24th, 2025 PST
-- Release of test dataset & results: May 31st, 2025 PST
+- Endpoint registration deadline: April 22th, 2025 PST
+- Release of test dataset & results: April 30st, 2025 PST
 - Paper submission deadline: 2023 June 28th, 2023 PST
 - Notification & Reviews: July 12th, 2023 PST
 - Submission of camera-ready papers: 2023 July 26th, 2023 PST
@@ -19,14 +19,9 @@ The submission will be held into two stages (1) results and (2) papers.
 
 ### Results
 
-- Every competing team should submit their results using the paper template.
-
-- The only information mandatory in the result submission is as follows:
-
-  - A table containing the performance of your approach in comparison with the baseline;
-  - A link to an open repository containing the code used for training and all the necessary resources, including files and pre-trained models to replicate the results;
-  - Title, Authors, and respective affiliations;
-  - To facilitate your result submission, we prepared a template: TBA
+- Every competing team should register and submit their results using the paper template.
+- Your method will be evaluated trough a service API.
+- Instructions on how to register and publish your API mehod can be found on the Challenge page, subsection Evaluation/[Process](https://text2sparql.aksw.org/challenge/#process).
     
 ### Paper
 
