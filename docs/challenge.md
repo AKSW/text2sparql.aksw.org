@@ -24,13 +24,31 @@ The evaluation process for this challenge will involve two distinct Knowledge Gr
 As one of the most comprehensive and widely used knowledge graphs, DBpedia represents a large-scale, open-domain dataset derived from Wikipedia. It contains a vast array of topics, relationships, and entities, providing a robust testing ground for models designed to handle complex, diverse, and large knowledge graphs. Evaluating on DBpedia will measure the ability of models to scale effectively and manage queries involving extensive datasets.
 
 Dumps:
+
+- [dbpedia_2015-10.nt](https://downloads.dbpedia.org/2015-10/dbpedia_2015-10.nt)
+
 - [labels_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/labels_en.ttl.bz2)
+- [labels_es.ttl.bz2]https://downloads.dbpedia.org/2015-10/core-i18n/es/labels_es.ttl.bz2)
+  
 - [short_abstracts_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/short_abstracts_en.ttl.bz2)
+- [short_abstracts_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/short_abstracts_es.ttl.bz2) 
+
 - [infobox_properties_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/infobox_properties_en.ttl.bz2)
+- [infobox_properties_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/infobox_properties_es.ttl.bz2)
+  
 - [instance_types_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_en.ttl.bz2)
+- [instance_types_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/instance_types_es.ttl.bz2)
+  
 - [instance_types_transitive_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_transitive_en.ttl.bz2)
+- [instance_types_transitive_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/instance_types_transitive_es.ttl.bz2)
+
 - [mappingbased_literals_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_literals_en.ttl.bz2)
+- [mappingbased_literals_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/mappingbased_literals_es.ttl.bz2)
+
 - [mappingbased_objects_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_objects_en.ttl.bz2)
+- [mappingbased_objects_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/mappingbased_objects_es.ttl.bz2)
+  
+- [persondata_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/persondata_en.ttl.bz2)
 
 ### Corporate Knowledge Graph (Small Knowledge Graph)
 
