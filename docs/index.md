@@ -20,6 +20,12 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2025-01-22 - Knowledge Graphs for Evaluation available"
+
+    We selected and provided the Knowledge Graphs, which will be used for the evaluation.
+
+    Please have a look at the [:material-trophy: Challenge](challenge.md) page.
+
 !!! info "2024-12-16 - Website online"
 
     text2sparql.aksw.org is online and can be managed over [this repository](https://github.com/AKSW/text2sparql.aksw.org).
