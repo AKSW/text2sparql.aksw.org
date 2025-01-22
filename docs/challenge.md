@@ -15,6 +15,47 @@ These questions include counts, comparisons, and temporal aggregations, necessit
 Furthermore, the challenge places significant importance on multilingualism, requiring systems to demonstrate their ability to operate across languages like English, German, Chinese, and Russian. 
 This push towards multilingual capabilities ensures broader accessibility and usability of NSpM systems in real-world scenarios.
 
+
+## Knowledge Graphs for Evaluation
+The evaluation process for this challenge will involve two distinct Knowledge Graphs, each selected to assess different aspects of model performance. These are:
+
+### DBpedia (Large Knowledge Graph)
+
+As one of the most comprehensive and widely used knowledge graphs, DBpedia represents a large-scale, open-domain dataset derived from Wikipedia. It contains a vast array of topics, relationships, and entities, providing a robust testing ground for models designed to handle complex, diverse, and large knowledge graphs. Evaluating on DBpedia will measure the ability of models to scale effectively and manage queries involving extensive datasets.
+
+Dumps:
+
+- [dbpedia_2015-10.nt](https://downloads.dbpedia.org/2015-10/dbpedia_2015-10.nt)
+
+- [labels_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/labels_en.ttl.bz2)
+- [labels_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/labels_es.ttl.bz2)
+  
+- [short_abstracts_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/short_abstracts_en.ttl.bz2)
+- [short_abstracts_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/short_abstracts_es.ttl.bz2) 
+
+- [infobox_properties_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/infobox_properties_en.ttl.bz2)
+- [infobox_properties_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/infobox_properties_es.ttl.bz2)
+  
+- [instance_types_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_en.ttl.bz2)
+- [instance_types_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/instance_types_es.ttl.bz2)
+  
+- [instance_types_transitive_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_transitive_en.ttl.bz2)
+- [instance_types_transitive_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/instance_types_transitive_es.ttl.bz2)
+
+- [mappingbased_literals_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_literals_en.ttl.bz2)
+- [mappingbased_literals_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/mappingbased_literals_es.ttl.bz2)
+
+- [mappingbased_objects_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_objects_en.ttl.bz2)
+- [mappingbased_objects_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/mappingbased_objects_es.ttl.bz2)
+  
+- [persondata_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/persondata_en.ttl.bz2)
+
+### Corporate Knowledge Graph (Small Knowledge Graph)
+
+This smaller, domain-specific knowledge graph represents a corporate setting, where the dataset is compact and highly specialized. It is designed to test a model's ability to adapt to restricted and domain-focused data environments. This evaluation highlights performance in scenarios where precision, domain relevance, and understanding of specialized ontologies are critical.
+
+By evaluating models separately on these two knowledge graphs, the challenge ensures a comprehensive assessment of scalability, adaptability, and domain-specific reasoning. This dual evaluation also provides insights into the generalizability of models across knowledge graph sizes and complexities, reflecting real-world applications in both open-domain and specialized environments.
+
 ## Benchmark Dataset
 
 ### training set:
