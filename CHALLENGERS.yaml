@@ -1,0 +1,11 @@
+# This yaml file is ment to be extended by all participants of the challenge.
+# Simply edit this file, add your section, an send a pull request.
+---
+challengers:
+  - api: "https://example.org/api/"
+    authors:
+      - name: "Max Muster"
+        affiliation: "Group A @ Example University"
+      - name: "Erika Muster"
+        affiliation: "Group A @ Example University"
+
