@@ -7,11 +7,11 @@ title: "Dates & Submission Guidelines"
 ## Dates
 
 - Release of training data and instructions: January 21st, 2025 PST
-- Endpoint registration deadline: April 22th, 2025 PST
-- Release of test dataset & results: April 30st, 2025 PST
-- Paper submission deadline: 2023 June 28th, 2023 PST
-- Notification & Reviews: July 12th, 2023 PST
-- Submission of camera-ready papers: 2023 July 26th, 2023 PST
+- Endpoint registration deadline: April 22nd, 2025 PST
+- Release of test dataset & results: April 30th, 2025 PST
+- Paper submission deadline: June 28th, 2025 PST
+- Notification & Reviews: July 12th, 2025 PST
+- Submission of camera-ready papers: July 26th, 2025 PST
 
 ## Submission Guidelines
 
