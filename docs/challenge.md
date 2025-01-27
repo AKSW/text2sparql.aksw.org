@@ -68,7 +68,7 @@ The identifier for this dataset is: `https://text2sparql.aksw.org/2025/corporate
 
 ??? example "Dumps"
 
-    - [prod-vocab.ttl](data/prod-vocab.ttl) - Ontology (13 classes, 30 properties)
+    - [prod-vocab.ttl](data/prod-vocab.ttl) - Ontology (13 classes, 30 properties) [[WebVOWL](https://service.tib.eu/webvowl/#iri=https://text2sparql.aksw.org/data/prod-vocab.ttl)]
     - [prod-inst.ttl ](data/prod-inst.ttl) - Data (2626 described resources, 26587 statements)
 
 ## Benchmark Dataset
