@@ -6,13 +6,13 @@ title: "Challenge"
 
 ## Description
 
-The TEXT2SPARQL'25 challenge is a benchmark designed to assess and enhance the ability of systems to translate natural language questions into SPARQL queries effectively. 
-This task, central to Neural SPARQL Machines (NSpM), aims to bridge the gap between human language and structured knowledge representation. 
+The TEXT2SPARQL'25 challenge is a benchmark designed to assess and enhance the ability of systems to translate natural language questions into SPARQL queries effectively.
+This task, central to Neural SPARQL Machines (NSpM), aims to bridge the gap between human language and structured knowledge representation.
 This challenge addresses the evolving needs of NSpM systems, emphasizing the importance of handling complex, multilingual datasets while maintaining accuracy and robustness.
 
-Participants are tasked with developing models that can process natural language questions of varying complexity. 
-These questions include counts, comparisons, and temporal aggregations, necessitating sophisticated parsing and query generation mechanisms. 
-Furthermore, the challenge places significant importance on multilingualism, requiring systems to demonstrate their ability to operate across languages like English, German, Chinese, and Russian. 
+Participants are tasked with developing models that can process natural language questions of varying complexity.
+These questions include counts, comparisons, and temporal aggregations, necessitating sophisticated parsing and query generation mechanisms.
+Furthermore, the challenge places significant importance on multilingualism, requiring systems to demonstrate their ability to operate across languages like English, German, Chinese, and Russian.
 This push towards multilingual capabilities ensures broader accessibility and usability of NSpM systems in real-world scenarios.
 
 
@@ -31,28 +31,28 @@ The identifier for this dataset is: `https://text2sparql.aksw.org/2025/dbpedia/`
 ??? example "Dumps"
 
     - [dbpedia_2015-10.nt](https://downloads.dbpedia.org/2015-10/dbpedia_2015-10.nt)
-    
+
     - [labels_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/labels_en.ttl.bz2)
     - [labels_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/labels_es.ttl.bz2)
-      
+
     - [short_abstracts_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/short_abstracts_en.ttl.bz2)
-    - [short_abstracts_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/short_abstracts_es.ttl.bz2) 
-    
+    - [short_abstracts_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/short_abstracts_es.ttl.bz2)
+
     - [infobox_properties_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/infobox_properties_en.ttl.bz2)
     - [infobox_properties_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/infobox_properties_es.ttl.bz2)
-      
+
     - [instance_types_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_en.ttl.bz2)
     - [instance_types_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/instance_types_es.ttl.bz2)
-      
+
     - [instance_types_transitive_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_transitive_en.ttl.bz2)
     - [instance_types_transitive_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/instance_types_transitive_es.ttl.bz2)
-    
+
     - [mappingbased_literals_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_literals_en.ttl.bz2)
     - [mappingbased_literals_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/mappingbased_literals_es.ttl.bz2)
-    
+
     - [mappingbased_objects_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_objects_en.ttl.bz2)
     - [mappingbased_objects_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/mappingbased_objects_es.ttl.bz2)
-      
+
     - [persondata_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/persondata_en.ttl.bz2)
 
 ### Corporate Knowledge (Small Knowledge Graph)
@@ -111,16 +111,16 @@ In addition to that, here is an example implementation using FastAPI:
     """text2sparql-api"""
 
     import fastapi
-    
+
     app = fastapi.FastAPI(
         title="TEXT2SPARQL API Example",
     )
-    
+
     KNOWN_DATASETS = [
         "https://text2sparql.aksw.org/2025/dbpedia/",
         "https://text2sparql.aksw.org/2025/corporate/"
     ]
-    
+
     @app.get("/")
     async def get_answer(question: str, dataset: str):
         if dataset not in KNOWN_DATASETS:
@@ -133,21 +133,21 @@ In addition to that, here is an example implementation using FastAPI:
     ```
 
 Your registration is done, if we merge your data into our repository.
-After that, the evaluation starts.
 
 For all kinds of problems or other communication, simply create a [repository issue](https://github.com/AKSW/text2sparql.aksw.org/issues).
+We will do the same, if we have issues with your service.
 
 
 ### Metrics
 
-Evaluation in the Text2SPARQL challenge is centred on robust, well-established metrics tailored to the nuances of Text2SPARQL tasks. 
+Evaluation in the Text2SPARQL challenge is centred on robust, well-established metrics tailored to the nuances of Text2SPARQL tasks.
 These include Precision, Recall, and F1-score.
-Precision assesses the proportion of correct answers among those returned by the system, highlighting accuracy. 
-Recall evaluates the system's ability to retrieve all relevant answers, emphasizing coverage. 
+Precision assesses the proportion of correct answers among those returned by the system, highlighting accuracy.
+Recall evaluates the system's ability to retrieve all relevant answers, emphasizing coverage.
 F1-score, a harmonic mean of Precision and Recall, provides a balanced measure that considers both the quality and completeness of the answers.
 
-Beyond these metrics, the challenge incorporates an analysis of query complexity. 
-This involves evaluating the structural features of generated SPARQL queries, such as the number of triple patterns, joins, and modifiers like LIMIT and GROUP BY. 
-This complexity analysis provides deeper insights into the system's capability to handle diverse and intricate queries. 
+Beyond these metrics, the challenge incorporates an analysis of query complexity.
+This involves evaluating the structural features of generated SPARQL queries, such as the number of triple patterns, joins, and modifiers like LIMIT and GROUP BY.
+This complexity analysis provides deeper insights into the system's capability to handle diverse and intricate queries.
 By combining quantitative metrics with complexity analysis, the evaluation framework ensures a comprehensive assessment of NSpM systems, pushing the boundaries of their capabilities and fostering innovation in the field.
 
