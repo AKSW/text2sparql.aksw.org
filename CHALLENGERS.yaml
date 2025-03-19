@@ -1,5 +1,5 @@
 # This yaml file is ment to be extended by all participants of the challenge.
-# Simply edit this file, add your section, an send a pull request.
+# Simply edit this file, add your section, and send a pull request.
 ---
 challengers:
   - api: "https://example.org/api/"
