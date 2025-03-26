@@ -12,7 +12,7 @@ This challenge addresses the evolving needs of NSpM systems, emphasizing the imp
 
 Participants are tasked with developing models that can process natural language questions of varying complexity.
 These questions include counts, comparisons, and temporal aggregations, necessitating sophisticated parsing and query generation mechanisms.
-Furthermore, the challenge places significant importance on multilingualism, requiring systems to demonstrate their ability to operate across languages like English, German, Chinese, and Russian.
+Furthermore, the challenge places significant importance on multilingualism, requiring systems to demonstrate their ability to operate across languages like English and Spanish.
 This push towards multilingual capabilities ensures broader accessibility and usability of NSpM systems in real-world scenarios.
 
 
