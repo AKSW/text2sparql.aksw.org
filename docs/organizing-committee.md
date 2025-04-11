@@ -53,7 +53,7 @@ icon: material/account-group
 - Saeedeh Shekarpour, University of Dayton, USA
 - Ricardo Usbeck, Leuphana Universität Lüneburg, Germany
 - Diego Collarana, Fraunhofer, Germany
-- Ricardo Marcasini, USP, Brazil
+- Ricardo Marcacini, USP, Brazil
 - Sanju Tiwari, Sharda University, India
 - Gong Cheng, Nanjing University, China
 - Andreas Both, HTWK, Germany
