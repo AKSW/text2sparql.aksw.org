@@ -8,4 +8,10 @@ challengers:
         affiliation: "Group A @ Example University"
       - name: "Erika Muster"
         affiliation: "Group A @ Example University"
+  - api: "https://wse-research.org/kgqagent/api"
+    authors:
+      - name: "Aleksandr Perevalov"
+        affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
+      - name: "Andreas Both"
+        affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
 
