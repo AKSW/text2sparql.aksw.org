@@ -2,7 +2,9 @@
 icon: material/home
 title: "First International TEXT2SPARQL Challenge (TEXT2SPARQL25)"
 ---
+<!-- markdownlint-disable MD012 MD013 MD024 MD033 -->
 # First International TEXT2SPARQL Challenge
+
 ### Co-Located with Text2KG at ESWC25
 
 ## Abstract
@@ -19,6 +21,12 @@ This integration not only enhances model performance but also opens up new possi
 Success in the TEXT2SPARQL Challenge has significant implications, from improving knowledge graph accessibility to advancing the development of intelligent systems capable of nuanced reasoning, thus marking an important step forward in AI-driven data interaction.
 
 ## Latest News
+
+!!! info "2025-04-16 - TEXT2SPARQL Client Application published"
+
+    We published [text2sparql-client](https://pypi.org/project/text2sparql-client/), the command line client which we will use
+    to communicate with the TEXT2SPARQL endpoints of the participants.
+    You can use this application to [self-evaluate your endpoint](challenge.md#self-evaluation).
 
 !!! info "2025-01-22 - Knowledge Graphs for Evaluation available"
 

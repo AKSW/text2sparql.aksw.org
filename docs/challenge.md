@@ -2,6 +2,7 @@
 icon: material/trophy
 title: "Challenge"
 ---
+<!-- markdownlint-disable MD012 MD013 MD024 MD033 -->
 # Challenge
 
 ## Description
@@ -73,7 +74,7 @@ The identifier for this dataset is: `https://text2sparql.aksw.org/2025/corporate
 
 ## Benchmark Dataset
 
-### training set:
+### Training Set
 
 The training set for this benchmark dataset is designed to facilitate the development of advanced models capable of translating natural language questions into SPARQL queries.
 Participants are encouraged to leverage any publicly available resources on the web for training purposes, ensuring a broad and diverse foundation for model development.
@@ -81,7 +82,7 @@ This includes the use of existing Text2SPARQL benchmarks such as DBNQA, QALD, an
 These resources offer rich datasets featuring diverse linguistic structures, logical formulations, and domain-specific ontologies, making them ideal for enhancing both the generalizability and precision of SPARQL query generation models.
 By integrating insights from these established benchmarks and other freely available web resources, participants can build robust systems capable of handling the linguistic nuances and logical challenges inherent in natural language to SPARQL translation.
 
-### test set:
+### Test Set
 
 The test set along with the result will be available after individual candidate evaluation.
 
@@ -134,13 +135,45 @@ In addition to that, here is an example implementation using FastAPI:
 
 Your registration is done, if we merge your data into our repository.
 
+<a id="self-evaluation"></a>In case you want to **self-evaluate your endpoint** with the same client we are using for the evaluation, follow this recipe:
+
+??? example "Self-Evaluation using the TEXT2SPARQL command line client"
+
+    ``` bash
+    # Install the client (use your preferred way)
+    $ pipx install text2sparql-client
+
+    # prepare a questions file like this
+    $ cat questions.yaml
+    ---
+    dataset:
+      id: https://text2sparql.aksw.org/2025/corporate/
+    questions:
+    
+      - question:
+          en: In which department is Ms. Müller?
+          de: In welcher Abteilung ist Frau Müller?
+    
+      - question:
+          de: Was ist der Sinn des Lebens?
+    
+      - question:
+          de: Wieviele Einwohner hat Leipzig?
+
+    # Ask questions from the questions file on your endpoint
+    $ text2sparql ask questions.yml [YOUR-API-URL]
+    Asking questions about dataset https://text2sparql.aksw.org/2025/corporate/ on endpoint [YOUR-API-URL].
+    In which department is Ms. Müller? (en) ... done
+    ...
+    ```
+
 For all kinds of problems or other communication, simply create a [repository issue](https://github.com/AKSW/text2sparql.aksw.org/issues).
 We will do the same, if we have issues with your service.
 
 
 ### Metrics
 
-Evaluation in the Text2SPARQL challenge is centred on robust, well-established metrics tailored to the nuances of Text2SPARQL tasks.
+Evaluation in the TEXT2SPARQL challenge is centred on robust, well-established metrics tailored to the nuances of TEXT2SPARQL tasks.
 These include Precision, Recall, and F1-score.
 Precision assesses the proportion of correct answers among those returned by the system, highlighting accuracy.
 Recall evaluates the system's ability to retrieve all relevant answers, emphasizing coverage.
