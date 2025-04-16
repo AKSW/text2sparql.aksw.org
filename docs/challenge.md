@@ -31,30 +31,30 @@ The identifier for this dataset is: `https://text2sparql.aksw.org/2025/dbpedia/`
 
 ??? example "Dumps"
 
-    - [dbpedia_2015-10.nt](https://downloads.dbpedia.org/2015-10/dbpedia_2015-10.nt)[mirror-1](http://141.57.8.18:5050/downloads/dbpedia_2015-10.nt)
+    - [dbpedia_2015-10.nt](https://downloads.dbpedia.org/2015-10/dbpedia_2015-10.nt) | [mirror-1](http://141.57.8.18:5050/downloads/dbpedia_2015-10.nt)
 
-    - [labels_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/labels_en.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/labels_en.ttl.bz2)
-    - [labels_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/labels_es.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/labels_es.ttl.bz2)
+    - [labels_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/labels_en.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/labels_en.ttl.bz2)
+    - [labels_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/labels_es.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/labels_es.ttl.bz2)
 
-    - [short_abstracts_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/short_abstracts_en.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/short_abstracts_en.ttl.bz2)
-    - [short_abstracts_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/short_abstracts_es.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/short_abstracts_es.ttl.bz2)
+    - [short_abstracts_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/short_abstracts_en.ttl.bz2 | )[mirror-1](http://141.57.8.18:5050/downloads/short_abstracts_en.ttl.bz2)
+    - [short_abstracts_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/short_abstracts_es.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/short_abstracts_es.ttl.bz2)
 
-    - [infobox_properties_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/infobox_properties_en.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/infobox_properties_en.ttl.bz2)
-    - [infobox_properties_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/infobox_properties_es.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/infobox_properties_es.ttl.bz2)
+    - [infobox_properties_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/infobox_properties_en.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/infobox_properties_en.ttl.bz2)
+    - [infobox_properties_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/infobox_properties_es.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/infobox_properties_es.ttl.bz2)
 
-    - [instance_types_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_en.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/instance_types_en.ttl.bz2)
-    - [instance_types_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/instance_types_es.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/instance_types_es.ttl.bz2)
+    - [instance_types_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_en.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/instance_types_en.ttl.bz2)
+    - [instance_types_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/instance_types_es.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/instance_types_es.ttl.bz2)
 
-    - [instance_types_transitive_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_transitive_en.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/instance_types_transitive_en.ttl.bz2)
-    - [instance_types_transitive_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/instance_types_transitive_es.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/instance_types_transitive_es.ttl.bz2)
+    - [instance_types_transitive_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/instance_types_transitive_en.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/instance_types_transitive_en.ttl.bz2)
+    - [instance_types_transitive_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/instance_types_transitive_es.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/instance_types_transitive_es.ttl.bz2)
 
-    - [mappingbased_literals_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_literals_en.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/mappingbased_literals_en.ttl.bz2)
-    - [mappingbased_literals_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/mappingbased_literals_es.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/mappingbased_literals_es.ttl.bz2)
+    - [mappingbased_literals_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_literals_en.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/mappingbased_literals_en.ttl.bz2)
+    - [mappingbased_literals_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/mappingbased_literals_es.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/mappingbased_literals_es.ttl.bz2)
 
-    - [mappingbased_objects_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_objects_en.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/mappingbased_objects_en.ttl.bz2)
-    - [mappingbased_objects_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/mappingbased_objects_es.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/mappingbased_objects_es.ttl.bz2)
+    - [mappingbased_objects_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/mappingbased_objects_en.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/mappingbased_objects_en.ttl.bz2)
+    - [mappingbased_objects_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/mappingbased_objects_es.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/mappingbased_objects_es.ttl.bz2)
 
-    - [persondata_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/persondata_en.ttl.bz2)[mirror-1](http://141.57.8.18:5050/downloads/persondata_en.ttl.bz2)
+    - [persondata_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/persondata_en.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/persondata_en.ttl.bz2)
 
 ### Corporate Knowledge (Small Knowledge Graph)
 
