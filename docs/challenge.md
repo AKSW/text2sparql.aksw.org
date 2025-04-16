@@ -36,7 +36,7 @@ The identifier for this dataset is: `https://text2sparql.aksw.org/2025/dbpedia/`
     - [labels_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/labels_en.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/labels_en.ttl.bz2)
     - [labels_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/labels_es.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/labels_es.ttl.bz2)
 
-    - [short_abstracts_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/short_abstracts_en.ttl.bz2 | )[mirror-1](http://141.57.8.18:5050/downloads/short_abstracts_en.ttl.bz2)
+    - [short_abstracts_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/short_abstracts_en.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/short_abstracts_en.ttl.bz2)
     - [short_abstracts_es.ttl.bz2](https://downloads.dbpedia.org/2015-10/core-i18n/es/short_abstracts_es.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/short_abstracts_es.ttl.bz2)
 
     - [infobox_properties_en.ttl.bz2](https://downloads.dbpedia.org/2015-10/core/infobox_properties_en.ttl.bz2) | [mirror-1](http://141.57.8.18:5050/downloads/infobox_properties_en.ttl.bz2)
