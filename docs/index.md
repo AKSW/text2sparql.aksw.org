@@ -22,11 +22,19 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2025-04-17 - DBpedia Mirror available"
+
+    Our friends from DBpedia shut down their download server for maintenance, so we provided and documented our own temporary [:material-download-circle: mirror for the DBpedia dataset](http://141.57.8.18:5050/downloads/).
+
+!!! info "2025-04-17 - Evaluator Agent IP Address published"
+
+    We published the IPs which will be used for fetching the answers [in this :simple-github: issue](https://github.com/AKSW/text2sparql.aksw.org/issues/28#issuecomment-2812016397).
+
 !!! info "2025-04-16 - TEXT2SPARQL Client Application published"
 
-    We published [text2sparql-client](https://pypi.org/project/text2sparql-client/), the command line client which we will use
+    We published [:simple-python: text2sparql-client](https://pypi.org/project/text2sparql-client/), the command line client which we will use
     to communicate with the TEXT2SPARQL endpoints of the participants.
-    You can use this application to [self-evaluate your endpoint](challenge.md#self-evaluation).
+    You can use this application to [:material-file-check: self-evaluate your endpoint](challenge.md#self-evaluation).
 
 !!! info "2025-01-22 - Knowledge Graphs for Evaluation available"
 
@@ -36,5 +44,5 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 !!! info "2024-12-16 - Website online"
 
-    text2sparql.aksw.org is online and can be managed over [this repository](https://github.com/AKSW/text2sparql.aksw.org).
+    text2sparql.aksw.org is online and can be managed over [this :simple-github: repository](https://github.com/AKSW/text2sparql.aksw.org).
 
