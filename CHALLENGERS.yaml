@@ -2,16 +2,21 @@
 # Simply edit this file, add your section, and send a pull request.
 ---
 challengers:
-  - api: "https://example.org/api/"
-    authors:
-      - name: "Max Muster"
-        affiliation: "Group A @ Example University"
-      - name: "Erika Muster"
-        affiliation: "Group A @ Example University"
-  - api: "https://wse-research.org/kgqagent/api"
-    authors:
-      - name: "Aleksandr Perevalov"
-        affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
-      - name: "Andreas Both"
-        affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
-
+- api: "https://example.org/api/"
+  authors:
+  - name: "Max Muster"
+    affiliation: "Group A @ Example University"
+  - name: "Erika Muster"
+    affiliation: "Group A @ Example University"
+- api: "https://wse-research.org/kgqagent/api"
+  authors:
+  - name: "Aleksandr Perevalov"
+    affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
+  - name: "Andreas Both"
+    affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
+- api: "http://167.172.162.197:8000"
+  authors:
+  - name: "Jan Wardenga"
+    affiliation: "Master Student at AIFB - KIT"
+  - name: "Tobias Käfer"
+    affiliation: "Scientific Supervisor at AIFB - KIT"
