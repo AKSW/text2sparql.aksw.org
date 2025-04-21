@@ -22,3 +22,9 @@ challengers:
         affiliation: "LACODAM @ IRISA/Université de Rennes"
       - name: "Peggy CELLIER"
         affiliation: "LACODAM @ IRISA/INSA de Rennes"
+  - api: "http://167.172.162.197:8000"
+    authors:
+    - name: "Jan Wardenga"
+      affiliation: "Master Student at AIFB - KIT"
+    - name: "Tobias Käfer"
+      affiliation: "Scientific Supervisor at AIFB - KIT"
