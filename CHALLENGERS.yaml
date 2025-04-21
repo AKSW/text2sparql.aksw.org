@@ -14,6 +14,20 @@ challengers:
         affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
       - name: "Andreas Both"
         affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
+  - api: "https://desktop-47kug2k.tail6a5b76.ts.net/"
+    authors:
+      - name: "Baptiste AMICE"
+        affiliation: "LACODAM @ Université de Rennes"
+      - name: "Sébastien FERRÉ"
+        affiliation: "LACODAM @ IRISA/Université de Rennes"
+      - name: "Peggy CELLIER"
+        affiliation: "LACODAM @ IRISA/INSA de Rennes"
+  - api: "http://167.172.162.197:8000"
+    authors:
+    - name: "Jan Wardenga"
+      affiliation: "Master Student at AIFB - KIT"
+    - name: "Tobias Käfer"
+      affiliation: "Scientific Supervisor at AIFB - KIT"
   - api: "http://demo1.franz.com:7000/t2s/api"
     authors:
       - name: "Mikel Bancroft"
