@@ -14,4 +14,9 @@ challengers:
         affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
       - name: "Andreas Both"
         affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
-
+  - api: "http://demo1.franz.com:7000/t2s/api"
+    authors:
+      - name: "Mikel Bancroft"
+        affiliation: "AllegroGraph @ Franz Inc."
+      - name: "Kevin Layer"
+        affiliation: "Franz Inc."
