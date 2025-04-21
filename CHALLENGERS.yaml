@@ -28,3 +28,9 @@ challengers:
       affiliation: "Master Student at AIFB - KIT"
     - name: "Tobias Käfer"
       affiliation: "Scientific Supervisor at AIFB - KIT"
+  - api: "http://demo1.franz.com:7000/t2s/api"
+    authors:
+      - name: "Mikel Bancroft"
+        affiliation: "AllegroGraph @ Franz Inc."
+      - name: "Kevin Layer"
+        affiliation: "Franz Inc."
