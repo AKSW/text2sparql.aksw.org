@@ -43,7 +43,7 @@ challengers:
       - name: "Rene Dorsch"
         affiliation: "Fraunhofer IIS"
       - name: "Andreas Harth"
-        affiliation: "Fraunhofer IIS, Friedrich-Alexander-Universität Erlangen-Nürnberg"   
+        affiliation: "Fraunhofer IIS, Friedrich-Alexander-Universität Erlangen-Nürnberg"
   - api: "https://graf.ti.rw.fau.de/l/text2sparql"
     authors:
       - name: "Daniel Henselmann"
@@ -70,3 +70,4 @@ challengers:
     authors:
       - name: "Mehrzad Shahinmoghadam"
         affiliation: "DBpedia"
+
