@@ -52,3 +52,13 @@ challengers:
         affiliation: "Fraunhofer IIS"
       - name: "Andreas Harth"
         affiliation: "Fraunhofer IIS, Friedrich-Alexander-Universität Erlangen-Nürnberg"
+  - api: "https://sacred-tightly-platypus.ngrok-free.app/"
+    authors:
+      - name: "Brucce Neves dos Santos"
+        affiliation: "LABIC @ University of São Paulo"
+      - name: "Daniel Zitei"
+        affiliation: "LABIC @ University of São Paulo"
+      - name: "João Barbirato"
+        affiliation: "LABIC @ University of São Paulo"
+      - name: "Rafael Silva"
+        affiliation: "LABIC @ University of São Paulo"
