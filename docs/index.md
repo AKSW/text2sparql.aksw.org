@@ -24,7 +24,7 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 !!! info "2025-04-22 - Challenge registration and evaluation dates extended"
 
-    We tought you gonna be happy with a few more days to work, checkout the [new deadlines](http://text2sparql.aksw.org/guidelines/).
+    We thought you gonna be happy with a few more days to work, check out the [new deadlines](https://text2sparql.aksw.org/guidelines/) :nerd:
 
 !!! info "2025-04-17 - DBpedia Mirror available"
 
