@@ -62,3 +62,11 @@ challengers:
         affiliation: "LABIC @ University of São Paulo"
       - name: "Rafael Silva"
         affiliation: "LABIC @ University of São Paulo"
+  - api: "https://dbpedia-nspm3-primary.hf.space/starcoder"
+    authors:
+      - name: "Mehrzad Shahinmoghadam"
+        affiliation: "DBpedia"
+  - api: "https://dbpedia-nspm3-primary.hf.space/codegen"
+    authors:
+      - name: "Mehrzad Shahinmoghadam"
+        affiliation: "DBpedia"
