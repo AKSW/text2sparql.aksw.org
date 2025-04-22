@@ -7,8 +7,8 @@ title: "Dates & Submission Guidelines"
 ## Dates
 
 - Release of training data and instructions: January 21st, 2025 PST
-- Endpoint registration deadline: April 22nd, 2025 PST
-- **EVALUATION from April 23th to 29th, 2025 PST**
+- Endpoint registration deadline: April 30th, 2025 PST **<s>Endpoint registration deadline: April 22nd, 2025 PST</s>**
+- EVALUATION from May 1st to 5th, 2025 PST **<s>EVALUATION from April 23th to 29th, 2025 PST</s>**
 - Release of test dataset & results: April 30th, 2025 PST
 - Paper submission deadline: June 28th, 2025 PST
 - Notification & Reviews: July 12th, 2025 PST
