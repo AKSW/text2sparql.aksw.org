@@ -28,7 +28,7 @@ challengers:
         affiliation: "AllegroGraph @ Franz Inc."
       - name: "Kevin Layer"
         affiliation: "Franz Inc."
-  - api: "https://text2sparql-avdeev-roman.amvera.io/"
+  - api: "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get"
     authors:
       - name: "Oleg Somov"
         affiliation: "AIRI @ MIPT"
