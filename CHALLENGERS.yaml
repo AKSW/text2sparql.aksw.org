@@ -31,7 +31,7 @@ challengers:
   - api: "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get"
     authors:
       - name: "Oleg Somov"
-        affiliation: "AIRI @ MIPT"
+        affiliation: "AIRI,  MIPT"
       - name: "Daniil Berezin"
         affiliation: "MIPT"
       - name: "Roman Avdeev"
