@@ -31,7 +31,7 @@ challengers:
   - api: "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get"
     authors:
       - name: "Oleg Somov"
-        affiliation: "AIRI @ MIPT"
+        affiliation: "AIRI,  MIPT"
       - name: "Daniil Berezin"
         affiliation: "MIPT"
       - name: "Roman Avdeev"
@@ -43,7 +43,7 @@ challengers:
       - name: "Rene Dorsch"
         affiliation: "Fraunhofer IIS"
       - name: "Andreas Harth"
-        affiliation: "Fraunhofer IIS, Friedrich-Alexander-Universität Erlangen-Nürnberg"   
+        affiliation: "Fraunhofer IIS, Friedrich-Alexander-Universität Erlangen-Nürnberg"
   - api: "https://graf.ti.rw.fau.de/l/text2sparql"
     authors:
       - name: "Daniel Henselmann"
@@ -62,3 +62,12 @@ challengers:
         affiliation: "LABIC @ University of São Paulo"
       - name: "Rafael Silva"
         affiliation: "LABIC @ University of São Paulo"
+  - api: "https://dbpedia-nspm3-primary.hf.space/starcoder"
+    authors:
+      - name: "Mehrzad Shahinmoghadam"
+        affiliation: "DBpedia"
+  - api: "https://dbpedia-nspm3-primary.hf.space/codegen"
+    authors:
+      - name: "Mehrzad Shahinmoghadam"
+        affiliation: "DBpedia"
+
