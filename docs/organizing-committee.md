@@ -38,21 +38,6 @@ He also has led a number of key Linked Data technology projects, including the d
 
 !!! info inline end ""
 
-    ![Tommaso Soru](assets/people/Tommaso.jpg)
-
-## Tommaso Soru
-
-[:material-linkedin:](https://www.linkedin.com/in/tomsoru/)
-[:material-link:](http://tommaso-soru.it/)
-[:simple-googlescholar:](https://scholar.google.it/citations?user=9aI21r8AAAAJ&hl=en)
-
-Tommaso is a Machine Learning & AI enthusiast with the dream of giving small contributions to the quest for intelligence.
-His research topics include Entity Resolution, Link Prediction, and Semantic Parsing for Question Answering, with a particular focus on Linked Data and the Semantic Web.
-
----
-
-!!! info inline end ""
-
     ![Diego Moussallem](assets/people/Diego.png)
 
 ## Diego Moussallem
@@ -85,4 +70,5 @@ His work resulted in the first neural machine translation model augmented with k
 - Gong Cheng, Nanjing University, China
 - Andreas Both, HTWK, Germany
 - Gustavo Publio, Schwarz IT, Germany
+- Tommaso Soru, Serendipity AI, London
 
