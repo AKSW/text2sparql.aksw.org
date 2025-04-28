@@ -70,4 +70,15 @@ challengers:
     authors:
       - name: "Mehrzad Shahinmoghadam"
         affiliation: "DBpedia"
-
+  - api: "https://text2sparql.cc-eti.org/text2sparql"
+    authors:
+      - name: "Daniel Gerber"
+        affiliation: "Effiziente Technologieintegration (ETi), Institut für Angewandte Informatik (InfAI) e. V."
+      - name: "Lorenz Bühmann"
+        affiliation: "Effiziente Technologieintegration (ETi), Institut für Angewandte Informatik (InfAI) e. V."
+      - name: "Lars-Peter Meyer"
+        affiliation: "Effiziente Technologieintegration (ETi), Institut für Angewandte Informatik (InfAI) e. V."
+      - name: "Felix Brei"
+        affiliation: "Effiziente Technologieintegration (ETi), Institut für Angewandte Informatik (InfAI) e. V."
+      - name: "Claus Stadler"
+        affiliation: "Effiziente Technologieintegration (ETi), Institut für Angewandte Informatik (InfAI) e. V."
