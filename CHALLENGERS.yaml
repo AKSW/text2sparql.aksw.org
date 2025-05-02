@@ -3,12 +3,14 @@
 ---
 challengers:
   - api: "https://wse-research.org/kgqagent/api"
+    id: WSE
     authors:
       - name: "Aleksandr Perevalov"
         affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
       - name: "Andreas Both"
         affiliation: "WSE Research Group @ Leipzig University of Applied Sciences"
   - api: "https://desktop-47kug2k.tail6a5b76.ts.net/"
+    id: LACODAM
     authors:
       - name: "Baptiste Amice"
         affiliation: "LACODAM @ Université de Rennes"
@@ -17,18 +19,21 @@ challengers:
       - name: "Peggy Cellier"
         affiliation: "LACODAM @ IRISA/INSA de Rennes"
   - api: "http://167.172.162.197:8000"
+    id: AIFB
     authors:
       - name: "Jan Wardenga"
         affiliation: "AIFB @ KIT"
       - name: "Tobias Käfer"
         affiliation: "AIFB @ KIT"
   - api: "http://demo1.franz.com:7000/t2s/api"
+    id: FRANZ
     authors:
       - name: "Mikel Bancroft"
         affiliation: "AllegroGraph @ Franz Inc."
       - name: "Kevin Layer"
         affiliation: "Franz Inc."
   - api: "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get"
+    id: MIPT
     authors:
       - name: "Oleg Somov"
         affiliation: "AIRI,  MIPT"
@@ -37,6 +42,7 @@ challengers:
       - name: "Roman Avdeev"
         affiliation: "MIPT"
   - api: "https://graf.ti.rw.fau.de/q/text2sparql"
+    id: IIS-Q
     authors:
       - name: "Daniel Henselmann"
         affiliation: "Fraunhofer IIS"
@@ -45,6 +51,7 @@ challengers:
       - name: "Andreas Harth"
         affiliation: "Fraunhofer IIS, Friedrich-Alexander-Universität Erlangen-Nürnberg"
   - api: "https://graf.ti.rw.fau.de/l/text2sparql"
+    id: IIS-L
     authors:
       - name: "Daniel Henselmann"
         affiliation: "Fraunhofer IIS"
@@ -53,6 +60,7 @@ challengers:
       - name: "Andreas Harth"
         affiliation: "Fraunhofer IIS, Friedrich-Alexander-Universität Erlangen-Nürnberg"
   - api: "https://sacred-tightly-platypus.ngrok-free.app/"
+    id: LABIC
     authors:
       - name: "Brucce Neves dos Santos"
         affiliation: "LABIC @ University of São Paulo"
@@ -63,6 +71,7 @@ challengers:
       - name: "Rafael Silva"
         affiliation: "LABIC @ University of São Paulo"
   - api: "https://dbpedia-nspm3-primary.hf.space/starcoder"
+    id: DBPEDIA-SC
     authors:
       - name: "Mehrzad Shahinmoghadam"
         affiliation: "DBpedia"
@@ -71,6 +80,7 @@ challengers:
       - name: "Sanju Tiwari"
         affiliation: "DBpedia, Sharda University, TIB Hannover"
   - api: "https://dbpedia-nspm3-primary.hf.space/codegen"
+    id: DBPEDIA-CG
     authors:
       - name: "Mehrzad Shahinmoghadam"
         affiliation: "DBpedia"
@@ -79,6 +89,7 @@ challengers:
       - name: "Sanju Tiwari"
         affiliation: "DBpedia, Sharda University, TIB Hannover"
   - api: "https://dbpedia-nspm3-secondary.hf.space/codellama"
+    id: DBPEDIA-CL
     authors:
       - name: "Mehrzad Shahinmoghadam"
         affiliation: "DBpedia"
@@ -87,6 +98,7 @@ challengers:
       - name: "Sanju Tiwari"
         affiliation: "DBpedia, Sharda University, TIB Hannover"
   - api: "https://text2sparql.cc-eti.org/text2sparql"
+    id: INFAI
     authors:
       - name: "Daniel Gerber"
         affiliation: "Effiziente Technologieintegration (ETi), Institut für Angewandte Informatik (InfAI) e. V."
@@ -98,3 +110,4 @@ challengers:
         affiliation: "Effiziente Technologieintegration (ETi), Institut für Angewandte Informatik (InfAI) e. V."
       - name: "Claus Stadler"
         affiliation: "Effiziente Technologieintegration (ETi), Institut für Angewandte Informatik (InfAI) e. V."
+
