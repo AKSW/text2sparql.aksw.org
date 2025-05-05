@@ -22,6 +22,12 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2025-05-05 - Evaluation phase is over"
+
+    Many thanks to all participants in the challenge.
+    We received [:simple-github: 12 endpoint registrations](https://github.com/AKSW/text2sparql.aksw.org/pulls?q=is%3Apr+is%3Aclosed+label%3Aregistration) and have surveyed these endpoints with 250 questions across the two datasets over the past few days.
+    The next step will be to analyze the results.
+
 !!! info "2025-04-22 - Challenge registration and evaluation dates extended"
 
     We thought you gonna be happy with a few more days to work, check out the [new deadlines](https://text2sparql.aksw.org/guidelines/) :nerd:
