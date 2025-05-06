@@ -22,6 +22,10 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2025-05-06 - First Test Dataset released"
+
+    We just released one of the test datasets: The **The CK25 Corporate Knowledge Reference Dataset for Benchmarking Text 2 SPARQL Question Answering Approaches** is available on [:simple-github: eccenca/ck25-dataset](https://github.com/eccenca/ck25-dataset).
+
 !!! info "2025-05-05 - Evaluation phase is over"
 
     Many thanks to all participants in the challenge.
