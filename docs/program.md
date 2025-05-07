@@ -13,8 +13,8 @@ The presentation session for the challengers will be on 2025-06-01 from 2pm to 5
 - 2:30pm - Mehrzad Shahinmoghadam, Tommaso Soru and Sanju Tiwari: Presentation of the [DBpedia Group](https://www.dbpedia.org/)
 - 2:45pm - Mikel Bancroft and Kevin Layer: Presentation of [AllegroGraph @ Franz Inc.](https://franz.com/)
 - 3:00pm - Daniel Henselmann, Rene Dorsch and Andreas Harth: Presentation of the [Fraunhofer Institute for Integrated Circuits (IIS)](https://www.iis.fraunhofer.de/en.html)
-- 3:15pm - Daniel Gerber, Lorenz Bühmann, Lars-Peter Meyer, Felix Brei and Claus Stadler: Presentation of the [ETi @ Institute for Applied Informatics (InfAI)](https://cc-eti.org/)INFAI
-- 3:30pm - Brucce Neves dos Santos, Daniel Zitei, João Barbirato and Rafael Silva: Presentation of the [LABIC @ University of São Paulo](https://labic.icmc.usp.br/)LABIC
+- 3:15pm - Daniel Gerber, Lorenz Bühmann, Lars-Peter Meyer, Felix Brei and Claus Stadler: Presentation of the [ETi @ Institute for Applied Informatics (InfAI)](https://cc-eti.org/)
+- 3:30pm - Brucce Neves dos Santos, Daniel Zitei, João Barbirato and Rafael Silva: Presentation of the [LABIC @ University of São Paulo](https://labic.icmc.usp.br/)
 - 3:45pm - Baptiste Amice, Sébastien Ferré and Peggy Cellier: Presentation of the [LACODAM @ Université de Rennes / IRISA/INSA de Rennes](https://team.inria.fr/lacodam/)
 - 4:00pm - Oleg Somov, Daniil Berezin and Roman Avdeev: Presentation of the [Moscow Institute of Physics and Technology](https://old.mipt.ru/english/)
 - 4:15pm - Aleksandr Perevalov and Andreas Both: Presentation of the [WSE Research Group @ Leipzig University of Applied Sciences](https://github.com/WSE-research)
