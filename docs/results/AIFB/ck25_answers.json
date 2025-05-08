@@ -1,0 +1,402 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "In which department is Ms. Brant?",
+    "query": "SELECT ?department WHERE { ?person :name \"Ms. Brant\"; :worksIn ?department. }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:1-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the telephone of Baldwin Dirksen?",
+    "query": "SELECT ?telephone WHERE { ?person <http://xmlns.com/foaf/0.1/name> \"Baldwin Dirksen\" . ?person <http://xmlns.com/foaf/0.1/telephone> ?telephone . }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:2-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is the manager of Heinrich Hoch?",
+    "query": "SELECT ?manager WHERE { ?person <http://example.org/vocab#name> \"Heinrich Hoch\". ?manager <http://example.org/vocab#manages> ?person }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:3-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the email of Sabrina from Marketing?",
+    "query": "SELECT ?email WHERE { ?person :name \"Sabrina\"; :email ?email; :worksIn ?department. ?department :name \"Marketing\". }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:4-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who has expertise in Transistors?",
+    "query": "SELECT ?person WHERE { ?person <http://example.org/hasExpertise> ?expertise . FILTER CONTAINS(LCASE(STR(?expertise)), \"transistors\") }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:5-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is our Sensor expert?",
+    "query": "SELECT ?person WHERE { ?person a :Person; :hasRole :SensorExpert }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:6-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is the manager of the Data Services department?",
+    "query": "SELECT ?manager WHERE { ?department a :Department ; :name \"Data Services\" . ?department :hasManager ?manager . }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:7-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department is responsible for the Sensor Switch M558-2275045?",
+    "query": "SELECT ?department WHERE { ?product a :Product ; :name \"Sensor Switch M558-2275045\" ; :isManagedBy ?department . }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:8-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many Sensor Switches do we offer?",
+    "query": "SELECT (COUNT(?product) AS ?sensorSwitchCount) WHERE { ?product a <http://example.com/SensorSwitch> . }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:9-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the name of the Network expert from the Marketing Department?",
+    "query": "SELECT ?name WHERE { ?person a :NetworkExpert; :hasName ?name; :worksInDepartment ?department. ?department a :MarketingDepartment. }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:10-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which departments have Transducer Experts?",
+    "query": "SELECT DISTINCT ?department WHERE { ?person a :TransducerExpert . ?person :memberOf ?department . }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:11-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which supplier are available to deliver Compensators?",
+    "query": "SELECT ?supplier WHERE { ?supplier :canDeliver :Compensator. }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:12-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many suppliers do we have in France?",
+    "query": "SELECT (COUNT(?supplier) AS ?numberOfSuppliers) WHERE { ?supplier a :Supplier; :locatedIn ?location. ?location :countryName \"France\". }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:13-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which supplier in France delivers Compensators?",
+    "query": "SELECT ?supplier WHERE { ?supplier a :Supplier ; :delivers :Compensator ; :locatedIn :France . }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:14-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the cheapest Encoder we can get from a french or german supplier?",
+    "query": "SELECT ?encoder WHERE { ?encoder a :Encoder; :price ?price; :supplier ?supplier. ?supplier :country ?country. FILTER(?country IN (\"France\", \"Germany\")) } ORDER BY ASC(?price) LIMIT 1",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:15-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Do we have suppliers in Toulouse?",
+    "query": "SELECT ?supplier WHERE { ?supplier a :Supplier ; :isLocatedIn ?location . ?location :cityName \"Toulouse\" . }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:16-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which suppliers do we have in Toulouse?",
+    "query": "SELECT ?supplier WHERE { ?supplier a :Supplier ; :locatedIn [ :cityName \"Toulouse\" ] . }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:17-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the cheapest Oscillator we have?",
+    "query": "SELECT ?oscillator WHERE { ?oscillator a :Oscillator; :price ?price. } ORDER BY ASC(?price) LIMIT 1",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:18-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the most expensive service we offer?",
+    "query": "SELECT ?service WHERE { ?service a :Service; :price ?price. } ORDER BY DESC(?price) LIMIT 1",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:19-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is responsible for the most expensive service we offer?",
+    "query": "SELECT ?person WHERE { ?service a :Service; :cost ?cost; :responsible ?person. } ORDER BY DESC(?cost) LIMIT 1",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:20-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the heaviest coil that does not exceed a base area of 15x15 milimeter?",
+    "query": "SELECT ?coil ?weight WHERE { ?coil :hasWeight ?weight ; :hasBaseWidth ?width ; :hasBaseLength ?length . FILTER(?width <= 15 && ?length <= 15) } ORDER BY DESC(?weight) LIMIT 1",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:21-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What products are compatible with the U990 LCD Inductor?",
+    "query": "SELECT ?product WHERE { ?product :isCompatibleWith <http://example.org/products/U990_LCD_Inductor>. }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:22-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What products can I get from US suppliers that are compatible with the U990 LCD Inductor?",
+    "query": "SELECT ?product WHERE { ?product :compatibleWith :U990_LCD_Inductor . ?supplier :locatedIn :US . ?product :suppliedBy ?supplier }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:23-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the pontiometer with the smallest volume?",
+    "query": "SELECT ?pontiometer WHERE { ?pontiometer a :Pontiometer; :volume ?volume. } ORDER BY ASC(?volume) LIMIT 1",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:24-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which coil has the highest density?",
+    "query": "SELECT ?coil WHERE { ?coil a :Coil; :density ?density. } ORDER BY DESC(?density) LIMIT 1",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:25-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "In which cities are our US suppliers for LCDs?",
+    "query": "SELECT DISTINCT ?city WHERE { ?supplier a :Supplier ; :country \"US\" ; :locatedIn ?city ; :supplies :LCD . }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:26-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Give me a phone directory of everyone on staff who does not manage anyone, I need name, email, and phone, sorted by name?",
+    "query": "SELECT ?name ?email ?phone WHERE { ?person a :StaffMember; :name ?name; :email ?email; :phone ?phone. FILTER NOT EXISTS { ?subordinate :manager ?person } } ORDER BY ?name",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:27-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Do we have any service that does apply to a BOM where parts are sourced from Russia?",
+    "query": "SELECT DISTINCT ?service WHERE { ?bom :hasPart ?part. ?part :sourcedFrom ?source. ?source :country ?country. FILTER(?country = \"Russia\"). ?service :appliesTo ?bom. }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:28-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What suppliers - I need name, country and price - deliver the 6th to 10th most expensive hardware items.",
+    "query": "SELECT ?supplierName ?country ?price WHERE { ?item a :Hardware . ?item :price ?price . ?item :deliveredBy ?supplier . ?supplier :name ?supplierName . ?supplier :country ?country } ORDER BY DESC(?price) OFFSET 5 LIMIT 5",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:29-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department have more than 5 employees? I need their names and the number of employees.",
+    "query": "SELECT ?departmentName (COUNT(?employee) AS ?numberOfEmployees) WHERE { ?department a :Department ; :name ?departmentName ; :hasEmployee ?employee . } GROUP BY ?departmentName HAVING (COUNT(?employee) > 5)",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:30-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Per product category, what's our lightest and heaviest hardware item?",
+    "query": "SELECT ?category ?lightestItem ?heaviestItem WHERE { { SELECT ?category (MIN(?weight) AS ?minWeight) (MAX(?weight) AS ?maxWeight) WHERE { ?item a :HardwareItem; :category ?category; :weight ?weight. } GROUP BY ?category } { SELECT ?category ?lightestItem WHERE { ?lightestItem a :HardwareItem; :category ?category; :weight ?weight. } HAVING (MIN(?weight) = ?minWeight) } { SELECT ?category ?heaviestItem WHERE { ?heaviestItem a :HardwareItem; :category ?category; :weight ?weight. } HAVING (MAX(?weight) = ?maxWeight) } }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:31-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For each supplier, what's the average price (in EUR) of what they sell, round reasonably?",
+    "query": "SELECT ?supplier (ROUND(AVG(?price)) AS ?averagePriceEUR) WHERE { ?product :soldBy ?supplier ; :hasPrice ?priceRecord . ?priceRecord :amount ?price ; :currency :EUR . } GROUP BY ?supplier",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:32-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Are there departments with no manager assigned?",
+    "query": "SELECT ?department WHERE { ?department a :Department . MINUS { ?department :hasManager ?manager } }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:33-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "I need to update my supplier rolodex, give me every supplier's name and all address details.",
+    "query": "SELECT ?supplierName ?street ?city ?postalCode ?country WHERE { ?supplier a :Supplier . ?supplier :name ?supplierName . ?supplier :hasAddress ?address . OPTIONAL { ?address :street ?street . } OPTIONAL { ?address :city ?city . } OPTIONAL { ?address :postalCode ?postalCode . } OPTIONAL { ?address :country ?country . } }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:34-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For every product, list what other products it is compatible with and the price differences between both.",
+    "query": "SELECT ?product1 ?product2 ?priceDifference WHERE { ?product1 :isCompatibleWith ?product2 . OPTIONAL { ?product1 :hasPrice ?price1 . ?product2 :hasPrice ?price2 . BIND(ABS(?price1 - ?price2) AS ?priceDifference) } }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:35-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which area of expertise is most relevant among our products, what are the top three skills?",
+    "query": "SELECT ?expertiseArea (GROUP_CONCAT(DISTINCT ?skill; separator=\", \") AS ?topSkills) WHERE { ?product :hasExpertiseArea ?expertiseArea . ?expertiseArea :hasSkill ?skill . } GROUP BY ?expertiseArea ORDER BY DESC(COUNT(DISTINCT ?skill)) LIMIT 1",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:36-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For each Bill of Material, how many parts does it contain and what is the total material quantity \u2014 show me only those BOMs exceeding 600 total items and order them descending.",
+    "query": "SELECT ?bom (COUNT(?part) AS ?partCount) (SUM(?quantity) AS ?totalQuantity) WHERE { ?bom a :BillOfMaterial; :containsPart ?part. ?part :materialQuantity ?quantity. } GROUP BY ?bom HAVING (SUM(?quantity) > 600) ORDER BY DESC(?totalQuantity)",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:37-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "I want to update my contact list, for each Employee give me name, email, phone number and the department they belong to as well as their direct report.",
+    "query": "SELECT ?employee ?name ?email ?phone ?department ?directReport WHERE { ?employee a :Employee . OPTIONAL { ?employee :name ?name } OPTIONAL { ?employee :email ?email } OPTIONAL { ?employee :phone ?phone } OPTIONAL { ?employee :belongsToDepartment ?department } OPTIONAL { ?employee :directReport ?directReport } }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:38-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items are wider than they are tall, and have a depth under 50 mm? List their dimensions.",
+    "query": "SELECT ?item ?width ?height ?depth WHERE { ?item a :HardwareItem; :width ?width; :height ?height; :depth ?depth. FILTER(?width > ?height && ?depth < 50) }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:39-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items - list id and name - have no active product manager?",
+    "query": "SELECT ?id ?name WHERE { ?item a :HardwareItem; :id ?id; :name ?name. OPTIONAL { ?item :hasProductManager ?manager. ?manager :status ?status. } FILTER (!bound(?manager) || ?status != \"active\") }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:40-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For each manager, what percentage of their entire team work in the same department as the manager?",
+    "query": "SELECT ?manager (100.0 * ?sameDeptCount / ?totalTeam AS ?percentage) WHERE { { SELECT ?manager (COUNT(?teamMember) AS ?totalTeam) WHERE { ?manager :manages ?teamMember. } GROUP BY ?manager } { SELECT ?manager (COUNT(?teamMember) AS ?sameDeptCount) WHERE { ?manager :manages ?teamMember. ?manager :worksIn ?dept. ?teamMember :worksIn ?dept. } GROUP BY ?manager } FILTER(?totalTeam > 0) }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:41-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which Bill-of-Material has the highest average unit cost of its hardware parts, and what is that average?",
+    "query": "SELECT ?bom (AVG(?unitCost) AS ?averageUnitCost) WHERE { ?bom :hasPart ?part . ?part :type :HardwarePart . ?part :unitCost ?unitCost . } GROUP BY ?bom ORDER BY DESC(?averageUnitCost) LIMIT 1",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:42-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Show me any cycles of product compatibility \u2014 i.e. product A says it's compatible with B, and B says it's compatible with A (mutual pairs).",
+    "query": "SELECT ?productA ?productB WHERE { ?productA :isCompatibleWith ?productB . ?productB :isCompatibleWith ?productA . }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:43-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items have dimensions in the top 10 % of all widths, and what are their IDs, names and widths?",
+    "query": "SELECT ?hardwareID ?name ?width WHERE { ?hardware a :HardwareItem; :hasID ?hardwareID; :hasName ?name; :hasWidth ?width. { SELECT ?width (COUNT(?w) AS ?rank) WHERE { ?item a :HardwareItem; :hasWidth ?w. } GROUP BY ?width ORDER BY DESC(?width) } FILTER(?rank <= (CEIL((SELECT (COUNT(?x) AS ?total) WHERE { ?x a :HardwareItem; :hasWidth ?y. }) * 0.1))) } ORDER BY DESC(?width)",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:44-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which supplier delivers the most reliable Inductor?",
+    "query": "SELECT ?supplier WHERE { ?inductor a :Inductor . ?delivery :delivers ?inductor ; :bySupplier ?supplier . ?inductor :reliability ?reliability . } ORDER BY DESC(?reliability) LIMIT 1",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:45-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What are the top 5 suppliers with best average reliability over their products.",
+    "query": "SELECT ?supplier (AVG(?reliability) AS ?averageReliability) WHERE { ?product :hasSupplier ?supplier . ?product :hasReliability ?reliability . } GROUP BY ?supplier ORDER BY DESC(?averageReliability) LIMIT 5",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:46-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "From which countries are the BOM parts of our SkySync MechWave delivered?",
+    "query": "SELECT DISTINCT ?country WHERE { :SkySyncMechWave :hasPart ?part. ?part :deliveredFrom ?location. ?location :country ?country. }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:47-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Show me all BOMs which have at least on part from a polish supplier.",
+    "query": "SELECT DISTINCT ?bom WHERE { ?bom :hasPart ?part . ?part :hasSupplier ?supplier . ?supplier :country \"Poland\" }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:48-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many suppliers can deliver alternative compatible products for the K367 Strain Encoder?",
+    "query": "SELECT (COUNT(DISTINCT ?supplier) AS ?supplierCount) WHERE { ?alternativeProduct :compatibleWith :K367_Strain_Encoder . ?supplier :canDeliver ?alternativeProduct . }",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:49-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department is resposible for the most product and how many product are this?",
+    "query": "SELECT ?department (COUNT(?product) AS ?productCount) WHERE { ?product a :Product . ?product :managedBy ?department . } GROUP BY ?department ORDER BY DESC(?productCount) LIMIT 1",
+    "endpoint": "http://167.172.162.197:8000",
+    "qname": "ck25:50-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/50-en"
+  }
+]

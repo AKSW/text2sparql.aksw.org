@@ -1,0 +1,866 @@
+[
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "How many unique authors have written science fiction novels?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Book_1 WHERE { ?Book_1 a dbo:Book . ?Book_1 dbp:genre dbr:Science_fiction . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:1-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/1-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1ntos autores \u00fanicos han escrito novelas de ciencia ficci\u00f3n?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?author_54 (COUNT(DISTINCT ?Book_1) AS ?count) WHERE { ?Book_1 a dbo:Book . ?Book_1 dbp:genre dbr:Science_fiction . ?Book_1 dbo:author ?author_54 . } GROUP BY ?author_54 LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:1-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/1-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "What are the 10 most populated countries?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Country_1 WHERE { ?Country_1 a dbo:Country . ?Country_1 dbo:populationTotal ?populationTotal_37 . } ORDER BY DESC(?populationTotal_37) LIMIT 10",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:2-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/2-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1les son los 10 pa\u00edses m\u00e1s poblados?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Country_1 WHERE { ?Country_1 a dbo:Country . ?Country_1 dbo:populationTotal ?populationTotal_37 . } ORDER BY DESC(?populationTotal_37) LIMIT 10",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:2-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/2-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "What is the birthplace of Keanu Reeves?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?birthPlace_4 WHERE { dbr:Keanu_Reeves dbo:birthPlace ?birthPlace_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:3-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/3-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Keanu Reeves?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?birthPlace_4 WHERE { <http://dbpedia.org/resource/Albert_L._Reeves> dbo:birthPlace ?birthPlace_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:3-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/3-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "What is the number of Starbucks locations worldwide?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?GeneLocation_1 WHERE { ?GeneLocation_1 a dbo:GeneLocation . } LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:4-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/4-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1l es el n\u00famero de ubicaciones de Starbucks en todo el mundo?",
+    "query": "",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:4-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/4-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Identify the corporation associated with products such as iPhone and iPad?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:6-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/6-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Identifique la corporaci\u00f3n asociada con productos como iPhone y iPad?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?GrossDomesticProduct_1 WHERE { ?GrossDomesticProduct_1 a dbo:GrossDomesticProduct . FILTER ( REGEX(str(?GrossDomesticProduct_1), \"iPhone\", 'i') ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:6-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/6-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Is the Eiffel Tower located in Paris?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:8-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/8-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfEst\u00e1 la Torre Eiffel ubicada en Par\u00eds?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:8-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/8-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Who designed the Python programming language?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX n5: <http://es.dbpedia.org/resource/> SELECT DISTINCT ?developer_4 WHERE { n5:Python dbo:developer ?developer_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:9-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/9-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQui\u00e9n dise\u00f1\u00f3 el lenguaje de programaci\u00f3n Python?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?ProgrammingLanguage_24 ?developer_43 WHERE { ?ProgrammingLanguage_24 a dbo:ProgrammingLanguage . ?ProgrammingLanguage_24 dbp:developer ?developer_43 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:9-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/9-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which teams have players in the Wide Receiver position in American football?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?AmericanFootballTeam_1 ?thing_37 WHERE { ?AmericanFootballTeam_1 a dbo:AmericanFootballTeam . ?thing_37 dbp:playerTeam ?AmericanFootballTeam_1 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:10-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/10-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "How many people study at universities in California?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?University_1 ?numberOfStudents_6 WHERE { ?University_1 a dbo:University . ?University_1 dbp:location dbr:California . ?University_1 dbo:numberOfStudents ?numberOfStudents_6 . } ORDER BY DESC(?numberOfStudents_6) LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:11-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/11-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1ntas personas estudian en las universidades de California?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?University_1 WHERE { ?University_1 a dbo:University . ?University_1 dbp:location dbr:California . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:11-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/11-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Who is the manufacturer of the Boeing 747?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?manufacturer_4 WHERE { dbr:Boeing_747 dbo:manufacturer ?manufacturer_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:12-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/12-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQui\u00e9n es el fabricante del Boeing 747?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?manufacturer_4 WHERE { dbr:Boeing_747 dbo:manufacturer ?manufacturer_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:12-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/12-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQu\u00e9 pel\u00edcula tiene a Johnny Depp como actor principal?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?thing_1 WHERE { ?thing_1 dbo:director dbr:Martin_Scorsese . ?thing_1 dbo:releaseDate ?releaseDate_4 . } ORDER BY ASC(?releaseDate_4) OFFSET 0 LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:13-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/13-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Did J.K. Rowling write the Harry Potter series?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:14-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/14-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfJ.K. Rowling escribi\u00f3 la serie de Harry Potter?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:14-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/14-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Who is the director of the Louvre Museum?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Museum_1 WHERE { ?Museum_1 a dbo:Museum . FILTER ( ( ( REGEX(str(?Museum_1), \"Louvre\", 'i') && REGEX(str(?Museum_1), \"Museum\", 'i') ) && ( REGEX(str(?Museum_1), \"Albert\", 'i') && REGEX(str(?Museum_1), \"Einstein\", 'i') ) ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:15-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/15-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQui\u00e9n es el director del Museo del Louvre?",
+    "query": "PREFIX n1: <http://es.dbpedia.org/resource/> PREFIX n2: <http://es.dbpedia.org/property/> SELECT DISTINCT ?director_4 WHERE { n1:Museo_del_Louvre n2:director ?director_4 . } LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:15-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/15-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Who are the directors of Inception?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX n1: <http://es.dbpedia.org/resource/> SELECT DISTINCT ?director_4 WHERE { n1:Inception dbo:director ?director_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:16-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/16-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQui\u00e9nes son los directores de Inception?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX n1: <http://es.dbpedia.org/resource/> SELECT DISTINCT ?director_4 WHERE { n1:Inception dbo:director ?director_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:16-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/16-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "What are some movies available on Netflix?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Person_1 WHERE { ?Person_1 a dbo:Person . ?Person_1 dbo:award <http://es.dbpedia.org/resource/Oscarc\u00f3mix> . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:17-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/17-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1les son algunas pel\u00edculas disponibles en Netflix?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Film_1 WHERE { ?Film_1 a dbo:Film . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:17-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/17-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which country has the highest population?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Country_1 WHERE { ?Country_1 a dbo:Country . ?Country_1 dbo:populationTotal ?populationTotal_37 . } ORDER BY DESC(?populationTotal_37) LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:18-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/18-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQu\u00e9 pa\u00eds tiene la poblaci\u00f3n m\u00e1s alta?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?thing_1 WHERE { ?thing_1 dbo:area ?area_2 . } ORDER BY DESC(?area_2) LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:18-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/18-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "In which country does the Amazon River start?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?country_4 WHERE { dbr:Amazon_River dbo:country ?country_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:19-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/19-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfEn qu\u00e9 pa\u00eds comienza el r\u00edo Amazonas?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?country_4 WHERE { dbr:Amazon_River dbo:country ?country_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:19-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/19-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "What is the primary language spoken by the ethnic group to which Chimamanda Ngozi Adichie belongs?",
+    "query": "",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:20-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/20-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1l es el idioma principal hablado por el grupo \u00e9tnico al que pertenece Chimamanda Ngozi Adichie?",
+    "query": "",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:20-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/20-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "In which country is the Eiffel Tower located?",
+    "query": "",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:21-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/21-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Identify the directors of movies where Steven Spielberg was one of the producers?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Film_1 ?director_4 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:producer dbr:Steven_Spielberg . ?Film_1 dbo:director ?director_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:22-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/22-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Identifica los directores de pel\u00edculas donde Steven Spielberg fue uno de los productores.",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Film_1 ?director_4 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:producer dbr:Steven_Spielberg . ?Film_1 dbo:director ?director_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:22-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/22-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which organizations were founded in 1990?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Film_1 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:director dbr:Steven_Spielberg . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:23-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/23-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQu\u00e9 organizaciones fueron fundadas en 1990?",
+    "query": "",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:23-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/23-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "How many movies are directed by Christopher Nolan?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Film_1 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:director dbr:Christopher_Nolan . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:25-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/25-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas est\u00e1n dirigidas por Christopher Nolan?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Film_1 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:director dbr:Christopher_Nolan . } LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:25-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/25-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Who were the commanders at the Battle of Gettysburg?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Person_1 WHERE { ?Person_1 a dbo:Person . ?Person_1 dbp:netWorth ?netWorth_37 . } ORDER BY DESC(?netWorth_37) LIMIT 5",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:26-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/26-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQui\u00e9n fue el comandante en la Batalla de Gettysburg?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?director_26 WHERE { ?Film_7 a dbo:Film . ?Film_7 dbp:director ?director_26 . } GROUP BY ?director_26 ORDER BY DESC(COUNT(DISTINCT ?Film_7)) LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:26-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/26-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Who is the director of Casablanca?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?director_4 WHERE { <http://dbpedia.org/resource/Casablanca_(film)> dbo:director ?director_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:27-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/27-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQui\u00e9nes son los directores de Casablanca?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Country_1 ?populationTotal_37 WHERE { ?Country_1 a dbo:Country . ?Country_1 dbo:populationTotal ?populationTotal_37 . ?Country_1 dbp:areaKm ?areaKm_42 . } ORDER BY DESC(?areaKm_42) LIMIT 5",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:27-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/27-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "List all the vineyards in France.",
+    "query": "",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:28-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/28-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Enumera todos los vi\u00f1edos en Francia.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Winery_1 ?location_37 WHERE { ?Winery_1 a dbo:Winery . ?Winery_1 dbo:location ?location_37 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:28-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/28-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Is the IEEE Intelligent Systems Journal about Artificial Intelligence?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:29-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/29-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfEl IEEE Intelligent Systems Journal trata sobre inteligencia artificial?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:29-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/29-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "What is the number of official languages spoken in Switzerland?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?officialLanguage_4 WHERE { dbr:Switzerland dbo:officialLanguage ?officialLanguage_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:30-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/30-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1l es el n\u00famero de lenguas oficiales habladas en Suiza?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Film_1 ?releaseDate_4 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:director dbr:Tim_Burton . ?Film_1 dbo:releaseDate ?releaseDate_4 . FILTER ( str(?releaseDate_4) >= \"1980\" ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:30-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/30-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which books are illustrated by Quentin Blake?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Book_1 WHERE { ?Book_1 a dbo:Book . ?Book_1 dbp:illustrator dbr:Quentin_Blake . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:31-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/31-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQu\u00e9 libros son ilustrados por Quentin Blake?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Book_1 WHERE { ?Book_1 a dbo:Book . ?Book_1 dbp:illustrator dbr:Quentin_Blake . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:31-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/31-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Who were the managers of the squad located at Old Trafford?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?CanadianFootballTeam_1 ?stadium_37 WHERE { ?CanadianFootballTeam_1 a dbo:CanadianFootballTeam . ?CanadianFootballTeam_1 dbp:stadium ?stadium_37 . FILTER ( ( REGEX(str(?stadium_37), \"Old\", 'i') && REGEX(str(?stadium_37), \"Trafford\", 'i') ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:32-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/32-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQui\u00e9nes eran los entrenadores del plantel ubicado en Old Trafford?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?CanadianFootballTeam_1 WHERE { ?CanadianFootballTeam_1 a dbo:CanadianFootballTeam . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:32-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/32-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "How many books have been authored by J.K. Rowling?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?author_20 (COUNT(DISTINCT ?Book_1) AS ?count) WHERE { ?Book_1 a dbo:Book . ?Book_1 dbp:author ?author_20 . } GROUP BY ?author_20 LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:33-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/33-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1ntos libros han sido escritos por J.K. Rowling?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?author_20 (COUNT(DISTINCT ?Book_1) AS ?count) WHERE { ?Book_1 a dbo:Book . ?Book_1 dbp:author ?author_20 . } GROUP BY ?author_20 LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:33-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/33-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Who directed the south park episode that precedes Butter's Very Own Episode?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?TelevisionEpisode_1 ?title_4 WHERE { ?TelevisionEpisode_1 a dbo:TelevisionEpisode . ?TelevisionEpisode_1 dbp:series dbr:South_Park . ?TelevisionEpisode_1 dbp:title ?title_4 . FILTER ( ( REGEX(str(?title_4), \"Butters\", 'i') && REGEX(str(?title_4), \"Very\", 'i') && REGEX(str(?title_4), \"Own\", 'i') && REGEX(str(?title_4), \"Episode\", 'i') ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:34-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/34-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQui\u00e9n dirigi\u00f3 el episodio de southous parkos que precede a Butter's Very Own Episode?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?title_4 WHERE { <http://dbpedia.org/resource/Butters'_Very_Own_Episode> dbp:title ?title_4 . FILTER ( ( REGEX(str(?title_4), \"Butters\", 'i') && REGEX(str(?title_4), \"Very\", 'i') && REGEX(str(?title_4), \"Own\", 'i') && REGEX(str(?title_4), \"Episode\", 'i') ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:34-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/34-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which political parties have governed over Varanasi, and is Narendra Modi a member of any of them?",
+    "query": "",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:35-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/35-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQu\u00e9 partidos pol\u00edticos han gobernado Varanasi, y es Narendra Modi miembro de alguno de ellos?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?PoliticalParty_1 WHERE { ?PoliticalParty_1 a dbo:PoliticalParty . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:35-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/35-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "What is the associated band of the musical artist who is the producer of the album Kind of Blue?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?producer_4 ?associatedBand_22 WHERE { dbr:Kind_of_Blue dbo:producer ?producer_4 . ?producer_4 dbo:associatedBand ?associatedBand_22 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:36-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/36-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1l es la banda asociada del artista musical que es el productor del \u00e1lbum Kind of Blue?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> ASK WHERE { dbr:Kind_of_Blue dbo:producer dbr:Teo_Macero . }",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:36-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/36-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1l fue el origen de The Beatles?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Film_1 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:director dbr:Steven_Spielberg . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:37-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/37-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "List the 10 directors who worked on most movies.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?film_2 WHERE { ?thing_1 dbo:film ?film_2 . } GROUP BY ?film_2 ORDER BY DESC(COUNT(DISTINCT ?thing_1)) LIMIT 10",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:38-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/38-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Enumere los 10 directores que trabajaron en m\u00e1s pel\u00edculas.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?director_20 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:director ?director_20 . } GROUP BY ?director_20 ORDER BY DESC(COUNT(DISTINCT ?Film_1)) LIMIT 10",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:38-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/38-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "List rivers flowing through the admin region bordering the Pacific Ocean?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?River_1 ?flowsThrough_37 WHERE { ?River_1 a dbo:River . ?River_1 dbp:flowsThrough ?flowsThrough_37 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:39-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/39-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Enumera los r\u00edos que fluyen a trav\u00e9s de la regi\u00f3n administrativa que limita con el Oc\u00e9ano Pac\u00edfico.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?River_1 ?flowsThrough_37 WHERE { ?River_1 a dbo:River . ?River_1 dbp:flowsThrough ?flowsThrough_37 . FILTER ( REGEX(str(?flowsThrough_37), \"region\", 'i') ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:39-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/39-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Identify the universities affiliated with the University of California in the state of California.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?University_1 WHERE { ?University_1 a dbo:University . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:40-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/40-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Identificar las universidades afiliadas a la Universidad de California en el estado de California.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?University_1 ?thing_37 WHERE { ?University_1 a dbo:University . ?University_1 dbp:affiliatedTo ?thing_37 . FILTER ( ( REGEX(str(?thing_37), \"University\", 'i') && REGEX(str(?thing_37), \"of\", 'i') && REGEX(str(?thing_37), \"California\", 'i') ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:40-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/40-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which companies are located in Silicon Valley?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Company_1 ?location_37 WHERE { ?Company_1 a dbo:Company . ?Company_1 dbp:location ?location_37 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:41-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/41-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQu\u00e9 empresas est\u00e1n ubicadas en Silicon Valley?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Film_1 ?releaseDate_4 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:director dbr:Christopher_Nolan . ?Film_1 dbo:releaseDate ?releaseDate_4 . } ORDER BY ASC(?releaseDate_4) LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:41-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/41-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which teams play in the league Campeonato Brasileiro S\u00e9rie A?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?CanadianFootballTeam_1 WHERE { ?CanadianFootballTeam_1 a dbo:CanadianFootballTeam . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:42-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/42-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQu\u00e9 equipos juegan en la liga Campeonato Brasileiro S\u00e9rie A?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?SportsTeam_1 WHERE { ?SportsTeam_1 a dbo:SportsTeam . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:42-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/42-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which place has Geneva and Carouge as its neighboring municipalities?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Municipality_1 WHERE { ?Municipality_1 a dbo:Municipality . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:43-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/43-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQu\u00e9 lugar tiene a Ginebra y Carouge como sus municipios vecinos?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Place_1 ?neighborhood_37 WHERE { ?Place_1 a dbo:Place . ?Place_1 dbp:neighborhood ?neighborhood_37 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:43-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/43-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "What are the capitals of countries governed by a parliamentary republic?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Country_1 WHERE { ?Country_1 a dbo:Country . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:44-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/44-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1les son las capitales de los pa\u00edses gobernados por una rep\u00fablica parlamentaria?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Country_1 WHERE { ?Country_1 a dbo:Country . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:44-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/44-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1ndo aterriz\u00f3 la misi\u00f3n Apollo 11 en la luna?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Film_1 ?releaseDate_4 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:director dbr:Tim_Burton . ?Film_1 dbo:releaseDate ?releaseDate_4 . } ORDER BY ASC(?releaseDate_4) LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:45-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/45-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "List all bands according to the amount of songs they published.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Band_1 WHERE { ?Band_1 a dbo:Band . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:46-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/46-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Enumere todas las bandas seg\u00fan la cantidad de canciones que publicaron.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Band_1 WHERE { ?Band_1 a dbo:Band . } ORDER BY DESC(?Band_1) LIMIT 10",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:46-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/46-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Where did the office holder who is predecessor to Margaret Thatcher die?",
+    "query": "",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:47-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/47-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfD\u00f3nde muri\u00f3 el titular del cargo que es predecesor de Margaret Thatcher?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?predecessor_4 ?deathPlace_43 WHERE { dbr:Margaret_Thatcher dbo:predecessor ?predecessor_4 . ?predecessor_4 dbo:deathPlace ?deathPlace_43 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:47-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/47-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Is The Star-Spangled Banner the national anthem of the United States?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:49-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/49-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfEs The Star-Spangled Banner el himno nacional de los Estados Unidos?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:49-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/49-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Was Edmund Hillary the first person to reach the summit of Mount Everest?",
+    "query": "ASK WHERE { BIND(false AS ?x) FILTER(?x) }",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:50-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/50-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfFue Edmund Hillary la primera persona en alcanzar la cima del Monte Everest?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:50-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/50-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Who has been married to both Nicole Kidman and Katie Holmes?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Person_1 ?spouse_37 WHERE { ?Person_1 a dbo:Person . ?Person_1 dbp:spouse ?spouse_37 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:51-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/51-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQui\u00e9n ha estado casado tanto con Nicole Kidman como con Katie Holmes?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Actor_1 ?spouse_37 WHERE { ?Actor_1 a dbo:Actor . ?Actor_1 dbp:spouse ?spouse_37 . FILTER ( ( REGEX(str(?spouse_37), \"Nicole\", 'i') && REGEX(str(?spouse_37), \"Kidman\", 'i') ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:51-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/51-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Are Australian former Prime Ministers Julia Gillard and Kevin Rudd part of the same political party?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:52-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/52-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfSon los ex primeros ministros australianos Julia Gillard y Kevin Rudd parte del mismo partido pol\u00edtico?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:52-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/52-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which organizations have their headquarters located in New York City?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Animal_1 WHERE { ?Animal_1 a dbo:Animal . ?Animal_1 dbp:annotFontWeight ?annotFontWeight_37 . } ORDER BY DESC(?annotFontWeight_37) LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:53-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/53-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which people are employed by the New York Times?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Person_1 WHERE { ?Person_1 a dbo:Person . ?Person_1 dbo:employer dbr:The_New_York_Times . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:54-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/54-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQu\u00e9 personas est\u00e1n empleadas por el New York Times?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?Person_1 WHERE { ?Person_1 a dbo:Person . ?Person_1 dbo:employer dbr:The_New_York_Times . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:54-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/54-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Who is the director of Inception?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX n1: <http://es.dbpedia.org/resource/> SELECT DISTINCT ?director_4 WHERE { n1:Inception dbo:director ?director_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:55-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/55-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQui\u00e9n es el director de Inception?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX n1: <http://es.dbpedia.org/resource/> SELECT DISTINCT ?director_4 WHERE { n1:Inception dbo:director ?director_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:55-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/55-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which authors have been published by Penguin Books?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?author_4 (COUNT(DISTINCT ?Book_1) AS ?count) WHERE { ?Book_1 a dbo:Book . ?Book_1 dbp:publisher dbr:Penguin_Books . ?Book_1 dbp:author ?author_4 . } GROUP BY ?author_4 LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:56-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/56-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQu\u00e9 autores han sido publicados por Penguin Books?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Person_1 WHERE { ?Person_1 a dbo:Person . ?Person_1 dbp:role ?role_37 . } ORDER BY DESC(?role_37) LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:56-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/56-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which instruments are commonly used in genres that emerged from jazz?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?MusicGenre_1 WHERE { ?MusicGenre_1 a dbo:MusicGenre . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:57-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/57-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfQu\u00e9 instrumentos se utilizan com\u00fanmente en g\u00e9neros que surgieron del jazz?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?subgenres_4 WHERE { dbr:Jazz dbp:subgenres ?subgenres_4 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:57-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/57-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Was Emma Watson a part of Harry Potter cast?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:58-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/58-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfFue Emma Watson parte del elenco de Harry Potter?",
+    "query": "ASK WHERE {}",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:58-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/58-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1l es la ciudad capital del pa\u00eds donde naci\u00f3 el famoso artista Leonardo da Vinci?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?birthPlace_4 ?capital_26 WHERE { ?birthPlace_4 a dbo:Country . dbr:Leonardo_da_Vinci dbo:birthPlace ?birthPlace_4 . ?birthPlace_4 dbo:capital ?capital_26 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:59-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/59-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "What is the population of the largest city in Canada?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT ?City_1 WHERE { ?City_1 a dbo:City . FILTER ( ( REGEX(str(?City_1), \"country\", 'i') && REGEX(str(?City_1), \"Canada\", 'i') ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:60-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/60-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1l es la poblaci\u00f3n de la ciudad m\u00e1s grande de Canad\u00e1?",
+    "query": "",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:60-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/60-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "How many films did Roger Deakins work on as a cinematographer?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Film_1 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:cinematography dbr:Roger_Deakins . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:61-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/61-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas hizo Roger Deakins como director de fotograf\u00eda?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?Film_1 WHERE { ?Film_1 a dbo:Film . ?Film_1 dbp:cinematography dbr:Roger_Deakins . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:61-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/61-es"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/dbpedia/sparql",
+    "question": "Which players are or have been part of the Brazil national football team?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/> PREFIX p: <http://www.wikidata.org/prop/> PREFIX n1: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> SELECT DISTINCT ?SocialPerson_7 ?members_43 WHERE { ?SocialPerson_7 a n1:SocialPerson . ?SocialPerson_7 dbp:members ?members_43 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "db25:62-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/62-en"
+  }
+]
