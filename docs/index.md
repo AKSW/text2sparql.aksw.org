@@ -22,6 +22,10 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2025-05-08 - Program published"
+
+    The [program](program.md) is out!
+
 !!! info "2025-05-08 - Endpoint Responses published"
 
     As a first part of the [:material-chart-bar: Challenge Results](results/index.md) we publish the plain endpoint responses. 
