@@ -1,0 +1,1602 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many unique authors have written science fiction novels?",
+    "query": "select count(*) as ?x where{dbr:Science_Fiction_Novels dbo:author ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:1-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos autores \u00fanicos han escrito novelas de ciencia ficci\u00f3n?",
+    "query": "select count(*) as ?x where{dbr:Ciencia_Ficci\u00f3n dbo:writer ?x1. ?x1 dbo:numberOfAuthors ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:1-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/1-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the 10 most populated countries?",
+    "query": "select ?x where{dbr:Australia dbo:populationTotal ?x. dbr:Germany dbo:populationTotal ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:2-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los 10 pa\u00edses m\u00e1s poblados?",
+    "query": "select ?x where{dbr:Brazil dbo:populationTotal ?x. dbr:Germany dbo:populationTotal ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:2-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/2-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the birthplace of Keanu Reeves?",
+    "query": "select ?x where{dbr:Keanu_Reeves dbo:birthPlace ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:3-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Keanu Reeves?",
+    "query": "select ?x where{dbr:Keanu_Reeves dbo:birthPlace ?x1. ?x1 dbo:populationDensity ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:3-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/3-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the number of Starbucks locations worldwide?",
+    "query": "select ?x where{dbr:Starbucks_(restaurant) dbo:numberOfLocations ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:4-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el n\u00famero de ubicaciones de Starbucks en todo el mundo?",
+    "query": "select ?x where{dbr:Starbucks dbo:numberOfLocations ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:4-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/4-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the Republic of Montenegro (1992-2006)?",
+    "query": "select ?x where{dbr:Republic_of_Montenegro dbo:capitalCity ?x1. ?x1 dbo:populationDensity ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:5-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad capital de la Rep\u00fablica de Montenegro (1992-2006)?",
+    "query": "select ?x where{dbr:Montenegro dbo:capital ?x1. ?x1 dbo:populationUrban ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:5-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/5-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the corporation associated with products such as iPhone and iPad?",
+    "query": "select ?x where{dbr:iPhone_(Apple_TV) dbo:associatedCorporation ?x. dbr:iPad_(Apple_TV) dbo:associatedCorporation ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:6-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identifique la corporaci\u00f3n asociada con productos como iPhone y iPad?",
+    "query": "select ?x where{dbr:iPhone dbo:associatedCompany ?x. dbr:iPad dbo:associatedCompany ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:6-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/6-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which nearest city of the Eiffel Tower is the birthplace of Gustave Eiffel?",
+    "query": "select ?x where{dbr:Gustave_Eiffel dbo:birthPlace ?x1. ?x1 dbo:nearestCity ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:7-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad m\u00e1s cercana a la Torre Eiffel que es el lugar de nacimiento de Gustave Eiffel?",
+    "query": "select ?x where{dbr:Gustave_Eiffel dbo:birthPlace ?x1. ?x1 dbo:nearestCity ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:7-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/7-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the Eiffel Tower located in Paris?",
+    "query": "ask where{dbr:Eiffel_Tower dbo:locatedInArea ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:8-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEst\u00e1 la Torre Eiffel ubicada en Par\u00eds?",
+    "query": "ask where{dbr:Eiffel_Tower dbo:locatedInArea dbr:Par\u00eds,_France }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:8-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/8-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who designed the Python programming language?",
+    "query": "select ?x where{dbr:Python_(programming_language) dbo:designer ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:9-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n dise\u00f1\u00f3 el lenguaje de programaci\u00f3n Python?",
+    "query": "select ?x where{dbr:Python_(programming_language) dbo:design ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:9-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/9-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which teams have players in the Wide Receiver position in American football?",
+    "query": "select ?x where{dbr:American_football dbo:playerTeam ?x1. ?x1 dbo:numberOfPlayers ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:10-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 equipos tienen jugadores en la posici\u00f3n de receptor abierto en el f\u00fatbol americano?",
+    "query": "select ?x where{dbr:Receptor_abierto_en_el_f\u00fatbol_americano dbo:playerPosition ?x1. ?x1 dbo:team ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:10-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/10-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many people study at universities in California?",
+    "query": "select count(*) as ?x where{dbr:University_of_California_San_Diego dbo:numberOfStudents ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:11-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas personas estudian en las universidades de California?",
+    "query": "select ?x where{dbr:University_of_California_San_Diego dbo:numberOfStudents ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:11-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/11-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the manufacturer of the Boeing 747?",
+    "query": "select ?x where{dbr:Boeing_747 dbo:manufacturer ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:12-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el fabricante del Boeing 747?",
+    "query": "select ?x where{dbr:Boeing_747 dbo:manufacturer ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:12-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/12-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which movie features Johnny Depp as a lead actor?",
+    "query": "select ?x where{dbr:Johnny_Depp dbo:feature ?x1. ?x1 dbo:leadActor ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:13-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 pel\u00edcula tiene a Johnny Depp como actor principal?",
+    "query": "select ?x where{dbr:Johnny_Depp dbo:actor ?x1. ?x1 dbo:film ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:13-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/13-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Did J.K. Rowling write the Harry Potter series?",
+    "query": "ask where{dbr:J._K._Rowling dbo:harryPotterSeries ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:14-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfJ.K. Rowling escribi\u00f3 la serie de Harry Potter?",
+    "query": "ask where{dbr:Harry_Potter dbo:writer dbr:J._K._Rowling }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:14-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/14-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of the Louvre Museum?",
+    "query": "select ?x where{dbr:Louvre_Museum dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:15-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el director del Museo del Louvre?",
+    "query": "select ?x where{dbr:Museo_del_Louvre dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:15-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/15-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the directors of Inception?",
+    "query": "select ?x where{dbr:Inception_(TV_series) dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:16-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los directores de Inception?",
+    "query": "select ?x where{dbr:Inception_(film) dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:16-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/16-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are some movies available on Netflix?",
+    "query": "select ?x where{dbr:The_Greatest_Batman_(2016_film) dbo:availableInNetflix ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:17-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son algunas pel\u00edculas disponibles en Netflix?",
+    "query": "select ?x where{dbr:The_Gentleman_and_the_Gentleman_(film) dbo:availableInNetflix ?x. dbr:The_Gentleman_and_the_Gentleman dbo:availableInNetflix ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:17-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/17-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which country has the highest population?",
+    "query": "select ?x where{dbr:British_Columbia dbo:populationTotal ?x. dbr:New_York_City dbo:populationTotal ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:18-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 pa\u00eds tiene la poblaci\u00f3n m\u00e1s alta?",
+    "query": "select ?x where{dbr:Bahrain dbo:populationTotal ?x. dbr:Turkmenistan dbo:populationTotal ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:18-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/18-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "In which country does the Amazon River start?",
+    "query": "select ?x where{dbr:Amazon_River dbo:riverStart ?x1. ?x1 dbo:country ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:19-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00eds comienza el r\u00edo Amazonas?",
+    "query": "select ?x where{dbr:Rio_Amazonas dbo:countryStart ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:19-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/19-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the primary language spoken by the ethnic group to which Chimamanda Ngozi Adichie belongs?",
+    "query": "select ?x where{dbr:Chimamanda_Ngozi_Adichie dbo:ethnicGroup ?x1. ?x1 dbo:spokenIn ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:20-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el idioma principal hablado por el grupo \u00e9tnico al que pertenece Chimamanda Ngozi Adichie?",
+    "query": "select ?x where{dbr:Chimamanda_Ngozi_Adichie dbo:principalLanguage ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:20-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/20-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "In which country is the Eiffel Tower located?",
+    "query": "select ?x where{dbr:Eiffel_Tower dbo:locatedInCountry ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:21-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00eds se encuentra la Torre Eiffel?",
+    "query": "select ?x where{dbr:Torre_Eiffel dbo:country ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:21-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/21-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the directors of movies where Steven Spielberg was one of the producers?",
+    "query": "select ?x where{dbr:Steven_Spielberg dbo:producer ?x1. ?x1 dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:22-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identifica los directores de pel\u00edculas donde Steven Spielberg fue uno de los productores.",
+    "query": "select ?x where{dbr:Steven_Spielberg dbo:productionCompany ?x1. ?x1 dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:22-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/22-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which organizations were founded in 1990?",
+    "query": "select ?x where{dbr:The_Holy_Grail_Foundation dbo:foundingYear ?x. <B> dbo:foundingYear ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:23-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 organizaciones fueron fundadas en 1990?",
+    "query": "select ?x where{dbr:1990_American_Football_Cup dbo:firstDriverTeam ?x. <B> dbo:firstDriverTeam ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:23-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/23-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was J.K. Rowling and Ghadam-Ali Sarami born?",
+    "query": "select ?x where{dbr:J._K._Rowling dbo:birthPlace ?x. dbr:Ghadam-Ali_Sarami dbo:birthPlace ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:24-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde nacieron J.K. Rowling y Ghadam-Ali Sarami?",
+    "query": "select ?x where{dbr:J.K._Rowling dbo:birthPlace ?x. dbr:Ghadam-Ali_Sarami dbo:birthPlace ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:24-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/24-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many movies are directed by Christopher Nolan?",
+    "query": "select count(*) as ?x where{dbr:Christopher_Nolan dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:25-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas est\u00e1n dirigidas por Christopher Nolan?",
+    "query": "select count(*) as ?x where{dbr:Christopher_Nolan dbo:drama ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:25-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/25-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who were the commanders at the Battle of Gettysburg?",
+    "query": "select ?x where{dbr:Battle_of_Gettysburg dbo:commander ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:26-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n fue el comandante en la Batalla de Gettysburg?",
+    "query": "select ?x where{dbr:Gettysburg_(1924) dbo:battingDriver ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:26-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/26-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of Casablanca?",
+    "query": "?\n\nselect ?x where{dbr:Casablanca_(film) dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:27-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los directores de Casablanca?",
+    "query": "select ?x where{dbr:Casablanca dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:27-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/27-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all the vineyards in France.",
+    "query": "select ?x where{dbr:Vineyards_(British_colony) dbo:numberOfVineyards ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:28-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera todos los vi\u00f1edos en Francia.",
+    "query": "select ?x where{dbr:Vi\u00f1edos_(horse) dbo:nationality ?x1. ?x1 dbo:populationDensity ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:28-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/28-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the IEEE Intelligent Systems Journal about Artificial Intelligence?",
+    "query": "ask where{dbr:IEEE_Intelligent_Systems_Journal dbo:abstract ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:29-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEl IEEE Intelligent Systems Journal trata sobre inteligencia artificial?",
+    "query": "ask where{dbr:IEEE_Intelligent_Systems_Journal dbo:abstract ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:29-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/29-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the number of official languages spoken in Switzerland?",
+    "query": "select ?x where{dbr:Switzerland dbo:officialLanguage ?x1. ?x1 dbo:numberOfOfficialLanguages ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:30-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el n\u00famero de lenguas oficiales habladas en Suiza?",
+    "query": "select ?x where{dbr:Suiza dbo:officialLanguage ?x1. ?x1 dbo:numberOfLanguages ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:30-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/30-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which books are illustrated by Quentin Blake?",
+    "query": "select ?x where{dbr:Quentin_Blake dbo:illustratedBook ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:31-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 libros son ilustrados por Quentin Blake?",
+    "query": "select ?x where{dbr:Quentin_Blake dbo:illustratedIn ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:31-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/31-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who were the managers of the squad located at Old Trafford?",
+    "query": "select ?x where{dbr:Old_Trafford dbo:squad ?x1. ?x1 dbo:manager ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:32-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes eran los entrenadores del plantel ubicado en Old Trafford?",
+    "query": "select ?x where{dbr:Old_Trafford dbo:locatedInArea ?x1. ?x1 dbo:numberOfStaff ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:32-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/32-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many books have been authored by J.K. Rowling?",
+    "query": "select count(*) as ?x where{dbr:J._K._Rowling dbo:author ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:33-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos libros han sido escritos por J.K. Rowling?",
+    "query": "select count(*) as ?x where{dbr:J._K._Rowling dbo:book ?x1. ?x1 dbo:numberOfBooks ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:33-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/33-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who directed the south park episode that precedes Butter's Very Own Episode?",
+    "query": "select ?x where{dbr:Butter_(film) dbo:previousWork ?x1. ?x1 dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:34-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n dirigi\u00f3 el episodio de southous parkos que precede a Butter's Very Own Episode?",
+    "query": "select ?x where{dbr:Butter's_Very_Own_Episode dbo:previousEpisode ?x1. ?x1 dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:34-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/34-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which political parties have governed over Varanasi, and is Narendra Modi a member of any of them?",
+    "query": "select ?x where{dbr:Varanasi dbo:politicalPartyInLegislature ?x. dbr:Narendra_Modi dbo:politicalPartyInLegislature ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:35-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 partidos pol\u00edticos han gobernado Varanasi, y es Narendra Modi miembro de alguno de ellos?",
+    "query": "select ?x where{dbr:Varanasi dbo:politicalPartyInLegislature ?x1. ?x1 dbo:member ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:35-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/35-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the associated band of the musical artist who is the producer of the album Kind of Blue?",
+    "query": "select ?x where{dbr:Kind_of_Blue dbo:artist ?x1. ?x1 dbo:associatedBand ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:36-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la banda asociada del artista musical que es el productor del \u00e1lbum Kind of Blue?",
+    "query": "select ?x where{dbr:Kind_of_Blue dbo:artist ?x1. ?x1 dbo:band ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:36-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/36-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which was the origin of The Beatles?",
+    "query": "select ?x where{dbr:The_Beatles dbo:artist ?x1. ?x1 dbo:birthPlace ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:37-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l fue el origen de The Beatles?",
+    "query": "select ?x where{dbr:The_Beatles dbo:originalArtist ?x1. ?x1 dbo:birthPlace ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:37-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/37-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List the 10 directors who worked on most movies.",
+    "query": "select ?x where{dbr:The_Lord_of_the_Rings dbo:director ?x1. ?x1 dbo:numberOfDirectors ?x}order by desc ( ?x) limit 10",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:38-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere los 10 directores que trabajaron en m\u00e1s pel\u00edculas.",
+    "query": "select ?x where{dbr:More_Peliculas dbo:director ?x1. ?x1 dbo:numberOfDirectors ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:38-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/38-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List rivers flowing through the admin region bordering the Pacific Ocean?",
+    "query": "select ?x where{dbr:Pacific_Ocean dbo:borderWater ?x1. ?x1 dbo:riverFlow ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:39-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera los r\u00edos que fluyen a trav\u00e9s de la regi\u00f3n administrativa que limita con el Oc\u00e9ano Pac\u00edfico.",
+    "query": "select ?x where{dbr:Oc\u00e9ano_Pac\u00edfico dbo:areaLimit ?x. dbr:R\u00edos_que_fluyen_a_trav\u00e9s_de_la_regi\u00f3n_administrativa dbo:areaLimit ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:39-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/39-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the universities affiliated with the University of California in the state of California.",
+    "query": "select ?x where{dbr:University_of_California_in_the_State_of_California dbo:universityAffiliation ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:40-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identificar las universidades afiliadas a la Universidad de California en el estado de California.",
+    "query": "select ?x where{dbr:University_of_California_en_El_State_of_California dbo:affiliation ?x1. ?x1 dbo:almaMater ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:40-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/40-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which companies are located in Silicon Valley?",
+    "query": "select ?x where{dbr:Silicon_Valley_(TV_series) dbo:locatedInArea ?x1. ?x1 dbo:company ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:41-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas est\u00e1n ubicadas en Silicon Valley?",
+    "query": "select ?x where{dbr:Silicon_Valley_Bank dbo:locatedInArea ?x1. ?x1 dbo:companyName ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:41-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/41-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which teams play in the league Campeonato Brasileiro S\u00e9rie A?",
+    "query": "select ?x where{dbr:Campeonato_Brasileiro_S\u00e9rie_A dbo:team ?x1. ?x1 dbo:firstTeam ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:42-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 equipos juegan en la liga Campeonato Brasileiro S\u00e9rie A?",
+    "query": "select ?x where{dbr:Brazilian_Football_Team_Series_A dbo:firstTeam ?x1. ?x1 dbo:secondTeam ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:42-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/42-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which place has Geneva and Carouge as its neighboring municipalities?",
+    "query": "select ?x where{dbr:Geneva dbo:neighboringMunicipality ?x. dbr:Carouge dbo:neighboringMunicipality ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:43-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 lugar tiene a Ginebra y Carouge como sus municipios vecinos?",
+    "query": "select ?x where{dbr:Ginebra dbo:locatedInArea ?x. dbr:Carouge dbo:locatedInArea ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:43-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/43-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the capitals of countries governed by a parliamentary republic?",
+    "query": "select ?x where{dbr:Parliamentary_Republic_of_Germany dbo:capital ?x. dbr:United_States_of_America dbo:capital ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:44-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las capitales de los pa\u00edses gobernados por una rep\u00fablica parlamentaria?",
+    "query": "select ?x where{dbr:Paris_Parliamentary_Assembly dbo:capital ?x. dbr:Gothenburg_Parliamentary_Assembly dbo:capital ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:44-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/44-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "When did the Apollo 11 mission land on the moon?",
+    "query": "select ?x where{dbr:Apollo_11 dbo:landingDate ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:45-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ndo aterriz\u00f3 la misi\u00f3n Apollo 11 en la luna?",
+    "query": "select ?x where{dbr:Apollo_11 dbo:nextMission ?x1. ?x1 dbo:aterrizationDate ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:45-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/45-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all bands according to the amount of songs they published.",
+    "query": "select ?x where{dbr:The_Bee_Song dbo:numberOfSongs ?x. dbr:The_Bee_Song dbo:numberOfSportsTeams ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:46-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere todas las bandas seg\u00fan la cantidad de canciones que publicaron.",
+    "query": "select ?x where{dbr:The_Bee_Song dbo:numberOfTracks ?x. dbr:The_Bee_Song dbo:numberOfTracks ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:46-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/46-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where did the office holder who is predecessor to Margaret Thatcher die?",
+    "query": "select ?x where{dbr:Margaret_Thatcher dbo:predecessor ?x1. ?x1 dbo:deathPlace ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:47-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde muri\u00f3 el titular del cargo que es predecesor de Margaret Thatcher?",
+    "query": "select ?x where{dbr:Margaret_Thatcher dbo:predecessor ?x1. ?x1 dbo:birthPlace ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:47-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/47-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where did Bill Gates and Mark Zuckerberg go to school?",
+    "query": "select ?x where{dbr:Bill_Gates_(cricketer) dbo:school ?x. dbr:Mark_Zuckerberg dbo:school ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:48-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde estudiaron Bill Gates y Mark Zuckerberg?",
+    "query": "select ?x where{dbr:Mark_Zuckerberg dbo:education ?x. dbr:Bill_Gates_(cricketer) dbo:education ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:48-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/48-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is The Star-Spangled Banner the national anthem of the United States?",
+    "query": "ask where{dbr:The_Star-Spangled_Banner dbo:nationalAnthem dbr:The_United_States_(play) }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:49-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEs The Star-Spangled Banner el himno nacional de los Estados Unidos?",
+    "query": "ask where{dbr:The_Star-Spangled_Banner dbo:nationality dbr:Himno_Nacional_de_Los_Estados_Unidos }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:49-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/49-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Was Edmund Hillary the first person to reach the summit of Mount Everest?",
+    "query": "ask where{dbr:Edmund_Hillary dbo:firstPerson dbr:Mount_Everest }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:50-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfFue Edmund Hillary la primera persona en alcanzar la cima del Monte Everest?",
+    "query": "ask where{dbr:Edmund_Hillary_(cricketer) dbo:firstAppearance ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:50-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/50-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who has been married to both Nicole Kidman and Katie Holmes?",
+    "query": "select ?x where{dbr:Nicole_Kidman dbo:married ?x. dbr:Katie_Holmes dbo:married ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:51-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/51-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n ha estado casado tanto con Nicole Kidman como con Katie Holmes?",
+    "query": "select ?x where{dbr:Nicole_Kidman dbo:casualty ?x. dbr:Katie_Holmes dbo:casualty ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:51-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/51-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Are Australian former Prime Ministers Julia Gillard and Kevin Rudd part of the same political party?",
+    "query": "ask where{dbr:Kevin_Rudd dbo:politicalPartyInLegislature dbr:Julia_Gillard_(politician) }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:52-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/52-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfSon los ex primeros ministros australianos Julia Gillard y Kevin Rudd parte del mismo partido pol\u00edtico?",
+    "query": "ask where{dbr:Julia_Gillard dbo:party dbr:Ministers_of_Australia,_Australia_and_New_Zealand }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:52-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/52-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which organizations have their headquarters located in New York City?",
+    "query": "select ?x where{dbr:New_York_City_(New_York) dbo:headquarter ?x1. ?x1 dbo:locatedInArea ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:53-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/53-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 organizaciones tienen su sede en la ciudad de Nueva York?",
+    "query": "select ?x where{dbr:Nueva_York_City_School_of_Arts dbo:sede ?x1. ?x1 dbo:numberOfStudents ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:53-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/53-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which people are employed by the New York Times?",
+    "query": "select ?x where{dbr:The_New_York_Times dbo:numberOfEmployees ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:54-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/54-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 personas est\u00e1n empleadas por el New York Times?",
+    "query": "select ?x where{dbr:New_York_Times dbo:numberOfEmployees ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:54-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/54-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of Inception?",
+    "query": "select ?x where{dbr:Inception_(TV_series) dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:55-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/55-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el director de Inception?",
+    "query": "select ?x where{dbr:Inception_(TV_series) dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:55-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/55-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which authors have been published by Penguin Books?",
+    "query": "select ?x where{dbr:Penguin_Books dbo:author ?x1. ?x1 dbo:numberOfBooks ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:56-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/56-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 autores han sido publicados por Penguin Books?",
+    "query": "select ?x where{dbr:Penguin_Books dbo:author ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:56-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/56-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which instruments are commonly used in genres that emerged from jazz?",
+    "query": "select ?x where{dbr:Jazz_(musical) dbo:instrument ?x1. ?x1 dbo:genre ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:57-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/57-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 instrumentos se utilizan com\u00fanmente en g\u00e9neros que surgieron del jazz?",
+    "query": "select ?x where{dbr:Jazz_(musical) dbo:instrument ?x1. ?x1 dbo:commonUse ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:57-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/57-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Was Emma Watson a part of Harry Potter cast?",
+    "query": "ask where{dbr:Harry_Potter dbo:cast dbr:Emma_Watson_(playwright) }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:58-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/58-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfFue Emma Watson parte del elenco de Harry Potter?",
+    "query": "ask where{dbr:Harry_Potter dbo:partOfElenco dbr:Emma_Watson }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:58-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/58-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the country where the famous artist Leonardo da Vinci was born?",
+    "query": "select ?x where{dbr:Leonardo_da_Vinci dbo:birthPlace ?x1. ?x1 dbo:capitalCity ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:59-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/59-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad capital del pa\u00eds donde naci\u00f3 el famoso artista Leonardo da Vinci?",
+    "query": "select ?x where{dbr:Leonardo_da_Vinci dbo:nationality ?x1. ?x1 dbo:capital ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:59-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/59-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the population of the largest city in Canada?",
+    "query": "select ?x where{dbr:London dbo:populationUrban ?x. dbr:Canada,_Ontario dbo:populationUrban ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:60-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/60-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la poblaci\u00f3n de la ciudad m\u00e1s grande de Canad\u00e1?",
+    "query": "select ?x where{dbr:Canad\u00e1 dbo:populationTotal ?x1. ?x1 dbo:populationTotal ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:60-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/60-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many films did Roger Deakins work on as a cinematographer?",
+    "query": "select count(*) as ?x where{dbr:Roger_Deakins dbo:cinematographer ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:61-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/61-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas hizo Roger Deakins como director de fotograf\u00eda?",
+    "query": "select count(*) as ?x where{dbr:Roger_Deakins dbo:directorOfFotografy ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:61-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/61-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which players are or have been part of the Brazil national football team?",
+    "query": "select ?x where{dbr:Brazil_National_Football_Team dbo:player ?x1. ?x1 dbo:formerTeam ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:62-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/62-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 jugadores son o han sido parte del equipo nacional de f\u00fatbol de Brasil?",
+    "query": "select ?x where{dbr:Brazilian_Football_Team dbo:numberOfPlayers ?x. dbr:Nacional_de_F\u00fatbol_de_Brasil dbo:numberOfPlayers ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:62-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/62-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the managers from all basketball teams which LeBron James played at?",
+    "query": "select ?x where{dbr:All_Basketball_Teams dbo:manager ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:63-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/63-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los entrenadores de todos los equipos de baloncesto en los que ha jugado LeBron James?",
+    "query": "select ?x where{dbr:Baloncesto dbo:firstTeam ?x1. ?x1 dbo:numberOfEntries ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:63-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/63-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which director of Inception is also the filmmaker behind The Dark Knight?",
+    "query": "select ?x where{dbr:The_Dark_Knight dbo:director ?x. dbr:Inception_(film) dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:64-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/64-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 director de Inception es tambi\u00e9n el cineasta detr\u00e1s de The Dark Knight?",
+    "query": "select ?x where{dbr:The_Dark_Knight dbo:director ?x. dbr:Inception_(film) dbo:director ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:64-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/64-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the birth place of Albert Einstein?",
+    "query": "select ?x where{dbr:Albert_Einstein dbo:birthPlace ?x1. ?x1 dbo:populationDensity ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:65-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/65-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Albert Einstein?",
+    "query": "select ?x where{dbr:Albert_Einstein dbo:birthPlace ?x1. ?x1 dbo:populationDensity ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:65-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/65-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many birds are in the Chordate phylum?",
+    "query": "select count(*) as ?x where{dbr:Chordate_phylum dbo:birds ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:66-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/66-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas aves hay en el filo Cordado?",
+    "query": "select count(*) as ?x where{dbr:Cordado_(horse) dbo:numberOfAves ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:66-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/66-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the author of Harry Potter and the Order of the Phoenix?",
+    "query": "select ?x where{dbr:Harry_Potter_(novel) dbo:author ?x. dbr:The_Order_of_the_Phoenix dbo:author ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:67-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/67-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el autor de Harry Potter y el Orden del F\u00e9nix?",
+    "query": "select ?x where{dbr:Harry_Potter dbo:author ?x. dbr:El_Orden_del_F\u00e9nix dbo:author ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:67-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/67-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where is the Eiffel Tower located?",
+    "query": "select ?x where{dbr:Eiffel_Tower dbo:locatedInArea ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:68-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/68-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde se encuentra la Torre Eiffel?",
+    "query": "select ?x where{dbr:Torre_Eiffel dbo:locatedInArea ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:68-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/68-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are some of the key people involved with the Wikimedia Foundation?",
+    "query": "select ?x where{dbr:The_Wikimedia_Foundation dbo:keyPerson ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:69-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/69-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son algunas de las personas clave involucradas con la Fundaci\u00f3n Wikimedia?",
+    "query": "select ?x where{dbr:Wikimedia_Foundation dbo:person ?x1. ?x1 dbo:keyPerson ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:69-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/69-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many are the Generals of the United States?",
+    "query": "select count(*) as ?x where{dbr:United_States_(political_party) dbo:generals ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:70-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/70-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos son los General de los Estados Unidos?",
+    "query": "select count(*) as ?x where{dbr:General_de_Los_Estados_Unidos dbo:numberOfEmployees ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:70-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/70-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the key figures associated with the United Nations?",
+    "query": "select ?x where{dbr:United_Nations_(1996) dbo:keyFigure ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:71-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/71-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son las figuras clave asociadas con las Naciones Unidas?",
+    "query": "select ?x where{dbr:Clave_(1996) dbo:nationality ?x. dbr:Figures_Clave dbo:nationality ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:71-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/71-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was the song 'Bohemian Rhapsody' recorded?",
+    "query": "select ?x where{dbr:Bohemian_Rhapsody dbo:recordedIn ?x1. ?x1 dbo:location ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:72-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/72-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde se grab\u00f3 la canci\u00f3n 'Bohemian Rhapsody'?",
+    "query": "select ?x where{dbr:Bohemian_Rhapsody dbo:recordedIn ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:72-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/72-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the state of California?",
+    "query": "select ?x where{dbr:California_(U.S.) dbo:capitalCity ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:73-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/73-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la capital del estado de California?",
+    "query": "select ?x where{dbr:California_(U.S.) dbo:capital ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:73-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/73-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the authors of books written about the Battle of Stalingrad?",
+    "query": "?\n\nselect ?x where{dbr:The_Battle_of_Stalingrad dbo:writer ?x. dbr:The_Battle_of_Stalingrad_(novel) dbo:writer ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:74-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/74-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los autores de libros escritos sobre la Batalla de Stalingrado?",
+    "query": "select ?x where{dbr:The_Batalla_of_Stalingrado dbo:writer ?x1. ?x1 dbo:personName ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:74-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/74-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the Louvre Museum located in Paris?",
+    "query": "ask where{dbr:Louvre_Museum dbo:locatedInArea ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:75-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/75-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEst\u00e1 el Museo del Louvre ubicado en Par\u00eds?",
+    "query": "ask where{dbr:Museo_del_Louvre dbo:locatedInArea ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:75-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/75-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Give me all prime ministers of the United Kingdom.",
+    "query": "?\n\nselect ?x where{dbr:Prime_Ministers_of_the_United_Kingdom dbo:principal ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:76-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/76-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Dame todos los primeros ministros del Reino Unido.",
+    "query": "select ?x where{dbr:Ministros_del_Reino_Unido dbo:firstAppearance ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:76-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/76-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "When was the birth of Albert Einstein?",
+    "query": "select ?x where{dbr:Albert_Einstein dbo:birthPlace ?x1. ?x1 dbo:yearOfConstruction ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:77-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/77-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ndo naci\u00f3 Albert Einstein?",
+    "query": "select ?x where{dbr:Albert_Einstein dbo:birthPlace ?x1. ?x1 dbo:yearOfConstruction ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:77-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/77-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List some architects of buildings taller than 300 meters.",
+    "query": "select ?x where{dbr:300_meters dbo:architect ?x1. ?x1 dbo:architect ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:78-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/78-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera algunos arquitectos de edificios m\u00e1s altos que 300 metros.",
+    "query": "select ?x where{dbr:300_metros dbo:architect ?x1. ?x1 dbo:numberOfArchitects ?x}order by desc ( ?x) limit 1",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:78-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/78-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the birthplace of Nikola Tesla?",
+    "query": "select ?x where{dbr:Nikola_Tesla dbo:birthPlace ?x1. ?x1 dbo:populationDensity ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:79-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/79-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identificar el lugar de nacimiento de Nikola Tesla?",
+    "query": "select ?x where{dbr:Nikola_Tesla dbo:birthPlace ?x1. ?x1 dbo:populationDensity ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:79-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/79-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List the 10 countries with most cities.",
+    "query": "select ?x where{dbr:Brazil dbo:populationUrban ?x1. ?x1 dbo:numberOfCities ?x}order by desc ( ?x) limit 10",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:80-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/80-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere los 10 pa\u00edses con m\u00e1s ciudades.",
+    "query": "select ?x where{dbr:Brazil dbo:populationUrban ?x1. ?x1 dbo:populationTotal ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:80-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/80-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the places where rivers that flow into the Black Sea originate from?",
+    "query": "select ?x where{dbr:Black_Sea_(river) dbo:riverFlow ?x1. ?x1 dbo:origin ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:81-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/81-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfDe d\u00f3nde provienen los r\u00edos que fluyen hacia el Mar Negro?",
+    "query": "select ?x where{dbr:Mar_Negro dbo:river ?x1. ?x1 dbo:length ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:81-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/81-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many games (or DLCs) by Blizzard Entertainment are part of the Warcraft series?",
+    "query": "select count(*) as ?x where{dbr:Blizzard_Entertainment dbo:gameSeries ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:82-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/82-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos juegos (o DLCs) de Blizzard Entertainment son parte de la serie Warcraft?",
+    "query": "select count(*) as ?x where{dbr:Blizzard_Entertainment dbo:gameSeries ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:82-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/82-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the alternate names of the child from Aung San Suu Kyi?",
+    "query": "select ?x where{dbr:Aung_San_Suu_Kyi dbo:child ?x1. ?x1 dbo:alternateName ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:83-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/83-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los nombres alternativos del hijo de Aung San Suu Kyi?",
+    "query": "select ?x where{dbr:Aung_San_Suu dbo:spouse ?x1. ?x1 dbo:altLabel ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:83-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/83-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which professional athlete is also an actor?",
+    "query": "select ?x where{dbr:The_Great_British_Football dbo:formerAthlete ?x. dbr:The_Great_British_Football dbo:formerAthlete ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:84-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/84-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 atleta profesional, que tambi\u00e9n es actor?",
+    "query": "select ?x where{dbr:The_Batman_(1994_film) dbo:actor ?x1. ?x1 dbo:profession ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:84-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/84-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the wife of Tom Hanks?",
+    "query": "select ?x where{dbr:Tom_Hanks dbo:spouse ?x1. ?x1 dbo:spouse ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:85-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/85-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es la esposa de Tom Hanks?",
+    "query": "select ?x where{dbr:Tom_Hanks dbo:spouse ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:85-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/85-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the occupations of the Wikipedia authors?",
+    "query": "select ?x where{dbr:The_Great_British_Army_(1920\u20131921) dbo:wikiPageWikiLink ?x1. ?x1 dbo:occupation ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:86-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/86-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las ocupaciones de los autores de Wikipedia?",
+    "query": "select ?x where{dbr:The_Great_British_War_and_the_Revolution dbo:author ?x1. ?x1 dbo:occupation ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:86-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/86-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which companies have employed graduates from Stanford University?",
+    "query": "select ?x where{dbr:Stanford_University dbo:graduate ?x1. ?x1 dbo:employer ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:87-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/87-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas han empleado a graduados de la Universidad de Stanford?",
+    "query": "select ?x where{dbr:Stanford_University dbo:graduate ?x1. ?x1 dbo:almaMater ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:87-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/87-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which book has author as J.K. Rowling?",
+    "query": "select ?x where{dbr:J._K._Rowling dbo:author ?x1. ?x1 dbo:book ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:88-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/88-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 libro tiene como autor a J.K. Rowling?",
+    "query": "select ?x where{dbr:J._K._Rowling dbo:author ?x1. ?x1 dbo:bookTitle ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:88-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/88-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many books were authored by J.K. Rowling?",
+    "query": "select count(*) as ?x where{dbr:J._K._Rowling dbo:author ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:89-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/89-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos libros fueron escritos por J.K. Rowling?",
+    "query": "select count(*) as ?x where{dbr:J._K._Rowling dbo:book ?x1. ?x1 dbo:numberOfBooks ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:89-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/89-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was the predecessor of Irina Bokova born?",
+    "query": "select ?x where{dbr:Irina_Bokova dbo:predecessor ?x1. ?x1 dbo:birthPlace ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:90-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/90-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde naci\u00f3 el predecesor de Irina Bokova?",
+    "query": "select ?x where{dbr:Irina_Bokova dbo:predecessor ?x1. ?x1 dbo:birthPlace ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:90-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/90-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many films were recorded by the cinematographer of 'Inception'?",
+    "query": "select count(*) as ?x where{dbr:The_Cinematographer_of_'Inception' dbo:recordedIn ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:91-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/91-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCuantas pel\u00edculas fueron filmadas por el director de fotograf\u00eda de 'Inception'?",
+    "query": "select count(*) as ?x where{dbr:Inception dbo:director ?x1. ?x1 dbo:film ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:91-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/91-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the capital cities from the countries where Mount Everest is located?",
+    "query": "select ?x where{dbr:Mount_Everest dbo:locatedInCountry ?x1. ?x1 dbo:capital ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:92-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/92-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las capitales de los pa\u00edses donde se encuentra el Monte Everest?",
+    "query": "select ?x where{dbr:Monte_Everest dbo:capital ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:92-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/92-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is there a university whose campuses are New York and California?",
+    "query": "ask where{dbr:New_York_University dbo:campus ?x. dbr:California_University,_New_York dbo:campus ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:93-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/93-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfExiste una universidad cuyos campus son Nueva York y California?",
+    "query": "select ?x where{dbr:New_York_University dbo:campus ?x. dbr:California_University dbo:campus ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:93-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/93-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Do the University of Georgia and the Atlanta Falcons have the same mascot?",
+    "query": "ask where{dbr:University_of_Georgia_and_the_Atlanta_Falcons dbo:mascot ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:94-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/94-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfTienen la Universidad de Georgia y los Atlanta Falcons el mismo mascota?",
+    "query": "ask where{dbr:Los_Atlanta_Falcons dbo:species ?x. dbr:University_of_Georgia dbo:species ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:94-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/94-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which notable figures are buried in P\u00e8re Lachaise Cemetery?",
+    "query": "select ?x where{dbr:P\u00e8re_Lachaise_Cemetery dbo:notableFigure ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:95-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/95-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 figuras notables est\u00e1n enterradas en el Cementerio de P\u00e8re Lachaise?",
+    "query": "select ?x where{dbr:Cementerio_de_P\u00e8re_Lachaise dbo:notableFigure ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:95-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/95-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all countries, starting with those who have the least amount of universities.",
+    "query": "select ?x where{dbr:University_of_Liverpool dbo:numberOfStudents ?x1. ?x1 dbo:numberOfStudents ?x filter  (  ?x < 1  )  }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:96-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/96-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere todos los pa\u00edses, comenzando por aquellos que tienen la menor cantidad de universidades.",
+    "query": "select ?x where{dbr:University_of_Liverpool dbo:numberOfUndergraduateStudents ?x1. ?x1 dbo:numberOfUndergraduateStudents ?x}order by desc ( ?x) limit 1",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:96-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/96-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which rivers originates from the Rocky Mountains?",
+    "query": "select ?x where{dbr:Rocky_Mountains dbo:riverOrigin ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:97-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/97-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 r\u00edos se originan en las Monta\u00f1as Rocosas?",
+    "query": "select ?x where{dbr:Monta\u00f1as_Rocosas dbo:river ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:97-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/97-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the regions served by FedEx?",
+    "query": "select ?x where{dbr:FedEx_(United_States) dbo:regionServed ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:98-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/98-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las regiones atendidas por FedEx?",
+    "query": "select ?x where{dbr:FedEx dbo:regionAttended ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:98-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/98-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the city and country of the Michelin company headquarters?",
+    "query": "select ?x where{dbr:Michelin_Company dbo:headquarter ?x1. ?x1 dbo:country ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:99-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/99-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 ciudad y pa\u00eds es la sede de la empresa Michelin?",
+    "query": "select ?x where{dbr:Michelin dbo:sede ?x1. ?x1 dbo:city ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:99-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/99-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "All book authors born in Paris?",
+    "query": "?\n\nselect ?x where{dbr:Paris_(book) dbo:author ?x1. ?x1 dbo:birthPlace ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:100-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/100-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfTodos los autores de libros nacidos en Par\u00eds?",
+    "query": "select ?x where{dbr:Libros_nacidos_en_Par\u00eds dbo:author ?x }",
+    "endpoint": "https://dbpedia-nspm3-primary.hf.space/starcoder",
+    "qname": "db25:100-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/100-es"
+  }
+]
