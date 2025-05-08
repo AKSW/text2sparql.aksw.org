@@ -11,7 +11,7 @@ title: "Dates & Submission Guidelines"
 - EVALUATION from May 1st to 5th, 2025 PST **<s>EVALUATION from April 23th to 29th, 2025 PST</s>**
 - Release of test dataset & results: May 9th PST**<s>April 30th, 2025 PST</s>**
     - :material-calendar-check: 2025-05-06 - Publikation of Test Dataset 1: [CK25 - The Corporate Knowledge Reference Dataset for Benchmarking Text 2 SPARQL Question Answering Approaches](https://github.com/eccenca/ck25-dataset)
-    - :material-calendar-check: 2025-05-08 - Publikation of [Endpoint Responses](../results)
+    - :material-calendar-check: 2025-05-08 - Publikation of [Endpoint Responses](results/index.md)
     - :material-calendar-check: 2025-05-09 - Publikation of Test Dataset 2
 - Paper submission deadline: June 28th, 2025 PST
 - Notification & Reviews: July 12th, 2025 PST

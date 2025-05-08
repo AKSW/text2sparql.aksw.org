@@ -24,7 +24,7 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 !!! info "2025-05-08 - Endpoint Responses published"
 
-    As a first part of the [:material-chart-bar: Challenge Results](../results) we publish the plain endpoint responses. 
+    As a first part of the [:material-chart-bar: Challenge Results](results/index.md) we publish the plain endpoint responses. 
 
 !!! info "2025-05-06 - First Test Dataset released"
 
