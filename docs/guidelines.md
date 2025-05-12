@@ -34,7 +34,7 @@ The submission will be held into two stages (1) results and (2) papers.
 
 - Every competing approach should submit a 12 pages article written in English describing the method in the style of the Springer Publications format for Lecture Notes in Computer Science (LNCS). For further instructions, you can check the Springer Conference Proceeding templates at Springer submission guidelines.
 
-- Paper Overleaf Template: TBA
+- Paper Overleaf Template: [Template](https://www.overleaf.com/latex/templates/template-for-submissions-to-ceur-workshop-proceedings-ceur-ws-dot-org/wqyfdgftmcfw)
 
 - All submissions will be peer-reviewed by the Program Committee.
 
@@ -42,4 +42,4 @@ The submission will be held into two stages (1) results and (2) papers.
 
 - Each competing approach needs to be registered and presented by one of the authors at the workshop (presentations can be held online). Not complying with this rule may lead to disqualification.
 
-- All papers should be submitted to easychair under the following link: TBA
+- All papers should be submitted to easychair under the following link: [Text2SPARQL](https://easychair.org/my/conference?conf=text2sparql2025)
