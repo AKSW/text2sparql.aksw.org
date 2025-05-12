@@ -12,7 +12,7 @@ title: "Dates & Submission Guidelines"
 - Release of test dataset & results: May 9th PST**<s>April 30th, 2025 PST</s>**
     - :material-calendar-check: 2025-05-06 - Publikation of Test Dataset 1: [CK25 - The Corporate Knowledge Reference Dataset for Benchmarking Text 2 SPARQL Question Answering Approaches](https://github.com/eccenca/ck25-dataset)
     - :material-calendar-check: 2025-05-08 - Publikation of [Endpoint Responses](results/index.md)
-    - :material-calendar-check: 2025-05-09 - Publikation of Test Dataset 2
+    - :material-calendar-check: 2025-05-12 - Publikation of [Test Dataset 2](https://github.com/AKSW/text2sparql.aksw.org/tree/develop/docs/benchmark)
 - Paper submission deadline: June 28th, 2025 PST
 - Notification & Reviews: July 12th, 2025 PST
 - Submission of camera-ready papers: July 26th, 2025 PST
