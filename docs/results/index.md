@@ -13,5 +13,5 @@ title: "Results"
 
     - `ck25_answers.json` - the JSON result of the requested queries for the [CK25 dataset](https://github.com/eccenca/ck25-dataset)
     - `ck25_responses.db` - the SQLITE database file of the responses for the [CK25 dataset](https://github.com/eccenca/ck25-dataset) run
-    - `db25_answers.json` - the JSON result of the requested queries for the DB25 dataset
-    - `db25_responses.db` - the SQLITE database file of the responses for the DB25 dataset run
+    - `db25_answers.json` - the JSON result of the requested queries for the [DB25 dataset](https://github.com/AKSW/text2sparql.aksw.org/tree/develop/docs/benchmark)
+    - `db25_responses.db` - the SQLITE database file of the responses for the [DB25 dataset](https://github.com/AKSW/text2sparql.aksw.org/tree/develop/docs/benchmark) run
