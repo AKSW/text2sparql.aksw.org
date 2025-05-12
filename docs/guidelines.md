@@ -42,4 +42,4 @@ The submission will be held into two stages (1) results and (2) papers.
 
 - Each competing approach needs to be registered and presented by one of the authors at the workshop (presentations can be held online). Not complying with this rule may lead to disqualification.
 
-- All papers should be submitted to easychair under the following link: TBA
+- All papers should be submitted to easychair under the following link: [Text2SPARQL](https://easychair.org/my/conference?conf=text2sparql2025)
