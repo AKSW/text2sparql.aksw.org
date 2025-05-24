@@ -36,11 +36,11 @@ challengers:
     id: MIPT
     authors:
       - name: "Oleg Somov"
-        affiliation: "AIRI,  MIPT"
+        affiliation: "Artificial Intelligence Research Institute (AIRI), Moscow / MIPT"
       - name: "Daniil Berezin"
-        affiliation: "MIPT"
+        affiliation: "Artificial Intelligence Research Institute (AIRI), Moscow / MIPT"
       - name: "Roman Avdeev"
-        affiliation: "MIPT"
+        affiliation: "Artificial Intelligence Research Institute (AIRI), Moscow / MIPT"
   - api: "https://graf.ti.rw.fau.de/q/text2sparql"
     id: IIS-Q
     authors:

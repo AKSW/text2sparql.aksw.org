@@ -16,7 +16,7 @@ The presentation session for the challengers will be on 2025-06-01 from 10:40 to
 - 11:30 - Daniel Gerber, Lorenz Bühmann, **Lars-Peter Meyer**, Felix Brei and Claus Stadler: Presentation of the [ETi @ Institute for Applied Informatics (InfAI)](https://cc-eti.org/)
 - 11:40 - Brucce Neves dos Santos, Daniel Zitei, João Barbirato and Rafael Silva: Presentation of the [LABIC @ University of São Paulo](https://labic.icmc.usp.br/)
 - 11:50 - Baptiste Amice, Sébastien Ferré and Peggy Cellier: Presentation of the [LACODAM @ Université de Rennes / IRISA/INSA de Rennes](https://team.inria.fr/lacodam/) - remote
-- 12:00 - Oleg Somov, Daniil Berezin and Roman Avdeev: Presentation of the [Moscow Institute of Physics and Technology](https://old.mipt.ru/english/) - remote
+- 12:00 - **Oleg Somov**, Daniil Berezin and Roman Avdeev: Presentation of the [Artificial Intelligence Research Institute (AIRI), Moscow](https://airi.net/) - remote
 - 12:10 - Aleksandr Perevalov and **Andreas Both**: Presentation of the [WSE Research Group @ Leipzig University of Applied Sciences](https://github.com/WSE-research)
 - 12:20 - **Edgard Marx** and Sebastian Tramp: Result Presentation and Winner Ceremony
 - 12:45 - Closing
