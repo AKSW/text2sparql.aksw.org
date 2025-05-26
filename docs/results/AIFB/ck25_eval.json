@@ -1,0 +1,261 @@
+{
+  "ck25:1-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:2-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:3-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:4-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:5-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:6-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:7-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:8-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:9-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:10-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:11-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:12-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:13-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:14-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:15-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:16-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:17-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:18-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:19-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:20-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:21-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:22-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:23-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:24-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:25-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:26-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:27-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0,
+    "ndcg": 0.0
+  },
+  "ck25:28-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:29-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:30-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:31-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:32-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:33-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:34-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:35-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:36-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:37-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0,
+    "ndcg": 0.0
+  },
+  "ck25:38-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:39-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:40-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:41-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:42-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:43-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:44-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:45-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:46-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:47-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:48-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:49-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "ck25:50-en": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0
+  },
+  "average": {
+    "set_P": 0.0,
+    "set_recall": 0.0,
+    "set_F": 0.0,
+    "ndcg": 0.0,
+    "set_F_ndcg": 0.0
+  }
+}
