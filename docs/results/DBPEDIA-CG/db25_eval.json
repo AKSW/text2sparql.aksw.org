@@ -1008,6 +1008,16 @@
     "set_P": 0.055,
     "set_F": 0.055,
     "ndcg": 0.0,
-    "set_F_ndcg": 0.05472636815920398
+    "set_F_ndcg": 0.05472636815920398,
+    "set_F-en": 0.06,
+    "set_P-en": 0.06,
+    "set_recall-en": 0.06,
+    "ndcg-en": 0.0,
+    "set_F-es": 0.05,
+    "set_P-es": 0.05,
+    "set_recall-es": 0.05,
+    "ndcg-es": 0.0,
+    "set_F_ndcg-en": 0.06,
+    "set_F_ndcg-es": 0.05
   }
 }
