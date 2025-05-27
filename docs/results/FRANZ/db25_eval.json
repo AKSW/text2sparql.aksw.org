@@ -1004,10 +1004,20 @@
     "set_F": 0.0
   },
   "average": {
-    "set_F": 0.07333333333333333,
     "set_recall": 0.075,
     "set_P": 0.0725,
+    "set_F": 0.07333333333333333,
     "ndcg": 0.0,
-    "set_F_ndcg": 0.07296849087893864
+    "set_F_ndcg": 0.07296849087893864,
+    "set_F-en": 0.09,
+    "set_P-en": 0.09,
+    "set_recall-en": 0.09,
+    "ndcg-en": 0.0,
+    "set_F-es": 0.05666666666666667,
+    "set_P-es": 0.055,
+    "set_recall-es": 0.06,
+    "ndcg-es": 0.0,
+    "set_F_ndcg-en": 0.09,
+    "set_F_ndcg-es": 0.05666666666666667
   }
 }
