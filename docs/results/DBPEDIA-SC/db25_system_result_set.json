@@ -1,0 +1,315 @@
+{
+  "db25:1-en": {
+    "0": 1
+  },
+  "db25:1-es": {
+    "0": 1
+  },
+  "db25:2-en": {},
+  "db25:2-es": {},
+  "db25:3-en": {
+    "http://dbpedia.org/resource/Beirut": 1
+  },
+  "db25:3-es": {},
+  "db25:4-en": {},
+  "db25:4-es": {},
+  "db25:5-en": {},
+  "db25:5-es": {},
+  "db25:6-en": {},
+  "db25:6-es": {},
+  "db25:7-en": {},
+  "db25:7-es": {},
+  "db25:8-en": {
+    "true": 0
+  },
+  "db25:8-es": {},
+  "db25:9-en": {},
+  "db25:9-es": {},
+  "db25:10-en": {},
+  "db25:10-es": {},
+  "db25:11-en": {
+    "0": 1
+  },
+  "db25:11-es": {},
+  "db25:12-en": {
+    "http://dbpedia.org/resource/Boeing_Commercial_Airplanes": 1
+  },
+  "db25:12-es": {
+    "http://dbpedia.org/resource/Boeing_Commercial_Airplanes": 1
+  },
+  "db25:13-en": {},
+  "db25:13-es": {},
+  "db25:14-en": {
+    "true": 0
+  },
+  "db25:14-es": {
+    "true": 0
+  },
+  "db25:15-en": {},
+  "db25:15-es": {},
+  "db25:16-en": {},
+  "db25:16-es": {},
+  "db25:17-en": {},
+  "db25:17-es": {},
+  "db25:18-en": {},
+  "db25:18-es": {},
+  "db25:19-en": {},
+  "db25:19-es": {},
+  "db25:20-en": {},
+  "db25:20-es": {},
+  "db25:21-en": {},
+  "db25:21-es": {},
+  "db25:22-en": {},
+  "db25:22-es": {},
+  "db25:23-en": {},
+  "db25:23-es": {},
+  "db25:24-en": {
+    "http://dbpedia.org/resource/Yate": 1,
+    "http://dbpedia.org/resource/Gloucestershire": 1
+  },
+  "db25:24-es": {},
+  "db25:25-en": {
+    "0": 1
+  },
+  "db25:25-es": {
+    "0": 1
+  },
+  "db25:26-en": {
+    "http://dbpedia.org/resource/John_F._Reynolds": 1,
+    "http://dbpedia.org/resource/Robert_E._Lee": 1,
+    "http://dbpedia.org/resource/George_Meade": 1
+  },
+  "db25:26-es": {},
+  "db25:27-en": {},
+  "db25:27-es": {},
+  "db25:28-en": {},
+  "db25:28-es": {},
+  "db25:29-en": {
+    "true": 0
+  },
+  "db25:29-es": {
+    "true": 0
+  },
+  "db25:30-en": {},
+  "db25:30-es": {},
+  "db25:31-en": {},
+  "db25:31-es": {},
+  "db25:32-en": {},
+  "db25:32-es": {},
+  "db25:33-en": {
+    "0": 1
+  },
+  "db25:33-es": {
+    "0": 1
+  },
+  "db25:34-en": {},
+  "db25:34-es": {},
+  "db25:35-en": {},
+  "db25:35-es": {},
+  "db25:36-en": {
+    "http://dbpedia.org/resource/Charlie_Parker": 1,
+    "http://dbpedia.org/resource/Gerry_Mulligan": 1,
+    "http://dbpedia.org/resource/Billy_Eckstine": 1,
+    "http://dbpedia.org/resource/Clark_Terry": 1,
+    "http://dbpedia.org/resource/Gil_Evans": 1,
+    "http://dbpedia.org/resource/John_Coltrane": 1,
+    "http://dbpedia.org/resource/Miles_Davis_Quintet": 1
+  },
+  "db25:36-es": {},
+  "db25:37-en": {},
+  "db25:37-es": {},
+  "db25:38-en": {},
+  "db25:38-es": {},
+  "db25:39-en": {},
+  "db25:39-es": {},
+  "db25:40-en": {},
+  "db25:40-es": {},
+  "db25:41-en": {},
+  "db25:41-es": {},
+  "db25:42-en": {},
+  "db25:42-es": {},
+  "db25:43-en": {
+    "http://dbpedia.org/resource/Lancy": 1,
+    "http://dbpedia.org/resource/Veyrier": 1
+  },
+  "db25:43-es": {},
+  "db25:44-en": {},
+  "db25:44-es": {},
+  "db25:45-en": {},
+  "db25:45-es": {},
+  "db25:46-en": {},
+  "db25:46-es": {},
+  "db25:47-en": {
+    "http://dbpedia.org/resource/Oxford": 1,
+    "http://dbpedia.org/resource/Oxfordshire": 1,
+    "http://dbpedia.org/resource/Wiltshire": 1,
+    "http://dbpedia.org/resource/Salisbury": 1,
+    "http://dbpedia.org/resource/East_Sussex": 1,
+    "http://dbpedia.org/resource/Ringmer": 1
+  },
+  "db25:47-es": {
+    "http://dbpedia.org/resource/St_Leonards-on-Sea": 1,
+    "http://dbpedia.org/resource/Sussex": 1,
+    "http://dbpedia.org/resource/Kent": 1,
+    "http://dbpedia.org/resource/Broadstairs": 1,
+    "http://dbpedia.org/resource/Warcop": 1,
+    "http://dbpedia.org/resource/Hampshire": 1,
+    "http://dbpedia.org/resource/Portsmouth": 1,
+    "http://dbpedia.org/resource/England": 1,
+    "http://dbpedia.org/resource/London": 1,
+    "http://dbpedia.org/resource/East_Sheen": 1
+  },
+  "db25:48-en": {},
+  "db25:48-es": {},
+  "db25:49-en": {},
+  "db25:49-es": {
+    "true": 0
+  },
+  "db25:50-en": {
+    "true": 0
+  },
+  "db25:50-es": {},
+  "db25:51-en": {},
+  "db25:51-es": {},
+  "db25:52-en": {},
+  "db25:52-es": {},
+  "db25:53-en": {},
+  "db25:53-es": {},
+  "db25:54-en": {},
+  "db25:54-es": {},
+  "db25:55-en": {},
+  "db25:55-es": {},
+  "db25:56-en": {},
+  "db25:56-es": {},
+  "db25:57-en": {},
+  "db25:57-es": {},
+  "db25:58-en": {},
+  "db25:58-es": {
+    "true": 0
+  },
+  "db25:59-en": {},
+  "db25:59-es": {},
+  "db25:60-en": {},
+  "db25:60-es": {},
+  "db25:61-en": {
+    "0": 1
+  },
+  "db25:61-es": {
+    "0": 1
+  },
+  "db25:62-en": {},
+  "db25:62-es": {},
+  "db25:63-en": {},
+  "db25:63-es": {},
+  "db25:64-en": {},
+  "db25:64-es": {},
+  "db25:65-en": {},
+  "db25:65-es": {},
+  "db25:66-en": {
+    "0": 1
+  },
+  "db25:66-es": {},
+  "db25:67-en": {},
+  "db25:67-es": {},
+  "db25:68-en": {},
+  "db25:68-es": {},
+  "db25:69-en": {},
+  "db25:69-es": {},
+  "db25:70-en": {},
+  "db25:70-es": {
+    "0": 1
+  },
+  "db25:71-en": {},
+  "db25:71-es": {},
+  "db25:72-en": {},
+  "db25:72-es": {
+    "http://dbpedia.org/resource/Rockfield_Studios": 1,
+    "http://dbpedia.org/resource/Sarm_East_Studios": 1
+  },
+  "db25:73-en": {},
+  "db25:73-es": {},
+  "db25:74-en": {},
+  "db25:74-es": {},
+  "db25:75-en": {
+    "true": 0
+  },
+  "db25:75-es": {
+    "true": 0
+  },
+  "db25:76-en": {},
+  "db25:76-es": {},
+  "db25:77-en": {},
+  "db25:77-es": {},
+  "db25:78-en": {},
+  "db25:78-es": {},
+  "db25:79-en": {},
+  "db25:79-es": {},
+  "db25:80-en": {},
+  "db25:80-es": {},
+  "db25:81-en": {},
+  "db25:81-es": {},
+  "db25:82-en": {
+    "0": 1
+  },
+  "db25:82-es": {
+    "0": 1
+  },
+  "db25:83-en": {},
+  "db25:83-es": {},
+  "db25:84-en": {},
+  "db25:84-es": {},
+  "db25:85-en": {
+    "http://dbpedia.org/resource/Tom_Hanks": 1
+  },
+  "db25:85-es": {
+    "http://dbpedia.org/resource/Rita_Wilson": 1
+  },
+  "db25:86-en": {},
+  "db25:86-es": {},
+  "db25:87-en": {},
+  "db25:87-es": {},
+  "db25:88-en": {},
+  "db25:88-es": {},
+  "db25:89-en": {
+    "0": 1
+  },
+  "db25:89-es": {
+    "0": 1
+  },
+  "db25:90-en": {
+    "http://dbpedia.org/resource/Japan": 1,
+    "http://dbpedia.org/resource/Tokyo": 1,
+    "http://dbpedia.org/resource/Yamaguchi_Prefecture": 1
+  },
+  "db25:90-es": {
+    "http://dbpedia.org/resource/Japan": 1,
+    "http://dbpedia.org/resource/Tokyo": 1,
+    "http://dbpedia.org/resource/Yamaguchi_Prefecture": 1
+  },
+  "db25:91-en": {},
+  "db25:91-es": {
+    "0": 1
+  },
+  "db25:92-en": {},
+  "db25:92-es": {},
+  "db25:93-en": {},
+  "db25:93-es": {},
+  "db25:94-en": {
+    "true": 0
+  },
+  "db25:94-es": {
+    "true": 0
+  },
+  "db25:95-en": {},
+  "db25:95-es": {},
+  "db25:96-en": {},
+  "db25:96-es": {},
+  "db25:97-en": {},
+  "db25:97-es": {},
+  "db25:98-en": {},
+  "db25:98-es": {},
+  "db25:99-en": {},
+  "db25:99-es": {},
+  "db25:100-en": {},
+  "db25:100-es": {}
+}
