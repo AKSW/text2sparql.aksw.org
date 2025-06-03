@@ -4,6 +4,10 @@ title: "Results"
 ---
 # Results
 
+!!! info "2025-06-04 - Result Presentation"
+
+    The results of the challenge are presented in detail in our talk **Results of the First International Text2SPARQL Challenge** - [:material-presentation-play: slides](../assets/talks/8-edgard-marx-result-presentation.pdf)
+
 !!! info "2025-05-08 - Endpoint Responses"
 
     The [:simple-github: results directory](https://github.com/AKSW/text2sparql.aksw.org/tree/develop/docs/results)

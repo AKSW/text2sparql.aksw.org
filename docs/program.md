@@ -9,7 +9,7 @@ This challenge is part of the [4th International Workshop on LLM-Integrated Know
 The presentation session for the challengers will be on 2025-06-01 from 10:40 to 12:30 (main presenters in bold).
 
 - 10:40 - **Sebastian Tramp**: Welcome and Introduction to the Challenge - [:material-presentation-play: slides](assets/talks/1-sebastian-tramp-introduction.pdf)
-- 10:50 - Jan Wardenga and **Tobias Käfer**: Presentation of the [Institute of Applied Informatics and Formal Description Methods (AIFB) @ KIT](https://www.aifb.kit.edu/english/index.php)
+- 10:50 - Jan Wardenga and **Tobias Käfer**: Presentation of the [Institute of Applied Informatics and Formal Description Methods (AIFB) @ KIT](https://www.aifb.kit.edu/english/index.php) - [:material-presentation-play: slides](assets/talks/2-AIFB-tobias-kaefer-kit.pdf)
 - 11:05 - Mehrzad Shahinmoghadam, **Tommaso Soru** and Sanju Tiwari: DBpedia Group at the 1st Text2SPARQL Challenge, [DBpedia Group](https://www.dbpedia.org/) - [:material-presentation-play: slides](assets/talks/3-DBPEDIA-tommaso-soru.pdf)
 - 11:20 - Daniel Henselmann, **Rene Dorsch** and Andreas Harth: Graf von Data – A Large Language Model Augmented Agent
 for KGQA over Integrated Data, [Fraunhofer Institute for Integrated Circuits (IIS)](https://www.iis.fraunhofer.de/en.html) - [:material-presentation-play: slides](assets/talks/4-IIS-QL-rene-dorsch-fraunhofer-iis.pdf)
