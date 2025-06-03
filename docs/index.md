@@ -22,6 +22,18 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2025-04-04 - Slides and Results Talk added"
+
+    We collected and published the slides of the talks from our challenge session at ESWC2025 on the [program page](program.md).
+
+    In addition to that, we pleased to announce the winning teams of the challenge, which outperformed 8 other teams from 6 countries in the listed categories in generating SPARQL queries from Natural Language Questions.
+
+    🏆 In the category of English questions on the DBpedia dataset, as well as English Questions on the Corporate Knowledge dataset , the endpoint from the InfAI team (Dr. Daniel Gerber, Lorenz Bühmann, Lars-Peter Meyer, Felix Brei, and Claus Stadler) outperformed the other endpoints.
+
+    🏆 The best team in the category of Spanish questions on the DBpedia dataset, as well as the Overall Winning Team, is the mKGQAgent endpoint team from the HTWK (Aleksandr Perevalov and Andreas Both)
+
+    Congratulations as well to the other teams that successfully participated in the challenge and presented their work.
+
 !!! info "2025-05-12 - Second Test Dataset and missing Submission Guidelines Links published"
 
     In addition to the missing [Submission Guideline Links](guidelines.md#paper), we released the [DB25 Test Dataset](https://github.com/AKSW/text2sparql.aksw.org/tree/develop/docs/benchmark) today.

@@ -531,6 +531,8 @@ questions:
     question:
       en: List all bands according to the amount of songs they published.
       es: Enumere todas las bandas según la cantidad de canciones que publicaron.
+    features:
+      - RESULT_ORDER_MATTERS
     query:
       sparql: |
         PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -1095,6 +1097,8 @@ questions:
     question:
       en: List all countries, starting with those who have the least amount of universities.
       es: Enumere todos los países, comenzando por aquellos que tienen la menor cantidad de universidades.
+    features:
+      - RESULT_ORDER_MATTERS
     query:
       sparql: |
         PREFIX dbo: <http://dbpedia.org/ontology/>
