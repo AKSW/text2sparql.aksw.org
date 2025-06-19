@@ -22,6 +22,10 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2025-06-19 - Winner Certificates added"
+
+    As requested (and promised), here are the [Winner Certificates](results/) for all 4 categories and the places 1 - 3.
+
 !!! info "2025-04-04 - Slides and Results Talk added"
 
     We collected and published the slides of the talks from our challenge session at ESWC2025 on the [program page](program.md).
