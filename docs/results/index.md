@@ -4,6 +4,32 @@ title: "Results"
 ---
 # Results
 
+!!! info "2025-06-19 - Winner Certificates"
+
+    **Category - Overall Performance**
+
+    - 🥇 [WSE: Aleksandr Perevalov and Andreas Both](../assets/certificates/category-overall-1-perevalov-and-both.pdf)
+    - 🥈 [INFAI: Daniel Gerber, Lorenz Bühmann, Lars-Peter Meyer, Felix Brei, and Claus Stadler](../assets/certificates/category-overall-2-gerber-et-al.pdf)
+    - 🥉 [IIS-Q: Daniel Henselmann, Rene Dorsch, and Andreas Harth](../assets/certificates/category-overall-3-henselmann-et-al.pdf)
+
+    **Category - Corporate**
+
+    - 🥇 [INFAI: Daniel Gerber, Lorenz Bühmann, Lars-Peter Meyer, Felix Brei, and Claus Stadler](../assets/certificates/category-corporate-1-gerber-et-al.pdf)
+    - 🥈 [IIS-Q: Daniel Henselmann, Rene Dorsch, and Andreas Harth](../assets/certificates/category-corporate-2-henselmann-et-al.pdf)
+    - 🥉 [IIS-L: Daniel Henselmann, Rene Dorsch, and Andreas Harth](../assets/certificates/category-corporate-3-henselmann-et-al.pdf)
+
+    **Category - DBpedia english**
+
+    - 🥇 [INFAI: Daniel Gerber, Lorenz Bühmann, Lars-Peter Meyer, Felix Brei, and Claus Stadler](../assets/certificates/category-dbpediaen-1-gerber-et-al.pdf)
+    - 🥈 [IIS-Q: Daniel Henselmann, Rene Dorsch, and Andreas Harth](../assets/certificates/category-dbpediaen-2-henselmann-et-al.pdf)
+    - 🥉 [AIFB: Jan Wardenga and Tobias Käfer](../assets/certificates/category-dbpediaen-3-wardenga-and-kaefer.pdf)
+
+    **Category - DBpedia spanish**
+
+    - 🥇 [WSE: Aleksandr Perevalov and Andreas Both](../assets/certificates/category-dbpediaes-1-perevalov-and-both.pdf)
+    - 🥈 [AIFB: Jan Wardenga and Tobias Käfer](../assets/certificates/category-dbpediaes-2-wardenga-and-kaefer.pdf)
+    - 🥉 [MIPT: Oleg Somov, Daniil Berezin, and Roman Avdeev](../assets/certificates/category-dbpediaes-3-somov-et-al.pdf)
+
 !!! info "2025-06-04 - Result Presentation"
 
     The results of the challenge are presented in detail in our talk **Results of the First International Text2SPARQL Challenge** - [:material-presentation-play: slides](../assets/talks/8-edgard-marx-result-presentation.pdf)
