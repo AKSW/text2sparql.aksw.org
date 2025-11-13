@@ -5,7 +5,7 @@ title: "First International TEXT2SPARQL Challenge (TEXT2SPARQL25)"
 <!-- markdownlint-disable MD012 MD013 MD024 MD033 -->
 # First International TEXT2SPARQL Challenge
 
-### Co-Located with Text2KG at ESWC25
+**Co-Located with [Text2KG](https://aiisc.ai/text2kg2025/) at [ESWC25](https://2025.eswc-conferences.org/program-overview/), sponsored by [CEUR-WS.org](http://ceur-ws.org/)**
 
 ## Abstract
 
@@ -22,9 +22,19 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2025-11-13 - Proceedings published"
+
+    We are happy to announce that the proceedings of TEXT2SPARQL'25 are officially published as [Vol-4094 of the CEUR Workshop Proceedings](https://ceur-ws.org/Vol-4094/) now.
+
+    Thank you all for your patience and maybe see you next year for another challenge 🤓
+
+    Best regards
+
+    Marcos, Edgard, Paulo, and Seebi
+
 !!! info "2025-06-19 - Winner Certificates added"
 
-    As requested (and promised), here are the [Winner Certificates](results/) for all 4 categories and the places 1 - 3.
+    As requested (and promised), here are the [Winner Certificates](results/index.md) for all 4 categories and the places 1 - 3.
 
 !!! info "2025-04-04 - Slides and Results Talk added"
 
