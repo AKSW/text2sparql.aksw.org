@@ -2,11 +2,8 @@
 
 [![example workflow][build-shield]][github-actions] [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa] [![CC BY-SA 4.0][mkdocs-shield]][mkdocs] [![made-with-Markdown][markdown-shield]](http://commonmark.org)
 
-Shared repository of TEXT2SPARQL'24 web page
+Shared repository of TEXT2SPARQL challenge series web page.
 
-| Branch       | Deployment |
-| :---         | :--- |
-| `main`       | [https://text2sparql.aksw.org/](https://text2sparql.aksw.org/) |
 
 ## License
 
