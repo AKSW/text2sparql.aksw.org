@@ -1,5 +1,5 @@
 ---
-name: Test
+name: Test and Publish
 
 # run on pull requests and all (feature/fix) branches
 on:
@@ -60,4 +60,7 @@ jobs:
 
       - name: build
         run: task clean build
+
+      - name: publish
+        run: task public:deploy
 
