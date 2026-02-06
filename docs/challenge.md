@@ -21,7 +21,8 @@ In order to attend the challenge, you have to deploy and provide your text2sparq
 Here is an example section you need to provide to us:
 
 ``` yaml
-  - api: "https://example.org/api/"
+  example:
+    api: "https://example.org/api/"
     authors:
       - name: "Max Muster"
         affiliation: "Group A @ Example University"
