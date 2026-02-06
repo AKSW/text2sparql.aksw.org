@@ -13,7 +13,7 @@ icon: material/account-group
 [:material-link:](https://aksw.org/EdgardMarx)
 [:simple-googlescholar:](https://scholar.google.com/citations?user=1jAHNZIAAAAJ&hl=en)
 
-Edgard is Principal Data Scientist @eccenca and Project Manager at the Leipzig University of Applied Sciences (HTWK) working on Natural Language Processing (NLP) focusing on Question Answering, Semantic Search systems, Data Management, and Digital Twins for large enterprises. He has 10+ years of experience in software engineering, project management, and designing innovative solutions.
+Edgard is Head of Data @ Byondis and Project Manager at the Leipzig University of Applied Sciences (HTWK) working on Natural Language Processing (NLP) focusing on Question Answering, Semantic Search systems, Data Management, and Digital Twins for large enterprises. He has 10+ years of experience in software engineering, project management, and designing innovative solutions.
 
 ---
 
@@ -35,40 +35,8 @@ Sebastian is a founding member of the renowned AKSW research group and was PC me
 He also has led a number of key Linked Data technology projects, including the development of the data wiki OntoWiki.
 
 ---
-
-!!! info inline end ""
-
-    ![Diego Moussallem](assets/people/Diego.png)
-
-## Diego Moussallem
-
-[:material-linkedin:](https://linkedin.com/in/diegomoussallem)
-[:material-link:](https://www.dice-research.org/DiegoMoussallem)
-[:simple-googlescholar:](https://scholar.google.com/citations?user=4i5xtXEAAAAJ&hl=en)
-
-Diego Moussallem develops algorithms for natural language processing using knowledge graphs with thee DICE group at Paderborn University.
-He worked on different NLP tasks ranging from basic research in computational linguistics to Entity Linking, Machine Translation, Natural Language Generation, and Question Answering.
-His work resulted in the first neural machine translation model augmented with knowledge graphs and one state-of-the-art framework in respect of multilingualism and knowledge-graph-based algorithms.
-
----
 ## Assistant Committee
 
 - Paulo do Carmo, HTWK Leipzig, Germany
 - Marcos Gôlo, USP, Brazil
-
----
-## Program Committee (tentative)
-
-- Axel Ngonga, University of Paderborn, Germany
-- Muhammad Saleem, University of Paderborn, Germany
-- Adrian Brasoveanu, Modul University Vienna, Austria
-- Saeedeh Shekarpour, University of Dayton, USA
-- Ricardo Usbeck, Leuphana Universität Lüneburg, Germany
-- Diego Collarana, Fraunhofer, Germany
-- Ricardo Marcacini, USP, Brazil
-- Sanju Tiwari, Sharda University, India
-- Gong Cheng, Nanjing University, China
-- Andreas Both, HTWK, Germany
-- Gustavo Publio, Schwarz IT, Germany
-- Tommaso Soru, Serendipity AI, London
 

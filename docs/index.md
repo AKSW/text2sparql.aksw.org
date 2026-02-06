@@ -1,11 +1,11 @@
 ---
 icon: material/home
-title: "First International TEXT2SPARQL Challenge (TEXT2SPARQL25)"
+title: "Second International TEXT2SPARQL Challenge (TEXT2SPARQL26)"
 ---
 <!-- markdownlint-disable MD012 MD013 MD024 MD033 -->
-# First International TEXT2SPARQL Challenge
+# Second International TEXT2SPARQL Challenge
 
-**Co-Located with [Text2KG](https://aiisc.ai/text2kg2025/) at [ESWC25](https://2025.eswc-conferences.org/program-overview/), sponsored by [CEUR-WS.org](http://ceur-ws.org/)**
+**Co-Located with [Text2KG](https://aiisc.ai/text2kg2026/) at [ESWC26](https://2026.eswc-conferences.org/)**
 
 ## Abstract
 
@@ -22,79 +22,9 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
-!!! info "2025-11-13 - Proceedings published"
+!!! info "2026-02-06 - TEXT2SPARQL 2026 organization starts"
 
-    We are happy to announce that the proceedings of TEXT2SPARQL'25 are officially published as [Vol-4094 of the CEUR Workshop Proceedings](https://ceur-ws.org/Vol-4094/) now.
+    We are happy to announce that we will organize a 2026 edition of the TEXT2SPARQL Challenge.
 
-    Thank you all for your patience and maybe see you next year for another challenge 🤓
-
-    Best regards
-
-    Marcos, Edgard, Paulo, and Seebi
-
-!!! info "2025-06-19 - Winner Certificates added"
-
-    As requested (and promised), here are the [Winner Certificates](results/index.md) for all 4 categories and the places 1 - 3.
-
-!!! info "2025-04-04 - Slides and Results Talk added"
-
-    We collected and published the slides of the talks from our challenge session at ESWC2025 on the [program page](program.md).
-
-    In addition to that, we pleased to announce the winning teams of the challenge, which outperformed 8 other teams from 6 countries in the listed categories in generating SPARQL queries from Natural Language Questions.
-
-    🏆 In the category of English questions on the DBpedia dataset, as well as English Questions on the Corporate Knowledge dataset , the endpoint from the InfAI team (Dr. Daniel Gerber, Lorenz Bühmann, Lars-Peter Meyer, Felix Brei, and Claus Stadler) outperformed the other endpoints.
-
-    🏆 The best team in the category of Spanish questions on the DBpedia dataset, as well as the Overall Winning Team, is the mKGQAgent endpoint team from the HTWK (Aleksandr Perevalov and Andreas Both)
-
-    Congratulations as well to the other teams that successfully participated in the challenge and presented their work.
-
-!!! info "2025-05-12 - Second Test Dataset and missing Submission Guidelines Links published"
-
-    In addition to the missing [Submission Guideline Links](guidelines.md#paper), we released the [DB25 Test Dataset](https://github.com/AKSW/text2sparql.aksw.org/tree/2025/docs/benchmark) today.
-
-!!! info "2025-05-08 - Program published"
-
-    The [program](program.md) is out!
-
-!!! info "2025-05-08 - Endpoint Responses published"
-
-    As a first part of the [:material-chart-bar: Challenge Results](results/index.md) we publish the plain endpoint responses. 
-
-!!! info "2025-05-06 - First Test Dataset released"
-
-    We just released one of the test datasets: The **The CK25 Corporate Knowledge Reference Dataset for Benchmarking Text 2 SPARQL Question Answering Approaches** is available on [:simple-github: eccenca/ck25-dataset](https://github.com/eccenca/ck25-dataset).
-
-!!! info "2025-05-05 - Evaluation phase is over"
-
-    Many thanks to all participants in the challenge.
-    We received [:simple-github: 12 endpoint registrations](https://github.com/AKSW/text2sparql.aksw.org/pulls?q=is%3Apr+is%3Aclosed+label%3Aregistration) and have surveyed these endpoints with 250 questions across the two datasets over the past few days.
-    The next step will be to analyze the results.
-
-!!! info "2025-04-22 - Challenge registration and evaluation dates extended"
-
-    We thought you gonna be happy with a few more days to work, check out the [new deadlines](https://text2sparql.aksw.org/guidelines/) :nerd:
-
-!!! info "2025-04-17 - DBpedia Mirror available"
-
-    Our friends from DBpedia shut down their download server for maintenance, so we provided and documented our own temporary [:material-download-circle: mirror for the DBpedia dataset](http://141.57.8.18:5050/downloads/).
-
-!!! info "2025-04-17 - Evaluator Agent IP Address published"
-
-    We published the IPs which will be used for fetching the answers [in this :simple-github: issue](https://github.com/AKSW/text2sparql.aksw.org/issues/28#issuecomment-2812016397).
-
-!!! info "2025-04-16 - TEXT2SPARQL Client Application published"
-
-    We published [:simple-python: text2sparql-client](https://pypi.org/project/text2sparql-client/), the command line client which we will use
-    to communicate with the TEXT2SPARQL endpoints of the participants.
-    You can use this application to [:material-file-check: self-evaluate your endpoint](challenge.md#self-evaluation).
-
-!!! info "2025-01-22 - Knowledge Graphs for Evaluation available"
-
-    We selected and provided the Knowledge Graphs, which will be used for the evaluation.
-
-    Please have a look at the [:material-trophy: Challenge](challenge.md) page.
-
-!!! info "2024-12-16 - Website online"
-
-    text2sparql.aksw.org is online and can be managed over [this :simple-github: repository](https://github.com/AKSW/text2sparql.aksw.org).
+    All news and updates will be provided here.
 
