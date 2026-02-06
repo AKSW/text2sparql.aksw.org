@@ -50,7 +50,7 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 !!! info "2025-05-12 - Second Test Dataset and missing Submission Guidelines Links published"
 
-    In addition to the missing [Submission Guideline Links](guidelines.md#paper), we released the [DB25 Test Dataset](https://github.com/AKSW/text2sparql.aksw.org/tree/develop/docs/benchmark) today.
+    In addition to the missing [Submission Guideline Links](guidelines.md#paper), we released the [DB25 Test Dataset](https://github.com/AKSW/text2sparql.aksw.org/tree/2025/docs/benchmark) today.
 
 !!! info "2025-05-08 - Program published"
 

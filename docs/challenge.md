@@ -90,7 +90,7 @@ The test set along with the result will be available after individual candidate 
 
 ### Process
 
-In order to attend the challenge, you have to deploy and provide your text2sparql service API somewhere on the web, and register your service for the challenge by adding your data to [CHALLENGERS.yaml](https://github.com/AKSW/text2sparql.aksw.org/blob/develop/CHALLENGERS.yaml).
+In order to attend the challenge, you have to deploy and provide your text2sparql service API somewhere on the web, and register your service for the challenge by adding your data to [CHALLENGERS.yaml](https://github.com/AKSW/text2sparql.aksw.org/blob/2025/CHALLENGERS.yaml).
 Here is an example section you need to provide to us:
 
 ``` yaml
