@@ -62,5 +62,5 @@ jobs:
         run: task clean build
 
       - name: publish
-        run: task public:deploy
+        run: GIT_COMMITTER_NAME=ci-bot GIT_COMMITTER_EMAIL=ci-bot@text2sparql.aksw.org task public:deploy
 

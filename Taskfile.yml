@@ -59,7 +59,10 @@ tasks:
       - task: install
     cmds:
       - >
-        poetry run mike deploy -b {{.PUBLIC_BRANCH}}
+        poetry run mike deploy
+        --branch {{.PUBLIC_BRANCH}}
+        --push
+        --allow-empty
         --update-aliases {{.CURRENT_VERSION}} latest
 
   public:serve:
