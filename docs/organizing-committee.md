@@ -13,7 +13,7 @@ icon: material/account-group
 [:material-link:](https://aksw.org/EdgardMarx)
 [:simple-googlescholar:](https://scholar.google.com/citations?user=1jAHNZIAAAAJ&hl=en)
 
-Edgard is Head of Data @ Byondis and Project Manager at the Leipzig University of Applied Sciences (HTWK) working on Natural Language Processing (NLP) focusing on Question Answering, Semantic Search systems, Data Management, and Digital Twins for large enterprises. He has 10+ years of experience in software engineering, project management, and designing innovative solutions.
+Edgard is Head of Data @ Byondis and leads the organization's efforts in data transformation, focusing on innovation in biotechnology and accelerating the development of impactful therapies. Edgard’s expertise spans optimization and the design of enterprise-wide data architectures that align with FAIR principles. Beyond his industrial leadership, Edgard holds a Ph.D. in Computer Science and has contributed to over 40 peer-reviewed publications and multiple international research projects, bringing a unique blend of academic excellence to his work in data science.
 
 ---
 
