@@ -37,6 +37,6 @@ He also has led a number of key Linked Data technology projects, including the d
 ---
 ## Assistant Committee
 
-- Paulo do Carmo, HTWK Leipzig, Germany
+- Paulo do Carmo, InfAI, Germany
 - Marcos Gôlo, USP, Brazil
 
