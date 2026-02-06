@@ -7,6 +7,9 @@ title: "Second International TEXT2SPARQL Challenge (TEXT2SPARQL26)"
 
 **Co-Located with [Text2KG](https://aiisc.ai/text2kg2026/) at [ESWC26](https://2026.eswc-conferences.org/)**
 
+**Organized by [Agile Knowledge Engineering and Semantic Web (AKSW) e.V.](https://aksw.org/Association)**
+
+
 ## Abstract
 
 !!! info inline end ""
