@@ -19,7 +19,9 @@ extra:
         https://github.com/aksw/text2sparql.aksw.org/blob/main/LICENSE
     - icon: fontawesome/brands/github
       link: https://github.com/aksw/text2sparql.aksw.org
-  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/
+  version:
+    provider: mike
   # https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#cookie-consent
   consent:
     title: Cookie consent
@@ -182,7 +184,6 @@ plugins:
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/
   - social:
       cards: true
-  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
   # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
   - git-revision-date-localized:
       enable_creation_date: true

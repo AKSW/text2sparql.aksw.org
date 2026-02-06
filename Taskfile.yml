@@ -3,6 +3,10 @@
 
 version: '3'
 
+vars:
+  PUBLIC_BRANCH: published
+  CURRENT_VERSION: 2025
+
 tasks:
 
   default:
@@ -48,4 +52,20 @@ tasks:
       - task: install
     cmds:
       - poetry run mkdocs serve
+
+  public:deploy:
+    desc: Publish the working directory as version {{.CURRENT_VERSION}}
+    deps:
+      - task: install
+    cmds:
+      - >
+        poetry run mike deploy -b {{.PUBLIC_BRANCH}}
+        --update-aliases {{.CURRENT_VERSION}} latest
+
+  public:serve:
+    desc: Start a webserver to manually validate the public branch
+    deps:
+      - task: install
+    cmds:
+      - poetry run mike serve -b {{.PUBLIC_BRANCH}}
 
