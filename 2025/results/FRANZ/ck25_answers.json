@@ -1,0 +1,402 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "In which department is Ms. Brant?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:1-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the telephone of Baldwin Dirksen?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:2-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is the manager of Heinrich Hoch?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:3-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the email of Sabrina from Marketing?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:4-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who has expertise in Transistors?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:5-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is our Sensor expert?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:6-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is the manager of the Data Services department?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:7-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department is responsible for the Sensor Switch M558-2275045?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:8-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many Sensor Switches do we offer?",
+    "query": "\nPREFIX ns3: <http://ld.company.org/prod-vocab/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT (COUNT(?sensorSwitch) AS ?sensorSwitchCount) \nWHERE {\n  ?sensorSwitch rdf:type ns3:HardwareShape .\n  ?sensorSwitch ns3:hasCategory ?category .\n  ?category ns3:categoryName \"Sensor Switch\" .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:9-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the name of the Network expert from the Marketing Department?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:10-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which departments have Transducer Experts?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:11-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which supplier are available to deliver Compensators?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:12-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many suppliers do we have in France?",
+    "query": "\nPREFIX ns3: <http://ld.company.org/prod-vocab/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT (COUNT(DISTINCT ?supplier) AS ?supplierCount)\nWHERE {\n  ?supplier rdf:type ns3:SupplierShape .\n  ?supplier ns3:country \"France\" .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:13-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which supplier in France delivers Compensators?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:14-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the cheapest Encoder we can get from a french or german supplier?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:15-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Do we have suppliers in Toulouse?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:16-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which suppliers do we have in Toulouse?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:17-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the cheapest Oscillator we have?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:18-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the most expensive service we offer?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:19-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is responsible for the most expensive service we offer?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:20-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the heaviest coil that does not exceed a base area of 15x15 milimeter?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:21-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What products are compatible with the U990 LCD Inductor?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:22-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What products can I get from US suppliers that are compatible with the U990 LCD Inductor?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:23-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the pontiometer with the smallest volume?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:24-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which coil has the highest density?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:25-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "In which cities are our US suppliers for LCDs?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:26-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Give me a phone directory of everyone on staff who does not manage anyone, I need name, email, and phone, sorted by name?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:27-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Do we have any service that does apply to a BOM where parts are sourced from Russia?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:28-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What suppliers - I need name, country and price - deliver the 6th to 10th most expensive hardware items.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:29-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department have more than 5 employees? I need their names and the number of employees.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:30-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Per product category, what's our lightest and heaviest hardware item?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:31-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For each supplier, what's the average price (in EUR) of what they sell, round reasonably?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:32-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Are there departments with no manager assigned?",
+    "query": "\nPREFIX ns3: <http://ld.company.org/prod-vocab/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT ?department\nWHERE {\n  ?department rdf:type ns3:Department .\n  FILTER NOT EXISTS {\n    ?manager rdf:type ns3:Manager .\n    ?department ns3:hasManager ?manager .\n  }\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:33-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "I need to update my supplier rolodex, give me every supplier's name and all address details.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:34-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For every product, list what other products it is compatible with and the price differences between both.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:35-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which area of expertise is most relevant among our products, what are the top three skills?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:36-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For each Bill of Material, how many parts does it contain and what is the total material quantity \u2014 show me only those BOMs exceeding 600 total items and order them descending.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:37-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "I want to update my contact list, for each Employee give me name, email, phone number and the department they belong to as well as their direct report.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:38-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items are wider than they are tall, and have a depth under 50 mm? List their dimensions.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:39-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items - list id and name - have no active product manager?",
+    "query": "\nPREFIX ns3: <http://ld.company.org/prod-vocab/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT ?hardware ?name\nWHERE {\n  ?hardware rdf:type ns3:Hardware ;\n            ns3:name ?name .\n  FILTER NOT EXISTS {\n    ?hardware ns3:hasProductManager ?productManager .\n    ?productManager ns3:status \"active\" .\n  }\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:40-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For each manager, what percentage of their entire team work in the same department as the manager?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:41-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which Bill-of-Material has the highest average unit cost of its hardware parts, and what is that average?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:42-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Show me any cycles of product compatibility \u2014 i.e. product A says it's compatible with B, and B says it's compatible with A (mutual pairs).",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:43-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items have dimensions in the top 10 % of all widths, and what are their IDs, names and widths?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:44-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which supplier delivers the most reliable Inductor?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:45-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What are the top 5 suppliers with best average reliability over their products.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:46-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "From which countries are the BOM parts of our SkySync MechWave delivered?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:47-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Show me all BOMs which have at least on part from a polish supplier.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:48-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many suppliers can deliver alternative compatible products for the K367 Strain Encoder?",
+    "query": "\nPREFIX ns3: <http://ld.company.org/prod-vocab/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\n\nSELECT (COUNT(DISTINCT ?supplier) AS ?supplierCount)\nWHERE {\n  ?product rdf:type ns3:HardwareShape ;\n           ns3:compatibleWith <http://ld.company.org/prod-vocab/K367_Strain_Encoder> .\n  ?alternativeProduct rdf:type ns3:HardwareShape ;\n                      ns3:compatibleWith ?product ;\n                      FILTER (?alternativeProduct != <http://ld.company.org/prod-vocab/K367_Strain_Encoder>) .\n  ?supplier rdf:type ns3:SupplierShape ;\n            ns3:canDeliver ?alternativeProduct .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:49-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department is resposible for the most product and how many product are this?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "ck25:50-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/50-en"
+  }
+]

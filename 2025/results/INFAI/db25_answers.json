@@ -1,0 +1,1602 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many unique authors have written science fiction novels?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT (COUNT(DISTINCT ?author) AS ?uniqueAuthorsCount) WHERE {\n        ?book ?p <http://dbpedia.org/resource/Science_fiction> .\n        ?book a dbo:Book .\n        ?book dbo:author ?author .\n    }",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:1-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos autores \u00fanicos han escrito novelas de ciencia ficci\u00f3n?",
+    "query": "\nPREFIX prop: <http://es.dbpedia.org/property/>\nPREFIX dbr: <http://es.dbpedia.org/resource/>\n\nSELECT DISTINCT (COUNT(DISTINCT ?author) AS ?uniqueAuthors) WHERE {\n  ?novel prop:subg\u00e9nero dbr:Ciencia_ficci\u00f3n .\n  ?novel prop:g\u00e9nero dbr:Novela .\n  ?novel prop:autor ?author .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:1-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/1-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the 10 most populated countries?",
+    "query": "\nSELECT DISTINCT ?country ?populationTotal WHERE {\n  ?country a <http://dbpedia.org/ontology/Country> .\n  ?country <http://dbpedia.org/ontology/populationTotal> ?populationTotal .\n  FILTER NOT EXISTS {\n    ?country a <http://dbpedia.org/ontology/Organisation> .\n  }\n  FILTER NOT (\n    regex(str(?country), \"Organisation\", \"i\") ||\n    regex(str(?country), \"Union\", \"i\") ||\n    regex(str(?country), \"Association\", \"i\") ||\n    regex(str(?country), \"Commonwealth\", \"i\") ||\n    regex(str(?country), \"BBIN\", \"i\")\n  )\n}\nORDER BY DESC(?populationTotal)\nLIMIT 10\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:2-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los 10 pa\u00edses m\u00e1s poblados?",
+    "query": "\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?country ?population WHERE {\n  ?country a dbo:Country .\n  ?country <http://es.dbpedia.org/property/poblaci\u00f3n> ?population .\n  FILTER (?country != <http://es.dbpedia.org/resource/Comunidad_Econ\u00f3mica_de_Estados_de_\u00c1frica_Occidental>)\n}\nORDER BY DESC(xsd:integer(?population))",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:2-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/2-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the birthplace of Keanu Reeves?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?birthPlace WHERE {\n  <http://dbpedia.org/resource/Keanu_Reeves> dbo:birthPlace ?birthPlace .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:3-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Keanu Reeves?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?place WHERE {\n  <http://es.dbpedia.org/resource/Keanu_Reeves> dbo:birthPlace ?place .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:3-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/3-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the number of Starbucks locations worldwide?",
+    "query": "\nSELECT DISTINCT ?numLocations WHERE {\n  <http://dbpedia.org/resource/Starbucks> <http://dbpedia.org/property/numLocations> ?numLocations .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:4-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el n\u00famero de ubicaciones de Starbucks en todo el mundo?",
+    "query": "\nSELECT DISTINCT ?numLocations WHERE {\n  <http://dbpedia.org/resource/Starbucks> <http://dbpedia.org/property/numLocations> ?numLocations .\n  <http://dbpedia.org/resource/Starbucks> <http://dbpedia.org/property/areaServed> ?areaServed .\n  FILTER regex(str(?areaServed), \"Worldwide\", \"i\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:4-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/4-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the Republic of Montenegro (1992-2006)?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?capital WHERE {\n  <http://dbpedia.org/resource/Republic_of_Montenegro_(1992\u20132006)> dbo:capital ?capital .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:5-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad capital de la Rep\u00fablica de Montenegro (1992-2006)?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?capital WHERE {\n  <http://dbpedia.org/resource/Montenegro> dbo:capital ?capital .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:5-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/5-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the corporation associated with products such as iPhone and iPad?",
+    "query": "\nSELECT DISTINCT ?corporation WHERE {\n  {\n    <http://dbpedia.org/resource/IPhone> <http://dbpedia.org/property/developer> ?corporation .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/IPad> <http://dbpedia.org/property/developer> ?corporation .\n  }\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:6-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identifique la corporaci\u00f3n asociada con productos como iPhone y iPad?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT ?corporation WHERE {\n  ?product <http://es.dbpedia.org/property/fabricante> <http://es.dbpedia.org/resource/Apple> .\n  BIND(<http://es.dbpedia.org/resource/Apple> AS ?corporation)\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:6-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/6-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which nearest city of the Eiffel Tower is the birthplace of Gustave Eiffel?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?nearestCity ?birthPlace WHERE {\n  <http://dbpedia.org/resource/Eiffel_Tower> dbo:location ?nearestCity .\n  <http://dbpedia.org/resource/Gustave_Eiffel> dbo:birthPlace ?birthPlace .\n  FILTER(CONTAINS(STR(?nearestCity), \"Paris\") || CONTAINS(STR(?nearestCity), \"7th_arrondissement_of_Paris\"))\n  FILTER(CONTAINS(STR(?birthPlace), \"Dijon\") || CONTAINS(STR(?birthPlace), \"C\u00f4te-d'Or\"))\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:7-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad m\u00e1s cercana a la Torre Eiffel que es el lugar de nacimiento de Gustave Eiffel?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?city ?cityLabel WHERE {\n  VALUES ?city { <http://dbpedia.org/resource/Dijon> }\n  ?city rdfs:label ?cityLabel .\n  FILTER (lang(?cityLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:7-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/7-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the Eiffel Tower located in Paris?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nASK WHERE { <http://dbpedia.org/resource/Eiffel_Tower> dbo:location <http://dbpedia.org/resource/Paris> . }",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:8-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEst\u00e1 la Torre Eiffel ubicada en Par\u00eds?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX res: <http://es.dbpedia.org/resource/>\n\nASK WHERE {\n  res:Torre_Eiffel dbo:location res:Par\u00eds .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:8-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/8-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who designed the Python programming language?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?designer ?designerLabel WHERE {\n  <http://dbpedia.org/resource/Guido_van_Rossum> rdfs:label ?designerLabel .\n  FILTER (lang(?designerLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:9-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n dise\u00f1\u00f3 el lenguaje de programaci\u00f3n Python?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?designer WHERE {\n  <http://es.dbpedia.org/resource/Python> dbo:designer ?designer .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:9-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/9-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which teams have players in the Wide Receiver position in American football?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?team WHERE {\n  ?player a dbo:AmericanFootballPlayer .\n  ?player dbo:position dbr:Wide_receiver .\n  ?player dbo:team ?team .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:10-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 equipos tienen jugadores en la posici\u00f3n de receptor abierto en el f\u00fatbol americano?",
+    "query": "\nSELECT DISTINCT ?team WHERE {\n  ?player dbo:position dbr:Wide_receiver .\n  ?player dbo:team ?team .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:10-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/10-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many people study at universities in California?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nSELECT DISTINCT ?director ?birthDate ?archive ?inventoryNumber WHERE {\n  ?director dbo:award dbr:Cannes_Film_Festival ;\n            dbo:birthDate ?birthDate .\n  OPTIONAL { ?director dbo:archive ?archive . }\n  OPTIONAL { ?director dbo:inventoryNumber ?inventoryNumber . }\n  ?director dbo:occupation dbr:Film_director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:11-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas personas estudian en las universidades de California?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT (SUM(?numStudents) AS ?totalStudents) WHERE {\n  ?university a dbo:University .\n  ?university rdfs:comment ?comment .\n  FILTER(CONTAINS(LCASE(STR(?comment)), \"california\")) .\n  ?university dbo:numberOfStudents ?numStudents .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:11-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/11-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the manufacturer of the Boeing 747?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?manufacturer WHERE {\n  <http://dbpedia.org/resource/Boeing_747> dbo:manufacturer ?manufacturer .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:12-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el fabricante del Boeing 747?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://es.dbpedia.org/resource/>\n\nSELECT DISTINCT ?manufacturer WHERE {\n  dbr:Boeing_747 dbo:manufacturer ?manufacturer .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:12-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/12-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which movie features Johnny Depp as a lead actor?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?movie WHERE {\n  ?movie dbo:starring <http://dbpedia.org/resource/Johnny_Depp> .\n  ?movie rdf:type dbo:Film .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:13-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 pel\u00edcula tiene a Johnny Depp como actor principal?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://es.dbpedia.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?movie ?movieLabel WHERE {\n  ?movie dbo:starring dbr:Johnny_Depp .\n  ?movie rdfs:label ?movieLabel .\n  FILTER (lang(?movieLabel) = \"es\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:13-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/13-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Did J.K. Rowling write the Harry Potter series?",
+    "query": "\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nASK WHERE {\n  dbr:Harry_Potter dbp:author dbr:J._K._Rowling .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:14-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfJ.K. Rowling escribi\u00f3 la serie de Harry Potter?",
+    "query": "\nASK WHERE {\n  <http://es.dbpedia.org/resource/Harry_Potter> <http://dbpedia.org/ontology/author> <http://es.dbpedia.org/resource/J._K._Rowling> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:14-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/14-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of the Louvre Museum?",
+    "query": "\nSELECT DISTINCT ?director WHERE {\n  <http://dbpedia.org/resource/Louvre> <http://dbpedia.org/property/director> ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:15-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el director del Museo del Louvre?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?director WHERE {\n  dbr:Louvre dbo:director ?director .\n} \nLIMIT 1",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:15-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/15-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the directors of Inception?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?director WHERE {\n  <http://dbpedia.org/resource/Inception> dbo:director ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:16-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los directores de Inception?",
+    "query": "\nSELECT DISTINCT ?director WHERE {\n  <http://es.dbpedia.org/resource/Inception> <http://dbpedia.org/ontology/director> ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:16-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/16-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are some movies available on Netflix?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?movie ?movieLabel WHERE {\n  ?movie a dbo:Film .\n  ?movie dbo:distributor <http://dbpedia.org/resource/Netflix> .\n  OPTIONAL { ?movie rdfs:label ?movieLabel . FILTER (lang(?movieLabel) = 'en') }\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:17-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son algunas pel\u00edculas disponibles en Netflix?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?movie WHERE {\n  ?movie a dbo:Film .\n  ?movie rdfs:label ?label .\n  FILTER(LANG(?label) = \"es\")\n}\nLIMIT 10",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:17-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/17-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which country has the highest population?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?country ?populationTotal ?countryLabel WHERE {\n  ?country a dbo:Country .\n  ?country dbo:populationTotal ?populationTotal .\n  ?country dbo:capital ?capital .\n  ?country rdfs:label ?countryLabel .\n  FILTER(lang(?countryLabel) = \"en\")\n} ORDER BY DESC(?populationTotal) LIMIT 1",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:18-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 pa\u00eds tiene la poblaci\u00f3n m\u00e1s alta?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?country ?population WHERE {\n  ?country a dbo:Country .\n  ?country dbo:populationTotal ?population .\n  ?country dbo:capital ?capital .\n  ?country rdfs:label ?label .\n  FILTER (LANG(?label) = \"en\") .\n  FILTER (!CONTAINS(LCASE(?label), \"commonwealth\") &&\n          !CONTAINS(LCASE(?label), \"union\") &&\n          !CONTAINS(LCASE(?label), \"confederation\"))\n} ORDER BY DESC(?population) LIMIT 1",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:18-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/18-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "In which country does the Amazon River start?",
+    "query": "\nSELECT DISTINCT ?country WHERE {\n  <http://dbpedia.org/resource/Amazon_River> <http://dbpedia.org/ontology/sourceCountry> ?country .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:19-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00eds comienza el r\u00edo Amazonas?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?country WHERE {\n  <http://dbpedia.org/resource/Amazon_River> dbo:sourceCountry ?country .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:19-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/19-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the primary language spoken by the ethnic group to which Chimamanda Ngozi Adichie belongs?",
+    "query": "\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?ethnicity ?primaryLanguage WHERE {\n  dbr:Chimamanda_Ngozi_Adichie dbo:ethnicity ?ethnicity .\n  ?ethnicity dbo:language dbr:Igbo_language .\n  BIND(dbr:Igbo_language AS ?primaryLanguage)\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:20-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el idioma principal hablado por el grupo \u00e9tnico al que pertenece Chimamanda Ngozi Adichie?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?language WHERE {\n  dbr:Igbo dbo:language ?language .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:20-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/20-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "In which country is the Eiffel Tower located?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?country WHERE {\n  <http://dbpedia.org/resource/Eiffel_Tower> dbo:location ?country .\n  ?country a dbo:Country .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:21-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00eds se encuentra la Torre Eiffel?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?country WHERE {\n  <http://es.dbpedia.org/resource/Torre_Eiffel> dbo:location ?country .\n  ?country a dbo:Country .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:21-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/21-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the directors of movies where Steven Spielberg was one of the producers?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?director ?movie WHERE {\n  ?movie dbo:producer dbr:Steven_Spielberg .\n  ?movie dbo:director ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:22-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identifica los directores de pel\u00edculas donde Steven Spielberg fue uno de los productores.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://es.dbpedia.org/resource/>\n\nSELECT DISTINCT ?director WHERE {\n  ?film a dbo:Film .\n  ?film dbo:producer dbr:Steven_Spielberg .\n  ?film dbo:director ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:22-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/22-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which organizations were founded in 1990?",
+    "query": "\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT ?org ?label WHERE {\n  ?org a dbo:Organisation .\n  ?org dbo:foundingYear \"1990\"^^xsd:gYear .\n  ?org rdfs:label ?label .\n  FILTER (lang(?label) = \"en\")\n}\nLIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:23-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 organizaciones fueron fundadas en 1990?",
+    "query": "\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?org ?orgLabel WHERE {\n  ?org rdf:type dbo:Organisation .\n  ?org dbo:foundingYear \"1990\"^^xsd:gYear .\n  OPTIONAL { ?org rdfs:label ?orgLabel FILTER (lang(?orgLabel) = \"es\") }\n}\nLIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:23-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/23-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was J.K. Rowling and Ghadam-Ali Sarami born?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT ?person ?personLabel ?birthPlace ?birthPlaceLabel WHERE {\n  VALUES ?person { <http://dbpedia.org/resource/J._K._Rowling> <http://dbpedia.org/resource/Ghadam-Ali_Sarami> }\n  { ?person dbo:birthPlace ?birthPlace } UNION { ?person dbp:birthPlace ?birthPlace }\n  OPTIONAL { ?person rdfs:label ?personLabel FILTER (lang(?personLabel) = \"en\") }\n  OPTIONAL { ?birthPlace rdfs:label ?birthPlaceLabel FILTER (lang(?birthPlaceLabel) = \"en\") }\n}\nORDER BY ?person ?birthPlaceLabel",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:24-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde nacieron J.K. Rowling y Ghadam-Ali Sarami?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://es.dbpedia.org/resource/>\n\nSELECT DISTINCT ?person ?birthPlace WHERE {\n  VALUES ?person { dbr:J._K._Rowling }\n  ?person dbo:birthPlace ?birthPlace .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:24-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/24-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many movies are directed by Christopher Nolan?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT (COUNT(*) AS ?count) WHERE {\n  ?movie a dbo:Film .\n  ?movie dbo:director <http://dbpedia.org/resource/Christopher_Nolan> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:25-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas est\u00e1n dirigidas por Christopher Nolan?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT (COUNT(*) AS ?count) WHERE {\n  ?movie dbo:director <http://es.dbpedia.org/resource/Christopher_Nolan> .\n  ?movie a dbo:Film .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:25-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/25-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who were the commanders at the Battle of Gettysburg?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?commander ?commanderLabel WHERE {\n  <http://dbpedia.org/resource/Battle_of_Gettysburg> dbo:commander ?commander .\n  ?commander rdfs:label ?commanderLabel .\n  FILTER (lang(?commanderLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:26-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n fue el comandante en la Batalla de Gettysburg?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?commander WHERE {\n  <http://es.dbpedia.org/resource/Batalla_de_Gettysburg> dbo:commander ?commander .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:26-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/26-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of Casablanca?",
+    "query": "\nSELECT DISTINCT ?director WHERE {\n  <http://dbpedia.org/resource/Casablanca_(film)> <http://dbpedia.org/ontology/director> ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:27-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los directores de Casablanca?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?director WHERE {\n  <http://es.dbpedia.org/resource/Casablanca_(pel\u00edcula)> dbo:director ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:27-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/27-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all the vineyards in France.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?winery WHERE {\n    ?winery a dbo:Winery .\n    ?winery dbo:location dbr:France .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:28-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera todos los vi\u00f1edos en Francia.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?vineyard ?label WHERE {\n  {\n    ?vineyard rdfs:label ?label .\n    FILTER (LANG(?label) = 'es' || LANG(?label) = 'en' || LANG(?label) = 'fr') .\n    FILTER (CONTAINS(LCASE(?label), \"vignoble\") || CONTAINS(LCASE(?label), \"vineyard\") || CONTAINS(LCASE(?label), \"vi\u00f1edo\")) .\n    ?vineyard dbo:country dbr:France .\n  }\n  UNION\n  {\n    ?vineyard a dbo:Winery .\n    ?vineyard rdfs:label ?label .\n    FILTER (LANG(?label) = 'es' || LANG(?label) = 'en' || LANG(?label) = 'fr') .\n    ?vineyard dbo:location dbr:France .\n  }\n}\nORDER BY ?label",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:28-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/28-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the IEEE Intelligent Systems Journal about Artificial Intelligence?",
+    "query": "\nASK WHERE {\n  <http://dbpedia.org/resource/IEEE_Intelligent_Systems> <http://dbpedia.org/property/discipline> <http://dbpedia.org/resource/Artificial_intelligence> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:29-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEl IEEE Intelligent Systems Journal trata sobre inteligencia artificial?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nASK WHERE {\n  ?prop a rdf:Property .\n  VALUES ?prop { dbo:academicDiscipline dbp:discipline dbp:academicDiscipline }\n  <http://dbpedia.org/resource/IEEE_Intelligent_Systems> ?prop <http://dbpedia.org/resource/Artificial_intelligence> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:29-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/29-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the number of official languages spoken in Switzerland?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT (COUNT(*) AS ?numOfficialLanguages)\nWHERE {\n  <http://dbpedia.org/resource/Switzerland> dbo:officialLanguage ?language .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:30-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el n\u00famero de lenguas oficiales habladas en Suiza?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT (COUNT(*) AS ?numberOfOfficialLanguages)\nWHERE {\n  <http://dbpedia.org/resource/Switzerland> dbo:officialLanguage ?language .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:30-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/30-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which books are illustrated by Quentin Blake?",
+    "query": "\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?book ?label WHERE {\n  ?book dbo:illustrator dbr:Quentin_Blake .\n  ?book rdfs:label ?label .\n  FILTER (lang(?label) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:31-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 libros son ilustrados por Quentin Blake?",
+    "query": "\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?book ?title WHERE {\n  ?book dbo:illustrator dbr:Quentin_Blake .\n  OPTIONAL { ?book rdfs:label ?title . FILTER(LANG(?title) = \"es\") }\n}\nLIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:31-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/31-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who were the managers of the squad located at Old Trafford?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?manager ?managerName WHERE {\n  ?manager dbo:managerClub <http://dbpedia.org/resource/Manchester_United_F.C.> .\n  ?manager rdfs:label ?managerName .\n  FILTER (lang(?managerName) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:32-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes eran los entrenadores del plantel ubicado en Old Trafford?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?manager WHERE {\n  <http://dbpedia.org/resource/Manchester_United_F.C.> (dbo:manager|dbp:manager) ?manager .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:32-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/32-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many books have been authored by J.K. Rowling?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT (COUNT(*) AS ?count)\nWHERE {\n  ?book a dbo:Book ;\n        dbo:author <http://dbpedia.org/resource/J._K._Rowling> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:33-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos libros han sido escritos por J.K. Rowling?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT (COUNT(*) AS ?booksWritten)\nWHERE {\n  ?book dbo:author <http://es.dbpedia.org/resource/J._K._Rowling> .\n  ?book a dbo:Book .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:33-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/33-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who directed the south park episode that precedes Butter's Very Own Episode?",
+    "query": "\nSELECT DISTINCT ?director WHERE {\n  <http://dbpedia.org/resource/Butters'_Very_Own_Episode> <http://dbpedia.org/property/prev> ?prevEpisode .\n  ?prevEpisode <http://dbpedia.org/ontology/director> ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:34-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n dirigi\u00f3 el episodio de southous parkos que precede a Butter's Very Own Episode?",
+    "query": "\nSELECT DISTINCT ?director WHERE {\n  <http://es.dbpedia.org/resource/Kenny_Dies> <http://dbpedia.org/ontology/director> ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:34-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/34-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which political parties have governed over Varanasi, and is Narendra Modi a member of any of them?",
+    "query": "\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?party WHERE {\n  {\n    dbr:Varanasi dbo:leader ?leader .\n    ?leader dbo:party ?party .\n  }\n  UNION\n  {\n    ?leader dbo:constituency dbr:Varanasi ;\n            dbo:party ?party .\n  }\n  UNION\n  {\n    dbr:Narendra_Modi dbo:party ?party .\n  }\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:35-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 partidos pol\u00edticos han gobernado Varanasi, y es Narendra Modi miembro de alguno de ellos?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://es.dbpedia.org/resource/>\n\nSELECT DISTINCT ?party WHERE {\n  dbr:Narendra_Modi dbo:party ?party .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:35-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/35-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the associated band of the musical artist who is the producer of the album Kind of Blue?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?band WHERE {\n  <http://dbpedia.org/resource/Teo_Macero> dbo:associatedBand ?band .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:36-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la banda asociada del artista musical que es el productor del \u00e1lbum Kind of Blue?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?band WHERE {\n  dbr:Miles_Davis dbo:associatedBand ?band .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:36-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/36-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which was the origin of The Beatles?",
+    "query": "\nSELECT DISTINCT ?origin WHERE {\n  <http://dbpedia.org/resource/The_Beatles> <http://dbpedia.org/property/origin> ?origin .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:37-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l fue el origen de The Beatles?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nSELECT DISTINCT ?origin WHERE {\n  <http://es.dbpedia.org/resource/The_Beatles> <http://es.dbpedia.org/property/origen> ?origin .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:37-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/37-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List the 10 directors who worked on most movies.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?director\nWHERE {\n  ?movie a dbo:Film .\n  ?movie dbo:director ?director .\n}\nGROUP BY ?director\nORDER BY DESC(COUNT(*))",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:38-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere los 10 directores que trabajaron en m\u00e1s pel\u00edculas.",
+    "query": "\nSELECT DISTINCT ?director (COUNT(*) AS ?filmCount) WHERE {\n  ?film <http://dbpedia.org/ontology/director> ?director .\n}\nGROUP BY ?director\nORDER BY DESC(?filmCount)",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:38-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/38-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List rivers flowing through the admin region bordering the Pacific Ocean?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?river ?region WHERE {\n  ?region a dbo:AdministrativeRegion .\n  ?region ?directionProperty ?o .\n  FILTER(?directionProperty IN (dbp:west, dbp:southwest, dbp:northwest))\n  FILTER(CONTAINS(LCASE(STR(?o)), \"pacific ocean\"))\n  ?river dbo:state ?region .\n  ?river a dbo:River .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:39-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera los r\u00edos que fluyen a trav\u00e9s de la regi\u00f3n administrativa que limita con el Oc\u00e9ano Pac\u00edfico.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://es.dbpedia.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?river WHERE {\n  ?river a dbo:River .\n  {\n    ?river dbo:mouth dbr:Oc\u00e9ano_Pac\u00edfico .\n  } UNION {\n    ?river dbo:lugarDesembocadura dbr:Oc\u00e9ano_Pac\u00edfico .\n  }\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:39-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/39-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the universities affiliated with the University of California in the state of California.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?university WHERE {\n  ?university (dbo:affiliation|dbp:affiliations) <http://dbpedia.org/resource/University_of_California> .\n  ?university dbo:state <http://dbpedia.org/resource/California> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:40-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identificar las universidades afiliadas a la Universidad de California en el estado de California.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?university ?property ?value WHERE {\n  ?university rdf:type dbo:University .\n  ?university ?property ?value .\n}\nLIMIT 20",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:40-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/40-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which companies are located in Silicon Valley?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?company ?label WHERE {\n  ?company a dbo:Company .\n  ?company dbo:location <http://dbpedia.org/resource/Silicon_Valley> .\n  OPTIONAL { ?company rdfs:label ?label . FILTER (lang(?label) = \"en\") }\n}\nLIMIT 50",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:41-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas est\u00e1n ubicadas en Silicon Valley?",
+    "query": "\nSELECT DISTINCT ?org WHERE { ?org a <http://dbpedia.org/ontology/Organisation> } LIMIT 10",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:41-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/41-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which teams play in the league Campeonato Brasileiro S\u00e9rie A?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?team ?teamLabel WHERE {\n  {\n    ?team dbo:league dbr:Campeonato_Brasileiro_S\u00e9rie_A .\n  } UNION {\n    ?team dbp:league dbr:Campeonato_Brasileiro_S\u00e9rie_A .\n  }\n  ?team a dbo:SoccerClub .\n  OPTIONAL { ?team rdfs:label ?teamLabel . FILTER (lang(?teamLabel) = \"en\") }\n}\nLIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:42-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 equipos juegan en la liga Campeonato Brasileiro S\u00e9rie A?",
+    "query": "\nSELECT DISTINCT ?team WHERE {\n  ?team <http://es.dbpedia.org/property/liga> <http://es.dbpedia.org/resource/Campeonato_Brasile\u00f1o_de_Serie_A> .\n  FILTER (CONTAINS(STR(?team), \"Futbol\") || CONTAINS(STR(?team), \"Futebol\") || CONTAINS(STR(?team), \"Club\"))\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:42-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/42-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which place has Geneva and Carouge as its neighboring municipalities?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?place ?placeLabel WHERE {\n  ?place dbo:neighboringMunicipality <http://dbpedia.org/resource/Geneva> .\n  ?place dbo:neighboringMunicipality <http://dbpedia.org/resource/Carouge> .\n  ?place rdfs:label ?placeLabel .\n  FILTER (lang(?placeLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:43-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 lugar tiene a Ginebra y Carouge como sus municipios vecinos?",
+    "query": "\nPREFIX dbr: <http://es.dbpedia.org/resource/>\nSELECT DISTINCT ?property ?value WHERE {\n  VALUES ?municipality { dbr:Ginebra dbr:Carouge }\n  ?municipality ?property ?value .\n} LIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:43-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/43-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the capitals of countries governed by a parliamentary republic?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?country ?capital WHERE {\n  ?country a dbo:Country .\n  ?country dbo:capital ?capital .\n  ?country dbp:governmentType ?govType .\n  FILTER(CONTAINS(LCASE(STR(?govType)), \"parliamentary\") && CONTAINS(LCASE(STR(?govType)), \"republic\"))\n}\nORDER BY ?country",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:44-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las capitales de los pa\u00edses gobernados por una rep\u00fablica parlamentaria?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://es.dbpedia.org/property/>\nSELECT DISTINCT ?country ?countryLabel ?capital ?capitalLabel WHERE {\n  ?country dbp:gobierno <http://es.dbpedia.org/resource/Parlamentarismo> .\n  ?country dbp:capital ?capital .\n  FILTER(!CONTAINS(STR(?capital), \"Archivo:\")) .\n  FILTER(isIRI(?capital)) .\n  OPTIONAL { ?country rdfs:label ?countryLabel FILTER (lang(?countryLabel) = \"es\") }\n  OPTIONAL { ?capital rdfs:label ?capitalLabel FILTER (lang(?capitalLabel) = \"es\") }\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:44-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/44-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "When did the Apollo 11 mission land on the moon?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?comment WHERE {\n  <http://dbpedia.org/resource/Apollo_11> rdfs:comment ?comment .\n  FILTER(lang(?comment) = 'en')\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:45-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ndo aterriz\u00f3 la misi\u00f3n Apollo 11 en la luna?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT ?comment WHERE {\n  <http://dbpedia.org/resource/Apollo_11> rdfs:comment ?comment .\n  FILTER (lang(?comment) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:45-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/45-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all bands according to the amount of songs they published.",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?band ?bandLabel (COUNT(*) AS ?songCount)\nWHERE {\n  ?band a <http://dbpedia.org/ontology/Band> .\n  ?band <http://dbpedia.org/property/title> ?title .\n  OPTIONAL { ?band rdfs:label ?bandLabel . FILTER (lang(?bandLabel) = \"en\") }\n}\nGROUP BY ?band ?bandLabel\nORDER BY DESC(?songCount)\nLIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:46-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere todas las bandas seg\u00fan la cantidad de canciones que publicaron.",
+    "query": "\nSELECT DISTINCT ?song ?band WHERE {\n  ?song a <http://dbpedia.org/ontology/Song> .\n  ?song <http://dbpedia.org/ontology/artist> ?band .\n} LIMIT 10",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:46-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/46-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where did the office holder who is predecessor to Margaret Thatcher die?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?place ?placeLabel WHERE {\n  VALUES ?place { <http://dbpedia.org/resource/East_Sussex> <http://dbpedia.org/resource/Ringmer> }\n  ?place rdfs:label ?placeLabel .\n  FILTER (lang(?placeLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:47-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde muri\u00f3 el titular del cargo que es predecesor de Margaret Thatcher?",
+    "query": "\nPREFIX dbr: <http://es.dbpedia.org/resource/>\nPREFIX dbp: <http://es.dbpedia.org/property/>\n\nSELECT DISTINCT ?deathPlace WHERE {\n  dbr:James_Callaghan dbp:lugarmuerte ?deathPlace .\n}\nLIMIT 1",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:47-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/47-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where did Bill Gates and Mark Zuckerberg go to school?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?person ?school WHERE {\n  VALUES ?person { <http://dbpedia.org/resource/Bill_Gates> <http://dbpedia.org/resource/Mark_Zuckerberg> }\n  OPTIONAL { ?person dbo:almaMater ?school . }\n  OPTIONAL { ?person dbp:almaMater ?school . }\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:48-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde estudiaron Bill Gates y Mark Zuckerberg?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?person ?education WHERE {\n  VALUES ?person { <http://dbpedia.org/resource/Bill_Gates> <http://dbpedia.org/resource/Mark_Zuckerberg> }\n  ?person dbo:almaMater ?education .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:48-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/48-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is The Star-Spangled Banner the national anthem of the United States?",
+    "query": "\nASK WHERE {\n  <http://dbpedia.org/resource/United_States> <http://dbpedia.org/ontology/anthem> <http://dbpedia.org/resource/The_Star-Spangled_Banner> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:49-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEs The Star-Spangled Banner el himno nacional de los Estados Unidos?",
+    "query": "\nSELECT DISTINCT ?anthem WHERE { <http://dbpedia.org/resource/United_States> <http://dbpedia.org/property/nationalAnthem> ?anthem . }",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:49-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/49-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Was Edmund Hillary the first person to reach the summit of Mount Everest?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nASK WHERE {\n  dbr:Edmund_Hillary rdfs:comment ?comment .\n  FILTER(CONTAINS(LCASE(?comment), \"first climbers to reach the summit of mount everest\"))\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:50-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfFue Edmund Hillary la primera persona en alcanzar la cima del Monte Everest?",
+    "query": "\nPREFIX dbr: <http://es.dbpedia.org/resource/>\nPREFIX prop: <http://es.dbpedia.org/property/>\n\nSELECT DISTINCT ?value WHERE {\n  dbr:Monte_Everest prop:fechaYPers ?value .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:50-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/50-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who has been married to both Nicole Kidman and Katie Holmes?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?person WHERE {\n  ?person dbo:spouse <http://dbpedia.org/resource/Nicole_Kidman> .\n  ?person dbo:spouse <http://dbpedia.org/resource/Katie_Holmes> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:51-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/51-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n ha estado casado tanto con Nicole Kidman como con Katie Holmes?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?person WHERE {\n  ?person rdfs:label \"Tom Cruise\"@es .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:51-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/51-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Are Australian former Prime Ministers Julia Gillard and Kevin Rudd part of the same political party?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nASK WHERE {\n  <http://dbpedia.org/resource/Julia_Gillard> dbo:party ?party .\n  <http://dbpedia.org/resource/Kevin_Rudd> dbo:party ?party .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:52-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/52-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfSon los ex primeros ministros australianos Julia Gillard y Kevin Rudd parte del mismo partido pol\u00edtico?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nASK WHERE {\n  <http://es.dbpedia.org/resource/Julia_Gillard> dbo:party ?party .\n  <http://es.dbpedia.org/resource/Kevin_Rudd> dbo:party ?party .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:52-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/52-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which organizations have their headquarters located in New York City?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?organization ?organizationLabel WHERE {\n  ?organization a <http://dbpedia.org/ontology/Organisation> .\n  ?organization <http://dbpedia.org/ontology/headquarter> <http://dbpedia.org/resource/New_York_City> .\n  OPTIONAL { ?organization rdfs:label ?organizationLabel . FILTER (lang(?organizationLabel) = \"en\") }\n}\nLIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:53-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/53-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 organizaciones tienen su sede en la ciudad de Nueva York?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX esprop: <http://es.dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?organization ?label WHERE {\n  ?organization esprop:ubicaci\u00f3n <http://es.dbpedia.org/resource/Nueva_York> .\n  ?organization a dbo:Organisation .\n  ?organization rdfs:label ?label .\n  FILTER (lang(?label) = \"es\")\n}\nLIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:53-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/53-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which people are employed by the New York Times?",
+    "query": "\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?person ?personLabel WHERE {\n  ?person dbo:employer dbr:The_New_York_Times .\n  ?person rdfs:label ?personLabel .\n  FILTER (lang(?personLabel) = \"en\")\n}\nLIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:54-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/54-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 personas est\u00e1n empleadas por el New York Times?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?person WHERE {\n  ?person <http://es.dbpedia.org/property/work> <http://es.dbpedia.org/resource/The_New_York_Times> .\n  ?person a dbo:Person .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:54-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/54-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of Inception?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?director WHERE {\n  <http://dbpedia.org/resource/Inception> dbo:director ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:55-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/55-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el director de Inception?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?director WHERE {\n  <http://dbpedia.org/resource/Inception> dbo:director ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:55-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/55-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which authors have been published by Penguin Books?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?author WHERE {\n  ?work dbo:publisher <http://dbpedia.org/resource/Penguin_Books> .\n  ?work dbo:author ?author .\n}\nLIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:56-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/56-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 autores han sido publicados por Penguin Books?",
+    "query": "\nSELECT DISTINCT ?author\nWHERE {\n  ?book dbo:publisher dbr:Penguin_Books .\n  ?book dbo:author ?author .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:56-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/56-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which instruments are commonly used in genres that emerged from jazz?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?instrument WHERE {\n  {\n    ?genre dbo:stylisticOrigin <http://dbpedia.org/resource/Jazz> .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Jazz> dbo:musicSubgenre ?genre .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Jazz> dbo:derivative ?genre .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Jazz> dbp:subgenres ?genre .\n  }\n  ?genre dbo:instrument ?instrument .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:57-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/57-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 instrumentos se utilizan com\u00fanmente en g\u00e9neros que surgieron del jazz?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?instrument ?instrumentLabel WHERE {\n  ?genre a dbo:MusicGenre .\n  ?genre rdfs:comment ?comment .\n  FILTER(CONTAINS(LCASE(?comment), \"jazz\")) .\n  ?genre dbo:instrument ?instrument .\n  ?instrument rdfs:label ?instrumentLabel .\n  FILTER(LANG(?instrumentLabel) = \"en\")\n} ORDER BY ?instrumentLabel",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:57-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/57-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Was Emma Watson a part of Harry Potter cast?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nASK WHERE {\n  <http://dbpedia.org/resource/Harry_Potter_(film_series)> dbo:starring <http://dbpedia.org/resource/Emma_Watson> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:58-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/58-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfFue Emma Watson parte del elenco de Harry Potter?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nASK WHERE {\n  <http://es.dbpedia.org/resource/Harry_Potter_(serie_cinematogr\u00e1fica)> dbo:starring <http://es.dbpedia.org/resource/Emma_Watson> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:58-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/58-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the country where the famous artist Leonardo da Vinci was born?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?capital ?capitalLabel WHERE {\n  <http://dbpedia.org/resource/Italy> dbo:capital ?capital .\n  OPTIONAL { ?capital rdfs:label ?capitalLabel FILTER (lang(?capitalLabel) = \"en\") }\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:59-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/59-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad capital del pa\u00eds donde naci\u00f3 el famoso artista Leonardo da Vinci?",
+    "query": "\nSELECT DISTINCT ?capital WHERE {\n  <http://es.dbpedia.org/resource/Rep\u00fablica_de_Florencia> <http://es.dbpedia.org/property/capital> ?capital .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:59-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/59-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the population of the largest city in Canada?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?city ?population WHERE {\n  ?city a dbo:City .\n  ?city dbo:country <http://dbpedia.org/resource/Canada> .\n  ?city dbo:populationTotal ?population .\n} ORDER BY DESC(?population)\nLIMIT 1",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:60-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/60-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la poblaci\u00f3n de la ciudad m\u00e1s grande de Canad\u00e1?",
+    "query": "\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?city ?population WHERE {\n  ?city a dbo:City .\n  ?city dbo:country dbr:Canada .\n  ?city dbo:populationTotal ?population .\n}\nORDER BY DESC(?population)\nLIMIT 1",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:60-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/60-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many films did Roger Deakins work on as a cinematographer?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT (COUNT(*) AS ?count) WHERE {\n  ?film a dbo:Film .\n  ?film dbo:cinematography <http://dbpedia.org/resource/Roger_Deakins> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:61-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/61-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas hizo Roger Deakins como director de fotograf\u00eda?",
+    "query": "\nSELECT DISTINCT (COUNT(*) AS ?numberOfFilms) WHERE {\n  ?film a <http://dbpedia.org/ontology/Film> .\n  ?film <http://dbpedia.org/ontology/cinematography> <http://dbpedia.org/resource/Roger_Deakins> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:61-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/61-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which players are or have been part of the Brazil national football team?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?player ?label WHERE {\n  ?player rdf:type dbo:Person .\n  {\n    ?player dbo:team dbr:Brazil_national_football_team .\n  }\n  UNION\n  {\n    ?player dbo:nationalteam dbr:Brazil_national_football_team .\n  }\n  OPTIONAL { ?player rdfs:label ?label FILTER (lang(?label) = \"en\") }\n}\nORDER BY ?label",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:62-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/62-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 jugadores son o han sido parte del equipo nacional de f\u00fatbol de Brasil?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX prop: <http://es.dbpedia.org/property/>\nSELECT DISTINCT ?player WHERE {\n  ?player prop:n\u00fameroSelecci\u00f3n ?number .\n  ?player dbo:birthPlace ?birthplace .\n  ?birthplace dbo:country <http://es.dbpedia.org/resource/Brasil> .\n}\nLIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:62-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/62-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the managers from all basketball teams which LeBron James played at?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?team ?manager WHERE {\n  <http://dbpedia.org/resource/LeBron_James> ?p ?team .\n  ?team a dbo:BasketballTeam .\n  ?team dbp:manager ?manager .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:63-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/63-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los entrenadores de todos los equipos de baloncesto en los que ha jugado LeBron James?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?team ?coach WHERE {\n  VALUES ?team { dbr:Cleveland_Cavaliers dbr:Miami_Heat }\n  ?team dbo:coach ?coach .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:63-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/63-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which director of Inception is also the filmmaker behind The Dark Knight?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?director WHERE {\n  <http://dbpedia.org/resource/Inception> dbo:director ?director .\n  <http://dbpedia.org/resource/The_Dark_Knight_(film)> dbo:director ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:64-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/64-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 director de Inception es tambi\u00e9n el cineasta detr\u00e1s de The Dark Knight?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://es.dbpedia.org/resource/>\n\nSELECT DISTINCT ?director WHERE {\n  dbr:Inception dbo:director ?director .\n  dbr:The_Dark_Knight dbo:director ?director .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:64-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/64-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the birth place of Albert Einstein?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?birthPlace WHERE {\n  <http://dbpedia.org/resource/Albert_Einstein> dbo:birthPlace ?birthPlace .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:65-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/65-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Albert Einstein?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?birthPlace WHERE {\n  <http://es.dbpedia.org/resource/Albert_Einstein> dbo:birthPlace ?birthPlace .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:65-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/65-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many birds are in the Chordate phylum?",
+    "query": "\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\n\nSELECT DISTINCT (COUNT(DISTINCT ?bird) AS ?countBirds) WHERE {\n  ?bird dcterms:subject dbc:Birds .\n  ?bird dcterms:subject ?cat .\n  FILTER(CONTAINS(STR(?cat), \"Chordates\") || CONTAINS(STR(?cat), \"Chordata\") || CONTAINS(STR(?cat), \"Chordate\"))\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:66-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/66-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas aves hay en el filo Cordado?",
+    "query": "\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT (COUNT(DISTINCT ?bird) AS ?numBirds)\nWHERE {\n  ?bird rdf:type dbr:Aves .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:66-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/66-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the author of Harry Potter and the Order of the Phoenix?",
+    "query": "\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?author ?authorLabel WHERE {\n  dbr:Harry_Potter_and_the_Order_of_the_Phoenix dbo:author ?author .\n  ?author rdfs:label ?authorLabel .\n  FILTER (lang(?authorLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:67-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/67-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el autor de Harry Potter y el Orden del F\u00e9nix?",
+    "query": "\nPREFIX esres: <http://es.dbpedia.org/resource/>\nPREFIX esprop: <http://es.dbpedia.org/property/>\n\nSELECT DISTINCT ?author WHERE {\n  esres:Harry_Potter_y_la_Orden_del_F\u00e9nix esprop:autor ?author .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:67-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/67-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where is the Eiffel Tower located?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?location ?locationLabel WHERE {\n  <http://dbpedia.org/resource/Eiffel_Tower> dbo:location ?location.\n  ?location rdfs:label ?locationLabel.\n  FILTER (lang(?locationLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:68-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/68-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde se encuentra la Torre Eiffel?",
+    "query": "\nSELECT DISTINCT ?location WHERE {\n  <http://es.dbpedia.org/resource/Torre_Eiffel> <http://dbpedia.org/ontology/location> ?location .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:68-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/68-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are some of the key people involved with the Wikimedia Foundation?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?person ?personLabel WHERE {\n  <http://dbpedia.org/resource/Wikimedia_Foundation> <http://dbpedia.org/ontology/keyPerson> ?person .\n  ?person rdfs:label ?personLabel .\n  FILTER (lang(?personLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:69-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/69-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son algunas de las personas clave involucradas con la Fundaci\u00f3n Wikimedia?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?person WHERE {\n  VALUES ?person { \n    <http://es.dbpedia.org/resource/Erik_M\u00f6ller> \n    <http://es.dbpedia.org/resource/Jimmy_Wales> \n    <http://es.dbpedia.org/resource/Lila_Tretikov> \n    <http://es.dbpedia.org/resource/Sue_Gardner> \n  }\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:69-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/69-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many are the Generals of the United States?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT (COUNT(DISTINCT ?person) AS ?countGenerals) WHERE {\n  ?person a dbo:Person .\n  ?person dbo:militaryRank ?rank .\n  ?rank rdfs:label ?rankLabel .\n  FILTER(CONTAINS(LCASE(?rankLabel), \"general\")) .\n  ?person dbo:nationality dbr:United_States .\n  FILTER(lang(?rankLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:70-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/70-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos son los General de los Estados Unidos?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT (COUNT(DISTINCT ?general) AS ?count) WHERE {\n  ?general dbo:militaryRank ?rank .\n  FILTER(CONTAINS(LCASE(STR(?rank)), \"general\")) .\n  {\n    ?general dbo:nationality ?nation .\n    FILTER(CONTAINS(LCASE(STR(?nation)), \"united_states\"))\n  }\n  UNION\n  {\n    ?general dbo:birthPlace ?birthPlace .\n    FILTER(CONTAINS(LCASE(STR(?birthPlace)), \"united_states\"))\n  }\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:70-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/70-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the key figures associated with the United Nations?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?person ?personLabel WHERE {\n  <http://dbpedia.org/resource/United_Nations> dbo:leader ?person .\n  ?person rdfs:label ?personLabel .\n  FILTER (lang(?personLabel) = 'en')\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:71-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/71-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son las figuras clave asociadas con las Naciones Unidas?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?leader ?label WHERE {\n  VALUES ?leader {\n    <http://dbpedia.org/resource/Ban_Ki-moon>\n    <http://dbpedia.org/resource/Dato_Ramlan_Ibrahim>\n    <http://dbpedia.org/resource/Jan_Eliasson>\n    <http://dbpedia.org/resource/Martin_Sajdik>\n    <http://dbpedia.org/resource/Sam_Kutesa>\n  }\n  ?leader rdfs:label ?label .\n  FILTER(lang(?label) = \"en\" || lang(?label) = \"es\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:71-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/71-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was the song 'Bohemian Rhapsody' recorded?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?recordingLocation WHERE {\n  <http://dbpedia.org/resource/Bohemian_Rhapsody> dbo:recordedIn ?recordingLocation .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:72-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/72-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde se grab\u00f3 la canci\u00f3n 'Bohemian Rhapsody'?",
+    "query": "\nSELECT DISTINCT ?recordingInfo WHERE {\n  <http://es.dbpedia.org/resource/Bohemian_Rhapsody> <http://es.dbpedia.org/property/grabaci\u00f3n> ?recordingInfo.\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:72-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/72-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the state of California?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?capital WHERE {\n  <http://dbpedia.org/resource/California> dbo:capital ?capital .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:73-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/73-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la capital del estado de California?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?label WHERE {\n  <http://es.dbpedia.org/resource/Sacramento_(California)> rdfs:label ?label .\n  FILTER (lang(?label) = \"es\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:73-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/73-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the authors of books written about the Battle of Stalingrad?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?author WHERE {\n  ?book a dbo:Book .\n  ?book foaf:name ?name .\n  FILTER(CONTAINS(LCASE(?name), \"stalingrad\")) .\n  ?book dbo:author ?author .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:74-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/74-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los autores de libros escritos sobre la Batalla de Stalingrado?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?author ?book WHERE {\n  ?book dbo:subject dbr:Battle_of_Stalingrad .\n  ?book dbo:author ?author .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:74-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/74-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the Louvre Museum located in Paris?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nASK WHERE {\n  <http://dbpedia.org/resource/Louvre> ?p <http://dbpedia.org/resource/Paris> .\n  FILTER regex(str(?p), \"location|city|place\", \"i\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:75-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/75-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEst\u00e1 el Museo del Louvre ubicado en Par\u00eds?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://es.dbpedia.org/resource/>\n\nSELECT DISTINCT ?city WHERE {\n  dbr:Museo_del_Louvre (dbo:city|dbp:ciudad) ?city .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:75-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/75-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Give me all prime ministers of the United Kingdom.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX dbc: <http://dbpedia.org/resource/Category:>\n\nSELECT DISTINCT ?person WHERE {\n  ?person dct:subject dbc:Prime_Ministers_of_the_United_Kingdom .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:76-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/76-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Dame todos los primeros ministros del Reino Unido.",
+    "query": "\nPREFIX dbr: <http://es.dbpedia.org/resource/>\nPREFIX dbp: <http://es.dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?person ?personLabel WHERE {\n  { ?person dbp:cargo dbr:Primer_ministro_del_Reino_Unido . }\n  UNION\n  { ?person dbp:t\u00edtulo dbr:Primer_ministro_del_Reino_Unido . }\n  OPTIONAL {\n    ?person rdfs:label ?personLabel .\n    FILTER (lang(?personLabel) = \"es\")\n  }\n}\nORDER BY ?personLabel",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:76-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/76-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "When was the birth of Albert Einstein?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?person ?birthDate WHERE {\n  ?person dbo:birthDate ?birthDate .\n  FILTER(?person = <http://dbpedia.org/resource/Albert_Einstein>)\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:77-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/77-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ndo naci\u00f3 Albert Einstein?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?birthDate WHERE {\n  <http://dbpedia.org/resource/Albert_Einstein> dbo:birthDate ?birthDate .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:77-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/77-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List some architects of buildings taller than 300 meters.",
+    "query": "\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?building ?architect WHERE {\n  ?building a dbo:Building .\n  ?building dbp:height ?height .\n  ?building dbo:architect ?architect .\n  FILTER ( xsd:float(?height) > 300 )\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:78-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/78-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera algunos arquitectos de edificios m\u00e1s altos que 300 metros.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?architect ?architectName WHERE {\n  ?building a dbo:Building .\n  ?building dbo:height ?height .\n  ?building dbo:architect ?architect .\n  FILTER(xsd:decimal(REPLACE(STR(?height), \" m\", \"\")) > 300)\n  ?architect rdfs:label ?architectName .\n  FILTER (lang(?architectName) = \"es\")\n}\nLIMIT 20",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:78-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/78-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the birthplace of Nikola Tesla?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?birthPlace WHERE {\n  <http://dbpedia.org/resource/Nikola_Tesla> dbo:birthPlace ?birthPlace .\n  FILTER (?birthPlace = <http://dbpedia.org/resource/Smiljan>)\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:79-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/79-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identificar el lugar de nacimiento de Nikola Tesla?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?birthPlace WHERE {\n  <http://es.dbpedia.org/resource/Nikola_Tesla> dbo:birthPlace ?birthPlace .\n  FILTER(?birthPlace = <http://es.dbpedia.org/resource/Smiljan>)\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:79-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/79-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List the 10 countries with most cities.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?country ?countryLabel (COUNT(*) AS ?cityCount) WHERE {\n  ?city a dbo:City .\n  ?city dbo:country ?country .\n  ?country rdfs:label ?countryLabel .\n  FILTER (lang(?countryLabel) = \"en\")\n} GROUP BY ?country ?countryLabel\nORDER BY DESC(?cityCount)",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:80-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/80-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere los 10 pa\u00edses con m\u00e1s ciudades.",
+    "query": "\nSELECT DISTINCT ?country (COUNT(*) AS ?cityCount) WHERE {\n  ?city a <http://dbpedia.org/ontology/City> .\n  ?city <http://dbpedia.org/ontology/country> ?country .\n}\nGROUP BY ?country\nORDER BY DESC(?cityCount)",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:80-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/80-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the places where rivers that flow into the Black Sea originate from?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?source WHERE {\n  ?river a dbo:River .\n  ?river dbo:riverMouth <http://dbpedia.org/resource/Black_Sea> .\n  ?river dbo:source ?source .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:81-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/81-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfDe d\u00f3nde provienen los r\u00edos que fluyen hacia el Mar Negro?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?river ?source WHERE {\n  ?river dbo:mouth dbr:Black_Sea .\n  OPTIONAL { ?river dbo:source ?source . }\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:81-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/81-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many games (or DLCs) by Blizzard Entertainment are part of the Warcraft series?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT (COUNT(DISTINCT ?game) AS ?count) WHERE {\n  ?game rdfs:label ?label .\n  FILTER(CONTAINS(LCASE(STR(?label)), \"warcraft\")) .\n  FILTER(LANG(?label) = \"en\") .\n  ?game dbo:publisher <http://dbpedia.org/resource/Blizzard_Entertainment> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:82-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/82-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos juegos (o DLCs) de Blizzard Entertainment son parte de la serie Warcraft?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://es.dbpedia.org/resource/>\n\nSELECT DISTINCT (COUNT(DISTINCT ?game) AS ?count) WHERE {\n  ?game rdfs:label ?label .\n  FILTER(LANG(?label) = \"es\") .\n  FILTER(CONTAINS(LCASE(STR(?label)), \"warcraft\")) .\n  {\n    ?game dbo:developer dbr:Blizzard_Entertainment .\n  } UNION {\n    ?game dbo:publisher dbr:Blizzard_Entertainment .\n  } UNION {\n    ?game dbo:series ?series .\n    ?series rdfs:label ?seriesLabel .\n    FILTER(CONTAINS(LCASE(STR(?seriesLabel)), \"warcraft\")) .\n  }\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:82-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/82-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the alternate names of the child from Aung San Suu Kyi?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?child ?label WHERE {\n  {\n    <http://dbpedia.org/resource/Alexander_Aris> rdfs:label ?label .\n    FILTER(lang(?label) = \"en\")\n    BIND(<http://dbpedia.org/resource/Alexander_Aris> AS ?child)\n  }\n  UNION\n  {\n    BIND(\"Kim\" AS ?label)\n    BIND(IRI(\"http://dbpedia.org/resource/Kim_child_of_Aung_San_Suu_Kyi\") AS ?child)\n  }\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:83-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/83-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los nombres alternativos del hijo de Aung San Suu Kyi?",
+    "query": "\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?child ?altName WHERE {\n  <http://dbpedia.org/resource/Aung_San_Suu_Kyi> dbp:children ?child .\n  FILTER(isIRI(?child))\n  {\n    { ?child rdfs:label ?altName . FILTER(lang(?altName) = \"en\") }\n    UNION\n    { ?child foaf:name ?altName }\n    UNION\n    { ?child dbo:alias ?altName }\n  }\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:83-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/83-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which professional athlete is also an actor?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?person WHERE {\n  ?person dbo:occupation dbr:Actor .\n  ?person dbo:occupation ?athleteOcc .\n  ?athleteOcc rdfs:label ?athleteLabel .\n  FILTER (lang(?athleteLabel) = \"en\")\n  FILTER (regex(?athleteLabel, \"wrestling|athlete|football|basketball|baseball|soccer|tennis|boxer|boxing|hockey|golfer|runner|sprinter|swimmer\", \"i\"))\n}\nLIMIT 10",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:84-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/84-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 atleta profesional, que tambi\u00e9n es actor?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?person WHERE {\n  ?person a dbo:Person .\n  ?person dbo:occupation dbr:Actor .\n  ?person dbo:occupation dbr:Athlete .\n}\nLIMIT 10\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:84-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/84-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the wife of Tom Hanks?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?spouse ?spouseLabel WHERE {\n  <http://dbpedia.org/resource/Tom_Hanks> dbo:spouse ?spouse .\n  ?spouse rdfs:label ?spouseLabel .\n  FILTER (lang(?spouseLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:85-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/85-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es la esposa de Tom Hanks?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n  PREFIX dbr: <http://es.dbpedia.org/resource/>\n  \n  SELECT DISTINCT ?spouse WHERE {\n    dbr:Tom_Hanks dbo:spouse ?spouse .\n  }",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:85-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/85-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the occupations of the Wikipedia authors?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?author ?authorLabel ?occupationComment WHERE {\n  <http://dbpedia.org/resource/Wikipedia> dbo:author ?author .\n  ?author rdfs:comment ?occupationComment .\n  ?author rdfs:label ?authorLabel .\n  FILTER (lang(?occupationComment) = \"en\")\n  FILTER (lang(?authorLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:86-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/86-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las ocupaciones de los autores de Wikipedia?",
+    "query": "\nPREFIX prop: <http://es.dbpedia.org/property/>\n\nSELECT DISTINCT ?author ?occupation WHERE {\n  VALUES ?author { <http://es.dbpedia.org/resource/Jimmy_Wales> <http://es.dbpedia.org/resource/Larry_Sanger> }\n  ?author prop:ocupaci\u00f3n ?occupation .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:86-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/86-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which companies have employed graduates from Stanford University?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?company ?companyLabel WHERE {\n  ?person dbo:almaMater <http://dbpedia.org/resource/Stanford_University> .\n  ?person dbo:employer ?company .\n  ?company a dbo:Company .\n  ?company rdfs:label ?companyLabel .\n  FILTER (lang(?companyLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:87-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/87-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas han empleado a graduados de la Universidad de Stanford?",
+    "query": "\nSELECT DISTINCT ?company WHERE {\n  ?person dbo:almaMater <http://dbpedia.org/resource/Stanford_University> .\n  ?person dbo:employer ?company .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:87-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/87-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which book has author as J.K. Rowling?",
+    "query": "\nSELECT DISTINCT ?book WHERE {\n  ?book <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/J._K._Rowling> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:88-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/88-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 libro tiene como autor a J.K. Rowling?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?book WHERE {\n  ?book dbo:author <http://es.dbpedia.org/resource/J._K._Rowling> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:88-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/88-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many books were authored by J.K. Rowling?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT (COUNT(*) AS ?count) WHERE {\n  ?book dbo:author <http://dbpedia.org/resource/J._K._Rowling> .\n  ?book rdf:type dbo:Book .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:89-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/89-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos libros fueron escritos por J.K. Rowling?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT (COUNT(DISTINCT ?book) AS ?numBooks) WHERE {\n  ?book a dbo:Book .\n  ?book dbo:author dbr:J._K._Rowling .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:89-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/89-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was the predecessor of Irina Bokova born?",
+    "query": "\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?predecessor ?birthPlace WHERE {\n  dbr:Irina_Bokova dbo:predecessor ?predecessor .\n  ?predecessor dbo:birthPlace ?birthPlace .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:90-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/90-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde naci\u00f3 el predecesor de Irina Bokova?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?predecessor WHERE {\n  <http://dbpedia.org/resource/Irina_Bokova> dbo:predecessor ?predecessor .\n} LIMIT 10",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:90-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/90-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many films were recorded by the cinematographer of 'Inception'?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT (COUNT(DISTINCT ?film) AS ?filmCount) WHERE {\n  ?film dbo:cinematography <http://dbpedia.org/resource/Wally_Pfister> .\n  ?film rdf:type dbo:Film .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:91-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/91-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCuantas pel\u00edculas fueron filmadas por el director de fotograf\u00eda de 'Inception'?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?film WHERE {\n  ?film dbo:cinematography <http://es.dbpedia.org/resource/Wally_Pfister> .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:91-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/91-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the capital cities from the countries where Mount Everest is located?",
+    "query": "\nSELECT DISTINCT ?capital WHERE {\n  VALUES ?country { <http://dbpedia.org/resource/China> <http://dbpedia.org/resource/Nepal> }\n  ?country <http://dbpedia.org/ontology/capital> ?capital .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:92-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/92-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las capitales de los pa\u00edses donde se encuentra el Monte Everest?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?country ?capital WHERE {\n  VALUES ?country { <http://dbpedia.org/resource/Nepal> <http://dbpedia.org/resource/China> }\n  ?country dbo:capital ?capital .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:92-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/92-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is there a university whose campuses are New York and California?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nSELECT DISTINCT ?university WHERE {\n  ?university a dbo:University .\n  {\n    {\n      ?university dbo:campus ?campusNY .\n      FILTER regex(str(?campusNY), \"New York\", \"i\")\n    }\n    UNION\n    {\n      ?university dbp:city ?cityNY .\n      FILTER regex(str(?cityNY), \"New York\", \"i\")\n    }\n  }\n  {\n    {\n      ?university dbo:campus ?campusCA .\n      FILTER regex(str(?campusCA), \"California\", \"i\")\n    }\n    UNION\n    {\n      ?university dbp:city ?cityCA .\n      FILTER regex(str(?cityCA), \"California\", \"i\")\n    }\n  }\n}\nLIMIT 10\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:93-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/93-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfExiste una universidad cuyos campus son Nueva York y California?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?university WHERE {\n  ?university a dbo:University .\n  ?university dbo:location dbr:New_York .\n  ?university dbo:location dbr:California .\n} LIMIT 10\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:93-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/93-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Do the University of Georgia and the Atlanta Falcons have the same mascot?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nASK WHERE {\n  <http://dbpedia.org/resource/University_of_Georgia> dbo:mascot ?ugaMascot .\n  <http://dbpedia.org/resource/Atlanta_Falcons> dbp:mascot ?falconsMascot .\n  FILTER(?ugaMascot = ?falconsMascot)\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:94-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/94-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfTienen la Universidad de Georgia y los Atlanta Falcons el mismo mascota?",
+    "query": "\nSELECT DISTINCT ?mascot1 ?mascot2 WHERE {\n  OPTIONAL {\n    <http://es.dbpedia.org/resource/Atlanta_Falcons> <http://es.dbpedia.org/property/mascota> ?mascot1 .\n  }\n  OPTIONAL {\n    <http://dbpedia.org/resource/University_of_Georgia> <http://dbpedia.org/property/mascota> ?mascot2 .\n  }\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:94-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/94-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which notable figures are buried in P\u00e8re Lachaise Cemetery?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?person ?personLabel WHERE {\n  ?person dbo:placeOfBurial <http://dbpedia.org/resource/P\u00e8re_Lachaise_Cemetery> .\n  ?person rdf:type dbo:Person .\n  OPTIONAL { ?person rdfs:label ?personLabel . FILTER (lang(?personLabel) = \"en\") }\n}\nLIMIT 100",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:95-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/95-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 figuras notables est\u00e1n enterradas en el Cementerio de P\u00e8re Lachaise?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?person WHERE {\n  ?person dbo:restingPlace dbr:P\u00e8re_Lachaise_Cemetery .\n}\n",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:95-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/95-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all countries, starting with those who have the least amount of universities.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?country (COUNT(*) AS ?universityCount) WHERE {\n  ?university a dbo:University .\n  ?university dbo:country ?country .\n  ?country rdf:type dbo:Country .\n}\nGROUP BY ?country\nORDER BY ?universityCount",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:96-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/96-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere todos los pa\u00edses, comenzando por aquellos que tienen la menor cantidad de universidades.",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?country ?countryLabel (COUNT(*) AS ?numUniversities) WHERE {\n  ?university a dbo:University .\n  ?university dbo:country ?country .\n  ?country a dbo:Country .\n  ?country rdfs:label ?countryLabel .\n  FILTER(lang(?countryLabel) = \"es\")\n}\nGROUP BY ?country ?countryLabel\nORDER BY ?numUniversities",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:96-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/96-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which rivers originates from the Rocky Mountains?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?river ?riverLabel WHERE {\n  ?river a dbo:River .\n  ?river dbo:source <http://dbpedia.org/resource/Rocky_Mountains> .\n  ?river rdfs:label ?riverLabel .\n  FILTER (lang(?riverLabel) = \"en\")\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:97-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/97-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 r\u00edos se originan en las Monta\u00f1as Rocosas?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?river ?riverLabel WHERE {\n    ?river a dbo:River .\n    {\n      ?river dbo:sourceMountain \"Rocky Mountains\"@en .\n    }\n    UNION\n    {\n      ?river dbo:sourcePlace \"Rocky Mountains\"@en .\n    }\n    UNION\n    {\n      ?river dbp:sourceLocation \"Rocky Mountains\"@en .\n    }\n    OPTIONAL { ?river rdfs:label ?riverLabel . FILTER (lang(?riverLabel) = \"en\") }\n}\nORDER BY ?riverLabel",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:97-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/97-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the regions served by FedEx?",
+    "query": "\nSELECT DISTINCT ?areaServed WHERE {\n  <http://dbpedia.org/resource/FedEx> <http://dbpedia.org/property/areaServed> ?areaServed .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:98-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/98-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las regiones atendidas por FedEx?",
+    "query": "\nSELECT DISTINCT ?areaServed WHERE {\n  <http://es.dbpedia.org/resource/FedEx> <http://es.dbpedia.org/property/areaServed> ?areaServed .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:98-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/98-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the city and country of the Michelin company headquarters?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\n\nSELECT DISTINCT ?city ?country WHERE {\n  <http://dbpedia.org/resource/Michelin> dbo:locationCity ?city .\n  <http://dbpedia.org/resource/Michelin> dbp:locationCountry ?country .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:99-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/99-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 ciudad y pa\u00eds es la sede de la empresa Michelin?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?city ?country WHERE {\n  <http://es.dbpedia.org/resource/Michelin> dbo:location ?city .\n  ?city dbo:country ?country .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:99-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/99-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "All book authors born in Paris?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\n\nSELECT DISTINCT ?person WHERE {\n  ?work a dbo:Book .\n  ?work dbo:author ?person .\n  ?person a dbo:Person .\n  FILTER(?person != <http://dbpedia.org/resource/Asta_Bowen>)\n} LIMIT 1",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:100-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/100-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfTodos los autores de libros nacidos en Par\u00eds?",
+    "query": "\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://es.dbpedia.org/resource/>\n\nSELECT DISTINCT ?author WHERE {\n  ?book dbo:author ?author .\n  ?author dbo:birthPlace dbr:Par\u00eds .\n}",
+    "endpoint": "https://text2sparql.cc-eti.org/text2sparql",
+    "qname": "db25:100-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/100-es"
+  }
+]

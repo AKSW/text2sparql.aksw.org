@@ -1,0 +1,1538 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos autores \u00fanicos han escrito novelas de ciencia ficci\u00f3n?",
+    "query": "SELECT (COUNT(DISTINCT ?author) AS ?count) WHERE {  ?novel a <http://dbpedia.org/ontology/Novel> .  ?novel <http://dbpedia.org/ontology/author> ?author .  ?novel <http://dbpedia.org/property/genre> <http://dbpedia.org/resource/Science_fiction> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:1-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/1-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the 10 most populated countries?",
+    "query": "SELECT ?country WHERE {  ?country a <http://dbpedia.org/ontology/Country> .  ?country <http://dbpedia.org/ontology/populationTotal> ?population .} ORDER BY DESC(?population) LIMIT 10",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:2-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los 10 pa\u00edses m\u00e1s poblados?",
+    "query": "SELECT DISTINCT ?country WHERE {  ?country a <http://dbpedia.org/ontology/Country> .  ?country <http://dbpedia.org/ontology/populationTotal> ?population .} ORDER BY DESC(?population) LIMIT 10",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:2-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/2-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the birthplace of Keanu Reeves?",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Keanu_Reeves> <http://dbpedia.org/ontology/birthPlace> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:3-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el n\u00famero de ubicaciones de Starbucks en todo el mundo?",
+    "query": "SELECT ?uri WHERE {  <http://dbpedia.org/resource/Starbucks> <http://dbpedia.org/property/numberOfLocations> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:4-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/4-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the Republic of Montenegro (1992-2006)?",
+    "query": "SELECT ?city WHERE {  <http://dbpedia.org/resource/Montenegro> <http://dbpedia.org/ontology/capital> ?city .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:5-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad capital de la Rep\u00fablica de Montenegro (1992-2006)?",
+    "query": "Due to the reasons mentioned above, it is impossible to generate a correct SPARQL query with the provided URIs.",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:5-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/5-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the corporation associated with products such as iPhone and iPad?",
+    "query": "SELECT DISTINCT ?company WHERE {  ?company a <http://dbpedia.org/ontology/Company> .  ?company <http://dbpedia.org/ontology/product> <http://dbpedia.org/resource/IPad> .  ?company <http://dbpedia.org/ontology/product> <http://dbpedia.org/resource/IPhone> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:6-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identifique la corporaci\u00f3n asociada con productos como iPhone y iPad?",
+    "query": "SELECT DISTINCT ?company WHERE {  ?company a <http://dbpedia.org/ontology/Company> .  ?company <http://dbpedia.org/ontology/product> <http://dbpedia.org/resource/IPhone> .  ?company <http://dbpedia.org/ontology/product> <http://dbpedia.org/resource/IPad> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:6-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/6-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which nearest city of the Eiffel Tower is the birthplace of Gustave Eiffel?",
+    "query": "SELECT DISTINCT ?city WHERE {  <http://dbpedia.org/resource/Gustave_Eiffel> <http://dbpedia.org/ontology/birthPlace> ?city .  <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/location> ?city .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:7-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad m\u00e1s cercana a la Torre Eiffel que es el lugar de nacimiento de Gustave Eiffel?",
+    "query": "SELECT DISTINCT ?city WHERE {  <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/nearestCity> ?city .  <http://dbpedia.org/resource/Gustave_Eiffel> <http://dbpedia.org/ontology/birthPlace> ?city .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:7-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/7-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the Eiffel Tower located in Paris?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/locationCity> <http://dbpedia.org/resource/Paris> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:8-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEst\u00e1 la Torre Eiffel ubicada en Par\u00eds?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/isPartOf> <http://dbpedia.org/resource/Paris> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:8-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/8-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who designed the Python programming language?",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Python_(programming_language)> <http://dbpedia.org/ontology/developer> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:9-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n dise\u00f1\u00f3 el lenguaje de programaci\u00f3n Python?",
+    "query": "SELECT DISTINCT ?label WHERE {  <http://dbpedia.org/resource/Python_(programming_language)> <http://dbpedia.org/ontology/developer> ?uri .  ?uri rdfs:label ?label .  FILTER (lang(?label) = 'en')}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:9-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/9-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which teams have players in the Wide Receiver position in American football?",
+    "query": "SELECT DISTINCT ?team WHERE {  ?player a <http://dbpedia.org/ontology/AmericanFootballPlayer> .  ?player <http://dbpedia.org/property/position> <http://dbpedia.org/resource/Wide_receiver> .  ?player <http://dbpedia.org/ontology/team> ?team .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:10-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many people study at universities in California?",
+    "query": "SELECT (SUM(?population) as ?totalPopulation) WHERE {  ?university a <http://dbpedia.org/ontology/University> .  ?university <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/California> .  ?university <http://dbpedia.org/ontology/numberOfStudents> ?population .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:11-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the manufacturer of the Boeing 747?",
+    "query": "SELECT DISTINCT ?manufacturer WHERE {  <http://dbpedia.org/resource/Boeing_747> <http://dbpedia.org/ontology/manufacturer> ?manufacturer .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:12-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el fabricante del Boeing 747?",
+    "query": "SELECT DISTINCT ?manufacturer WHERE {  <http://dbpedia.org/resource/Boeing_747> <http://dbpedia.org/ontology/manufacturer> ?manufacturer .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:12-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/12-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which movie features Johnny Depp as a lead actor?",
+    "query": "SELECT DISTINCT ?movie WHERE {  ?movie a <http://dbpedia.org/ontology/Film> .  ?movie <http://dbpedia.org/ontology/starring> <http://dbpedia.org/resource/Johnny_Depp> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:13-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 pel\u00edcula tiene a Johnny Depp como actor principal?",
+    "query": "SELECT DISTINCT ?movie WHERE {  ?movie a <http://dbpedia.org/ontology/Film> .  ?movie <http://dbpedia.org/ontology/starring> <http://dbpedia.org/resource/Johnny_Depp> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:13-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/13-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Did J.K. Rowling write the Harry Potter series?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Harry_Potter> <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/J._K._Rowling> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:14-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfJ.K. Rowling escribi\u00f3 la serie de Harry Potter?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Harry_Potter> <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/J._K._Rowling> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:14-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/14-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of the Louvre Museum?",
+    "query": "SELECT DISTINCT ?director WHERE {  <http://dbpedia.org/resource/Louvre> <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:15-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el director del Museo del Louvre?",
+    "query": "SELECT ?director WHERE {  <http://dbpedia.org/resource/Louvre> <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:15-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/15-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the directors of Inception?",
+    "query": "SELECT DISTINCT ?director WHERE {  <http://dbpedia.org/resource/Inception> <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:16-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los directores de Inception?",
+    "query": "SELECT DISTINCT ?director WHERE {  <http://dbpedia.org/resource/Inception> <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:16-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/16-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are some movies available on Netflix?",
+    "query": "```SELECT DISTINCT ?film ?series WHERE {  { ?film a <http://dbpedia.org/ontology/Film> .     ?film <http://purl.org/dc/terms/publisher> <http://dbpedia.org/resource/Netflix> . }  UNION  { ?series a <http://dbpedia.org/ontology/TelevisionShow> .     ?series <http://purl.org/dc/terms/publisher> <http://dbpedia.org/resource/Netflix> . }}LIMIT 10```This query will return a list of films and television shows that are published by Netflix. The UNION keyword is used to combine the results of two SELECT queries into a single result. The LIMIT keyword is used to limit the number of results returned.",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:17-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son algunas pel\u00edculas disponibles en Netflix?",
+    "query": "Unfortunately, the provided URIs do not allow for a correct SPARQL query to be constructed that matches the intent of the question. The URI for \"streaming\" is not appropriate, and there is no provided URI that could be used to represent the concept of streaming on Netflix. Therefore, a corrected SPARQL query cannot be provided given the current constraints.",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:17-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/17-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which country has the highest population?",
+    "query": "SELECT DISTINCT ?countryLabel WHERE {  ?country a <http://dbpedia.org/ontology/Country> ;           <http://dbpedia.org/ontology/populationTotal> ?population .  ?country rdfs:label ?countryLabel .  FILTER(langMatches(lang(?countryLabel), \"EN\"))} ORDER BY DESC(?population) LIMIT 1",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:18-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 pa\u00eds tiene la poblaci\u00f3n m\u00e1s alta?",
+    "query": "SELECT ?country WHERE {  ?country a <http://dbpedia.org/ontology/Country> .  ?country <http://dbpedia.org/ontology/populationTotal> ?population .} ORDER BY DESC(?population) LIMIT 1",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:18-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/18-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "In which country does the Amazon River start?",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Amazon_River> <http://dbpedia.org/ontology/country> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:19-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00eds comienza el r\u00edo Amazonas?",
+    "query": "SELECT ?country WHERE {  <http://dbpedia.org/resource/Amazon_River> <http://dbpedia.org/ontology/sourceCountry> ?country .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:19-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/19-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the primary language spoken by the ethnic group to which Chimamanda Ngozi Adichie belongs?",
+    "query": "SELECT DISTINCT ?language WHERE {  <http://dbpedia.org/resource/Chimamanda_Ngozi_Adichie> <http://dbpedia.org/ontology/ethnicity> ?ethnicGroup .  ?ethnicGroup <http://dbpedia.org/ontology/language> ?language .  ?ethnicGroup a <http://dbpedia.org/resource/Ethnic_group> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:20-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el idioma principal hablado por el grupo \u00e9tnico al que pertenece Chimamanda Ngozi Adichie?",
+    "query": "SELECT DISTINCT ?language WHERE {  <http://dbpedia.org/resource/Chimamanda_Ngozi_Adichie> <http://dbpedia.org/ontology/ethnicity> ?ethnicGroup .  ?ethnicGroup <http://dbpedia.org/ontology/language> ?language .  ?ethnicGroup a <http://dbpedia.org/resource/Ethnic_group> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:20-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/20-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "In which country is the Eiffel Tower located?",
+    "query": "SELECT ?country WHERE {  <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/country> ?country .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:21-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00eds se encuentra la Torre Eiffel?",
+    "query": "SELECT ?country WHERE {  <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/country> ?country .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:21-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/21-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the directors of movies where Steven Spielberg was one of the producers?",
+    "query": "SELECT DISTINCT ?director WHERE {  ?movie a <http://dbpedia.org/ontology/Film> .  ?movie <http://dbpedia.org/ontology/producer> <http://dbpedia.org/resource/Steven_Spielberg> .  ?movie <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:22-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identifica los directores de pel\u00edculas donde Steven Spielberg fue uno de los productores.",
+    "query": "SELECT DISTINCT ?director WHERE {  ?film a <http://dbpedia.org/ontology/Film> .  ?film <http://dbpedia.org/ontology/producer> <http://dbpedia.org/resource/Steven_Spielberg> .  ?film <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:22-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/22-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which organizations were founded in 1990?",
+    "query": "SELECT DISTINCT ?org WHERE {  ?org a <http://dbpedia.org/ontology/Organisation> .  ?org <http://dbpedia.org/ontology/foundingYear> <http://dbpedia.org/resource/1990> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:23-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was J.K. Rowling and Ghadam-Ali Sarami born?",
+    "query": "SELECT ?person ?birthPlace WHERE {  {<http://dbpedia.org/resource/J._K._Rowling> <http://dbpedia.org/ontology/birthPlace> ?birthPlace . BIND(\"J.K. Rowling\" AS ?person)}  UNION  {<http://dbpedia.org/resource/Ghadam-Ali_Sarami> <http://dbpedia.org/ontology/birthPlace> ?birthPlace . BIND(\"Ghadam-Ali Sarami\" AS ?person)}}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:24-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde nacieron J.K. Rowling y Ghadam-Ali Sarami?",
+    "query": "SELECT ?person ?birthplace WHERE {  {<http://dbpedia.org/resource/J._K._Rowling> <http://dbpedia.org/ontology/birthPlace> ?birthplace . BIND(\"J.K. Rowling\" AS ?person)}  UNION  {<http://dbpedia.org/resource/Ghadam-Ali_Sarami> <http://dbpedia.org/ontology/birthPlace> ?birthplace . BIND(\"Ghadam-Ali Sarami\" AS ?person)}}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:24-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/24-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many movies are directed by Christopher Nolan?",
+    "query": "SELECT (COUNT(DISTINCT ?movie) AS ?count) WHERE {  ?movie a <http://dbpedia.org/ontology/Film> .  ?movie <http://dbpedia.org/ontology/director> <http://dbpedia.org/resource/Christopher_Nolan> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:25-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas est\u00e1n dirigidas por Christopher Nolan?",
+    "query": "The corrected SPARQL query remains the same as the agent reasoning because the <<number>> URI is not applicable in this context. Here is the corrected query:SELECT COUNT(DISTINCT ?movie) WHERE {  ?movie a <http://dbpedia.org/ontology/Film> .  ?movie <http://dbpedia.org/ontology/director> <http://dbpedia.org/resource/Christopher_Nolan> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:25-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/25-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who were the commanders at the Battle of Gettysburg?",
+    "query": "SELECT DISTINCT ?commander WHERE {  <http://dbpedia.org/resource/Battle_of_Gettysburg> <http://dbpedia.org/ontology/commander> ?uri .  ?uri rdfs:label ?commander .  FILTER(lang(?commander) = \"en\")}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:26-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n fue el comandante en la Batalla de Gettysburg?",
+    "query": "The SPARQL query does not need any corrections. Here it is again for reference:SELECT DISTINCT ?commander WHERE {  <http://dbpedia.org/resource/Battle_of_Gettysburg> <http://dbpedia.org/ontology/commander> ?commander .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:26-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/26-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of Casablanca?",
+    "query": "SELECT DISTINCT ?director WHERE {  <http://dbpedia.org/resource/Casablanca_(film)> <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:27-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los directores de Casablanca?",
+    "query": "SELECT DISTINCT ?director WHERE {  <http://dbpedia.org/resource/Casablanca_(film)> <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:27-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/27-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all the vineyards in France.",
+    "query": "SELECT DISTINCT ?vineyard WHERE {  ?vineyard a <http://dbpedia.org/ontology/Vineyard> .  ?vineyard <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/France> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:28-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera todos los vi\u00f1edos en Francia.",
+    "query": "SELECT DISTINCT ?vineyard WHERE {  ?vineyard a <http://dbpedia.org/ontology/Vineyard> .  ?vineyard <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/France> .  ?vineyard <http://dbpedia.org/ontology/wineProduced> <http://dbpedia.org/resource/Wine> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:28-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/28-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the IEEE Intelligent Systems Journal about Artificial Intelligence?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Institute_of_Electrical_and_Electronics_Engineers> <http://dbpedia.org/ontology/publisher> ?journal .  ?journal <http://www.w3.org/2000/01/rdf-schema#label> \"Intelligent Systems\"@en .  ?journal <http://dbpedia.org/ontology/academicDiscipline> <http://dbpedia.org/resource/Artificial_intelligence> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:29-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEl IEEE Intelligent Systems Journal trata sobre inteligencia artificial?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/IEEE_Intelligent_Systems> <http://dbpedia.org/ontology/academicDiscipline> <http://dbpedia.org/resource/Artificial_intelligence> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:29-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/29-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the number of official languages spoken in Switzerland?",
+    "query": "The SPARQL query does not need any corrections. Here it is again for reference:SELECT (COUNT(DISTINCT ?language) AS ?count) WHERE {  <http://dbpedia.org/resource/Switzerland> <http://dbpedia.org/ontology/officialLanguage> ?language .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:30-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el n\u00famero de lenguas oficiales habladas en Suiza?",
+    "query": "SELECT (COUNT(?language) AS ?count) WHERE {  <http://dbpedia.org/resource/Switzerland> <http://dbpedia.org/ontology/officialLanguage> ?language .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:30-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/30-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which books are illustrated by Quentin Blake?",
+    "query": "SELECT DISTINCT ?book WHERE {  ?book a <http://dbpedia.org/ontology/Book> .  ?book <http://dbpedia.org/property/illustrator> <http://dbpedia.org/resource/Quentin_Blake> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:31-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 libros son ilustrados por Quentin Blake?",
+    "query": "SELECT DISTINCT ?book WHERE {  ?book a <http://dbpedia.org/ontology/Book> .  ?book <http://dbpedia.org/ontology/illustrator> <http://dbpedia.org/resource/Quentin_Blake> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:31-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/31-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who were the managers of the squad located at Old Trafford?",
+    "query": "SELECT DISTINCT ?managerName WHERE {  <http://dbpedia.org/resource/Manchester_United_F.C.> <http://dbpedia.org/ontology/manager> ?manager .  ?manager rdfs:label ?managerName .  FILTER (lang(?managerName) = 'en')}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:32-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many books have been authored by J.K. Rowling?",
+    "query": "SELECT (COUNT(DISTINCT ?book) AS ?count) WHERE {  ?book a <http://dbpedia.org/ontology/Book> .  ?book <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/J._K._Rowling> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:33-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos libros han sido escritos por J.K. Rowling?",
+    "query": "SELECT (COUNT(DISTINCT ?book) AS ?count) WHERE {  ?book a <http://dbpedia.org/ontology/Book> .  ?book <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/J._K._Rowling> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:33-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/33-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who directed the south park episode that precedes Butter's Very Own Episode?",
+    "query": "SELECT DISTINCT ?director WHERE {  ?episode a <http://dbpedia.org/ontology/TelevisionEpisode> .  ?episode <http://dbpedia.org/property/series> <http://dbpedia.org/resource/South_Park> .  ?episode <http://dbpedia.org/property/precededBy> <http://dbpedia.org/resource/Butters'_Very_Own_Episode> .  ?episode <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:34-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n dirigi\u00f3 el episodio de southous parkos que precede a Butter's Very Own Episode?",
+    "query": "SELECT DISTINCT ?director WHERE {  ?episode a <http://dbpedia.org/ontology/TelevisionEpisode> .  ?episode <http://dbpedia.org/ontology/previousWork> <http://dbpedia.org/resource/Butter's_Very_Own_Episode> .  ?episode <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:34-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/34-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which political parties have governed over Varanasi, and is Narendra Modi a member of any of them?",
+    "query": "SELECT DISTINCT ?party WHERE {  <http://dbpedia.org/resource/Varanasi> <http://dbpedia.org/ontology/leaderParty> ?party .  <http://dbpedia.org/resource/Narendra_Modi> <http://dbpedia.org/ontology/party> ?party .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:35-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 partidos pol\u00edticos han gobernado Varanasi, y es Narendra Modi miembro de alguno de ellos?",
+    "query": "SELECT DISTINCT ?party WHERE {  <http://dbpedia.org/resource/Varanasi> <http://dbpedia.org/ontology/leaderParty> ?party .  <http://dbpedia.org/resource/Narendra_Modi> <http://dbpedia.org/ontology/party> ?party .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:35-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/35-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the associated band of the musical artist who is the producer of the album Kind of Blue?",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Kind_of_Blue> <http://dbpedia.org/ontology/producer> ?x .  ?x a <http://dbpedia.org/ontology/MusicalArtist> .  ?x <http://dbpedia.org/ontology/associatedBand> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:36-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la banda asociada del artista musical que es el productor del \u00e1lbum Kind of Blue?",
+    "query": "SELECT DISTINCT ?band WHERE {  ?artist <http://dbpedia.org/ontology/producer> <http://dbpedia.org/resource/Kind_of_Blue> .  ?artist <http://dbpedia.org/ontology/associatedBand> ?band .  ?artist a <http://dbpedia.org/ontology/MusicalArtist> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:36-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/36-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which was the origin of The Beatles?",
+    "query": "SELECT DISTINCT ?name WHERE {  <http://dbpedia.org/resource/The_Beatles> a <http://dbpedia.org/ontology/Band> .  <http://dbpedia.org/resource/The_Beatles> <http://dbpedia.org/ontology/birthPlace> ?uri .  ?uri rdfs:label ?name .  FILTER (lang(?name) = 'en')}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:37-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l fue el origen de The Beatles?",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/The_Beatles> <http://dbpedia.org/ontology/placeOfFormation> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:37-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/37-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List the 10 directors who worked on most movies.",
+    "query": "SELECT ?director (COUNT(?film) AS ?count) WHERE {  ?director a <http://dbpedia.org/ontology/FilmDirector> .  ?film a <http://dbpedia.org/ontology/Film> .  ?film <http://dbpedia.org/ontology/director> ?director .} GROUP BY ?directorORDER BY DESC(?count)LIMIT 10",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:38-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere los 10 directores que trabajaron en m\u00e1s pel\u00edculas.",
+    "query": "SELECT ?director (COUNT(?film) AS ?count) WHERE {  ?film <http://dbpedia.org/ontology/director> ?director .  ?director a <http://dbpedia.org/ontology/FilmDirector> .} GROUP BY ?director ORDER BY DESC(?count) LIMIT 10",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:38-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/38-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List rivers flowing through the admin region bordering the Pacific Ocean?",
+    "query": "SELECT DISTINCT ?river WHERE {  ?region a <http://dbpedia.org/ontology/AdministrativeRegion> .  ?region <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/United_States> .  ?region <http://dbpedia.org/ontology/border> <http://dbpedia.org/resource/Pacific_Ocean> .  ?river a <http://dbpedia.org/ontology/River> .  ?river <http://dbpedia.org/ontology/country> ?region .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:39-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera los r\u00edos que fluyen a trav\u00e9s de la regi\u00f3n administrativa que limita con el Oc\u00e9ano Pac\u00edfico.",
+    "query": "SELECT DISTINCT ?river WHERE {  ?river a <http://dbpedia.org/ontology/River> .  ?river <http://dbpedia.org/ontology/country> ?region .  ?region a <http://dbpedia.org/ontology/AdministrativeRegion> .  ?region <http://dbpedia.org/ontology/border> <http://dbpedia.org/resource/Pacific_Ocean> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:39-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/39-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the universities affiliated with the University of California in the state of California.",
+    "query": "SELECT DISTINCT ?university WHERE {  ?university a <http://dbpedia.org/ontology/University> .  ?university <http://dbpedia.org/property/affiliations> <http://dbpedia.org/resource/University_of_California> .  ?university <http://dbpedia.org/ontology/state> <http://dbpedia.org/resource/California> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:40-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identificar las universidades afiliadas a la Universidad de California en el estado de California.",
+    "query": "SELECT DISTINCT ?university WHERE {  ?university a <http://dbpedia.org/ontology/University> .  ?university <http://dbpedia.org/property/affiliations> <http://dbpedia.org/resource/University_of_California> .  ?university <http://dbpedia.org/ontology/state> <http://dbpedia.org/resource/California> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:40-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/40-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which companies are located in Silicon Valley?",
+    "query": "SELECT DISTINCT ?company WHERE {  ?company a <http://dbpedia.org/ontology/Company> .  ?company <http://dbpedia.org/property/location> <http://dbpedia.org/resource/Silicon_Valley> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:41-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas est\u00e1n ubicadas en Silicon Valley?",
+    "query": "SELECT DISTINCT ?company WHERE {  ?company a <http://dbpedia.org/ontology/Company> .  ?company <http://dbpedia.org/property/location> <http://dbpedia.org/resource/Silicon_Valley> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:41-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/41-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which teams play in the league Campeonato Brasileiro S\u00e9rie A?",
+    "query": "SELECT DISTINCT ?team WHERE {  ?team a <http://dbpedia.org/ontology/SoccerClub> .  ?team <http://dbpedia.org/ontology/league> <http://dbpedia.org/resource/Campeonato_Brasileiro_S\u00e9rie_A> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:42-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 equipos juegan en la liga Campeonato Brasileiro S\u00e9rie A?",
+    "query": "SELECT DISTINCT ?team WHERE {  ?team <http://dbpedia.org/ontology/league> <http://dbpedia.org/resource/Campeonato_Brasileiro_S\u00e9rie_A> .  ?team a <http://dbpedia.org/resource/Association_football> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:42-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/42-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which place has Geneva and Carouge as its neighboring municipalities?",
+    "query": "SELECT DISTINCT ?place WHERE {  ?place <http://dbpedia.org/ontology/neighboringMunicipality> <http://dbpedia.org/resource/Geneva> .  ?place <http://dbpedia.org/ontology/neighboringMunicipality> <http://dbpedia.org/resource/Carouge> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:43-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 lugar tiene a Ginebra y Carouge como sus municipios vecinos?",
+    "query": "Unfortunately, due to the limitations of the DBpedia ontology, it is not possible to create a SPARQL query that directly answers the question \"What place has Geneva and Carouge as its neighboring municipalities?\" as there is no property to query for neighboring municipalities.",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:43-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/43-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the capitals of countries governed by a parliamentary republic?",
+    "query": "SELECT DISTINCT ?capital WHERE {  ?country a <http://dbpedia.org/ontology/Country> .  ?country <http://dbpedia.org/ontology/governmentType> <http://dbpedia.org/resource/Parliamentary_republic> .  ?country <http://dbpedia.org/ontology/capital> ?capital .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:44-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las capitales de los pa\u00edses gobernados por una rep\u00fablica parlamentaria?",
+    "query": "SELECT DISTINCT ?capital WHERE {  ?country a <http://dbpedia.org/ontology/Country> .  ?country <http://dbpedia.org/ontology/governmentType> <http://dbpedia.org/resource/Parliamentary_system> .  ?country <http://dbpedia.org/ontology/capital> ?capital .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:44-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/44-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "When did the Apollo 11 mission land on the moon?",
+    "query": "SELECT ?date WHERE {  <http://dbpedia.org/resource/Apollo_11> <http://dbpedia.org/ontology/date> ?date .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:45-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ndo aterriz\u00f3 la misi\u00f3n Apollo 11 en la luna?",
+    "query": "SELECT ?date WHERE {  <http://dbpedia.org/resource/Apollo_11> <http://dbpedia.org/property/landingDate> ?date .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:45-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/45-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all bands according to the amount of songs they published.",
+    "query": "```sparqlSELECT ?band (COUNT(?song) AS ?numberOfSongs)WHERE {  ?band a <http://dbpedia.org/ontology/Band> .  ?song <http://dbpedia.org/ontology/releaseDate> ?releaseDate .  ?song <http://dbpedia.org/property/numberOfSongs> ?band .}GROUP BY ?bandORDER BY DESC(?numberOfSongs)```Please note that the provided URIs do not perfectly match the intent of the question. The URI http://dbpedia.org/property/numberOfSongs seems to be a property of a song, not a band, and the URI http://dbpedia.org/ontology/releaseDate is a property of a release, not a song. Therefore, the corrected query might not return the expected results.",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:46-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere todas las bandas seg\u00fan la cantidad de canciones que publicaron.",
+    "query": "SELECT ?band ?numberOfSongs WHERE {  ?band a <http://dbpedia.org/ontology/Band> .  ?band <http://dbpedia.org/property/numberOfSongs> ?numberOfSongs .} ORDER BY DESC(?numberOfSongs)",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:46-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/46-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where did the office holder who is predecessor to Margaret Thatcher die?",
+    "query": "SELECT DISTINCT ?uri WHERE {  ?x <http://dbpedia.org/ontology/predecessor> <http://dbpedia.org/resource/Margaret_Thatcher> .  ?x <http://dbpedia.org/ontology/deathPlace> ?uri .  ?x a <http://dbpedia.org/ontology/Politician> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:47-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde muri\u00f3 el titular del cargo que es predecesor de Margaret Thatcher?",
+    "query": "SELECT DISTINCT ?place WHERE {  <http://dbpedia.org/resource/Margaret_Thatcher> <http://dbpedia.org/ontology/predecessor> ?person .  ?person <http://dbpedia.org/ontology/deathPlace> ?place .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:47-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/47-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where did Bill Gates and Mark Zuckerberg go to school?",
+    "query": "SELECT DISTINCT ?institution WHERE {  { <http://dbpedia.org/resource/Bill_Gates> <http://dbpedia.org/ontology/almaMater> ?institution . }  UNION  { <http://dbpedia.org/resource/Mark_Zuckerberg> <http://dbpedia.org/ontology/almaMater> ?institution . }}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:48-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde estudiaron Bill Gates y Mark Zuckerberg?",
+    "query": "SELECT DISTINCT ?institution WHERE {  {<http://dbpedia.org/resource/Bill_Gates> <http://dbpedia.org/ontology/almaMater> ?institution .}  UNION  {<http://dbpedia.org/resource/Mark_Zuckerberg> <http://dbpedia.org/ontology/almaMater> ?institution .}}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:48-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/48-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is The Star-Spangled Banner the national anthem of the United States?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/United_States> <http://dbpedia.org/ontology/anthem> <http://dbpedia.org/resource/The_Star-Spangled_Banner> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:49-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEs The Star-Spangled Banner el himno nacional de los Estados Unidos?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/United_States> <http://dbpedia.org/ontology/anthem> <http://dbpedia.org/resource/The_Star-Spangled_Banner> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:49-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/49-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Was Edmund Hillary the first person to reach the summit of Mount Everest?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Mount_Everest> <http://dbpedia.org/ontology/firstAscentPerson> <http://dbpedia.org/resource/Edmund_Hillary> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:50-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfFue Edmund Hillary la primera persona en alcanzar la cima del Monte Everest?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Mount_Everest> <http://dbpedia.org/ontology/firstAscentPerson> <http://dbpedia.org/resource/Edmund_Hillary> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:50-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/50-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who has been married to both Nicole Kidman and Katie Holmes?",
+    "query": "SELECT DISTINCT ?person WHERE {  ?person <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Nicole_Kidman> .  ?person <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Katie_Holmes> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:51-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/51-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n ha estado casado tanto con Nicole Kidman como con Katie Holmes?",
+    "query": "SELECT DISTINCT ?person WHERE {  ?person <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Nicole_Kidman> .  ?person <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Katie_Holmes> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:51-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/51-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Are Australian former Prime Ministers Julia Gillard and Kevin Rudd part of the same political party?",
+    "query": "ASK WHERE {  ?party1 <http://dbpedia.org/ontology/party> <http://dbpedia.org/resource/Julia_Gillard> .  ?party2 <http://dbpedia.org/ontology/party> <http://dbpedia.org/resource/Kevin_Rudd> .  FILTER (?party1 = ?party2)}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:52-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/52-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfSon los ex primeros ministros australianos Julia Gillard y Kevin Rudd parte del mismo partido pol\u00edtico?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Julia_Gillard> <http://dbpedia.org/ontology/party> ?party .  <http://dbpedia.org/resource/Kevin_Rudd> <http://dbpedia.org/ontology/party> ?party .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:52-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/52-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which organizations have their headquarters located in New York City?",
+    "query": "SELECT DISTINCT ?uri WHERE {  ?uri a <http://dbpedia.org/ontology/Organisation> .  ?uri <http://dbpedia.org/ontology/locationCity> <http://dbpedia.org/resource/New_York_City> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:53-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/53-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 organizaciones tienen su sede en la ciudad de Nueva York?",
+    "query": "SELECT DISTINCT ?org WHERE {  ?org a <http://dbpedia.org/ontology/Organisation> .  ?org <http://dbpedia.org/ontology/headquarter> <http://dbpedia.org/resource/New_York_City> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:53-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/53-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which people are employed by the New York Times?",
+    "query": "SELECT DISTINCT ?employee WHERE {  <http://dbpedia.org/resource/The_New_York_Times> <http://dbpedia.org/ontology/employee> ?employee .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:54-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/54-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 personas est\u00e1n empleadas por el New York Times?",
+    "query": "SELECT DISTINCT ?person WHERE {  ?person <http://dbpedia.org/property/employer> <http://dbpedia.org/resource/The_New_York_Times> .  ?person a <http://dbpedia.org/ontology/Person> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:54-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/54-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of Inception?",
+    "query": "SELECT DISTINCT ?director WHERE {  <http://dbpedia.org/resource/Inception> <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:55-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/55-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el director de Inception?",
+    "query": "SELECT DISTINCT ?director WHERE {  <http://dbpedia.org/resource/Inception> <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:55-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/55-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which authors have been published by Penguin Books?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>SELECT DISTINCT ?author WHERE {  ?work dbo:author ?author .  ?work dbo:publisher dbr:Penguin_Books .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:56-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/56-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 autores han sido publicados por Penguin Books?",
+    "query": "SELECT DISTINCT ?author WHERE {  ?book a <http://dbpedia.org/ontology/Book> .  ?book <http://dbpedia.org/ontology/publisher> <http://dbpedia.org/resource/Penguin_Books> .  ?book <http://dbpedia.org/ontology/author> ?author .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:56-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/56-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which instruments are commonly used in genres that emerged from jazz?",
+    "query": "Unfortunately, with the provided URIs, it is not possible to create a SPARQL query that would answer the original question correctly. The ontology does not support a direct link between a music genre and the instruments used in it. The instrument is usually associated with a musical artist or a musical work, not directly with a genre. Therefore, a correct SPARQL query cannot be provided based on the given URIs.",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:57-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/57-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 instrumentos se utilizan com\u00fanmente en g\u00e9neros que surgieron del jazz?",
+    "query": "SELECT DISTINCT ?uri WHERE {  ?x <http://dbpedia.org/ontology/stylisticOrigin> <http://dbpedia.org/resource/Jazz> .  ?x <http://dbpedia.org/ontology/MusicalInstrument> ?uri .  ?x a <http://dbpedia.org/ontology/MusicGenre> .  ?uri a <http://dbpedia.org/ontology/MusicalInstrument> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:57-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/57-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Was Emma Watson a part of Harry Potter cast?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Harry_Potter_(film_series)> <http://dbpedia.org/ontology/starring> <http://dbpedia.org/resource/Emma_Watson> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:58-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/58-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfFue Emma Watson parte del elenco de Harry Potter?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Harry_Potter_(film_series)> <http://dbpedia.org/ontology/starring> <http://dbpedia.org/resource/Emma_Watson> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:58-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/58-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the country where the famous artist Leonardo da Vinci was born?",
+    "query": "SELECT DISTINCT ?capital WHERE {  <http://dbpedia.org/resource/Leonardo_da_Vinci> <http://dbpedia.org/ontology/birthPlace> ?place .  ?place <http://dbpedia.org/ontology/country> ?country .  ?country <http://dbpedia.org/ontology/capital> ?capital .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:59-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/59-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad capital del pa\u00eds donde naci\u00f3 el famoso artista Leonardo da Vinci?",
+    "query": "SELECT DISTINCT ?capital WHERE {  <http://dbpedia.org/resource/Leonardo_da_Vinci> <http://dbpedia.org/ontology/birthPlace> ?country .  ?country <http://dbpedia.org/ontology/capital> ?capital .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:59-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/59-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the population of the largest city in Canada?",
+    "query": "SELECT ?population WHERE {  <http://dbpedia.org/resource/Canada> <http://dbpedia.org/ontology/largestCity> ?city .  ?city <http://dbpedia.org/ontology/populationTotal> ?population .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:60-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/60-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la poblaci\u00f3n de la ciudad m\u00e1s grande de Canad\u00e1?",
+    "query": "SELECT ?population WHERE {  <http://dbpedia.org/resource/Canada> <http://dbpedia.org/ontology/largestCity> ?city .  ?city <http://dbpedia.org/ontology/populationTotal> ?population .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:60-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/60-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many films did Roger Deakins work on as a cinematographer?",
+    "query": "SELECT (COUNT(DISTINCT ?film) AS ?count) WHERE {  ?film a <http://dbpedia.org/ontology/Film> .  ?film <http://dbpedia.org/ontology/cinematography> <http://dbpedia.org/resource/Roger_Deakins> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:61-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/61-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas hizo Roger Deakins como director de fotograf\u00eda?",
+    "query": "SELECT (COUNT(DISTINCT ?film) AS ?count) WHERE {  ?film a <http://dbpedia.org/ontology/Film> .  ?film <http://dbpedia.org/ontology/cinematography> <http://dbpedia.org/resource/Roger_Deakins> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:61-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/61-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which players are or have been part of the Brazil national football team?",
+    "query": "SELECT DISTINCT ?player WHERE {  ?player a <http://dbpedia.org/ontology/SoccerPlayer> .  ?player <http://dbpedia.org/ontology/team> <http://dbpedia.org/resource/Brazil_national_football_team> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:62-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/62-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 jugadores son o han sido parte del equipo nacional de f\u00fatbol de Brasil?",
+    "query": "SELECT DISTINCT ?player WHERE {  ?player <http://dbpedia.org/ontology/teamMember> <http://dbpedia.org/resource/Brazil_national_football_team> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:62-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/62-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the managers from all basketball teams which LeBron James played at?",
+    "query": "SELECT DISTINCT ?manager WHERE {  ?team a <http://dbpedia.org/ontology/BasketballTeam> .  ?team <http://dbpedia.org/ontology/manager> ?manager .  ?team <http://dbpedia.org/ontology/team> <http://dbpedia.org/resource/LeBron_James> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:63-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/63-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los entrenadores de todos los equipos de baloncesto en los que ha jugado LeBron James?",
+    "query": "SELECT DISTINCT ?coach WHERE {  ?team a <http://dbpedia.org/ontology/BasketballTeam> .  ?team <http://dbpedia.org/ontology/coach> ?coach .  ?team <http://dbpedia.org/ontology/team> <http://dbpedia.org/resource/LeBron_James> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:63-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/63-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which director of Inception is also the filmmaker behind The Dark Knight?",
+    "query": "SELECT DISTINCT ?director WHERE {  <http://dbpedia.org/resource/Inception> <http://dbpedia.org/ontology/director> ?director .  <http://dbpedia.org/resource/Batman_in_film> <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:64-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/64-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 director de Inception es tambi\u00e9n el cineasta detr\u00e1s de The Dark Knight?",
+    "query": "SELECT DISTINCT ?director WHERE {  <http://dbpedia.org/resource/Inception> <http://dbpedia.org/ontology/director> ?director .  <http://dbpedia.org/resource/Batman_in_film> <http://dbpedia.org/ontology/director> ?director .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:64-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/64-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the birth place of Albert Einstein?",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Albert_Einstein> <http://dbpedia.org/ontology/birthPlace> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:65-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/65-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Albert Einstein?",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Albert_Einstein> <http://dbpedia.org/ontology/birthPlace> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:65-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/65-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many birds are in the Chordate phylum?",
+    "query": "SELECT (COUNT(?species) AS ?count) WHERE {  ?species <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/resource/Species> .  ?species <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Birds> .  ?species <http://dbpedia.org/ontology/phylum> <http://dbpedia.org/resource/Chordate> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:66-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/66-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas aves hay en el filo Cordado?",
+    "query": "SELECT DISTINCT COUNT(?uri) WHERE {  ?uri <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Chordate> .  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/resource/Bird> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:66-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/66-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the author of Harry Potter and the Order of the Phoenix?",
+    "query": "SELECT DISTINCT ?author WHERE {  <http://dbpedia.org/resource/Harry_Potter_and_the_Order_of_the_Phoenix> <http://dbpedia.org/ontology/author> ?author .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:67-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/67-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el autor de Harry Potter y el Orden del F\u00e9nix?",
+    "query": "SELECT DISTINCT ?author WHERE {  <http://dbpedia.org/resource/Harry_Potter> <http://dbpedia.org/ontology/author> ?author .  <http://dbpedia.org/resource/Harry_Potter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Book> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:67-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/67-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where is the Eiffel Tower located?",
+    "query": "SELECT ?location WHERE {  <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/location> ?location .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:68-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/68-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde se encuentra la Torre Eiffel?",
+    "query": "SELECT DISTINCT ?city WHERE {  <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/locationCity> ?city .  ?city a <http://dbpedia.org/ontology/City> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:68-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/68-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are some of the key people involved with the Wikimedia Foundation?",
+    "query": "The SPARQL query does not need any corrections. Here it is for reference:SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Wikimedia_Foundation> <http://dbpedia.org/ontology/keyPerson> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:69-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/69-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son algunas de las personas clave involucradas con la Fundaci\u00f3n Wikimedia?",
+    "query": "The SPARQL query does not need any corrections. Here it is again for reference:SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Wikimedia_Foundation> <http://dbpedia.org/ontology/keyPerson> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:69-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/69-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many are the Generals of the United States?",
+    "query": "SELECT (COUNT(DISTINCT ?general) AS ?count) WHERE {  ?general a <http://dbpedia.org/ontology/MilitaryPerson> .  ?general <http://dbpedia.org/ontology/militaryBranch> <http://dbpedia.org/resource/United_States_Armed_Forces> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:70-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/70-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos son los General de los Estados Unidos?",
+    "query": "SELECT (COUNT(DISTINCT ?x) AS ?total) WHERE {  ?x a <http://dbpedia.org/ontology/MilitaryPerson> .  ?x <http://dbpedia.org/ontology/militaryBranch> <http://dbpedia.org/resource/United_States_Armed_Forces> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:70-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/70-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the key figures associated with the United Nations?",
+    "query": "SELECT DISTINCT ?name WHERE {  <http://dbpedia.org/resource/United_Nations> <http://dbpedia.org/ontology/keyPerson> ?uri .  ?uri rdfs:label ?name .  FILTER (lang(?name) = 'en')}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:71-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/71-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was the song 'Bohemian Rhapsody' recorded?",
+    "query": "SELECT DISTINCT ?location WHERE {  <http://dbpedia.org/resource/Bohemian_Rhapsody> <http://dbpedia.org/ontology/recordedIn> ?location .  ?location a <http://dbpedia.org/ontology/Place> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:72-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/72-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde se grab\u00f3 la canci\u00f3n 'Bohemian Rhapsody'?",
+    "query": "Unfortunately, without knowing the correct property to use to get the recording studio of a song from DBpedia, it's impossible to provide a corrected SPARQL query. The provided URIs do not seem to contain the necessary information to answer the question. The 'recordedIn' property might not exist or might not be used in the way the question assumes.",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:72-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/72-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the state of California?",
+    "query": "SELECT ?capital WHERE {  <http://dbpedia.org/resource/California> <http://dbpedia.org/ontology/capital> ?capital .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:73-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/73-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la capital del estado de California?",
+    "query": "SELECT DISTINCT ?capital WHERE {  <http://dbpedia.org/resource/California> <http://dbpedia.org/property/capital> ?uri .  ?uri rdfs:label ?capital .  FILTER (lang(?capital) = 'en')}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:73-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/73-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the authors of books written about the Battle of Stalingrad?",
+    "query": "SELECT DISTINCT ?author WHERE {  ?book a <http://dbpedia.org/ontology/Book> .  ?book <http://dbpedia.org/ontology/author> ?author .  ?book <http://dbpedia.org/ontology/subject> <http://dbpedia.org/resource/Battle_of_Stalingrad> .  ?book <http://dbpedia.org/ontology/subject> <http://dbpedia.org/resource/World_War_II> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:74-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/74-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los autores de libros escritos sobre la Batalla de Stalingrado?",
+    "query": "SELECT DISTINCT ?author WHERE {  ?book a <http://dbpedia.org/ontology/Book> .  ?book <http://dbpedia.org/ontology/author> ?author .  ?book <http://dbpedia.org/ontology/subject> <http://dbpedia.org/resource/Battle_of_Stalingrad> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:74-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/74-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the Louvre Museum located in Paris?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Louvre> <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/Paris> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:75-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/75-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEst\u00e1 el Museo del Louvre ubicado en Par\u00eds?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/Louvre> <http://dbpedia.org/ontology/city> <http://dbpedia.org/resource/Paris> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:75-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/75-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Give me all prime ministers of the United Kingdom.",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/United_Kingdom> <http://dbpedia.org/resource/Prime_Minister_of_the_United_Kingdom> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:76-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/76-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Dame todos los primeros ministros del Reino Unido.",
+    "query": "SELECT DISTINCT ?x WHERE {  <http://dbpedia.org/resource/United_Kingdom> <http://dbpedia.org/resource/Prime_Minister_of_the_United_Kingdom> ?x .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:76-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/76-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "When was the birth of Albert Einstein?",
+    "query": "SELECT ?birthDate WHERE {  <http://dbpedia.org/resource/Albert_Einstein> <http://dbpedia.org/ontology/birthDate> ?birthDate .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:77-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/77-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ndo naci\u00f3 Albert Einstein?",
+    "query": "SELECT ?date WHERE {  <http://dbpedia.org/resource/Albert_Einstein> <http://dbpedia.org/ontology/birthDate> ?date .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:77-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/77-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List some architects of buildings taller than 300 meters.",
+    "query": "SELECT DISTINCT ?architect WHERE {  ?building a <http://dbpedia.org/ontology/Building> .  ?building <http://dbpedia.org/property/height> ?height .  ?building <http://dbpedia.org/ontology/architect> ?architect .  ?architect a <http://dbpedia.org/ontology/Architect> .  FILTER (?height > 300)}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:78-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/78-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera algunos arquitectos de edificios m\u00e1s altos que 300 metros.",
+    "query": "SELECT DISTINCT ?architect WHERE {  ?building a <http://dbpedia.org/ontology/Building> .  ?building <http://dbpedia.org/ontology/height> ?height .  ?building <http://dbpedia.org/ontology/architect> ?architect .  FILTER (?height > 300)}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:78-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/78-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the birthplace of Nikola Tesla?",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Nikola_Tesla> <http://dbpedia.org/ontology/birthPlace> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:79-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/79-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identificar el lugar de nacimiento de Nikola Tesla?",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Nikola_Tesla> <http://dbpedia.org/ontology/birthPlace> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:79-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/79-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List the 10 countries with most cities.",
+    "query": "SELECT ?country (COUNT(?city) AS ?cityCount) WHERE {  ?city a <http://dbpedia.org/ontology/City> .  ?city <http://dbpedia.org/ontology/isPartOf> ?country .  ?country a <http://dbpedia.org/ontology/Country> .} GROUP BY ?countryORDER BY DESC(?cityCount)LIMIT 10",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:80-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/80-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere los 10 pa\u00edses con m\u00e1s ciudades.",
+    "query": "SELECT ?country (COUNT(?city) AS ?cityCount) WHERE {  ?city a <http://dbpedia.org/ontology/City> .  ?city <http://dbpedia.org/ontology/country> ?country .  ?country a <http://dbpedia.org/ontology/Country> .} GROUP BY ?countryORDER BY DESC(?cityCount)LIMIT 10",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:80-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/80-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the places where rivers that flow into the Black Sea originate from?",
+    "query": "SELECT DISTINCT ?place WHERE {  ?river a <http://dbpedia.org/ontology/River> .  ?river <http://dbpedia.org/ontology/mouthPlace> <http://dbpedia.org/resource/Black_Sea> .  ?river <http://dbpedia.org/ontology/sourcePlace> ?place .  ?place a <http://dbpedia.org/ontology/Place> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:81-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/81-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfDe d\u00f3nde provienen los r\u00edos que fluyen hacia el Mar Negro?",
+    "query": "SELECT DISTINCT ?source WHERE {  ?river a <http://dbpedia.org/ontology/River> .  ?river <http://dbpedia.org/ontology/mouthPlace> <http://dbpedia.org/resource/Black_Sea> .  ?river <http://dbpedia.org/ontology/sourcePlace> ?source .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:81-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/81-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many games (or DLCs) by Blizzard Entertainment are part of the Warcraft series?",
+    "query": "SELECT (COUNT(DISTINCT ?game) AS ?count) WHERE {  ?game a <http://dbpedia.org/ontology/VideoGame> .  ?game <http://dbpedia.org/ontology/developer> <http://dbpedia.org/resource/Blizzard_Entertainment> .  ?game <http://dbpedia.org/ontology/series> <http://dbpedia.org/resource/Warcraft> .  UNION  {    ?game a <http://dbpedia.org/resource/Downloadable_content> .    ?game <http://dbpedia.org/ontology/developer> <http://dbpedia.org/resource/Blizzard_Entertainment> .    ?game <http://dbpedia.org/ontology/series> <http://dbpedia.org/resource/Warcraft> .  }}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:82-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/82-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos juegos (o DLCs) de Blizzard Entertainment son parte de la serie Warcraft?",
+    "query": "SELECT (COUNT(DISTINCT ?game) AS ?count) WHERE {  {    ?game a <http://dbpedia.org/ontology/VideoGame> .    ?game <http://dbpedia.org/ontology/developer> <http://dbpedia.org/resource/Blizzard_Entertainment> .    ?game <http://dbpedia.org/ontology/series> <http://dbpedia.org/resource/Warcraft> .  } UNION {    ?game a <http://dbpedia.org/resource/Downloadable_content> .    ?game <http://dbpedia.org/ontology/developer> <http://dbpedia.org/resource/Blizzard_Entertainment> .    ?game <http://dbpedia.org/ontology/series> <http://dbpedia.org/resource/Warcraft> .  }}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:82-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/82-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the alternate names of the child from Aung San Suu Kyi?",
+    "query": "SELECT DISTINCT ?alias WHERE {  <http://dbpedia.org/resource/Aung_San_Suu_Kyi> <http://dbpedia.org/ontology/child> ?child .  ?child <http://dbpedia.org/ontology/alias> ?alias .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:83-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/83-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los nombres alternativos del hijo de Aung San Suu Kyi?",
+    "query": "Unfortunately, it's not possible to correct this query to return the desired results using the provided URIs. The URI http://dbpedia.org/property/alternateNames is not typically used to describe the alternate names of a person's child in the DBpedia dataset. Therefore, even if the query is syntactically correct, it may not return any results. However, if we want to get the names of Aung San Suu Kyi's children, we can use the following query:SELECT DISTINCT ?childName WHERE {  <http://dbpedia.org/resource/Aung_San_Suu_Kyi> <http://dbpedia.org/ontology/child> ?child .  ?child rdfs:label ?childName .  FILTER (lang(?childName) = \"en\")}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:83-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/83-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which professional athlete is also an actor?",
+    "query": "SELECT DISTINCT ?person WHERE {  ?person a <http://dbpedia.org/ontology/Athlete> .  ?person a <http://dbpedia.org/ontology/Actor> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:84-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/84-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 atleta profesional, que tambi\u00e9n es actor?",
+    "query": "SELECT DISTINCT ?person WHERE {  ?person a <http://dbpedia.org/ontology/ProfessionalAthlete> .  ?person a <http://dbpedia.org/ontology/Actor> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:84-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/84-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the wife of Tom Hanks?",
+    "query": "SELECT DISTINCT ?spouse WHERE {  <http://dbpedia.org/resource/Tom_Hanks> <http://dbpedia.org/ontology/spouse> ?spouse .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:85-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/85-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es la esposa de Tom Hanks?",
+    "query": "SELECT DISTINCT ?name WHERE {  <http://dbpedia.org/resource/Tom_Hanks> <http://dbpedia.org/ontology/spouse> ?uri .  ?uri rdfs:label ?name .  FILTER(lang(?name) = \"en\")}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:85-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/85-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the occupations of the Wikipedia authors?",
+    "query": "Unfortunately, it's impossible to generate a valid SPARQL query that answers the original question using the provided URIs. The URIs don't point to specific individuals who contribute to Wikipedia or their professions. Therefore, a corrected SPARQL query can't be provided.",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:86-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/86-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las ocupaciones de los autores de Wikipedia?",
+    "query": "Due to the reasons mentioned above, it's impossible to provide a corrected SPARQL query for this task. The task itself is not feasible with the provided URIs and the structure of the DBpedia database.",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:86-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/86-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which companies have employed graduates from Stanford University?",
+    "query": "SELECT DISTINCT ?company WHERE {  ?person <http://dbpedia.org/ontology/almaMater> <http://dbpedia.org/resource/Stanford_University> .  ?person <http://dbpedia.org/property/employer> ?company .  ?company a <http://dbpedia.org/ontology/Company> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:87-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/87-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas han empleado a graduados de la Universidad de Stanford?",
+    "query": "SELECT DISTINCT ?company WHERE {  ?x <http://dbpedia.org/property/employer> <http://dbpedia.org/resource/Stanford_University> .  ?x a <http://dbpedia.org/ontology/Company> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:87-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/87-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which book has author as J.K. Rowling?",
+    "query": "SELECT DISTINCT ?book WHERE {  ?book a <http://dbpedia.org/ontology/Book> .  ?book <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/J._K._Rowling> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:88-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/88-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 libro tiene como autor a J.K. Rowling?",
+    "query": "SELECT DISTINCT ?book WHERE {  ?book a <http://dbpedia.org/ontology/Book> .  ?book <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/J._K._Rowling> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:88-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/88-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many books were authored by J.K. Rowling?",
+    "query": "SELECT (COUNT(DISTINCT ?book) AS ?count) WHERE {  ?book a <http://dbpedia.org/ontology/Book> .  ?book <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/J._K._Rowling> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:89-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/89-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos libros fueron escritos por J.K. Rowling?",
+    "query": "SELECT (COUNT(DISTINCT ?book) AS ?count) WHERE {  ?book a <http://dbpedia.org/ontology/Book> .  ?book <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/J._K._Rowling> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:89-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/89-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was the predecessor of Irina Bokova born?",
+    "query": "SELECT DISTINCT ?place WHERE {  <http://dbpedia.org/resource/Irina_Bokova> <http://dbpedia.org/ontology/predecessor> ?person .  ?person <http://dbpedia.org/ontology/birthPlace> ?place .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:90-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/90-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde naci\u00f3 el predecesor de Irina Bokova?",
+    "query": "SELECT DISTINCT ?birthPlace WHERE {  <http://dbpedia.org/resource/Irina_Bokova> <http://dbpedia.org/ontology/predecessor> ?predecessor .  ?predecessor <http://dbpedia.org/ontology/birthPlace> ?birthPlace .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:90-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/90-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many films were recorded by the cinematographer of 'Inception'?",
+    "query": "SELECT (COUNT(DISTINCT ?film) AS ?count) WHERE {  <http://dbpedia.org/resource/Inception> <http://dbpedia.org/ontology/cinematography> ?cinematographer .  ?film a <http://dbpedia.org/ontology/Film> .  ?film <http://dbpedia.org/ontology/cinematography> ?cinematographer .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:91-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/91-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCuantas pel\u00edculas fueron filmadas por el director de fotograf\u00eda de 'Inception'?",
+    "query": "SELECT (COUNT(DISTINCT ?film) AS ?count) WHERE {  <http://dbpedia.org/resource/Inception> <http://dbpedia.org/ontology/cinematography> ?dp .  ?film a <http://dbpedia.org/ontology/Film> .  ?film <http://dbpedia.org/ontology/cinematography> ?dp .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:91-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/91-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the capital cities from the countries where Mount Everest is located?",
+    "query": "SELECT DISTINCT ?capital WHERE {  ?country a <http://dbpedia.org/ontology/Country> .  ?country <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/Mount_Everest> .  ?country <http://dbpedia.org/ontology/capital> ?capital .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:92-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/92-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las capitales de los pa\u00edses donde se encuentra el Monte Everest?",
+    "query": "SELECT DISTINCT ?capital WHERE {  ?country a <http://dbpedia.org/ontology/Country> .  ?country <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/Mount_Everest> .  ?country <http://dbpedia.org/ontology/capital> ?capital .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:92-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/92-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is there a university whose campuses are New York and California?",
+    "query": "ASK WHERE {  ?university a <http://dbpedia.org/ontology/University> .  ?university <http://dbpedia.org/ontology/campus> <http://dbpedia.org/resource/New_York_(state)> .  ?university <http://dbpedia.org/ontology/campus> <http://dbpedia.org/resource/California> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:93-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/93-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfExiste una universidad cuyos campus son Nueva York y California?",
+    "query": "ASK WHERE {  ?uni a <http://dbpedia.org/ontology/University> .  ?uni <http://dbpedia.org/ontology/campus> <http://dbpedia.org/resource/New_York_(state)> .  ?uni <http://dbpedia.org/ontology/campus> <http://dbpedia.org/resource/California> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:93-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/93-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Do the University of Georgia and the Atlanta Falcons have the same mascot?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/University_of_Georgia> <http://dbpedia.org/property/mascot> ?mascot .  <http://dbpedia.org/resource/Atlanta_Falcons> <http://dbpedia.org/property/mascot> ?mascot .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:94-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/94-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfTienen la Universidad de Georgia y los Atlanta Falcons el mismo mascota?",
+    "query": "ASK WHERE {  <http://dbpedia.org/resource/University_of_Georgia> <http://dbpedia.org/resource/Mascot> ?mascot .  <http://dbpedia.org/resource/Atlanta_Falcons> <http://dbpedia.org/resource/Mascot> ?mascot .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:94-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/94-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which notable figures are buried in P\u00e8re Lachaise Cemetery?",
+    "query": "SELECT DISTINCT ?person WHERE {  ?person a <http://dbpedia.org/ontology/Person> .  ?person <http://dbpedia.org/ontology/restingPlace> <http://dbpedia.org/resource/P\u00e8re_Lachaise_Cemetery> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:95-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/95-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 figuras notables est\u00e1n enterradas en el Cementerio de P\u00e8re Lachaise?",
+    "query": "SELECT DISTINCT ?person WHERE {  ?person a <http://dbpedia.org/ontology/Person> .  ?person <http://dbpedia.org/ontology/restingPlace> <http://dbpedia.org/resource/P\u00e8re_Lachaise_Cemetery> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:95-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/95-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all countries, starting with those who have the least amount of universities.",
+    "query": "SELECT ?country (COUNT(?university) AS ?count) WHERE {  ?university a <http://dbpedia.org/ontology/University> .  ?university <http://dbpedia.org/ontology/country> ?country .  ?country a <http://dbpedia.org/ontology/Country> .} GROUP BY ?country ORDER BY ?count",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:96-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/96-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere todos los pa\u00edses, comenzando por aquellos que tienen la menor cantidad de universidades.",
+    "query": "SELECT ?country WHERE {  ?country a <http://dbpedia.org/ontology/Country> .  ?country <http://dbpedia.org/property/numberOfUniversities> ?num .} ORDER BY ASC(?num)",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:96-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/96-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which rivers originates from the Rocky Mountains?",
+    "query": "SELECT DISTINCT ?river WHERE {  ?river a <http://dbpedia.org/ontology/River> .  ?river <http://dbpedia.org/property/source> <http://dbpedia.org/resource/Rocky_Mountains> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:97-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/97-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 r\u00edos se originan en las Monta\u00f1as Rocosas?",
+    "query": "SELECT DISTINCT ?river WHERE {  ?river a <http://dbpedia.org/ontology/River> .  ?river <http://dbpedia.org/ontology/source> <http://dbpedia.org/resource/Rocky_Mountains> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:97-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/97-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the regions served by FedEx?",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/FedEx> <http://dbpedia.org/ontology/regionServed> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:98-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/98-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las regiones atendidas por FedEx?",
+    "query": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/FedEx> <http://dbpedia.org/ontology/regionServed> ?uri .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:98-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/98-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the city and country of the Michelin company headquarters?",
+    "query": "SELECT DISTINCT ?city ?country WHERE {  <http://dbpedia.org/resource/Michelin> <http://dbpedia.org/ontology/locationCity> ?city .  <http://dbpedia.org/resource/Michelin> <http://dbpedia.org/ontology/locationCountry> ?country .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:99-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/99-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 ciudad y pa\u00eds es la sede de la empresa Michelin?",
+    "query": "SELECT DISTINCT ?city ?country WHERE {  <http://dbpedia.org/resource/Michelin> <http://dbpedia.org/ontology/locationCity> ?city .  <http://dbpedia.org/resource/Michelin> <http://dbpedia.org/ontology/locationCountry> ?country .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:99-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/99-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "All book authors born in Paris?",
+    "query": "SELECT DISTINCT ?author WHERE {  ?author a <http://dbpedia.org/ontology/Writer> .  ?author <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Paris> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:100-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/100-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfTodos los autores de libros nacidos en Par\u00eds?",
+    "query": "SELECT DISTINCT ?author WHERE {  ?author a <http://dbpedia.org/ontology/Writer> .  ?author <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Paris> .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "db25:100-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/100-es"
+  }
+]

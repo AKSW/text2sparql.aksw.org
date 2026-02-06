@@ -1,0 +1,1153 @@
+# yamllint disable rule:line-length
+---
+dataset:
+  id: https://text2sparql.aksw.org/2025/dbpedia/
+  prefix: db25
+  defaultNamespace: http://dbpedia.org/
+questions:
+
+  - id: 1
+    question:
+      en: How many unique authors have written science fiction novels?
+      es: ¿Cuántos autores únicos han escrito novelas de ciencia ficción?
+    query:
+      sparql: |
+        SELECT DISTINCT COUNT(?author) WHERE {  
+          ?x <http://dbpedia.org/ontology/literaryGenre> <http://dbpedia.org/resource/Science_fiction> .  
+          ?x <http://dbpedia.org/ontology/author> ?author .
+        }
+  
+  - id: 2
+    question:
+      en: What are the 10 most populated countries?
+      es: ¿Cuáles son los 10 países más poblados?
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        SELECT ?country WHERE {
+          ?country rdf:type dbo:Country .
+          ?country dbo:populationTotal ?population .
+        } ORDER BY DESC(?population) LIMIT 10
+  
+  - id: 3
+    question:
+      en: What is the birthplace of Keanu Reeves?
+      es: ¿Cuál es el lugar de nacimiento de Keanu Reeves?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Keanu_Reeves> <http://dbpedia.org/property/birthPlace> ?uri
+        }
+  
+  - id: 4
+    question:
+      en: What is the number of Starbucks locations worldwide?
+      es: ¿Cuál es el número de ubicaciones de Starbucks en todo el mundo?
+    query:
+      sparql: |
+        PREFIX res: <http://dbpedia.org/resource/>
+        PREFIX dbp: <http://dbpedia.org/property/>
+        SELECT DISTINCT ?number WHERE {
+          res:Starbucks dbp:numLocations ?number
+        }
+  
+  - id: 5
+    question:
+      en: What is the capital city of the Republic of Montenegro (1992-2006)?
+      es: ¿Cuál es la ciudad capital de la República de Montenegro (1992-2006)?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Republic_of_Montenegro_(1992–2006)> <http://dbpedia.org/property/capital> ?uri
+        }
+  
+  - id: 6
+    question:
+      en: Identify the corporation associated with products such as iPhone and iPad?
+      es: Identifique la corporación asociada con productos como iPhone y iPad?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Company> .
+          ?uri <http://dbpedia.org/ontology/product> <http://dbpedia.org/resource/IPhone> .
+          ?uri <http://dbpedia.org/ontology/product> <http://dbpedia.org/resource/IPad> .
+        }
+  
+  - id: 7
+    question:
+      en: Which nearest city of the Eiffel Tower is the birthplace of Gustave Eiffel?
+      es: ¿Cuál es la ciudad más cercana a la Torre Eiffel que es el lugar de nacimiento
+        de Gustave Eiffel?
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Gustave_Eiffel> dbo:birthPlace ?uri
+        }
+  
+  - id: 8
+    question:
+      en: Is the Eiffel Tower located in Paris?
+      es: ¿Está la Torre Eiffel ubicada en París?
+    query:
+      sparql: "ASK WHERE { <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/Paris> }"
+  
+  - id: 9
+    question:
+      en: Who designed the Python programming language?
+      es: ¿Quién diseñó el lenguaje de programación Python?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Python_(programming_language)> <http://dbpedia.org/ontology/designer> ?uri
+        }
+  
+  - id: 10
+    question:
+      en: Which teams have players in the Wide Receiver position in American football?
+      es: ¿Qué equipos tienen jugadores en la posición de receptor abierto en el fútbol
+        americano?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?x <http://dbpedia.org/property/position> <http://dbpedia.org/resource/Wide_receiver> .
+          ?x <http://dbpedia.org/ontology/team> ?uri .
+          ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/AmericanFootballPlayer> .
+        }
+  
+  - id: 11
+    question:
+      en: How many people study at universities in California?
+      es: ¿Cuántas personas estudian en las universidades de California?
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX dbr: <http://dbpedia.org/resource/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        SELECT SUM(?numStudents) WHERE {
+          ?university rdf:type dbo:University .
+          ?university dbo:state dbr:California .
+          ?university dbo:numberOfStudents ?numStudents .
+        }
+  
+  - id: 12
+    question:
+      en: Who is the manufacturer of the Boeing 747?
+      es: ¿Quién es el fabricante del Boeing 747?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Boeing_747> <http://dbpedia.org/ontology/manufacturer> ?uri
+        }
+  
+  - id: 13
+    question:
+      en: Which movie features Johnny Depp as a lead actor?
+      es: ¿Qué película tiene a Johnny Depp como actor principal?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?uri <http://dbpedia.org/property/starring> <http://dbpedia.org/resource/Johnny_Depp> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film> .
+        }
+  
+  - id: 14
+    question:
+      en: Did J.K. Rowling write the Harry Potter series?
+      es: ¿J.K. Rowling escribió la serie de Harry Potter?
+    query:
+      sparql: |
+        ASK WHERE {
+          <http://dbpedia.org/resource/Harry_Potter> <http://dbpedia.org/property/author> <http://dbpedia.org/resource/J._K._Rowling>
+        }
+  
+  - id: 15
+    question:
+      en: Who is the director of the Louvre Museum?
+      es: ¿Quién es el director del Museo del Louvre?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Louvre> <http://dbpedia.org/ontology/director> ?uri
+        }
+  
+  - id: 16
+    question:
+      en: Who are the directors of Inception?
+      es: ¿Quiénes son los directores de Inception?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Inception> <http://dbpedia.org/property/director> ?uri
+        }
+  
+  - id: 17
+    question:
+      en: What are some movies available on Netflix?
+      es: ¿Cuáles son algunas películas disponibles en Netflix?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?uri <http://dbpedia.org/ontology/distributor> <http://dbpedia.org/resource/Netflix> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film> .
+        }
+ 
+  - id: 18
+    question:
+      en: Which country has the highest population?
+      es: ¿Qué país tiene la población más alta?
+    query:
+      sparql: |
+        PREFIX res: <http://dbpedia.org/resource/>
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        SELECT DISTINCT ?country WHERE {
+          ?country dbo:populationTotal ?population .
+        } ORDER BY DESC(?population) LIMIT 1
+  
+  - id: 19
+    question:
+      en: In which country does the Amazon River start?
+      es: ¿En qué país comienza el río Amazonas?
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX res: <http://dbpedia.org/resource/>
+        SELECT DISTINCT ?uri WHERE {
+          res:Amazon_River dbo:sourceCountry ?uri .
+        }
+  
+  - id: 20
+    question:
+      en: What is the primary language spoken by the ethnic group to which Chimamanda
+        Ngozi Adichie belongs?
+      es: ¿Cuál es el idioma principal hablado por el grupo étnico al que pertenece
+        Chimamanda Ngozi Adichie?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Chimamanda_Ngozi_Adichie> <http://dbpedia.org/ontology/ethnicity> ?x .
+          ?x <http://dbpedia.org/ontology/language> ?uri .
+          ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/EthnicGroup>
+        }
+  
+  - id: 21
+    question:
+      en: In which country is the Eiffel Tower located?
+      es: ¿En qué país se encuentra la Torre Eiffel?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/location> ?uri .
+          ?uri a <http://dbpedia.org/ontology/Country> .
+        }
+  
+  - id: 22
+    question:
+      en: Identify the directors of movies where Steven Spielberg was one of the producers?
+      es: Identifica los directores de películas donde Steven Spielberg fue uno de los
+        productores.
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?x <http://dbpedia.org/property/producer> <http://dbpedia.org/resource/Steven_Spielberg> .
+          ?x <http://dbpedia.org/ontology/director> ?uri .
+          ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film> .
+        }
+  
+  - id: 23
+    question:
+      en: Which organizations were founded in 1990?
+      es: ¿Qué organizaciones fueron fundadas en 1990?
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        SELECT DISTINCT ?uri WHERE {
+          ?uri rdf:type dbo:Organisation .
+          { ?uri dbo:formationYear ?date . } UNION { ?uri dbo:foundingYear ?date. }
+          FILTER regex(?date, '^1990') .
+        }
+  
+  - id: 24
+    question:
+      en: Where was J.K. Rowling and Ghadam-Ali Sarami born?
+      es: ¿Dónde nacieron J.K. Rowling y Ghadam-Ali Sarami?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/J._K._Rowling> <http://dbpedia.org/ontology/birthPlace> ?uri .
+          <http://dbpedia.org/resource/Ghadam-Ali_Sarami> <http://dbpedia.org/ontology/birthPlace> ?uri
+        }
+  
+  - id: 25
+    question:
+      en: How many movies are directed by Christopher Nolan?
+      es: ¿Cuántas películas están dirigidas por Christopher Nolan?
+    query:
+      sparql: |
+        SELECT DISTINCT COUNT(?uri) WHERE {
+          ?uri <http://dbpedia.org/ontology/director> <http://dbpedia.org/resource/Christopher_Nolan> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film>
+        }
+  
+  - id: 26
+    question:
+      en: Who were the commanders at the Battle of Gettysburg?
+      es: ¿Quién fue el comandante en la Batalla de Gettysburg?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Battle_of_Gettysburg> <http://dbpedia.org/ontology/commander> ?uri
+        }
+  
+  - id: 27
+    question:
+      en: Who is the director of Casablanca?
+      es: ¿Quiénes son los directores de Casablanca?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Casablanca_(film)> <http://dbpedia.org/property/director> ?uri
+        }
+  
+  - id: 28
+    question:
+      en: List all the vineyards in France.
+      es: Enumera todos los viñedos en Francia.
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX res: <http://dbpedia.org/resource/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        SELECT DISTINCT ?uri WHERE {
+          ?uri rdf:type dbo:Winery .
+          { ?uri dbo:location res:France . } UNION { ?uri dbo:location ?x . ?x dbo:country res:France . }
+        }
+  
+  - id: 29
+    question:
+      en: Is the IEEE Intelligent Systems Journal about Artificial Intelligence?
+      es: ¿El IEEE Intelligent Systems Journal trata sobre inteligencia artificial?
+    query:
+      sparql: |
+        ASK WHERE {
+          <http://dbpedia.org/resource/IEEE_Intelligent_Systems> <http://dbpedia.org/ontology/academicDiscipline> <http://dbpedia.org/resource/Artificial_intelligence>
+        }
+  
+  - id: 30
+    question:
+      en: What is the number of official languages spoken in Switzerland?
+      es: ¿Cuál es el número de lenguas oficiales habladas en Suiza?
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX res: <http://dbpedia.org/resource/>
+        SELECT COUNT(DISTINCT ?uri) WHERE {
+          res:Switzerland dbo:officialLanguage ?uri
+        }
+  
+  - id: 31
+    question:
+      en: Which books are illustrated by Quentin Blake?
+      es: ¿Qué libros son ilustrados por Quentin Blake?
+    query:
+      sparql: |
+        SELECT DISTINCT ?x WHERE {
+          ?x a <http://dbpedia.org/ontology/Book> .
+          ?x <http://dbpedia.org/ontology/illustrator> <http://dbpedia.org/resource/Quentin_Blake>
+        }
+  
+  - id: 32
+    question:
+      en: Who were the managers of the squad located at Old Trafford?
+      es: ¿Quiénes eran los entrenadores del plantel ubicado en Old Trafford?
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        SELECT DISTINCT ?m WHERE {
+          ?x dbo:homeStadium <http://dbpedia.org/resource/Old_Trafford> .
+          ?x dbo:manager ?m
+        }
+  
+  - id: 33
+    question:
+      en: How many books have been authored by J.K. Rowling?
+      es: ¿Cuántos libros han sido escritos por J.K. Rowling?
+    query:
+      sparql: |
+        SELECT DISTINCT COUNT(?uri) WHERE {
+          ?uri <http://dbpedia.org/property/author> <http://dbpedia.org/resource/J._K._Rowling> .
+        }
+  
+  - id: 34
+    question:
+      en: Who directed the south park episode that precedes Butter's Very Own Episode?
+      es: ¿Quién dirigió el episodio de southous parkos que precede a Butter's Very Own Episode?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Butters'_Very_Own_Episode> <http://dbpedia.org/ontology/previousWork> ?x .
+          ?x <http://dbpedia.org/ontology/director> ?uri .
+          ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/TelevisionEpisode>
+        }
+  
+  - id: 35
+    question:
+      en: Which political parties have governed over Varanasi, and is Narendra Modi
+        a member of any of them?
+      es: ¿Qué partidos políticos han gobernado Varanasi, y es Narendra Modi miembro
+        de alguno de ellos?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Narendra_Modi> <http://dbpedia.org/ontology/party> ?uri .
+          <http://dbpedia.org/resource/Varanasi> <http://dbpedia.org/ontology/leaderName> ?uri
+        }
+  
+  - id: 36
+    question:
+      en: What is the associated band of the musical artist who is the producer of the
+        album Kind of Blue?
+      es: ¿Cuál es la banda asociada del artista musical que es el productor del álbum
+        Kind of Blue?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Kind_of_Blue> <http://dbpedia.org/property/producer> ?x .
+          ?x <http://dbpedia.org/ontology/associatedBand> ?uri .
+          ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/MusicalArtist>
+        }
+  
+  - id: 37
+    question:
+      en: Which was the origin of The Beatles?
+      es: ¿Cuál fue el origen de The Beatles?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/The_Beatles> <http://dbpedia.org/property/origin> ?uri
+        }
+  
+  - id: 38
+    question:
+      en: List the 10 directors who worked on most movies.
+      es: Enumere los 10 directores que trabajaron en más películas.
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        SELECT ?director WHERE {
+          ?film dbo:director ?director .
+        }
+        GROUP BY ?director
+        ORDER BY DESC(COUNT(?film))
+        LIMIT 10
+  
+  - id: 39
+    question:
+      en: List rivers flowing through the admin region bordering the Pacific Ocean?
+      es: Enumera los ríos que fluyen a través de la región administrativa que limita
+        con el Océano Pacífico.
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?x <http://dbpedia.org/ontology/border> <http://dbpedia.org/resource/Pacific_Ocean> .
+          ?x <http://dbpedia.org/ontology/river> ?uri .
+        }
+  
+  - id: 40
+    question:
+      en: Identify the universities affiliated with the University of California in
+        the state of California.
+      es: Identificar las universidades afiliadas a la Universidad de California en
+        el estado de California.
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?uri <http://dbpedia.org/property/affiliations> <http://dbpedia.org/resource/University_of_California> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/University> .
+          ?uri <http://dbpedia.org/ontology/state> <http://dbpedia.org/resource/California>
+        }
+  
+  - id: 41
+    question:
+      en: Which companies are located in Silicon Valley?
+      es: ¿Qué empresas están ubicadas en Silicon Valley?
+    query:
+      sparql: |
+        SELECT DISTINCT ?x WHERE {
+          ?x <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/Silicon_Valley> .
+          ?x a <http://dbpedia.org/ontology/Company>
+        }
+  
+  - id: 42
+    question:
+      en: Which teams play in the league Campeonato Brasileiro Série A?
+      es: ¿Qué equipos juegan en la liga Campeonato Brasileiro Série A?
+    query:
+      sparql: |
+        PREFIX dbr: <http://dbpedia.org/resource/>
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        SELECT ?uri WHERE {
+          ?uri dbo:league dbr:Campeonato_Brasileiro_Série_A
+        }
+
+  - id: 43
+    question:
+      en: Which place has Geneva and Carouge as its neighboring municipalities?
+      es: ¿Qué lugar tiene a Ginebra y Carouge como sus municipios vecinos?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?uri <http://dbpedia.org/property/neighboringMunicipalities> <http://dbpedia.org/resource/Geneva> .
+          ?uri <http://dbpedia.org/property/neighboringMunicipalities> <http://dbpedia.org/resource/Carouge> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Place>
+        }
+  
+  - id: 44
+    question:
+      en: What are the capitals of countries governed by a parliamentary republic?
+      es: ¿Cuáles son las capitales de los países gobernados por una república parlamentaria?
+    query:
+      sparql: |
+        SELECT DISTINCT ?capital WHERE {
+          ?country <http://dbpedia.org/ontology/governmentType> <http://dbpedia.org/resource/Parliamentary_republic> .
+          ?country <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .
+          ?country <http://dbpedia.org/ontology/capital> ?capital .
+        }
+  
+  - id: 45
+    question:
+      en: When did the Apollo 11 mission land on the moon?
+      es: ¿Cuándo aterrizó la misión Apollo 11 en la luna?
+    query:
+      sparql: |
+        SELECT DISTINCT ?d WHERE {
+          <http://dbpedia.org/resource/Apollo_11> <http://dbpedia.org/ontology/launchDate> ?d .
+        }
+  
+  - id: 46
+    question:
+      en: List all bands according to the amount of songs they published.
+      es: Enumere todas las bandas según la cantidad de canciones que publicaron.
+    features:
+      - RESULT_ORDER_MATTERS
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        SELECT ?band WHERE {
+          ?song dbo:musicalArtist ?band .
+          ?band a dbo:Band .
+        }
+        GROUP BY ?band
+        ORDER BY DESC(COUNT(?song))
+  
+  - id: 47
+    question:
+      en: Where did the office holder who is predecessor to Margaret Thatcher die?
+      es: ¿Dónde murió el titular del cargo que es predecesor de Margaret Thatcher?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?x <http://dbpedia.org/property/predecessor> <http://dbpedia.org/resource/Margaret_Thatcher> .
+          ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/OfficeHolder> .
+          ?x <http://dbpedia.org/property/placeOfDeath> ?uri .
+        }
+  
+  - id: 48
+    question:
+      en: Where did Bill Gates and Mark Zuckerberg go to school?
+      es: ¿Dónde estudiaron Bill Gates y Mark Zuckerberg?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Bill_Gates> <http://dbpedia.org/property/almaMater> ?uri.
+          <http://dbpedia.org/resource/Mark_Zuckerberg> <http://dbpedia.org/property/almaMater> ?uri
+        }
+    
+  - id: 49
+    question:
+      en: Is The Star-Spangled Banner the national anthem of the United States?
+      es: ¿Es The Star-Spangled Banner el himno nacional de los Estados Unidos?
+    query:
+      sparql: |
+        ASK WHERE {
+          <http://dbpedia.org/resource/United_States> <http://dbpedia.org/ontology/anthem> <http://dbpedia.org/resource/The_Star-Spangled_Banner>
+        }
+  
+  - id: 50
+    question:
+      en: Was Edmund Hillary the first person to reach the summit of Mount Everest?
+      es: ¿Fue Edmund Hillary la primera persona en alcanzar la cima del Monte Everest?
+    query:
+      sparql: |
+        ASK WHERE { 
+          <http://dbpedia.org/resource/Mount_Everest> <http://dbpedia.org/ontology/firstAscentPerson> <http://dbpedia.org/resource/Edmund_Hillary> 
+        }
+  
+  - id: 51
+    question:
+      en: Who has been married to both Nicole Kidman and Katie Holmes?
+      es: ¿Quién ha estado casado tanto con Nicole Kidman como con Katie Holmes?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Nicole_Kidman> <http://dbpedia.org/ontology/spouse> ?uri.
+          <http://dbpedia.org/resource/Katie_Holmes> <http://dbpedia.org/ontology/spouse> ?uri.
+        }
+  
+  - id: 52
+    question:
+      en: Are Australian former Prime Ministers Julia Gillard and Kevin Rudd part of the same political party?
+      es: ¿Son los ex primeros ministros australianos Julia Gillard y Kevin Rudd parte del mismo partido político?
+    query:
+      sparql: |
+        ASK WHERE {
+          <http://dbpedia.org/resource/Julia_Gillard> <http://dbpedia.org/ontology/party> ?uri .
+          <http://dbpedia.org/resource/Kevin_Rudd> <http://dbpedia.org/ontology/party> ?uri .
+        }
+  
+  - id: 53
+    question:
+      en: Which organizations have their headquarters located in New York City?
+      es: ¿Qué organizaciones tienen su sede en la ciudad de Nueva York?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?uri <http://dbpedia.org/ontology/headquarter> <http://dbpedia.org/resource/New_York_City> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Organisation>
+        }
+  
+  - id: 54
+    question:
+      en: Which people are employed by the New York Times?
+      es: ¿Qué personas están empleadas por el New York Times?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?uri <http://dbpedia.org/ontology/employer> <http://dbpedia.org/resource/The_New_York_Times> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person>
+        }
+  
+  - id: 55
+    question:
+        en: Who is the director of Inception?
+        es: ¿Quién es el director de Inception?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Inception> <http://dbpedia.org/ontology/director> ?uri
+        }
+
+  - id: 56
+    question:
+        en: Which authors have been published by Penguin Books?
+        es: ¿Qué autores han sido publicados por Penguin Books?
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX dbr: <http://dbpedia.org/resource/>
+        PREFIX dbp: <http://dbpedia.org/property/>
+        SELECT DISTINCT ?uri
+        WHERE
+        {
+          ?x dbp:publisher dbr:Penguin_Books .
+          ?x dbo:author ?uri
+        }
+  
+  - id: 57
+    question:
+      en: Which instruments are commonly used in genres that emerged from jazz?
+      es: ¿Qué instrumentos se utilizan comúnmente en géneros que surgieron del jazz?
+    query:
+      sparql: |
+        SELECT DISTINCT ?instrument WHERE {
+          <http://dbpedia.org/resource/Jazz> <http://dbpedia.org/ontology/instrument> ?instrument .
+        }
+
+  - id: 58
+    question:
+      en: Was Emma Watson a part of Harry Potter cast?
+      es: ¿Fue Emma Watson parte del elenco de Harry Potter?
+    query:
+      sparql: |
+        ASK WHERE {
+          <http://dbpedia.org/resource/Harry_Potter_(film_series)> <http://dbpedia.org/ontology/starring> <http://dbpedia.org/resource/Emma_Watson>
+        }
+  
+  - id: 59
+    question:
+      en: What is the capital city of the country where the famous artist Leonardo da Vinci was born?
+      es: ¿Cuál es la ciudad capital del país donde nació el famoso artista Leonardo da Vinci?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Leonardo_da_Vinci> <http://dbpedia.org/ontology/birthPlace> ?place.
+          ?place <http://dbpedia.org/ontology/country> ?country.
+          ?country <http://dbpedia.org/property/capital> ?uri
+        }
+
+  - id: 60
+    question:
+      en: What is the population of the largest city in Canada?
+      es: ¿Cuál es la población de la ciudad más grande de Canadá?
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX res: <http://dbpedia.org/resource/>
+        SELECT ?num WHERE {
+          res:Canada dbo:largestCity ?x .
+          ?x dbo:populationTotal ?num .
+        }
+
+  - id: 61
+    question:
+      en: How many films did Roger Deakins work on as a cinematographer?
+      es: ¿Cuántas películas hizo Roger Deakins como director de fotografía?
+    query:
+      sparql: |
+        SELECT DISTINCT COUNT(?uri) WHERE {
+          ?uri <http://dbpedia.org/ontology/cinematography> <http://dbpedia.org/resource/Roger_Deakins> .
+        }
+
+  - id: 62
+    question:
+      en: Which players are or have been part of the Brazil national football team?
+      es: ¿Qué jugadores son o han sido parte del equipo nacional de fútbol de Brasil?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?uri <http://dbpedia.org/property/nationalteam> <http://dbpedia.org/resource/Brazil_national_football_team>
+        }
+
+  - id: 63
+    question:
+        en: Who are the managers from all basketball teams which LeBron James played at?
+        es: ¿Quiénes son los entrenadores de todos los equipos de baloncesto en los que ha jugado LeBron James?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/LeBron_James> <http://dbpedia.org/property/team> ?x .
+          ?x <http://dbpedia.org/property/manager> ?uri .
+        }
+
+  - id: 64
+    question:
+      en: Which director of Inception is also the filmmaker behind The Dark Knight?
+      es: ¿Qué director de Inception es también el cineasta detrás de The Dark Knight?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Inception> <http://dbpedia.org/property/director> ?uri.
+          <http://dbpedia.org/resource/The_Dark_Knight_(film)> <http://dbpedia.org/ontology/director> ?uri
+        }
+
+  - id: 65
+    question:
+      en: What is the birth place of Albert Einstein?
+      es: ¿Cuál es el lugar de nacimiento de Albert Einstein?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Albert_Einstein> <http://dbpedia.org/property/birthPlace> ?uri
+        }
+
+  - id: 66
+    question:
+      en: How many birds are in the Chordate phylum?
+      es: ¿Cuántas aves hay en el filo Cordado?
+    query:
+      sparql: |
+        SELECT DISTINCT COUNT(?uri) WHERE {
+          ?uri <http://dbpedia.org/property/phylum> <http://dbpedia.org/resource/Chordate> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Bird>
+        }
+
+  - id: 67
+    question:
+      en: Who is the author of Harry Potter and the Order of the Phoenix?
+      es: ¿Quién es el autor de Harry Potter y el Orden del Fénix?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Harry_Potter_and_the_Order_of_the_Phoenix> <http://dbpedia.org/property/author> ?uri
+        }
+
+  - id: 68
+    question:
+      en: Where is the Eiffel Tower located?
+      es: ¿Dónde se encuentra la Torre Eiffel?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/location> ?uri }
+
+  - id: 69
+    question:
+      en: Who are some of the key people involved with the Wikimedia Foundation?
+      es: ¿Quiénes son algunas de las personas clave involucradas con la Fundación Wikimedia?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Wikimedia_Foundation> <http://dbpedia.org/property/keyPeople> ?uri
+        }
+
+  - id: 70
+    question:
+      en: How many are the Generals of the United States?
+      es: ¿Cuántos son los General de los Estados Unidos?
+    query:
+      sparql: |
+        SELECT DISTINCT COUNT(?uri)
+        WHERE {
+          ?uri <http://dbpedia.org/property/rank> <http://dbpedia.org/resource/General_(United_States)> .
+        }
+
+  - id: 71
+    question:
+      en: Who are the key figures associated with the United Nations?
+      es: ¿Quiénes son las figuras clave asociadas con las Naciones Unidas?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/United_Nations> <http://dbpedia.org/property/leaderName> ?uri
+        }
+
+  - id: 72
+    question:
+      en: Where was the song 'Bohemian Rhapsody' recorded?
+      es: ¿Dónde se grabó la canción 'Bohemian Rhapsody'?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Bohemian_Rhapsody> <http://dbpedia.org/ontology/recordedIn> ?uri
+        }
+
+  - id: 73
+    question:
+      en: What is the capital city of the state of California?
+      es: ¿Cuál es la capital del estado de California?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE { 
+          <http://dbpedia.org/resource/California> <http://dbpedia.org/ontology/capital> ?uri 
+        }
+
+  - id: 74
+    question:
+      en: Who are the authors of books written about the Battle of Stalingrad?
+      es: ¿Quiénes son los autores de libros escritos sobre la Batalla de Stalingrado?
+    query:
+      sparql: |
+        SELECT DISTINCT ?author WHERE {
+          ?book <http://dbpedia.org/property/subject> <http://dbpedia.org/resource/Battle_of_Stalingrad> .
+          ?book <http://dbpedia.org/ontology/author> ?author .
+        }
+
+  - id: 75
+    question:
+      en: Is the Louvre Museum located in Paris?
+      es: ¿Está el Museo del Louvre ubicado en París?
+    query:
+      sparql: |
+        ASK WHERE { 
+          <http://dbpedia.org/resource/Louvre> <http://dbpedia.org/property/location> ?location .
+          FILTER regex(?location, "Paris", "i")
+        }
+
+  - id: 76
+    question:
+      en: Give me all prime ministers of the United Kingdom.
+      es: Dame todos los primeros ministros del Reino Unido.
+    query:
+      sparql: |
+        PREFIX yago: <http://dbpedia.org/class/yago/>
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX dbp: <http://dbpedia.org/property/>
+        PREFIX res: <http://dbpedia.org/resource/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        SELECT DISTINCT ?uri ?string 
+        WHERE {
+                ?uri rdf:type dbo:Person .
+                { ?uri rdf:type yago:PrimeMinistersOfTheUnitedKingdom. }
+                UNION
+                { ?uri rdf:type dbo:PrimeMinister.
+                  ?uri dbp:title res:Prime_Minister_of_the_United_Kingdom. }
+                ?uri rdfs:label ?string. 
+                FILTER (lang(?string) = 'en' && !regex(?string,'Prime Ministership','i') && !regex(?string,'and the')) .
+        }
+
+  - id: 77
+    question:
+      en: When was the birth of Albert Einstein?
+      es: ¿Cuándo nació Albert Einstein?
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        PREFIX dbr: <http://dbpedia.org/resource/>
+        SELECT ?x WHERE { dbr:Albert_Einstein dbo:birthDate ?x } LIMIT 1
+
+  - id: 78
+    question:
+      en: List some architects of buildings taller than 300 meters.
+      es: Enumera algunos arquitectos de edificios más altos que 300 metros.
+    query:
+      sparql: |
+        SELECT DISTINCT ?architect WHERE {
+          ?building <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Building> .
+          ?building <http://dbpedia.org/ontology/height> ?height .
+          ?building <http://dbpedia.org/ontology/architect> ?architect .
+          FILTER(?height > 300)
+        }
+
+  - id: 79
+    question:
+      en: Identify the birthplace of Nikola Tesla?
+      es: Identificar el lugar de nacimiento de Nikola Tesla?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE { 
+          <http://dbpedia.org/resource/Nikola_Tesla> <http://dbpedia.org/ontology/birthPlace> ?uri 
+        }
+
+  - id: 80
+    question:
+      en: List the 10 countries with most cities.
+      es: Enumere los 10 países con más ciudades.
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+        SELECT ?country WHERE {
+          ?city a dbo:City .
+          ?city dbo:country ?country .
+        }
+        GROUP BY ?country
+        ORDER BY DESC(COUNT(?city))
+        LIMIT 10
+
+  - id: 81
+    question:
+      en: What are the places where rivers that flow into the Black Sea originate from?
+      es: ¿De dónde provienen los ríos que fluyen hacia el Mar Negro?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?x <http://dbpedia.org/ontology/riverMouth> <http://dbpedia.org/resource/Black_Sea> .
+          ?x <http://dbpedia.org/ontology/sourcePlace> ?uri .
+        }
+
+  - id: 82
+    question:
+      en: How many games (or DLCs) by Blizzard Entertainment are part of the Warcraft series?
+      es: ¿Cuántos juegos (o DLCs) de Blizzard Entertainment son parte de la serie Warcraft?
+    query:
+      sparql: |
+        SELECT DISTINCT COUNT(?x) WHERE {
+          ?x <http://dbpedia.org/ontology/developer> <http://dbpedia.org/resource/Blizzard_Entertainment> .
+          ?x <http://dbpedia.org/ontology/series> <http://dbpedia.org/resource/Warcraft> .
+        }
+
+  - id: 83
+    question:
+      en: What are the alternate names of the child from Aung San Suu Kyi?
+      es: ¿Cuáles son los nombres alternativos del hijo de Aung San Suu Kyi?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Aung_San_Suu_Kyi> <http://dbpedia.org/ontology/child> ?x .
+          ?x <http://dbpedia.org/property/alternativeNames> ?uri .
+        }
+
+  - id: 84
+    question:
+      en: Which professional athlete is also an actor?
+      es: ¿Qué atleta profesional, que también es actor?
+    query:
+      sparql: |
+        PREFIX dbp: <http://dbpedia.org/property/>
+        PREFIX dbr: <http://dbpedia.org/resource/>
+        SELECT DISTINCT ?uri
+        WHERE
+        {
+          ?uri dbp:occupation dbr:Actor .
+          ?uri dbp:occupation dbr:Athlete .
+        }
+
+  - id: 85
+    question:
+      en: Who is the wife of Tom Hanks?
+      es: ¿Quién es la esposa de Tom Hanks?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/Tom_Hanks> <http://dbpedia.org/ontology/spouse> ?uri }
+
+  - id: 86
+    question:
+      en: What are the occupations of the Wikipedia authors?
+      es: ¿Cuáles son las ocupaciones de los autores de Wikipedia?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Wikipedia> <http://dbpedia.org/property/author> ?x .
+          ?x <http://dbpedia.org/property/occupation> ?uri
+        }
+
+  - id: 87
+    question:
+        en: Which companies have employed graduates from Stanford University?
+        es: ¿Qué empresas han empleado a graduados de la Universidad de Stanford?
+    query:
+      sparql: |
+        SELECT DISTINCT ?company WHERE {
+          ?person <http://dbpedia.org/ontology/almaMater> <http://dbpedia.org/resource/Stanford_University> .
+          ?person <http://dbpedia.org/ontology/employer> ?company .
+        }
+
+  - id: 88
+    question:
+      en: Which book has author as J.K. Rowling?
+      es: ¿Qué libro tiene como autor a J.K. Rowling?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?uri <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/J._K._Rowling> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Book>
+        }
+
+  - id: 89
+    question:
+      en: How many books were authored by J.K. Rowling?
+      es: ¿Cuántos libros fueron escritos por J.K. Rowling?
+    query:
+      sparql: |
+        SELECT DISTINCT COUNT(?uri) WHERE {
+          ?uri <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/J._K._Rowling> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Book>
+        }
+
+  - id: 90
+    question:
+      en: Where was the predecessor of Irina Bokova born?
+      es: ¿Dónde nació el predecesor de Irina Bokova?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Irina_Bokova> <http://dbpedia.org/property/predecessor> ?x .
+          ?x <http://dbpedia.org/property/birthPlace> ?uri .
+        }
+
+  - id: 91
+    question:
+        en: How many films were recorded by the cinematographer of 'Inception'?
+        es: ¿Cuantas películas fueron filmadas por el director de fotografía de 'Inception'?
+    query:
+      sparql: |
+        SELECT DISTINCT COUNT(?uri) WHERE {
+          <http://dbpedia.org/resource/Inception> <http://dbpedia.org/ontology/cinematography> ?x .
+          ?uri <http://dbpedia.org/ontology/cinematography> ?x
+        }
+
+  - id: 92
+    question:
+      en: What are the capital cities from the countries where Mount Everest is located?
+      es: ¿Cuáles son las capitales de los países donde se encuentra el Monte Everest?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          <http://dbpedia.org/resource/Mount_Everest> <http://dbpedia.org/ontology/locatedInArea> ?x .
+          ?x <http://dbpedia.org/ontology/country> ?y .
+          ?y <http://dbpedia.org/ontology/capital> ?uri
+        }
+
+  - id: 93
+    question:
+      en: Is there a university whose campuses are New York and California?
+      es: ¿Existe una universidad cuyos campus son Nueva York y California?
+    query:
+      sparql: |
+        ASK WHERE {
+          ?uri <http://dbpedia.org/ontology/campus> <http://dbpedia.org/resource/New_York> .
+          ?uri <http://dbpedia.org/ontology/campus> <http://dbpedia.org/resource/California> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/University>
+        }
+
+  - id: 94
+    question:
+      en: Do the University of Georgia and the Atlanta Falcons have the same mascot?
+      es: ¿Tienen la Universidad de Georgia y los Atlanta Falcons el mismo mascota?
+    query:
+      sparql: |
+        ASK WHERE {
+          <http://dbpedia.org/resource/University_of_Georgia> <http://dbpedia.org/property/mascot> ?uri.
+          <http://dbpedia.org/resource/Atlanta_Falcons> <http://dbpedia.org/property/mascot> ?uri
+        }
+
+  - id: 95
+    question:
+      en: Which notable figures are buried in Père Lachaise Cemetery?
+      es: ¿Qué figuras notables están enterradas en el Cementerio de Père Lachaise?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?uri <http://dbpedia.org/property/placeofburial> <http://dbpedia.org/resource/Père_Lachaise_Cemetery>
+        }
+
+  - id: 96
+    question:
+      en: List all countries, starting with those who have the least amount of universities.
+      es: Enumere todos los países, comenzando por aquellos que tienen la menor cantidad de universidades.
+    features:
+      - RESULT_ORDER_MATTERS
+    query:
+      sparql: |
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+
+        SELECT ?country WHERE {
+          ?university a dbo:University .
+          ?university dbo:country ?country .
+        }
+        GROUP BY ?country
+        ORDER BY ASC(COUNT(?university))
+
+  - id: 97
+    question:
+      en: Which rivers originates from the Rocky Mountains?
+      es: ¿Qué ríos se originan en las Montañas Rocosas?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          ?uri <http://dbpedia.org/ontology/sourceMountain> <http://dbpedia.org/resource/Rocky_Mountains> .
+          ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/River>
+        }
+
+  - id: 98
+    question:
+      en: What are the regions served by FedEx?
+      es: ¿Cuáles son las regiones atendidas por FedEx?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/FedEx> <http://dbpedia.org/property/areaServed> ?uri }
+
+  - id: 99
+    question:
+      en: What is the city and country of the Michelin company headquarters?
+      es: ¿Qué ciudad y país es la sede de la empresa Michelin?
+    query:
+      sparql: |
+        SELECT DISTINCT ?uri WHERE {
+          { <http://dbpedia.org/resource/Michelin> <http://dbpedia.org/property/locationCountry> ?uri . }
+          UNION
+          { <http://dbpedia.org/resource/Michelin> <http://dbpedia.org/property/locationCity> ?uri }
+        }
+
+  - id: 100
+    question:
+      en: All book authors born in Paris?
+      es: ¿Todos los autores de libros nacidos en París?
+    query:
+      sparql: |
+        SELECT DISTINCT * WHERE {
+          ?x <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Paris> .
+          ?y <http://dbpedia.org/ontology/author> ?x  .
+        }

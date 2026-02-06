@@ -1,0 +1,402 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "In which department is Ms. Brant?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?department WHERE {\n  <http://ld.company.org/prod-instances/employee-brant> pv:memberOf ?department .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:1-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the telephone of Baldwin Dirksen?",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:2-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is the manager of Heinrich Hoch?",
+    "query": "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX schema: <http://schema.org/>\n\nSELECT ?manager\nWHERE {\n    ?person schema:name \"Heinrich Hoch\"@en .\n    ?person schema:manager ?manager .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:3-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the email of Sabrina from Marketing?",
+    "query": "PREFIX : <http://example.org/>\n\nSELECT ?s ?o\nWHERE {\n  ?s :name \"Sabrina\" .\n  ?s :email ?o .\n  ?s :jobTitle \"Marketing\" .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:4-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who has expertise in Transistors?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n  ?resource pv:areaOfExpertise ?value.\n  FILTER (?resource IN (pv:Agent, pv:ProductCategory))\n  FILTER (regex(str(?value), \"Transistors\", 'i'))\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:5-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is our Sensor expert?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n  <http://ld.company.org/prod-instances/suppl-{unique_identifier}> ?property ?value.\n  FILTER (?property IN (pv:areaOfExpertise, pv:Agent))\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:6-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is the manager of the Data Services department?",
+    "query": "PREFIX ldco: <http://ld.company.org/prod-vocab/>\nSELECT DISTINCT ?manager WHERE {\n  ldco:DataServicesDepartment ldco:hasManager ?manager .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:7-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department is responsible for the Sensor Switch M558-2275045?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?dept\nWHERE {\n    <http://example.org/Sensor_Switch_M558-2275045> rdfs:seeAlso [\n        rdf:type <http://example.org/departments>;\n        rdfs:label ?dept;\n    ]\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:8-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many Sensor Switches do we offer?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n  <http://ld.company.org/prod-instances/{resource_id}> ?property ?value.\n  FILTER (?property IN (pv:compatibleProduct, pv:hasCategory))\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:9-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the name of the Network expert from the Marketing Department?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nSELECT ?name\nWHERE {\n    ?expert a foaf:Person .\n    ?expert foaf:name ?name .\n    ?department rdfs:label \"Marketing Department\" .\n    ?expert foaf:member ?department .\n    ?expert a rdfs:Resource;\n           rdfs:comment \"Network expert\"@en .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:10-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which departments have Transducer Experts?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n  <http://ld.company.org/prod-instances/{resource_id}> ?property ?value.\n  FILTER (?property IN (memberOf, areaOfExpertise, hasDirectReport, responsibleFor))\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:11-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which supplier are available to deliver Compensators?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?supplier\nWHERE {\n  ?supplier a <http://example.com/supplier>.\n  ?supplier <http://example.com/delivers> <http://example.com/Compensators>.\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:12-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many suppliers do we have in France?",
+    "query": "PREFIX ex: <http://ld.company.org/prod-vocab/>\nSELECT (COUNT(DISTINCT ?supplier) AS ?count)\nWHERE {\n  ?supplier a ex:Supplier .\n  ?supplier ex:locatedIn ?location .\n  ?location ex:countryCode \"FR\" .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:13-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which supplier in France delivers Compensators?",
+    "query": "PREFIX ld: <http://ld.company.org/prod-vocab/>\nSELECT ?supplier WHERE {\n    ?supplier a ld:Supplier .\n    ?supplier ld:locatedIn ?country .\n    ?country ld:name \"France\" .\n    ?supplier ld:delivers ?product .\n    ?product ld:name \"Compensators\" .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:14-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the cheapest Encoder we can get from a french or german supplier?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n    <http://ld.company.org/prod-instances/suppl-[uuid]> ?property ?value.\n    FILTER (?property IN (pv:country, pv:hasSupplier, pv:price))\n}\n\nFILTER regex(str(?value), 'French|German', 'i')\nFILTER (?property = pv:price)",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:15-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Do we have suppliers in Toulouse?",
+    "query": "PREFIX ex: <http://example.org/>\nSELECT ?supplier WHERE {\n  ?supplier a ex:Supplier ;\n    ex:locatedIn ?location .\n  ?location ex:name \"Toulouse\" .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:16-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which suppliers do we have in Toulouse?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n  <http://ld.company.org/prod-instances/{resource_id}> ?property ?value.\n  ?property rdfs:label \"Toulouse\"@en\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:17-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the cheapest Oscillator we have?",
+    "query": "Query 3",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:18-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the most expensive service we offer?",
+    "query": "PREFIX schema: <http://schema.org/>\n\nSELECT ?s ?p ?o\nWHERE {\n  ?s schema:price ?o .\n  FILTER (?o > 1000)\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:19-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is responsible for the most expensive service we offer?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n  <http://ld.company.org/prod-instances/{resource_id}> ?property ?value.\n  FILTER (?property IN (responsibleFor, price))\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:20-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the heaviest coil that does not exceed a base area of 15x15 milimeter?",
+    "query": "PREFIX : <http://ld.company.org/prod-schema#>\nSELECT ?coil ?weight\nWHERE {\n  ?coil a :Coil .\n  ?coil :baseArea <15> .\n  ?coil :baseAreaUnit \"millimeter\"^^xsd:string .\n  ?coil :weight ?weight .\n  FILTER (?weight >= 0)\n}\nORDER BY DESC(?weight)\nLIMIT 1",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:21-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What products are compatible with the U990 LCD Inductor?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n    <http://ld.company.org/prod-instances/U990> ?property ?value.\n    FILTER (?property IN (pv:compatibleProduct))\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:22-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What products can I get from US suppliers that are compatible with the U990 LCD Inductor?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n  ?resource a pv:Supplier .\n  FILTER (?resource IN (http://ld.company.org/prod/instances/suppl-1, http://ld.company.org/prod/instances/suppl-2, ...))\n  ?resource pv:country \"US\" .\n  ?resource pv:compatibleProduct ?product .\n  ?product pv:name \"U990 LCD Inductor\" .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:23-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the pontiometer with the smallest volume?",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:24-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which coil has the highest density?",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:25-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "In which cities are our US suppliers for LCDs?",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:26-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Give me a phone directory of everyone on staff who does not manage anyone, I need name, email, and phone, sorted by name?",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:27-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Do we have any service that does apply to a BOM where parts are sourced from Russia?",
+    "query": "PREFIX : <http://example.org/>\n\nSELECT ?service\nWHERE {\n    ?bom :hasPart ?part .\n    ?part :isSourcedFrom :russia .\n    ?service :appliesTo ?bom .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:28-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What suppliers - I need name, country and price - deliver the 6th to 10th most expensive hardware items.",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:29-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department have more than 5 employees? I need their names and the number of employees.",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:30-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Per product category, what's our lightest and heaviest hardware item?",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:31-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For each supplier, what's the average price (in EUR) of what they sell, round reasonably?",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:32-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Are there departments with no manager assigned?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n<http://ld.company.org/prod-instances/{resource_id}> ?property ?value.\nFILTER (?property IN (http://ld.company.org/prod-vocab/responsibleFor, http://ld.company.org/prod-vocab/hasManager))\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:33-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "I need to update my supplier rolodex, give me every supplier's name and all address details.",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:34-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For every product, list what other products it is compatible with and the price differences between both.",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?compatibleProduct ?priceDiff WHERE {\n  <http://ld.company.org/prod-instances/{resource_id}> a pv:Product ;\n    pv:compatibleProduct ?compatibleProduct;\n    pv:price ?price1.\n  <http://ld/company.org/prod-instances/{other_resource_id}> a pv:Product ;\n    pv:compatibleProduct ?otherCompatibleProduct;\n    pv:price ?price2.\n  FILTER (?compatibleProduct = ?otherCompatibleProduct)\n  BIND(?price2 - ?price1 AS ?priceDiff)\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:35-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which area of expertise is most relevant among our products, what are the top three skills?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n    <http://ld.company.org/prod-instances/{resource_id}> ?property ?value.\n    FILTER (?property IN (http://ld.company.org/prod-vocab/areaOfExpertise, http://ld.company.org/prod-vocab/hasProductManager))\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:36-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For each Bill of Material, how many parts does it contain and what is the total material quantity \u2014 show me only those BOMs exceeding 600 total items and order them descending.",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:37-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "I want to update my contact list, for each Employee give me name, email, phone number and the department they belong to as well as their direct report.",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:38-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items are wider than they are tall, and have a depth under 50 mm? List their dimensions.",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?width ?height WHERE {\n    ?item a http://ld.company.org/prod-vocab/HardwareItem .\n    ?item http://ld.company.org/prod-vocab/width_mm ?width .\n    ?item http://ld.company.org/prod-vocab/height_mm ?height .\n    FILTER (?width > ?height && ?depth < \"50\"^^xsd:integer)\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:39-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items - list id and name - have no active product manager?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?id ?name WHERE {\n  ?item a pv:HardwareItem .\n  ?item pv:id ?id .\n  ?item pv:name ?name .\n  FILTER NOT EXISTS { ?item pv:hasProductManager ?product_manager }\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:40-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For each manager, what percentage of their entire team work in the same department as the manager?",
+    "query": "",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:41-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which Bill-of-Material has the highest average unit cost of its hardware parts, and what is that average?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX bom: <http://example.org/bom#>  # Replace with actual BOM namespace\n\nSELECT ?bom_id (AVG(?unit_cost) AS ?average_unit_cost)\nWHERE {\n  ?bom a bom:BillOfMaterial .\n  ?bom bom:hasPart ?part .\n  ?part rdf:type bom:HardwarePart .\n  ?part bom:unitCost ?unit_cost .\n}\nGROUP BY ?bom_id\nORDER BY DESC(?average_unit_cost)\nLIMIT 1",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:42-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Show me any cycles of product compatibility \u2014 i.e. product A says it's compatible with B, and B says it's compatible with A (mutual pairs).",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?product1 ?product2 WHERE {\n  ?product1 pv:compatibleProduct ?product2 .\n  ?product2 pv:compatibleProduct ?product1 .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:43-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items have dimensions in the top 10 % of all widths, and what are their IDs, names and widths?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?productID ?productName ?widthMM WHERE {\n  ?product a pv:Product .\n  ?product pv:hasWidth_mm ?widthMM .\n  FILTER (?widthMM IN (SELECT ?widthMM FROM (SELECT ?widthMM WHERE { ?p a pv:Product ; pv:hasWidth_mm ?widthMM }) ORDER BY DESC(?widthMM) LIMIT 10%))\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:44-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which supplier delivers the most reliable Inductor?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?property ?value WHERE {\n    ?supplier a pv:Supplier.\n    FILTER (?supplier IN (<http://ld.company.org/prod-instances/suppl-fcdf3268-b0f0-4e2b-8fbd-6008cb4a6d0e>, <http://ld.company.org/prod-instances/suppl-f80817bf-7010-48c7-a3be-b015b09309d0>, <http://ld.company.org/prod-instances/suppl-feeda1ce-d6af-42b2-b6ff-7516ba39ad6c>))\n    ?product a pv:Inductor.\n    ?supplier pv:hasSupplier ?product.\n    ?product pv:reliability ?value.\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:45-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What are the top 5 suppliers with best average reliability over their products.",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?supplier ?averageReliability WHERE {\n    ?supplier a pv:Supplier.\n    OPTIONAL { ?supplier pv:hasProduct ?product }\n    OPTIONAL { ?product pv:reliable ?reliabilityValue }\n    FILTER (isLiteral(?reliabilityValue))\n    BIND (AVG(?reliabilityValue) AS ?averageReliability)\n    GROUP BY ?supplier\n    ORDER BY DESC(?averageReliability)\n    LIMIT 5\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:46-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "From which countries are the BOM parts of our SkySync MechWave delivered?",
+    "query": "PREFIX prod: <http://ld.company.org/prod-vocab/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT ?country\nWHERE {\n  ?bom a prod:BOMPart .\n  ?bom prod:deliveredFrom ?location .\n  ?location rdfs:label ?country .\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:47-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Show me all BOMs which have at least on part from a polish supplier.",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nSELECT DISTINCT ?bom WHERE {\n  ?bom rdf:type pv:BillOfMaterial.\n  EXISTS {\n    ?part pv:hasBomPart ?bom.\n    ?part pv:hasSupplier ?supplier.\n    ?supplier pv:country \"Poland\".\n  }\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:48-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many suppliers can deliver alternative compatible products for the K367 Strain Encoder?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX schema: <http://schema.org/>\n\nSELECT (COUNT(DISTINCT ?supplier) AS ?supplierCount)\nWHERE {\n  ?encoder rdfs:label \"K367 Strain Encoder\" .\n  ?supplier schema:offers ?product .\n  ?product schema:compatibleWith ?compatibleProduct .\n  ?compatibleProduct rdfs:label ?compatibleLabel .\n  FILTER (STRSTARTS(STR(?compatibleLabel), \"Alternative\"))\n}",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:49-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department is resposible for the most product and how many product are this?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX schema: <http://schema.org/>\n\nSELECT ?department (COUNT(?product) AS ?productCount)\nWHERE {\n  ?department rdf:type schema:Department .\n  ?department schema:responsibleFor ?product .\n  ?product rdf:type schema:Product .\n}\nGROUP BY ?department\nORDER BY DESC(?productCount)\nLIMIT 1",
+    "endpoint": "https://sacred-tightly-platypus.ngrok-free.app/",
+    "qname": "ck25:50-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/50-en"
+  }
+]

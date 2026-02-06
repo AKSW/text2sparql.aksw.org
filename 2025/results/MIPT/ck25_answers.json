@@ -1,0 +1,362 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the telephone of Baldwin Dirksen?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?phoneWHERE {    ?employee rdf:type pv:Employee ;              pv:name <Baldwin Dirksen> ;              pv:phone ?phone .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:2-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is the manager of Heinrich Hoch?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT DISTINCT ?managerName WHERE {  ?employee rdf:type pv:Employee ;            pv:name \"Heinrich Hoch\" ;            pv:hasManager ?manager .  ?manager pv:name ?managerName .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:3-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the email of Sabrina from Marketing?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?email WHERE {  ?s rdf:type pv:Employee .  ?s pv:name \"Sabrina\" .  ?s pv:memberOf prodi:dept-Marketing .  ?s pv:email ?email .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:4-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is our Sensor expert?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?productManagerWHERE {  ?product rdf:type pv:Hardware ;           pv:hasCategory prodi:prod-cat-Sensor ;           pv:hasProductManager ?productManager .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:6-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is the manager of the Data Services department?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT DISTINCT ?managerName WHERE {  ?dept rdf:type pv:Department ;        pv:name \"Data Services\" ;        pv:responsibleFor ?manager .  ?manager rdf:type pv:Manager ;           pv:name ?managerName .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:7-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department is responsible for the Sensor Switch M558-2275045?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?departmentWHERE {    prodi:hw-M558-2275045 rdf:type pv:Hardware .    prodi:hw-M558-2275045 pv:hasProductManager ?manager .    ?manager pv:memberOf ?department .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:8-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many Sensor Switches do we offer?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT (COUNT(DISTINCT ?product) AS ?count)WHERE {  ?product rdf:type pv:Hardware .  ?product pv:hasCategory prodi:prod-cat-Sensor .  ?product pv:hasCategory prodi:prod-cat-Switch .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:9-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which departments have Transducer Experts?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT DISTINCT ?dept ?deptName WHERE {  ?employee rdf:type pv:Employee ;            pv:areaOfExpertise <prodi:prod-cat-Transducer> ;            pv:memberOf ?dept .  ?dept rdfs:label ?deptName .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:11-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many suppliers do we have in France?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX dbpedia: <http://dbpedia.org/resource/>SELECT (COUNT(DISTINCT ?supplier) AS ?supplierCount)WHERE {    ?supplier rdf:type pv:Supplier .    ?supplier pv:country dbpedia:France .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:13-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which supplier in France delivers Compensators?",
+    "query": "Based on the provided context, the required SPARQL query cannot be generated. The context does not provide any information about the products (Compensators) that the suppliers deliver. Therefore, it is impossible to determine which supplier in France delivers Compensators. The context only provides information about the suppliers and their locations, but not about the products they supply. Hence, the answer is \"INVALID\".",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:14-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the cheapest Encoder we can get from a french or german supplier?",
+    "query": "The question asks for the cheapest Encoder from a French or German supplier. However, the provided graph fragments do not contain any information about the nationality of the suppliers. Therefore, it is impossible to generate a valid SPARQL query based on the given context that would answer the question accurately. The correct response is \"INVALID\".",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:15-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Do we have suppliers in Toulouse?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?supplier ?name WHERE {  ?supplier rdf:type pv:Supplier ;            pv:addressLocality \"Toulouse\" ;            pv:name ?name .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:16-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which suppliers do we have in Toulouse?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?supplier ?name WHERE {  ?supplier rdf:type pv:Supplier ;            pv:addressLocality \"Toulouse\" ;            pv:name ?name .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:17-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the cheapest Oscillator we have?",
+    "query": "The question asks for the cheapest Oscillator. However, the price information is linked to a separate entity and the actual price value is not provided in the context. Therefore, it is impossible to generate a valid SPARQL query to answer this question based on the given context. The correct response is \"INVALID\".",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:18-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the most expensive service we offer?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT ?service ?priceWHERE {    ?service rdf:type pv:Price ;             pv:amount ?price .}ORDER BY DESC(?price)LIMIT 1",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:19-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Who is responsible for the most expensive service we offer?",
+    "query": "The provided context does not contain any information about the entity responsible for the services or the relationship between the prices and the services. Therefore, it is impossible to generate a valid SPARQL query to answer the question \"Who is responsible for the most expensive service we offer?\" based on the given context. The correct response is \"INVALID\".",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:20-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the heaviest coil that does not exceed a base area of 15x15 milimeter?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?coil ?weightWHERE {  ?coil rdf:type pv:Hardware .  ?coil pv:hasCategory prodi:prod-cat-Coil .  ?coil pv:depth_mm ?depth .  ?coil pv:width_mm ?width .  ?coil pv:weight_g ?weight .  FILTER (?depth <= 15 && ?width <= 15)}ORDER BY DESC(?weight)LIMIT 1",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:21-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What products are compatible with the U990 LCD Inductor?",
+    "query": "Based on the question \"\u00bfQu\u00e9 productos son compatibles con el Inductor LCD U990?\", we need to find products that are compatible with the LCD Inductor U990. The relevant property is \"pv:compatibleProduct\". However, we don't have the exact URI for the LCD Inductor U990 in the context. Therefore, we can't generate a valid SPARQL query and the answer is \"INVALID\".",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:22-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What products can I get from US suppliers that are compatible with the U990 LCD Inductor?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?product ?productName WHERE {  ?product rdf:type pv:Hardware .  ?product pv:compatibleProduct prodi:hw-U990-5234138 .  ?product pv:hasSupplier ?supplier .  ?supplier rdf:type pv:Supplier .  ?supplier pv:country \"US\" .  ?product rdfs:label ?productName .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:23-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What is the pontiometer with the smallest volume?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT ?potentiometer (MIN(?volume) as ?minVolume)WHERE {  ?potentiometer rdf:type pv:Hardware ;                 pv:hasCategory prodi:prod-cat-Potentiometer ;                 pv:depth_mm ?depth ;                 pv:height_mm ?height ;                 pv:width_mm ?width .  BIND((?depth * ?height * ?width) as ?volume)}GROUP BY ?potentiometerORDER BY ?minVolumeLIMIT 1",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:24-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which coil has the highest density?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT ?coil (MAX(?density) as ?maxDensity)WHERE {    ?coil rdf:type pv:Hardware ;          pv:hasCategory ?category ;          pv:weight_g ?weight ;          pv:depth_mm ?depth ;          pv:height_mm ?height ;          pv:width_mm ?width .    FILTER (STR(?category) = \"prod-cat-Coil\")    BIND ((?weight / ((?depth * ?height * ?width) / 1000)) AS ?density)}GROUP BY ?coilORDER BY DESC(?maxDensity)LIMIT 1",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:25-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "In which cities are our US suppliers for LCDs?",
+    "query": "The context does not provide enough information to generate a SPARQL query for the question \"In which cities are our US suppliers for LCDs?\". The graph fragments provided do not contain any information about the location of suppliers or whether they are based in the US. Therefore, the answer is \"INVALID\".",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:26-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Give me a phone directory of everyone on staff who does not manage anyone, I need name, email, and phone, sorted by name?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT DISTINCT ?name ?email ?phoneWHERE {  ?employee rdf:type pv:Employee .  OPTIONAL { ?employee pv:name ?name . }  OPTIONAL { ?employee pv:email ?email . }  OPTIONAL { ?employee pv:phone ?phone . }  FILTER NOT EXISTS { ?otherEmployee pv:hasManager ?employee . }}ORDER BY ?name",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:27-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Do we have any service that does apply to a BOM where parts are sourced from Russia?",
+    "query": "The provided context does not contain enough information to generate a SPARQL query that would answer the question \"Do we have any service that applies to a BOM where parts are sourced from Russia?\". The context provides information about suppliers, their location, and some parts with their quantities. However, there is no information about services, how they are related to BOMs (Bill of Materials), or how parts are related to suppliers. Therefore, the correct response is \"INVALID\".",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:28-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What suppliers - I need name, country and price - deliver the 6th to 10th most expensive hardware items.",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?supplierName ?country ?priceWHERE {    ?hardware rdf:type pv:Hardware ;              pv:hasSupplier ?supplier ;              pv:price ?priceInstance .    ?supplier pv:name ?supplierName ;              pv:country ?country .    ?priceInstance rdf:value ?price .}ORDER BY DESC(?price)OFFSET 5LIMIT 5",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:29-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department have more than 5 employees? I need their names and the number of employees.",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT ?dept (COUNT(?employee) AS ?numOfEmployees) (GROUP_CONCAT(DISTINCT ?employeeName; SEPARATOR=\", \") AS ?employeeNames)WHERE {    ?employee rdf:type pv:Employee .    ?employee pv:memberOf ?dept .    ?employee pv:name ?employeeName .}GROUP BY ?deptHAVING (COUNT(?employee) > 5)",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:30-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Per product category, what's our lightest and heaviest hardware item?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT ?category (MIN(?weight) AS ?lightest) (MAX(?weight) AS ?heaviest)WHERE {  ?product rdf:type pv:Hardware ;           pv:hasCategory ?category ;           pv:weight_g ?weight .}GROUP BY ?category",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:31-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For each supplier, what's the average price (in EUR) of what they sell, round reasonably?",
+    "query": "Based on the provided context, it is not possible to generate a valid SPARQL query to answer the question \"For each supplier, what is the average price (in EUR) of what they sell, rounded reasonably?\".The context does not provide any information or data about the suppliers or the relationship between the suppliers and the prices. Therefore, it is impossible to generate a query that would provide the average price of what each supplier sells.The return is \"INVALID\".",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:32-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Are there departments with no manager assigned?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?departmentWHERE {  ?department rdf:type pv:Department .  FILTER NOT EXISTS {    ?employee pv:memberOf ?department .    ?employee rdf:type pv:Manager .  }}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:33-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "I need to update my supplier rolodex, give me every supplier's name and all address details.",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?supplierName ?addressCountry ?addressCountryCode ?addressLocality WHERE {  ?supplier rdf:type pv:Supplier .  ?supplier pv:name ?supplierName .  ?supplier pv:addressCountry ?addressCountry .  ?supplier pv:addressCountryCode ?addressCountryCode .  ?supplier pv:addressLocality ?addressLocality .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:34-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For every product, list what other products it is compatible with and the price differences between both.",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?product ?compatibleProduct ?priceDifferenceWHERE {    ?product rdf:type pv:Hardware .    ?product pv:compatibleProduct ?compatibleProduct .    ?product pv:price ?productPrice .    ?compatibleProduct pv:price ?compatibleProductPrice .    BIND (ABS(?productPrice - ?compatibleProductPrice) AS ?priceDifference)}ORDER BY ?product",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:35-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which area of expertise is most relevant among our products, what are the top three skills?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT ?areaOfExpertise (COUNT(?employee) AS ?count) WHERE {  ?employee rdf:type pv:Employee ;            pv:areaOfExpertise ?areaOfExpertise .}GROUP BY ?areaOfExpertiseORDER BY DESC(?count)LIMIT 3",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:36-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "For each Bill of Material, how many parts does it contain and what is the total material quantity \u2014 show me only those BOMs exceeding 600 total items and order them descending.",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT ?bom (COUNT(DISTINCT ?part) AS ?partCount) (SUM(?quantity) AS ?totalQuantity)WHERE {    ?bom rdf:type pv:BillOfMaterial ;         pv:hasBomPart ?part .    ?part pv:quantity ?quantity .}GROUP BY ?bomHAVING (SUM(?quantity) > 600)ORDER BY DESC(SUM(?quantity))",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:37-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "I want to update my contact list, for each Employee give me name, email, phone number and the department they belong to as well as their direct report.",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?name ?email ?phone ?department ?managerWHERE {    ?employee rdf:type pv:Employee .    ?employee pv:name ?name .    ?employee pv:email ?email .    OPTIONAL { ?employee pv:phone ?phone } .    ?employee pv:memberOf ?dept .    ?dept pv:name ?department .    OPTIONAL { ?employee pv:hasManager ?mgr .                ?mgr pv:name ?manager } .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:38-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items are wider than they are tall, and have a depth under 50 mm? List their dimensions.",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT DISTINCT ?hardware ?width ?height ?depthWHERE {    ?hardware rdf:type pv:Hardware ;              pv:width_mm ?width ;              pv:height_mm ?height ;              pv:depth_mm ?depth .    FILTER (?width > ?height && ?depth < 50)}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:39-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items - list id and name - have no active product manager?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT DISTINCT ?id ?nameWHERE {    ?hardware rdf:type pv:Hardware .    ?hardware pv:id ?id .    ?hardware pv:name ?name .    OPTIONAL { ?hardware pv:hasProductManager ?manager . }    FILTER (!BOUND(?manager))}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:40-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which Bill-of-Material has the highest average unit cost of its hardware parts, and what is that average?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT ?billOfMaterial (AVG(?amount) AS ?averageUnitCost)WHERE {    ?billOfMaterial rdf:type pv:BillOfMaterial .    ?billOfMaterial pv:hasPart ?part .    ?part rdf:type pv:Hardware .    ?part pv:price ?price .    ?price pv:amount ?amount .}GROUP BY ?billOfMaterialORDER BY DESC(?averageUnitCost)LIMIT 1",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:42-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Show me any cycles of product compatibility \u2014 i.e. product A says it's compatible with B, and B says it's compatible with A (mutual pairs).",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT DISTINCT ?productA ?productBWHERE {    ?productA rdf:type pv:Hardware .    ?productB rdf:type pv:Hardware .    ?productA pv:compatibleProduct ?productB .    ?productB pv:compatibleProduct ?productA .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:43-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which hardware items have dimensions in the top 10 % of all widths, and what are their IDs, names and widths?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT DISTINCT ?id ?name ?widthWHERE {  ?hardware rdf:type pv:Hardware ;            pv:id ?id ;            pv:name ?name ;            pv:width_mm ?width .  {    SELECT (MAX(?width) * 0.9 AS ?top10Percent)    WHERE {      ?hardware rdf:type pv:Hardware ;                pv:width_mm ?width .    }  }  FILTER(?width >= ?top10Percent)}ORDER BY DESC(?width)",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:44-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which supplier delivers the most reliable Inductor?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT ?supplier WHERE {  ?product rdf:type pv:Hardware ;           pv:hasCategory prodi:prod-cat-Inductor ;           pv:hasSupplier ?supplier ;           pv:reliabilityIndex ?reliability .}ORDER BY DESC(?reliability)LIMIT 1",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:45-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "What are the top 5 suppliers with best average reliability over their products.",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>SELECT ?supplier (AVG(?reliability) AS ?avgReliability)WHERE {    ?product rdf:type pv:Hardware ;             pv:hasSupplier ?supplier ;             pv:reliabilityIndex ?reliability .}GROUP BY ?supplierORDER BY DESC(?avgReliability)LIMIT 5",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:46-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "From which countries are the BOM parts of our SkySync MechWave delivered?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>PREFIX dbpedia: <http://dbpedia.org/resource/>SELECT DISTINCT ?country WHERE {  prodi:SkySync_MechWave rdf:type pv:BillOfMaterial ;                         pv:hasBomPart ?bomPart .  ?bomPart pv:hasSupplier ?supplier .  ?supplier rdf:type pv:Supplier ;            pv:country ?countryURI .  ?countryURI rdfs:label ?country .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:47-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Show me all BOMs which have at least on part from a polish supplier.",
+    "query": "Based on the provided context, it's not possible to generate a valid SPARQL query to answer the question \"Show me all BOMs which have at least one part from a Polish supplier.\" The reason is that there is no explicit link between the BOM parts and the suppliers in the given graph fragments. We can identify BOMs, BOM parts, and suppliers, but there is no property that connects a part to a supplier. Therefore, the answer is \"INVALID\".",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:48-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "How many suppliers can deliver alternative compatible products for the K367 Strain Encoder?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT (COUNT(DISTINCT ?supplier) AS ?supplierCount)WHERE {  prodi:hw-K367-1320550 pv:compatibleProduct ?product .  ?product rdf:type pv:Hardware .  ?product pv:hasSupplier ?supplier .}",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:49-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/corporate/",
+    "question": "Which department is resposible for the most product and how many product are this?",
+    "query": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX pv: <http://ld.company.org/prod-vocab/>PREFIX prodi: <http://ld.company.org/prod-instances/>SELECT ?deptName (COUNT(?product) AS ?productCount)WHERE {  ?dept rdf:type pv:Department ;        pv:name ?deptName ;        pv:responsibleFor ?product .}GROUP BY ?deptNameORDER BY DESC(?productCount)LIMIT 1",
+    "endpoint": "https://text2sparql-avdeev-roman.amvera.io/generate-sparql-get",
+    "qname": "ck25:50-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/50-en"
+  }
+]

@@ -1,0 +1,1602 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many unique authors have written science fiction novels?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:1-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos autores \u00fanicos han escrito novelas de ciencia ficci\u00f3n?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:1-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/1-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the 10 most populated countries?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:2-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los 10 pa\u00edses m\u00e1s poblados?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:2-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/2-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the birthplace of Keanu Reeves?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:3-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Keanu Reeves?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:3-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/3-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the number of Starbucks locations worldwide?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:4-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el n\u00famero de ubicaciones de Starbucks en todo el mundo?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:4-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/4-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the Republic of Montenegro (1992-2006)?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:5-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad capital de la Rep\u00fablica de Montenegro (1992-2006)?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:5-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/5-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the corporation associated with products such as iPhone and iPad?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:6-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identifique la corporaci\u00f3n asociada con productos como iPhone y iPad?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:6-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/6-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which nearest city of the Eiffel Tower is the birthplace of Gustave Eiffel?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:7-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad m\u00e1s cercana a la Torre Eiffel que es el lugar de nacimiento de Gustave Eiffel?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:7-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/7-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the Eiffel Tower located in Paris?",
+    "query": "\nPREFIX ns4: <http://www.wikidata.org/entity/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX ns1: <http://www.w3.org/ns/shacl#>\n\nASK WHERE {\n  ns4:Q243 (ns1:property/rdf:rest*/rdf:first)* ns4:Q90 .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:8-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEst\u00e1 la Torre Eiffel ubicada en Par\u00eds?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:8-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/8-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who designed the Python programming language?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:9-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n dise\u00f1\u00f3 el lenguaje de programaci\u00f3n Python?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:9-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/9-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which teams have players in the Wide Receiver position in American football?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:10-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 equipos tienen jugadores en la posici\u00f3n de receptor abierto en el f\u00fatbol americano?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:10-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/10-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many people study at universities in California?",
+    "query": "\nPREFIX ns3: <http://dbpedia.org/ontology/>\n\nSELECT (COUNT(?person) AS ?numberOfPeople)\nWHERE {\n  ?person a ns3:CollegeStudent ;\n          ns3:attendsUniversity ?university .\n  ?university ns3:location ?location .\n  ?location ns3:isInState <http://dbpedia.org/resource/California> .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:11-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas personas estudian en las universidades de California?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:11-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/11-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the manufacturer of the Boeing 747?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:12-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el fabricante del Boeing 747?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:12-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/12-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which movie features Johnny Depp as a lead actor?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:13-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 pel\u00edcula tiene a Johnny Depp como actor principal?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:13-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/13-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Did J.K. Rowling write the Harry Potter series?",
+    "query": "\nPREFIX ns5: <http://schema.org/>\nPREFIX ns4: <http://www.wikidata.org/entity/>\nPREFIX ns3: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nASK WHERE {\n  ?book a ns3:NovelShape .\n  ?book ns5:author ns4:Q34660 .  # Assuming ns4:Q34660 is J.K. Rowling\n  ?book ns5:name ?name .\n  FILTER(CONTAINS(?name, \"Harry Potter\"))\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:14-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfJ.K. Rowling escribi\u00f3 la serie de Harry Potter?",
+    "query": "\nPREFIX ns5: <http://schema.org/>\nPREFIX ns3: <http://dbpedia.org/ontology/>\n\nASK WHERE {\n  ?series a ns3:NovelShape ;\n          ns5:author \"J.K. Rowling\" ;\n          ns5:name \"Harry Potter\" .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:14-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/14-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of the Louvre Museum?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:15-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el director del Museo del Louvre?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:15-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/15-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the directors of Inception?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:16-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los directores de Inception?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:16-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/16-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are some movies available on Netflix?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:17-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son algunas pel\u00edculas disponibles en Netflix?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:17-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/17-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which country has the highest population?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:18-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 pa\u00eds tiene la poblaci\u00f3n m\u00e1s alta?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:18-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/18-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "In which country does the Amazon River start?",
+    "query": "\nPREFIX ns3: <http://dbpedia.org/ontology/>\n\nSELECT ?country WHERE {\n  ?river ns3:sourceCountry ?country .\n  FILTER (?river = <http://dbpedia.org/resource/Amazon_River>)\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:19-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00eds comienza el r\u00edo Amazonas?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:19-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/19-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the primary language spoken by the ethnic group to which Chimamanda Ngozi Adichie belongs?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:20-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el idioma principal hablado por el grupo \u00e9tnico al que pertenece Chimamanda Ngozi Adichie?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:20-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/20-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "In which country is the Eiffel Tower located?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:21-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00eds se encuentra la Torre Eiffel?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:21-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/21-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the directors of movies where Steven Spielberg was one of the producers?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:22-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identifica los directores de pel\u00edculas donde Steven Spielberg fue uno de los productores.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:22-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/22-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which organizations were founded in 1990?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:23-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 organizaciones fueron fundadas en 1990?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:23-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/23-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was J.K. Rowling and Ghadam-Ali Sarami born?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:24-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde nacieron J.K. Rowling y Ghadam-Ali Sarami?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:24-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/24-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many movies are directed by Christopher Nolan?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:25-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas est\u00e1n dirigidas por Christopher Nolan?",
+    "query": "\nSELECT (COUNT(?movie) AS ?numMovies) \nWHERE {\n  ?movie a <http://schema.org/Movie> .\n  ?movie <http://schema.org/director> <http://www.wikidata.org/entity/Q25169> .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:25-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/25-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who were the commanders at the Battle of Gettysburg?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:26-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n fue el comandante en la Batalla de Gettysburg?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:26-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/26-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of Casablanca?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:27-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los directores de Casablanca?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:27-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/27-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all the vineyards in France.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:28-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera todos los vi\u00f1edos en Francia.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:28-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/28-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the IEEE Intelligent Systems Journal about Artificial Intelligence?",
+    "query": "\nPREFIX ns5: <http://schema.org/>\nPREFIX ns2: <http://purl.org/vocommons/voaf#>\nPREFIX ns4: <http://www.wikidata.org/entity/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX ns6: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>\nPREFIX ns1: <http://www.w3.org/ns/shacl#>\nPREFIX ns3: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nASK WHERE {\n  ?journal rdf:type ns3:Publication .\n  ?journal ns5:about ns4:Q11660 .\n  FILTER(CONTAINS(LCASE(STR(?journal)), \"ieee intelligent systems\"))\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:29-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEl IEEE Intelligent Systems Journal trata sobre inteligencia artificial?",
+    "query": "\nPREFIX ns1: <http://www.w3.org/ns/shacl#>\nPREFIX ns3: <http://dbpedia.org/ontology/>\n\nASK WHERE {\n  ?journal a ns3:IEEEIntelligentSystemsJournalShape ;\n           ns3:subject ?subject .\n  FILTER (CONTAINS(LCASE(STR(?subject)), \"inteligencia artificial\"))\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:29-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/29-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the number of official languages spoken in Switzerland?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:30-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el n\u00famero de lenguas oficiales habladas en Suiza?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:30-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/30-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which books are illustrated by Quentin Blake?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:31-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 libros son ilustrados por Quentin Blake?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:31-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/31-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who were the managers of the squad located at Old Trafford?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:32-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes eran los entrenadores del plantel ubicado en Old Trafford?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:32-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/32-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many books have been authored by J.K. Rowling?",
+    "query": "\nPREFIX ns5: <http://schema.org/>\nPREFIX ns1: <http://www.w3.org/ns/shacl#>\n\nSELECT (COUNT(?book) AS ?count) \nWHERE {\n  ?book a ns5:Book .\n  ?book ns5:author ?author .\n  FILTER(?author = <http://dbpedia.org/resource/J._K._Rowling>)\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:33-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos libros han sido escritos por J.K. Rowling?",
+    "query": "\nPREFIX ns3: <http://dbpedia.org/ontology/>\nPREFIX ns5: <http://schema.org/>\n\nSELECT (COUNT(?book) AS ?numberOfBooks)\nWHERE {\n  ?book ns5:author ?author.\n  ?author ns5:name \"J.K. Rowling\".\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:33-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/33-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who directed the south park episode that precedes Butter's Very Own Episode?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:34-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n dirigi\u00f3 el episodio de southous parkos que precede a Butter's Very Own Episode?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:34-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/34-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which political parties have governed over Varanasi, and is Narendra Modi a member of any of them?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:35-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 partidos pol\u00edticos han gobernado Varanasi, y es Narendra Modi miembro de alguno de ellos?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:35-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/35-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the associated band of the musical artist who is the producer of the album Kind of Blue?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:36-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la banda asociada del artista musical que es el productor del \u00e1lbum Kind of Blue?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:36-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/36-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which was the origin of The Beatles?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:37-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l fue el origen de The Beatles?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:37-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/37-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List the 10 directors who worked on most movies.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:38-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere los 10 directores que trabajaron en m\u00e1s pel\u00edculas.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:38-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/38-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List rivers flowing through the admin region bordering the Pacific Ocean?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:39-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera los r\u00edos que fluyen a trav\u00e9s de la regi\u00f3n administrativa que limita con el Oc\u00e9ano Pac\u00edfico.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:39-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/39-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the universities affiliated with the University of California in the state of California.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:40-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identificar las universidades afiliadas a la Universidad de California en el estado de California.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:40-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/40-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which companies are located in Silicon Valley?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:41-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas est\u00e1n ubicadas en Silicon Valley?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:41-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/41-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which teams play in the league Campeonato Brasileiro S\u00e9rie A?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:42-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 equipos juegan en la liga Campeonato Brasileiro S\u00e9rie A?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:42-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/42-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which place has Geneva and Carouge as its neighboring municipalities?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:43-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 lugar tiene a Ginebra y Carouge como sus municipios vecinos?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:43-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/43-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the capitals of countries governed by a parliamentary republic?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:44-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las capitales de los pa\u00edses gobernados por una rep\u00fablica parlamentaria?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:44-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/44-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "When did the Apollo 11 mission land on the moon?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:45-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ndo aterriz\u00f3 la misi\u00f3n Apollo 11 en la luna?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:45-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/45-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all bands according to the amount of songs they published.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:46-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere todas las bandas seg\u00fan la cantidad de canciones que publicaron.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:46-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/46-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where did the office holder who is predecessor to Margaret Thatcher die?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:47-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde muri\u00f3 el titular del cargo que es predecesor de Margaret Thatcher?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:47-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/47-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where did Bill Gates and Mark Zuckerberg go to school?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:48-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde estudiaron Bill Gates y Mark Zuckerberg?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:48-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/48-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is The Star-Spangled Banner the national anthem of the United States?",
+    "query": "\nPREFIX ns4: <http://www.wikidata.org/entity/>\nPREFIX ns1: <http://www.w3.org/ns/shacl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX ns3: <http://dbpedia.org/ontology/>\n\nASK WHERE {\n  ?nation rdf:type ns4:Q30 ;  # Assuming `ns4:Q30` is the entity for the United States\n          ns1:property ?anthem .\n  ?anthem rdf:type ns3:MusicalWork ;\n          ns3:workTitle \"The Star-Spangled Banner\"@en .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:49-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEs The Star-Spangled Banner el himno nacional de los Estados Unidos?",
+    "query": "\nPREFIX ns4: <http://www.wikidata.org/entity/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nASK WHERE {\n  ns4:Q16266334Shape rdf:type ns4:Q1353183Shape .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:49-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/49-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Was Edmund Hillary the first person to reach the summit of Mount Everest?",
+    "query": "\nPREFIX ns4: <http://www.wikidata.org/entity/>\n\nASK {\n  ns4:Q35298 ns4:P800 ns4:Q5131334 .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:50-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfFue Edmund Hillary la primera persona en alcanzar la cima del Monte Everest?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:50-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/50-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who has been married to both Nicole Kidman and Katie Holmes?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:51-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/51-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n ha estado casado tanto con Nicole Kidman como con Katie Holmes?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:51-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/51-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Are Australian former Prime Ministers Julia Gillard and Kevin Rudd part of the same political party?",
+    "query": "\nPREFIX ns3: <http://dbpedia.org/ontology/>\nPREFIX ns4: <http://www.wikidata.org/entity/>\n\nASK {\n  ns4:Q3520 ns3:party ?party .\n  ns4:Q180095 ns3:party ?party .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:52-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/52-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfSon los ex primeros ministros australianos Julia Gillard y Kevin Rudd parte del mismo partido pol\u00edtico?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:52-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/52-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which organizations have their headquarters located in New York City?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:53-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/53-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 organizaciones tienen su sede en la ciudad de Nueva York?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:53-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/53-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which people are employed by the New York Times?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:54-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/54-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 personas est\u00e1n empleadas por el New York Times?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:54-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/54-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the director of Inception?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:55-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/55-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el director de Inception?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:55-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/55-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which authors have been published by Penguin Books?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:56-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/56-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 autores han sido publicados por Penguin Books?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:56-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/56-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which instruments are commonly used in genres that emerged from jazz?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:57-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/57-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 instrumentos se utilizan com\u00fanmente en g\u00e9neros que surgieron del jazz?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:57-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/57-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Was Emma Watson a part of Harry Potter cast?",
+    "query": "\nPREFIX ns4: <http://www.wikidata.org/entity/>\nPREFIX ns1: <http://www.w3.org/ns/shacl#>\nPREFIX ns3: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nASK WHERE {\n  ?movie a ns3:Film .\n  ?movie ns3:starring ns4:Q25956 .  # Assumed URI for Emma Watson\n  FILTER(?movie = ns4:Q8485)        # Assumed URI for Harry Potter\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:58-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/58-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfFue Emma Watson parte del elenco de Harry Potter?",
+    "query": "\nPREFIX ns4: <http://www.wikidata.org/entity/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nASK WHERE {\n  ?movie rdf:type ns4:Q11303Shape . # Harry Potter movies\n  ?movie ?property ns4:Q16266334Shape . # Emma Watson\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:58-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/58-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the country where the famous artist Leonardo da Vinci was born?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:59-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/59-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la ciudad capital del pa\u00eds donde naci\u00f3 el famoso artista Leonardo da Vinci?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:59-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/59-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the population of the largest city in Canada?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:60-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/60-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la poblaci\u00f3n de la ciudad m\u00e1s grande de Canad\u00e1?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:60-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/60-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many films did Roger Deakins work on as a cinematographer?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:61-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/61-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas hizo Roger Deakins como director de fotograf\u00eda?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:61-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/61-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which players are or have been part of the Brazil national football team?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:62-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/62-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 jugadores son o han sido parte del equipo nacional de f\u00fatbol de Brasil?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:62-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/62-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the managers from all basketball teams which LeBron James played at?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:63-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/63-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los entrenadores de todos los equipos de baloncesto en los que ha jugado LeBron James?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:63-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/63-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which director of Inception is also the filmmaker behind The Dark Knight?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:64-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/64-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 director de Inception es tambi\u00e9n el cineasta detr\u00e1s de The Dark Knight?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:64-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/64-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the birth place of Albert Einstein?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:65-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/65-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Albert Einstein?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:65-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/65-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many birds are in the Chordate phylum?",
+    "query": "\nPREFIX ns3: <http://dbpedia.org/ontology/>\n\nSELECT (COUNT(?bird) AS ?birdCount)\nWHERE {\n  ?bird a ns3:BirdShape .\n  ?bird ns3:phylum ns3:Chordate .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:66-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/66-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas aves hay en el filo Cordado?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:66-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/66-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the author of Harry Potter and the Order of the Phoenix?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:67-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/67-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es el autor de Harry Potter y el Orden del F\u00e9nix?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:67-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/67-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where is the Eiffel Tower located?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:68-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/68-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde se encuentra la Torre Eiffel?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:68-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/68-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are some of the key people involved with the Wikimedia Foundation?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:69-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/69-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son algunas de las personas clave involucradas con la Fundaci\u00f3n Wikimedia?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:69-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/69-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many are the Generals of the United States?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:70-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/70-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos son los General de los Estados Unidos?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:70-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/70-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the key figures associated with the United Nations?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:71-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/71-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son las figuras clave asociadas con las Naciones Unidas?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:71-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/71-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was the song 'Bohemian Rhapsody' recorded?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:72-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/72-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde se grab\u00f3 la canci\u00f3n 'Bohemian Rhapsody'?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:72-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/72-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the capital city of the state of California?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:73-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/73-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la capital del estado de California?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:73-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/73-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who are the authors of books written about the Battle of Stalingrad?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:74-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/74-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los autores de libros escritos sobre la Batalla de Stalingrado?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:74-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/74-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is the Louvre Museum located in Paris?",
+    "query": "\nPREFIX ns4: <http://www.wikidata.org/entity/>\n\nASK WHERE {\n  ns4:Q19675 ns4:P131 ns4:Q90 .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:75-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/75-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfEst\u00e1 el Museo del Louvre ubicado en Par\u00eds?",
+    "query": "\nASK WHERE {\n  ?museum a <http://schema.org/Museum> ;\n          <http://schema.org/name> \"Mus\u00e9e du Louvre\"@fr ;\n          <http://schema.org/location> ?location .\n  ?location <http://schema.org/name> \"Paris\"@fr .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:75-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/75-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Give me all prime ministers of the United Kingdom.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:76-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/76-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Dame todos los primeros ministros del Reino Unido.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:76-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/76-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "When was the birth of Albert Einstein?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:77-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/77-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ndo naci\u00f3 Albert Einstein?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:77-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/77-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List some architects of buildings taller than 300 meters.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:78-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/78-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumera algunos arquitectos de edificios m\u00e1s altos que 300 metros.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:78-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/78-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identify the birthplace of Nikola Tesla?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:79-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/79-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Identificar el lugar de nacimiento de Nikola Tesla?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:79-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/79-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List the 10 countries with most cities.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:80-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/80-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere los 10 pa\u00edses con m\u00e1s ciudades.",
+    "query": "\nSELECT ?country (COUNT(?city) AS ?cityCount)\nWHERE {\n  ?city a <http://dbpedia.org/ontology/City> .\n  ?city <http://dbpedia.org/ontology/country> ?country .\n}\nGROUP BY ?country\nORDER BY DESC(?cityCount)\nLIMIT 10\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:80-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/80-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the places where rivers that flow into the Black Sea originate from?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:81-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/81-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfDe d\u00f3nde provienen los r\u00edos que fluyen hacia el Mar Negro?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:81-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/81-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many games (or DLCs) by Blizzard Entertainment are part of the Warcraft series?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:82-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/82-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos juegos (o DLCs) de Blizzard Entertainment son parte de la serie Warcraft?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:82-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/82-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the alternate names of the child from Aung San Suu Kyi?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:83-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/83-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los nombres alternativos del hijo de Aung San Suu Kyi?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:83-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/83-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which professional athlete is also an actor?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:84-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/84-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 atleta profesional, que tambi\u00e9n es actor?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:84-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/84-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Who is the wife of Tom Hanks?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:85-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/85-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQui\u00e9n es la esposa de Tom Hanks?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:85-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/85-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the occupations of the Wikipedia authors?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:86-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/86-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las ocupaciones de los autores de Wikipedia?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:86-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/86-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which companies have employed graduates from Stanford University?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:87-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/87-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas han empleado a graduados de la Universidad de Stanford?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:87-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/87-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which book has author as J.K. Rowling?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:88-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/88-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 libro tiene como autor a J.K. Rowling?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:88-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/88-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many books were authored by J.K. Rowling?",
+    "query": "\nPREFIX wd: <http://www.wikidata.org/entity/>\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT (COUNT(?book) AS ?numberOfBooks) WHERE {\n  ?book wdt:P50 wd:Q34660.\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:89-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/89-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos libros fueron escritos por J.K. Rowling?",
+    "query": "\nPREFIX ns3: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT (COUNT(?book) AS ?numBooks)\nWHERE {\n  ?book a ns3:NovelShape .\n  ?book ns3:author ?author .\n  ?author ns3:name \"J.K. Rowling\" .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:89-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/89-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Where was the predecessor of Irina Bokova born?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:90-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/90-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfD\u00f3nde naci\u00f3 el predecesor de Irina Bokova?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:90-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/90-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "How many films were recorded by the cinematographer of 'Inception'?",
+    "query": "\nPREFIX ns3: <http://dbpedia.org/ontology/>\nPREFIX ns4: <http://www.wikidata.org/entity/>\nPREFIX ns5: <http://schema.org/>\n\nSELECT (COUNT(?film) AS ?filmCount)\nWHERE {\n  ns4:Q207713 ns3:cinematographer ?cinematographer.\n  ?film ns3:cinematographer ?cinematographer.\n  ?film rdf:type ns3:Film.\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:91-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/91-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCuantas pel\u00edculas fueron filmadas por el director de fotograf\u00eda de 'Inception'?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:91-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/91-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the capital cities from the countries where Mount Everest is located?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:92-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/92-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las capitales de los pa\u00edses donde se encuentra el Monte Everest?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:92-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/92-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Is there a university whose campuses are New York and California?",
+    "query": "\nPREFIX ns2: <http://schema.org/>\n\nASK {\n  ?university a ns2:UniversityShape .\n  ?university ns2:location ?location1 .\n  ?university ns2:location ?location2 .\n  ?location1 ns2:name \"New York\" .\n  ?location2 ns2:name \"California\" .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:93-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/93-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfExiste una universidad cuyos campus son Nueva York y California?",
+    "query": "\nPREFIX ns3: <http://dbpedia.org/ontology/>\n\nASK WHERE {\n  ?university a ns3:CollegeShape .\n  ?university ns3:PropertyNameUsedForLocation1 [ ns3:name \"Nueva York\" ] .\n  ?university ns3:PropertyNameUsedForLocation2 [ ns3:name \"California\" ] .\n}\n",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:93-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/93-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Do the University of Georgia and the Atlanta Falcons have the same mascot?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:94-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/94-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfTienen la Universidad de Georgia y los Atlanta Falcons el mismo mascota?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:94-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/94-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which notable figures are buried in P\u00e8re Lachaise Cemetery?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:95-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/95-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 figuras notables est\u00e1n enterradas en el Cementerio de P\u00e8re Lachaise?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:95-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/95-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "List all countries, starting with those who have the least amount of universities.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:96-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/96-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Enumere todos los pa\u00edses, comenzando por aquellos que tienen la menor cantidad de universidades.",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:96-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/96-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "Which rivers originates from the Rocky Mountains?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:97-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/97-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 r\u00edos se originan en las Monta\u00f1as Rocosas?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:97-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/97-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What are the regions served by FedEx?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:98-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/98-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las regiones atendidas por FedEx?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:98-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/98-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "What is the city and country of the Michelin company headquarters?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:99-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/99-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfQu\u00e9 ciudad y pa\u00eds es la sede de la empresa Michelin?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:99-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/99-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "All book authors born in Paris?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:100-en",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/100-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2025/dbpedia/",
+    "question": "\u00bfTodos los autores de libros nacidos en Par\u00eds?",
+    "query": " ",
+    "endpoint": "http://demo1.franz.com:7000/t2s/api",
+    "qname": "db25:100-es",
+    "uri": "https://text2sparql.aksw.org/2025/dbpedia/100-es"
+  }
+]

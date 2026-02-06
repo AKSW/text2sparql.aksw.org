@@ -1,0 +1,362 @@
+[
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "What is the telephone of Baldwin Dirksen?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?thing_1 ?name_4 ?phone_55 WHERE { ?thing_1 n1:name ?name_4 . FILTER ( ( REGEX(str(?name_4), \"Baldwin\", 'i') && REGEX(str(?name_4), \"Dirksen\", 'i') ) ) ?thing_1 n1:phone ?phone_55 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:2-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/2-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Who is the manager of Heinrich Hoch?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?thing_1 ?name_4 ?hasManager_55 WHERE { ?thing_1 n1:name ?name_4 . FILTER ( ( REGEX(str(?name_4), \"Heinrich\", 'i') && REGEX(str(?name_4), \"Hoch\", 'i') ) ) ?thing_1 n1:hasManager ?hasManager_55 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:3-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/3-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "What is the email of Sabrina from Marketing?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Employee_1 ?name_20 WHERE { ?Employee_1 a n1:Employee . ?Employee_1 n1:name ?name_20 . FILTER ( ( ( REGEX(str(?name_20), \"Sabrina\", 'i') && REGEX(str(?name_20), \"memberOf\", 'i') ) && REGEX(str(?name_20), \"Marketing\", 'i') ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:4-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/4-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Who is our Sensor expert?",
+    "query": "PREFIX p: <http://www.wikidata.org/prop/> PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Employee_1 WHERE { ?Employee_1 a n1:Employee . ?Employee_1 n1:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Sensor> . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:6-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/6-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "How many Sensor Switches do we offer?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?label_20 (COUNT(DISTINCT ?ProductCategory_1) AS ?count) WHERE { ?ProductCategory_1 a n1:ProductCategory . ?ProductCategory_1 rdfs:label ?label_20 . } GROUP BY ?label_20 LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:9-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/9-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "What is the name of the Network expert from the Marketing Department?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?name_20 WHERE { ?Department_1 a n1:Department . ?Department_1 n1:name ?name_20 . } GROUP BY ?name_20 ORDER BY DESC(COUNT(DISTINCT ?Department_1)) LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:10-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/10-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which departments have Transducer Experts?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Department_1 WHERE { ?Department_1 a n1:Department . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:11-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/11-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which supplier are available to deliver Compensators?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Supplier_1 WHERE { ?Supplier_1 a n1:Supplier . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:12-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/12-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "How many suppliers do we have in France?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/> PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Supplier_1 WHERE { ?Supplier_1 a n1:Supplier . ?Supplier_1 n1:country dbr:France . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:13-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/13-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which supplier in France delivers Compensators?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Supplier_1 ?addressCountry_20 WHERE { ?Supplier_1 a n1:Supplier . ?Supplier_1 n1:addressCountry ?addressCountry_20 . FILTER ( REGEX(str(?addressCountry_20), \"France\", 'i') ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:14-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/14-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "What is the cheapest Encoder we can get from a french or german supplier?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?ProductCategory_1 WHERE { ?ProductCategory_1 a n1:ProductCategory . FILTER ( ( REGEX(str(?ProductCategory_1), \"compatibleProduct\", 'i') && REGEX(str(?ProductCategory_1), \"Encoder\", 'i') ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:15-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/15-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Do we have suppliers in Toulouse?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Supplier_1 ?addressLocality_20 WHERE { ?Supplier_1 a n1:Supplier . ?Supplier_1 n1:addressLocality ?addressLocality_20 . FILTER ( REGEX(str(?addressLocality_20), \"Toulouse\", 'i') ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:16-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/16-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which suppliers do we have in Toulouse?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Supplier_1 ?addressLocality_20 WHERE { ?Supplier_1 a n1:Supplier . ?Supplier_1 n1:addressLocality ?addressLocality_20 . FILTER ( REGEX(str(?addressLocality_20), \"Toulouse\", 'i') ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:17-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/17-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "What is the cheapest Oscillator we have?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Hardware_1 ?name_20 WHERE { ?Hardware_1 a n1:Hardware . ?Hardware_1 n1:name ?name_20 . FILTER ( REGEX(str(?name_20), \"Oscillator\", 'i') ) ?Hardware_1 n1:price ?price_71 . } ORDER BY ASC(?price_71) LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:18-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/18-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "What is the most expensive service we offer?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Service_1 WHERE { ?Service_1 a n1:Service . ?Service_1 n1:price ?price_20 . } ORDER BY DESC(?price_20) LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:19-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/19-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Who is responsible for the most expensive service we offer?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Service_1 WHERE { ?Service_1 a n1:Service . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:20-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/20-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "What is the heaviest coil that does not exceed a base area of 15x15 milimeter?",
+    "query": "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Hardware_1 ?width_mm_20 WHERE { ?Hardware_1 a n1:Hardware . ?Hardware_1 n1:width_mm ?width_mm_20 . FILTER ( xsd:double(str(?width_mm_20)) <= 15 ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:21-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/21-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "What products can I get from US suppliers that are compatible with the U990 LCD Inductor?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?thing_1 ?name_4 WHERE { ?thing_1 n1:name ?name_4 . FILTER ( ( REGEX(str(?name_4), \"U990\", 'i') && REGEX(str(?name_4), \"LCD\", 'i') && REGEX(str(?name_4), \"Inductor\", 'i') ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:23-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/23-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "What is the pontiometer with the smallest volume?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?thing_1 ?depth_mm_2 ?thing_52 WHERE { ?thing_1 n1:depth_mm ?depth_mm_2 . ?thing_52 n1:height_mm ?depth_mm_2 . ?thing_52 n1:width_mm ?width_mm_70 . } ORDER BY ASC(?width_mm_70) LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:24-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/24-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which coil has the highest density?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?hasBomPart_20 WHERE { ?BillOfMaterial_1 a n1:BillOfMaterial . ?BillOfMaterial_1 n1:hasBomPart ?hasBomPart_20 . } GROUP BY ?hasBomPart_20 ORDER BY DESC(COUNT(DISTINCT ?BillOfMaterial_1)) LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:25-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/25-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "In which cities are our US suppliers for LCDs?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?BillOfMaterial_1 ?name_20 WHERE { ?BillOfMaterial_1 a n1:BillOfMaterial . ?BillOfMaterial_1 n1:name ?name_20 . FILTER ( ( REGEX(str(?name_20), \"AeroVibe\", 'i') && REGEX(str(?name_20), \"Matrix\", 'i') ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:26-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/26-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Give me a phone directory of everyone on staff who does not manage anyone, I need name, email, and phone, sorted by name?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Employee_1 WHERE { ?Employee_1 a n1:Employee . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:27-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/27-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Do we have any service that does apply to a BOM where parts are sourced from Russia?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?BillOfMaterial_1 WHERE { ?BillOfMaterial_1 a n1:BillOfMaterial . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:28-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/28-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "What suppliers - I need name, country and price - deliver the 6th to 10th most expensive hardware items.",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Hardware_1 ?price_20 WHERE { ?Hardware_1 a n1:Hardware . ?Hardware_1 n1:price ?price_20 . } ORDER BY DESC(?price_20) OFFSET 5 LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:29-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/29-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which department have more than 5 employees? I need their names and the number of employees.",
+    "query": "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Department_1 ?memberOf_20 WHERE { ?Department_1 a n1:Department . ?memberOf_20 n1:memberOf ?Department_1 . FILTER ( xsd:double(str(?memberOf_20)) >= 5 ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:30-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/30-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Per product category, what's our lightest and heaviest hardware item?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?ProductCategory_1 WHERE { ?ProductCategory_1 a n1:ProductCategory . } LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:31-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/31-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "For each supplier, what's the average price (in EUR) of what they sell, round reasonably?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?hasSupplier_50 ?thing_4 WHERE { ?thing_4 n1:hasSupplier ?hasSupplier_50 . FILTER ( REGEX(str(?thing_4), \"supplier\", 'i') ) FILTER ( ( REGEX(str(?hasSupplier_50), \"#\", 'i') && REGEX(str(?hasSupplier_50), \"For\", 'i') && REGEX(str(?hasSupplier_50), \"each\", 'i') && REGEX(str(?hasSupplier_50), \"supplier,\", 'i') && REGEX(str(?hasSupplier_50), \"do\", 'i') && REGEX(str(?hasSupplier_50), \"the\", 'i') && REGEX(str(?hasSupplier_50), \"following:beginScope\", 'i') ) ) FILTER ( ( REGEX(str(?hasSupplier_50), \"#\", 'i') && REGEX(str(?hasSupplier_50), \"Start\", 'i') && REGEX(str(?hasSupplier_50), \"a\", 'i') && REGEX(str(?hasSupplier_50), \"new\", 'i') && REGEX(str(?hasSupplier_50), \"scope\", 'i') && REGEX(str(?hasSupplier_50), \"for\", 'i') && REGEX(str(?hasSupplier_50), \"each\", 'i') && REGEX(str(?hasSupplier_50), \"iterationproperty\", 'i') && REGEX(str(?hasSupplier_50), \"name\", 'i') ) ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:32-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/32-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Are there departments with no manager assigned?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Department_1 WHERE { ?Department_1 a n1:Department . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:33-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/33-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "I need to update my supplier rolodex, give me every supplier's name and all address details.",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Supplier_1 ?name_20 WHERE { ?Supplier_1 a n1:Supplier . ?Supplier_1 n1:name ?name_20 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:34-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/34-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "For every product, list what other products it is compatible with and the price differences between both.",
+    "query": "SELECT DISTINCT ?thing_4 WHERE { ?thing_4 a [] . FILTER ( REGEX(str(?thing_4), \"CompatibleProduct.label\", 'i') ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:35-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/35-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which area of expertise is most relevant among our products, what are the top three skills?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?areaOfExpertise_20 WHERE { ?Employee_1 a n1:Employee . ?Employee_1 n1:areaOfExpertise ?areaOfExpertise_20 . } GROUP BY ?areaOfExpertise_20 ORDER BY DESC(COUNT(DISTINCT ?Employee_1)) LIMIT 3",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:36-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/36-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "For each Bill of Material, how many parts does it contain and what is the total material quantity \u2014 show me only those BOMs exceeding 600 total items and order them descending.",
+    "query": "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?BillOfMaterial_1 ?hasBomPart_38 WHERE { ?BillOfMaterial_1 a n1:BillOfMaterial . ?BillOfMaterial_1 n1:hasBomPart ?hasBomPart_38 . FILTER ( xsd:double(str(?hasBomPart_38)) >= 600 ) } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:37-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/37-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "I want to update my contact list, for each Employee give me name, email, phone number and the department they belong to as well as their direct report.",
+    "query": "PREFIX p: <http://www.wikidata.org/prop/> PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?email_4 ?phone_7 WHERE { <http://ld.company.org/prod-instances/empl-Gretel.Roth%40company.org> n1:email ?email_4 . <http://ld.company.org/prod-instances/empl-Gretel.Roth%40company.org> n1:phone ?phone_7 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:38-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/38-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which hardware items are wider than they are tall, and have a depth under 50 mm? List their dimensions.",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Hardware_1 ?width_mm_20 WHERE { ?Hardware_1 a n1:Hardware . ?Hardware_1 n1:width_mm ?width_mm_20 . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:39-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/39-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which hardware items - list id and name - have no active product manager?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Hardware_1 WHERE { ?Hardware_1 a n1:Hardware . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:40-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/40-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "For each manager, what percentage of their entire team work in the same department as the manager?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Manager_4 WHERE { ?Manager_4 a n1:Manager . ?thing_23 n1:hasManager ?Manager_4 . } GROUP BY ?Manager_4 ORDER BY ASC(COUNT(DISTINCT ?thing_23)) LIMIT 1",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:41-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/41-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which Bill-of-Material has the highest average unit cost of its hardware parts, and what is that average?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?BillOfMaterial_1 WHERE { ?BillOfMaterial_1 a n1:BillOfMaterial . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:42-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/42-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Show me any cycles of product compatibility \u2014 i.e. product A says it's compatible with B, and B says it's compatible with A (mutual pairs).",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?ProductCategory_1 WHERE { ?ProductCategory_1 a n1:ProductCategory . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:43-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/43-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which hardware items have dimensions in the top 10 % of all widths, and what are their IDs, names and widths?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Hardware_1 ?thing_221 ?name_389 ?width_mm_392 WHERE { ?Hardware_1 a n1:Hardware . ?Hardware_1 n1:width_mm ?width_mm_20 . ?thing_221 n1:width_mm ?width_mm_20 . ?thing_221 n1:name ?name_389 . ?thing_221 n1:width_mm ?width_mm_392 . } ORDER BY DESC(?width_mm_20) LIMIT 10",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:44-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/44-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which supplier delivers the most reliable Inductor?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Supplier_1 WHERE { ?Supplier_1 a n1:Supplier . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:45-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/45-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "What are the top 5 suppliers with best average reliability over their products.",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Supplier_4 WHERE { ?Supplier_4 a n1:Supplier . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:46-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/46-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "From which countries are the BOM parts of our SkySync MechWave delivered?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?BillOfMaterial_1 WHERE { ?BillOfMaterial_1 a n1:BillOfMaterial . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:47-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/47-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Show me all BOMs which have at least on part from a polish supplier.",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?BillOfMaterial_1 WHERE { ?BillOfMaterial_1 a n1:BillOfMaterial . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:48-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/48-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "How many suppliers can deliver alternative compatible products for the K367 Strain Encoder?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Supplier_1 WHERE { ?Supplier_1 a n1:Supplier . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:49-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/49-en"
+  },
+  {
+    "dataset": "https://desktop-47kug2k.tail6a5b76.ts.net:3131/corporate/sparql",
+    "question": "Which department is resposible for the most product and how many product are this?",
+    "query": "PREFIX n1: <http://ld.company.org/prod-vocab/> SELECT DISTINCT ?Department_1 WHERE { ?Department_1 a n1:Department . } LIMIT 200",
+    "endpoint": "https://desktop-47kug2k.tail6a5b76.ts.net/",
+    "qname": "ck25:50-en",
+    "uri": "https://text2sparql.aksw.org/2025/corporate/50-en"
+  }
+]
