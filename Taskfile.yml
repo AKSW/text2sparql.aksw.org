@@ -4,7 +4,7 @@
 version: '3'
 
 vars:
-  PUBLIC_BRANCH: published
+  PUBLIC_BRANCH: gh-pages
   CURRENT_VERSION: 2025
 
 tasks:
