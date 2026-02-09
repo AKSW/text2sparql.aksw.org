@@ -5,10 +5,6 @@
          <lastmod>2026-02-09</lastmod>
     </url>
     <url>
-         <loc>https://text2sparql.aksw.org/2026/challenge/</loc>
-         <lastmod>2026-02-09</lastmod>
-    </url>
-    <url>
          <loc>https://text2sparql.aksw.org/2026/guidelines/</loc>
          <lastmod>2026-02-09</lastmod>
     </url>
@@ -17,11 +13,15 @@
          <lastmod>2026-02-09</lastmod>
     </url>
     <url>
+         <loc>https://text2sparql.aksw.org/2026/program/</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
          <loc>https://text2sparql.aksw.org/2026/participation/</loc>
          <lastmod>2026-02-09</lastmod>
     </url>
     <url>
-         <loc>https://text2sparql.aksw.org/2026/program/</loc>
+         <loc>https://text2sparql.aksw.org/2026/participation/challenge/</loc>
          <lastmod>2026-02-09</lastmod>
     </url>
 </urlset>
