@@ -2,9 +2,9 @@
 # Simply edit this file, add your section, and send a pull request.
 ---
 challengers:
-  example:
-    api: "https://example.org/api/"
-    authors:
+  exampleid:  # give yourself a unique (short) identifier
+    api: "https://example.org/api/"  # provide a link to your endpoint
+    authors:  # name your authors
       - name: "Max Muster"
         affiliation: "Group A @ Example University"
       - name: "Erika Muster"
