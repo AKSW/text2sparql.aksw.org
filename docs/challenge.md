@@ -30,6 +30,34 @@ Evaluating on DBpedia measures a model's ability to:
 
 The identifier for this dataset is: `https://text2sparql.aksw.org/2026/dbpedia/`
 
+
+??? example "Dumps"
+
+    - [dbpedia_2015-10.nt](https://drive.google.com/file/d/1lK-C6Ez3QolUxQfoYDHGQe07UQQQRup4/view?usp=sharing)
+    
+    - [labels_en.ttl.bz2](https://drive.google.com/file/d/1bHWdefNLsXQI_TCPH5nu5_ftlVKKZFrj/view?usp=sharing) 
+    - [labels_es.ttl.bz2](https://drive.google.com/file/d/1fi6d1drUwJDhmJdeX3HPigUqmmbR2lIo/view?usp=sharing)
+
+    - [short_abstracts_en.ttl.bz2](https://drive.google.com/file/d/1OkvC6RYGLpBOe3bJjWHRXt3vsAA02Yms/view?usp=sharing)
+    - [short_abstracts_es.ttl.bz2](https://drive.google.com/file/d/1Ge6-OWqSk44ZTwHlnZ_UrB4nDRzQurej/view?usp=sharing)
+
+    - [infobox_properties_en.ttl.bz2](https://drive.google.com/file/d/15ZtTNd0Kkkj37Q27fFnuqh_Lt77k4hVt/view?usp=sharing)
+    - [infobox_properties_es.ttl.bz2](https://drive.google.com/file/d/1sG5oTnLPFBLV39b9zInjZ8hp5Fm55x6D/view?usp=sharing)
+
+    - [instance_types_en.ttl.bz2](https://drive.google.com/file/d/1ZEv0FDmrARuyQFBJDOibwFOfOQZNAgk1/view?usp=sharing) 
+    - [instance_types_es.ttl.bz2](https://drive.google.com/file/d/1qGLmj0UHxzikOxjPLCm_kQa2r-8XV7fn/view?usp=sharing)
+
+    - [instance_types_transitive_en.ttl.bz2](https://drive.google.com/file/d/1kz5_E_oz5CDov7g1kefewhkBiIyTN9Oo/view?usp=sharing)
+    - [instance_types_transitive_es.ttl.bz2](https://drive.google.com/file/d/1cmpxyn70Y6ZVYAjOO-EvQVpweJ1vWCEi/view?usp=sharing)
+
+    - [mappingbased_literals_en.ttl.bz2](https://drive.google.com/file/d/1NnyQba3QeM58XdwyZO554YwGAF_VWwat/view?usp=sharing) 
+    - [mappingbased_literals_es.ttl.bz2](https://drive.google.com/file/d/1HizVRlzFNEGk9jmrtxPQYmztCnWJjbrP/view?usp=sharing) 
+
+    - [mappingbased_objects_en.ttl.bz2](https://drive.google.com/file/d/1xFVbZtwahv40uVYiX_K2Mcmd1L_9xh9F/view?usp=sharing) 
+    - [mappingbased_objects_es.ttl.bz2](https://drive.google.com/file/d/1eiQre2K7JNt_-zVw6QoXJLlqKLdLJ2uK/view?usp=sharing) 
+
+    - [persondata_en.ttl.bz2](https://drive.google.com/file/d/1_bEpXm8UNzGk43laXpUagwy9c25EEcj6/view?usp=sharing) 
+
 ## Evaluation
 
 ### Training Set
