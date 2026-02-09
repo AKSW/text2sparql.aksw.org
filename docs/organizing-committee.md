@@ -35,8 +35,31 @@ Sebastian is a founding member of the renowned AKSW research group and was PC me
 He also has led a number of key Linked Data technology projects, including the development of the data wiki OntoWiki.
 
 ---
-## Assistant Committee
 
-- Paulo do Carmo, InfAI, Germany
-- Marcos Gôlo, USP, Brazil
+!!! info inline end ""
+
+## Paulo do Carmo
+
+[:material-linkedin:](https://www.linkedin.com/)
+[:material-link:](https://github.com/)
+[:simple-googlescholar:](https://scholar.google.com/)
+
+Paulo is a Ph.D. student in Computer Science.
+
+!!! info inline end ""
+
+    ![Marcos Gôlo](assets/people/Golo.jpg)
+
+## Marcos Gôlo
+
+[:material-linkedin:](https://www.linkedin.com/in/marcosgolo/)
+[:simple-orcid:](https://orcid.org/0000-0002-9093-8195)
+[:simple-github:](https://github.com/GoloMarcos)
+[:simple-googlescholar:](https://scholar.google.com/citations?user=CeyvhM8AAAAJ&hl=en)
+
+
+Marcos Gôlo is a Ph.D. student in Computer Science at the University of São Paulo and authored more than 20 peer-reviewed publications. During his master’s, he received awards including the Best paper at ENIAC 2021, the Best Master’s Dissertation Award at WebMedia 2023, and 2nd-Best at the CSBC 2023. He is a recipient of the LatAm Google PhD Fellowship to research representation learning on one-class learning for graph neural networks. Marcos has also conducted two Ph.D. research exchanges at HTWK Leipzig (knowledge graph mining) and the University of Porto (data streams). During his Ph.D, he received awards including three 2nd-Best papers at KDMILE 2022, ENIAC 2024, and BRACIS 2024.
+
+---
+
 
