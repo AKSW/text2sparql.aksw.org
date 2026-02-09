@@ -1,9 +1,7 @@
 nav:
     - Home: index.md
     - Organizing Committee: organizing-committee.md
-    - Call for Participation: 
-        - Overview: participation.md
-        - Challenge: challenge.md
+    - Call for Participation: participation.md
     - Dates & Guidelines: guidelines.md
     - Program: program.md
 
