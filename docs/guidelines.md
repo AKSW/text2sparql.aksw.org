@@ -25,7 +25,7 @@ The submission will be held into two stages (1) results and (2) papers.
 
 - Every competing team should register and submit their results using the paper template.
 - Your method will be evaluated trough a service API.
-- Instructions on how to register and publish your API mehod can be found on the Challenge page, subsection Evaluation/[Process](./challenge.md#process).
+- Instructions on how to register and publish your API mehod can be found on the Challenge page, subsection Evaluation/[Process](./participation/challenge.md#process).
 
 ### Paper
 
