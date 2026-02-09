@@ -7,13 +7,39 @@ title: "Challenge"
 
 ## Description
 
-TBD
+The TEXT2SPARQL’26 challenge is a benchmark designed to assess and enhance the ability of systems to translate natural language questions into SPARQL queries effectively. This task, central to Neural SPARQL Machines (NSpM), aims to bridge the gap between human language and structured knowledge representation. This challenge addresses the evolving needs of NSpM systems, emphasizing the importance of handling complex, multilingual datasets while maintaining accuracy and robustness.
+
+Participants are tasked with developing models that can process natural language questions of varying complexity. These questions include counts, comparisons, and temporal aggregations, necessitating sophisticated parsing and query generation mechanisms. Furthermore, the challenge places significant importance on multilingualism, requiring systems to demonstrate their ability to operate across languages like English and Spanish. This push towards multilingual capabilities ensures broader accessibility and usability of NSpM systems in real-world scenarios.
 
 ## Knowledge Graphs for Evaluation
 
-TBD
+The evaluation process for the TEXT2SPARQL'26 challenge involves two distinct Knowledge Graphs (KGs), each selected to assess specific dimensions of model performance and adaptability.
+
+### DBpedia (Large Knowledge Graph)
+
+As one of the most comprehensive and widely used knowledge graphs, DBpedia represents a large-scale, open-domain dataset derived from Wikipedia. 
+It contains a vast array of topics, relationships, and entities, providing a robust testing ground for models designed to handle complex, diverse, and large-scale data structures.
+
+Evaluating on DBpedia measures a model's ability to:
+- Scale effectively within vast information architectures.
+- Navigate schema complexity across diverse domains.
+- Manage queries involving extensive, real-world datasets.
+
+The identifier for this dataset is: `https://text2sparql.aksw.org/2026/dbpedia/`
 
 ## Evaluation
+
+### Training Set
+
+The training set for this benchmark dataset is designed to facilitate the development of advanced models capable of translating natural language questions into SPARQL queries.
+Participants are encouraged to leverage any publicly available resources on the web for training purposes, ensuring a broad and diverse foundation for model development.
+This includes the use of existing Text2SPARQL benchmarks such as DBNQA, QALD, and LC-QuAD, which provide valuable question-query pairs spanning a variety of domains and complexities.
+These resources offer rich datasets featuring diverse linguistic structures, logical formulations, and domain-specific ontologies, making them ideal for enhancing both the generalizability and precision of SPARQL query generation models.
+By integrating insights from these established benchmarks and other freely available web resources, participants can build robust systems capable of handling the linguistic nuances and logical challenges inherent in natural language to SPARQL translation.
+
+### Test Set
+
+The test set along with the result will be available after individual candidate evaluation.
 
 ### Process
 
