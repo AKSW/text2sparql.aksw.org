@@ -21,8 +21,11 @@ As one of the most comprehensive and widely used knowledge graphs, DBpedia repre
 It contains a vast array of topics, relationships, and entities, providing a robust testing ground for models designed to handle complex, diverse, and large-scale data structures.
 
 Evaluating on DBpedia measures a model's ability to:
+
 - Scale effectively within vast information architectures.
+  
 - Navigate schema complexity across diverse domains.
+  
 - Manage queries involving extensive, real-world datasets.
 
 The identifier for this dataset is: `https://text2sparql.aksw.org/2026/dbpedia/`
