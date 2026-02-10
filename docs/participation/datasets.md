@@ -1,7 +1,7 @@
 ---
 icon: material/database
 ---
-# :material-database: Call for Participation
+# :material-database: Call for Datasets
 
 ## How to contribute
 
