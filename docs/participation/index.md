@@ -1,4 +1,7 @@
-## Call for Participation
+---
+icon: material/campaign
+---
+# :material-campaign: Call for Participation
 
 We invite the community to participate in TEXT2SPARQL’26 through two main tasks. 
 You may choose to deploy a system to compete in the query translation challenge in **Task 1** or to contribute high-quality datasets to expand the benchmark in **Task 2** .
