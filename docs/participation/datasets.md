@@ -26,6 +26,7 @@ The question/answer pairs dataset can also be followed by a not yet published Kn
 **Format**: The quesion/answers pairs should be published in the same format as Text2SPARQL benchmark dataset as follows:
 
 ??? example "Dataset"
+
 ---
 dataset:
   id: https://text2sparql.aksw.org/2025/dbpedia/
