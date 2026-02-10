@@ -27,21 +27,21 @@ The question/answer pairs dataset can also be followed by a not yet published Kn
 
 ??? example "Dataset"
 
----
-dataset:
-  id: https://text2sparql.aksw.org/2025/dbpedia/
-  prefix: db25
-  defaultNamespace: http://dbpedia.org/
-questions:
-  - id: 1
-    question:
-      en: How many unique authors have written science fiction novels?
-      es: ¿Cuántos autores únicos han escrito novelas de ciencia ficción?
-    query:
-      sparql: |
-        SELECT DISTINCT COUNT(?author) WHERE {  
-          ?x <http://dbpedia.org/ontology/literaryGenre> <http://dbpedia.org/resource/Science_fiction> .  
-          ?x <http://dbpedia.org/ontology/author> ?author .
-        }
-...
+    ---
+    dataset:
+      id: https://text2sparql.aksw.org/2025/dbpedia/
+      prefix: db25
+      defaultNamespace: http://dbpedia.org/
+    questions:
+      - id: 1
+        question:
+          en: How many unique authors have written science fiction novels?
+          es: ¿Cuántos autores únicos han escrito novelas de ciencia ficción?
+        query:
+          sparql: |
+            SELECT DISTINCT COUNT(?author) WHERE {  
+              ?x <http://dbpedia.org/ontology/literaryGenre> <http://dbpedia.org/resource/Science_fiction> .  
+              ?x <http://dbpedia.org/ontology/author> ?author .
+            }
+    ...
   
