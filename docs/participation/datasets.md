@@ -27,7 +27,7 @@ The question/answer pairs dataset can also be followed by a not yet published Kn
 
 ??? example "Dataset"
 
-    ---
+    ``` yaml
     dataset:
       id: https://text2sparql.aksw.org/2025/dbpedia/
       prefix: db25
@@ -44,4 +44,5 @@ The question/answer pairs dataset can also be followed by a not yet published Kn
               ?x <http://dbpedia.org/ontology/author> ?author .
             }
     ...
+    ```
   
