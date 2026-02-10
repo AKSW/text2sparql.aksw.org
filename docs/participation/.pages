@@ -1,3 +1,4 @@
 nav:
     - participation: index.md
     - Challenge: challenge.md
+    - Datasets: datasets.md
