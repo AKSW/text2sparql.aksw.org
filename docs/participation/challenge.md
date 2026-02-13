@@ -11,6 +11,9 @@ The TEXT2SPARQL’26 challenge is a benchmark designed to assess and enhance the
 
 Participants are tasked with developing models that can process natural language questions of varying complexity. These questions include counts, comparisons, and temporal aggregations, necessitating sophisticated parsing and query generation mechanisms. Furthermore, the challenge places significant importance on multilingualism, requiring systems to demonstrate their ability to operate across languages like English and Spanish. This push towards multilingual capabilities ensures broader accessibility and usability of NSpM systems in real-world scenarios.
 
+### 🏆 Prize Announcement
+We are thrilled to announce that this edition’s overall winner will walk away with a grand prize of 500 EUR!"
+
 ## Knowledge Graphs for Evaluation
 
 The evaluation process for the TEXT2SPARQL'26 challenge involves two distinct Knowledge Graphs (KGs), each selected to assess specific dimensions of model performance and adaptability.
@@ -57,6 +60,17 @@ The identifier for this dataset is: `https://text2sparql.aksw.org/2026/dbpedia/`
     - [mappingbased_objects_es.ttl.bz2](https://drive.google.com/file/d/1eiQre2K7JNt_-zVw6QoXJLlqKLdLJ2uK/view?usp=sharing) 
 
     - [persondata_en.ttl.bz2](https://drive.google.com/file/d/1_bEpXm8UNzGk43laXpUagwy9c25EEcj6/view?usp=sharing) 
+
+### Coorporate
+
+This smaller, domain-specific knowledge graph represents a corporate setting, where the dataset is compact and highly specialized. It is designed to test a model's ability to adapt to restricted and domain-focused data environments. This evaluation highlights performance in scenarios where precision, domain relevance, and understanding of specialized ontologies are critical.
+
+By evaluating models separately on these two knowledge graphs, the challenge ensures a comprehensive assessment of scalability, adaptability, and domain-specific reasoning. This dual evaluation also provides insights into the generalizability of models across knowledge graph sizes and complexities, reflecting real-world applications in both open-domain and specialized environments.
+
+The identifier for this dataset is: `https://text2sparql.aksw.org/2026/corporate/`
+
+#### 📢 ATTENTION
+To ensure a level playing field and prioritize adaptable solutions, the dataset will be released just 24 hours prior to the challenge. This approach emphasizes the importance of generalized methodologies over pre-existing dataset knowledge.
 
 ## Evaluation
 
