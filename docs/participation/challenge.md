@@ -70,7 +70,7 @@ By evaluating models separately on these two knowledge graphs, the challenge ens
 The identifier for this dataset is: `https://text2sparql.aksw.org/2026/corporate/`
 
 #### 📢 ATTENTION
-To ensure a level playing field and prioritize adaptable solutions, the dataset will be released just 24 hours prior to the challenge. This approach emphasizes the importance of generalized methodologies over pre-existing dataset knowledge.
+To ensure a level playing field and prioritize adaptable solutions, the dataset will be released just 24 hours prior to the evaluation. This approach emphasizes the importance of generalized methodologies over pre-existing dataset knowledge.
 
 ## Evaluation
 
