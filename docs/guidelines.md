@@ -4,7 +4,7 @@ title: "Dates & Submission Guidelines"
 ---
 # Dates & Submission Guidelines
 
-## Dates
+## Challenge Dates
 
 - Release of training data and instructions: Februrary 9th, 2026 PST
 - Endpoint registration deadline: March 30th, 2026 PST
@@ -12,6 +12,12 @@ title: "Dates & Submission Guidelines"
 - Release of test dataset & results: April 20th, 2026 PST
 - Paper submission deadline: June 1st, 2026 PST
 - Notification & Reviews: June 22nd, 2026 PST
+- Submission of camera-ready papers: June 27th, 2026 PST
+
+## Dataset Dates
+
+- Paper submission deadline: March 30th, 2026 PST
+- Notification & Reviews: April 20th, 2026 PST
 - Submission of camera-ready papers: June 27th, 2026 PST
 
 During the **EVALUATION time**, your service should be online and serve API requests as described on the [:material-trophy: Challenge](challenge.md#evaluation) page.
