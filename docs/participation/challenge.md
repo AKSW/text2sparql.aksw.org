@@ -34,10 +34,16 @@ Evaluating on DBpedia measures a model's ability to:
 
 The identifier for this dataset is: `https://text2sparql.aksw.org/2026/dbpedia/`
 
+The dataset is available either as a single dump file or as multiple dump files.
 
+- Single dump file:
+  [dbpedia_text2sparql_full.zip](https://drive.google.com/file/d/1mvF6oEs1swBWVYxA3kKPmwcZ1_IUl9F0/view?usp=sharing)
+
+- Multiple dump files:
+  
 ??? example "Dumps"
 
-    - [dbpedia_2015-10.nt](https://drive.google.com/file/d/1lK-C6Ez3QolUxQfoYDHGQe07UQQQRup4/view?usp=sharing)
+    - [dbpedia_text2sparql_ontology.nt.bz2](https://drive.google.com/file/d/1lK-C6Ez3QolUxQfoYDHGQe07UQQQRup4/view?usp=sharing)
     
     - [labels_en.ttl.bz2](https://drive.google.com/file/d/1bHWdefNLsXQI_TCPH5nu5_ftlVKKZFrj/view?usp=sharing) 
     - [labels_es.ttl.bz2](https://drive.google.com/file/d/1fi6d1drUwJDhmJdeX3HPigUqmmbR2lIo/view?usp=sharing)
@@ -62,7 +68,7 @@ The identifier for this dataset is: `https://text2sparql.aksw.org/2026/dbpedia/`
 
     - [persondata_en.ttl.bz2](https://drive.google.com/file/d/1_bEpXm8UNzGk43laXpUagwy9c25EEcj6/view?usp=sharing) 
 
-### Coorporate
+### Corporate
 
 This smaller, domain-specific knowledge graph represents a corporate setting, where the dataset is compact and highly specialized. It is designed to test a model's ability to adapt to restricted and domain-focused data environments. This evaluation highlights performance in scenarios where precision, domain relevance, and understanding of specialized ontologies are critical.
 
