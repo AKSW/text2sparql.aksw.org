@@ -108,7 +108,7 @@ In addition to that, here is an example implementation using FastAPI:
 
 ??? example
 
-    ``` python
+    ```python
     """text2sparql-api"""
 
     import fastapi
@@ -135,36 +135,45 @@ In addition to that, here is an example implementation using FastAPI:
 
 Your registration is done, if we merge your data into our repository.
 
-<a id="self-evaluation"></a>In case you want to **self-evaluate your endpoint** with the same client we are using for the evaluation, follow this recipe:
+<a id="self-evaluation"></a>In case you want to **self-evaluate your endpoint** with the same client and endpoints we are using for the evaluation, follow this recipe:
 
 ??? example "Self-Evaluation using the TEXT2SPARQL command line client"
 
     ``` bash
-    # Install the client (use your preferred way)
+    # install the client (use your preferred way)
     $ pipx install text2sparql-client
 
-    # prepare a questions file like this
-    $ cat questions.yaml
-    ---
-    dataset:
-      id: https://text2sparql.aksw.org/2025/corporate/
-    questions:
-    
-      - question:
-          en: In which department is Ms. Müller?
-          de: In welcher Abteilung ist Frau Müller?
-    
-      - question:
-          de: Was ist der Sinn des Lebens?
-    
-      - question:
-          de: Wieviele Einwohner hat Leipzig?
+    # clone the text2sparql-client-examples repository
+    $ git clone https://github.com/AKSW/text2sparql-client-examples
 
-    # Ask questions from the questions file on your endpoint
-    $ text2sparql ask questions.yml [YOUR-API-URL]
-    Asking questions about dataset https://text2sparql.aksw.org/2025/corporate/ on endpoint [YOUR-API-URL].
-    In which department is Ms. Müller? (en) ... done
-    ...
+    # enter the root directory of the repository that contains reduced questions and true result-set files that can be executed together with a prepared evaluation shell script
+    $ cd text2sparql-client-examples
+
+    # with the URL of your API in hands you can run the evaluation script `run_api_ok.sh` passing `<API_URL> <API_NAME>` as parameters, e.g.:
+    $ bash run_api_ok.sh "http://localhost:8000" "text2sparql"
+    Running ask, query and evaluate for all questions and responses for text2sparql at http://localhost:8000
+    2026-03-03 11:53:23.292 | INFO     | text2sparql_client.commands.ask:ask_command:159 - Asking questions about dataset https://text2sparql.aksw.org/2025/corporate/ on endpoint http://localhost:8000.
+    2026-03-03 11:53:23.294 | INFO     | text2sparql_client.commands.ask:ask_command:165 - In which department is Ms. Brant? (en) ...
+    2026-03-03 11:53:23.333 | INFO     | text2sparql_client.commands.ask:ask_command:165 - What is the telephone of Baldwin Dirksen? (en) ...
+    2026-03-03 11:53:23.371 | INFO     | text2sparql_client.commands.ask:ask_command:165 - Who is the manager of Heinrich Hoch? (en) ...
+    2026-03-03 11:53:23.409 | INFO     | text2sparql_client.commands.ask:ask_command:165 - What is the email of Sabrina from Marketing? (en) ...
+    2026-03-03 11:53:23.447 | INFO     | text2sparql_client.commands.ask:ask_command:200 - Writing 4 responses to api_results/text2sparql_api_ok_answers.json.
+    100%|███████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00, 20.84it/s]
+    2026-03-03 11:53:23.928 | INFO     | text2sparql_client.commands.query:query_command:142 - Writing 4 results to api_results/text2sparql_api_ok_pred_result_set.json.
+    2026-03-03 11:53:24.214 | INFO     | text2sparql_client.commands.evaluate:evaluate_command:114 - Writing 5 results to api_results/text2sparql_api_ok_results.json.
+    
+    # check the results in `api_results/` and see if the following files are created:
+    $ ls api_results/
+    text2sparql_api_ok_answers.db    text2sparql_api_ok_pred_result_set.json  text2sparql_api_ok_retries.log
+    text2sparql_api_ok_answers.json  text2sparql_api_ok_results.json
+    # if you see these results your API is working fine and you can expect to be evaluated without any problems in the official evaluation with Text2SPARQL'26 questions.
+
+    # additionally you can execute your API with Text2SPARQL'25 questions' and evaluate the results for a more in-depth testing ahead of the official evaluation with Text2SPARQL'26 questions by accessing the corporate dataset:
+    $ cd examples_ck25
+    $ bash run_ck25.sh "http://localhost:8000" "text2sparql"
+    # or the dbpedia multilingual dataset:
+    $ cd examples_db25
+    $ bash run_db25.sh "http://localhost:8000" "text2sparql"
     ```
 
 For all kinds of problems or other communication, simply create a [repository issue](https://github.com/AKSW/text2sparql.aksw.org/issues).
@@ -178,6 +187,7 @@ These include Precision, Recall, and F1-score.
 Precision assesses the proportion of correct answers among those returned by the system, highlighting accuracy.
 Recall evaluates the system's ability to retrieve all relevant answers, emphasizing coverage.
 F1-score, a harmonic mean of Precision and Recall, provides a balanced measure that considers both the quality and completeness of the answers.
+For queries where the order of results matters—such as those involving sorting or ranking—**nDCG (normalized Discounted Cumulative Gain)** is employed to evaluate how effectively the system ranks relevant answers higher in the result list.
 
 Beyond these metrics, the challenge incorporates an analysis of query complexity.
 This involves evaluating the structural features of generated SPARQL queries, such as the number of triple patterns, joins, and modifiers like LIMIT and GROUP BY.
