@@ -9,4 +9,16 @@ challengers:
         affiliation: "Group A @ Example University"
       - name: "Erika Muster"
         affiliation: "Group A @ Example University"
-
+  sparql-llm:
+    api: "https://biosoda.unil.ch/sparql-llm/"
+    authors:
+      - name: "Panayiotis Smeros"
+        affiliation: "SIB Swiss Institute of Bioinformatics"
+      - name: "Vincent Emonet"
+        affiliation: "SIB Swiss Institute of Bioinformatics"
+      - name: "Ruijie Wang"
+        affiliation: "SIB Swiss Institute of Bioinformatics"
+      - name: "Ana-Claudia Sima"
+        affiliation: "SIB Swiss Institute of Bioinformatics"
+      - name: "Tarcisio Mendes de Farias"
+        affiliation: "SIB Swiss Institute of Bioinformatics"
