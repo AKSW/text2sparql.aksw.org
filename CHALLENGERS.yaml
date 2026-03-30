@@ -16,3 +16,42 @@ challengers:
         affiliation: "Algorithms and Data Structures @ University of Freiburg"
       - name: "Hannah Bast"
         affiliation: "Algorithms and Data Structures @ University of Freiburg"
+
+  iris:
+    api: "https://insanalex-iris-at-text2sparql.hf.space/text2sparql"
+    authors:
+      - name: "Alex Latipov"
+        affiliation: "Eindhoven University of Technology"
+      - name: "Mike Holenderski"
+        affiliation: "Eindhoven University of Technology"
+      - name: "Nirvana Meratnia"
+        affiliation: "Eindhoven University of Technology"
+        
+  sparql-llm:
+    api: "https://biosoda.unil.ch/sparql-llm/"
+    authors:
+      - name: "Panayiotis Smeros"
+        affiliation: "SIB Swiss Institute of Bioinformatics"
+      - name: "Vincent Emonet"
+        affiliation: "SIB Swiss Institute of Bioinformatics"
+      - name: "Ruijie Wang"
+        affiliation: "SIB Swiss Institute of Bioinformatics"
+      - name: "Ana-Claudia Sima"
+        affiliation: "SIB Swiss Institute of Bioinformatics"
+      - name: "Tarcisio Mendes de Farias"
+        affiliation: "SIB Swiss Institute of Bioinformatics"
+
+  liber-ai-claude:
+    api: "http://research.liberai.org:8000/m/claude-sonnet-4.6/answer"
+    authors:
+      - name: "Tommaso Soru"
+        affiliation: "Liber AI Research, London"
+      - name: "Abdulsobur Oyewale"
+        affiliation: "Liber AI Research, London"
+  liber-ai-qwen:
+    api: "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer"
+    authors:
+      - name: "Tommaso Soru"
+        affiliation: "Liber AI Research, London"
+      - name: "Abdulsobur Oyewale"
+        affiliation: "Liber AI Research, London"
