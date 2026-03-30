@@ -10,3 +10,14 @@ challengers:
       - name: "Erika Muster"
         affiliation: "Group A @ Example University"
 
+  iris:
+    api: "https://insanalex-iris-at-text2sparql.hf.space/text2sparql"
+    authors:
+      - name: "Alex Latipov"
+        affiliation: "Eindhoven University of Technology"
+      - name: "Mike Holenderski"
+        affiliation: "Eindhoven University of Technology"
+      - name: "Nirvana Meratnia"
+        affiliation: "Eindhoven University of Technology"
+        
+
