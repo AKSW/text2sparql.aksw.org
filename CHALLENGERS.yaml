@@ -9,4 +9,10 @@ challengers:
         affiliation: "Group A @ Example University"
       - name: "Erika Muster"
         affiliation: "Group A @ Example University"
-
+  adfr:
+    api: "https://grasp.cs.uni-freiburg.de/text2sparql-2026/"
+    authors:
+      - name: "Sebastian Walter"
+        affiliation: "Algorithms and Data Structures @ University of Freiburg"
+      - name: "Hannah Bast"
+        affiliation: "Algorithms and Data Structures @ University of Freiburg"
