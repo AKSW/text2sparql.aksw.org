@@ -33,3 +33,18 @@ challengers:
         affiliation: "SIB Swiss Institute of Bioinformatics"
       - name: "Tarcisio Mendes de Farias"
         affiliation: "SIB Swiss Institute of Bioinformatics"
+
+  liber-ai-claude:
+    api: "http://research.liberai.org:8000/m/claude-sonnet-4.6/answer"
+    authors:
+      - name: "Tommaso Soru"
+        affiliation: "Liber AI Research, London"
+      - name: "Abdulsobur Oyewale"
+        affiliation: "Liber AI Research, London"
+  liber-ai-qwen:
+    api: "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer"
+    authors:
+      - name: "Tommaso Soru"
+        affiliation: "Liber AI Research, London"
+      - name: "Abdulsobur Oyewale"
+        affiliation: "Liber AI Research, London"
