@@ -55,3 +55,31 @@ challengers:
         affiliation: "Liber AI Research, London"
       - name: "Abdulsobur Oyewale"
         affiliation: "Liber AI Research, London"
+
+  InfAI-ETi-and-Friends-A:
+    api: "https://26a.text2sparql.cc-eti.org/text2sparql"
+    authors:
+      - name: "Felix Brei"
+        affiliation: "InfAI e.V."
+      - name: "Johannes Frey"
+        affiliation: "Leipzig University"
+      - name: "Lars-Peter Meyer"
+        affiliation: "InfAI e.V."
+  InfAI-ETi-and-Friends-B:
+    api: "https://26b.text2sparql.cc-eti.org/text2sparql"
+    authors:
+      - name: "Felix Brei"
+        affiliation: "InfAI e.V."
+      - name: "Johannes Frey"
+        affiliation: "Leipzig University"
+      - name: "Lars-Peter Meyer"
+        affiliation: "InfAI e.V."
+  InfAI-ETi-and-Friends-C:
+    api: "https://26c.text2sparql.cc-eti.org/text2sparql"
+    authors:
+      - name: "Felix Brei"
+        affiliation: "InfAI e.V."
+      - name: "Johannes Frey"
+        affiliation: "Leipzig University"
+      - name: "Lars-Peter Meyer"
+        affiliation: "InfAI e.V."
