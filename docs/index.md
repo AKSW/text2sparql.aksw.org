@@ -25,6 +25,10 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2026-04-09 - TEXT2SPARQL 2026 evaluation period starts tomorrow"
+
+    As we approach the evaluation phase of the TEXT2SPARQL 2026 Challenge we would like to ask all participants to make sure their API endpoints are up and running and that they are ready to receive evaluation questions.
+
 !!! info "2026-02-06 - TEXT2SPARQL 2026 organization starts"
 
     We are happy to announce that we will organize a 2026 edition of the TEXT2SPARQL Challenge.
