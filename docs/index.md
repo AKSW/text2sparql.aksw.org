@@ -25,6 +25,10 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2026-04-10 - TEXT2SPARQL 2026 evaluation period starts today"
+
+    Evaluation will start with the DBpedia question set. Per system progress is available on the GitHub issues page. We wish all participants good luck and a successful evaluation phase!
+
 !!! info "2026-04-09 - TEXT2SPARQL 2026 evaluation period starts tomorrow"
 
     As we approach the evaluation phase of the TEXT2SPARQL 2026 Challenge we would like to ask all participants to make sure their API endpoints are up and running and that they are ready to receive evaluation questions.
