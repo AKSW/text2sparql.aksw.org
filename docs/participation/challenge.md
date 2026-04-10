@@ -124,8 +124,8 @@ In addition to that, here is an example implementation using FastAPI:
     )
 
     KNOWN_DATASETS = [
-        "https://text2sparql.aksw.org/2025/dbpedia/",
-        "https://text2sparql.aksw.org/2025/corporate/"
+        "https://text2sparql.aksw.org/2026/dbpedia/",
+        "https://text2sparql.aksw.org/2026/corporate/"
     ]
 
     @app.get("/")
