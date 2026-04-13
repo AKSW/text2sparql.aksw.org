@@ -76,8 +76,13 @@ By evaluating models separately on these two knowledge graphs, the challenge ens
 
 The identifier for this dataset is: `https://text2sparql.aksw.org/2026/corporate/`
 
+??? example "Dumps"
+
+    - [prod-vocab.ttl](data/prod-vocab.ttl) - Ontology (13 classes, 30 properties) [[WebVOWL](https://service.tib.eu/webvowl/#iri=https://text2sparql.aksw.org/data/prod-vocab.ttl)]
+    - [prod-inst.ttl ](data/prod-inst.ttl) - Data (2626 described resources, 26587 statements)
+
 #### 📢 ATTENTION
-To ensure a level playing field and prioritize adaptable solutions, the dataset will be released just 24 hours prior to the evaluation. This approach emphasizes the importance of generalized methodologies over pre-existing dataset knowledge.
+Corporate dataset is out!! Evaluation for it will start within 24 hours after the communication to the challengers.
 
 ## Evaluation
 

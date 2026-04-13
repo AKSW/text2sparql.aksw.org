@@ -25,6 +25,10 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2026-04-13 - Corporate dataset is out"
+
+    Evaluation for this dataset will start within 24 hours from the communication to the challengers on GitHub!
+
 !!! info "2026-04-10 - TEXT2SPARQL 2026 evaluation period starts today"
 
     Evaluation will start with the DBpedia question set. Per system progress is available on the GitHub issues page. We wish all participants good luck and a successful evaluation phase!

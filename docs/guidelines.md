@@ -8,7 +8,7 @@ title: "Dates & Submission Guidelines"
 
 - Release of training data and instructions: Februrary 9th, 2026 PST
 - Endpoint registration deadline: March 30th, 2026 PST
-- Evaluation from April 10th to 15th, 2026 PST
+- Evaluation from <s>April 10th to 15th, 2026 PST</s> April 10th to 17th, 2026 PST
 - Release of test dataset & results: April 20th, 2026 PST
 - Paper submission deadline: June 1st, 2026 PST
 - Notification & Reviews: June 22nd, 2026 PST
