@@ -25,6 +25,10 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2026-04-15 - Data collection for the evaluation was completed!"
+
+    Thank you all for your pariticipation, preparing the endpoints, and fixing eventual issues. We will release the test sets and results as planned! Be ready to check the questions and results for eventual problems and to discuss them on the GitHub issues page.
+
 !!! info "2026-04-15 - Corporate dataset evaluation has started"
 
     Evaluation for the corporate dataset has started! Details about the systems running and completed evaluations as well as some eventual problems will be communicated on the GitHub issues page.
