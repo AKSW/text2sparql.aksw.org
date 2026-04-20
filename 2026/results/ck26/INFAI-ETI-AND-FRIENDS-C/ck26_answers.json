@@ -1,0 +1,802 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department does Ms. Brant belong to?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?dept WHERE {\n  ?emp a pv:Employee ;\n       pv:memberOf ?dept ;\n       rdfs:label ?name .\n  FILTER(CONTAINS(LCASE(STR(?name)), \"brant\"))\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:1-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Zu welcher Abteilung geh\u00f6rt Frau Brant?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?s ?p ?o WHERE { ?s ?p ?o . FILTER(CONTAINS(LCASE(STR(?s)), \"brant\") || CONTAINS(LCASE(STR(?o)), \"brant\")) } LIMIT 20",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:1-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/1-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What's Baldwin Dirksen's phone number?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?phone WHERE { <http://ld.company.org/prod-instances/empl-Baldwin.Dirksen%40company.org> pv:phone ?phone . }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:2-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie lautet Baldwin Dirksens Telefonnummer?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?phone WHERE {\n  <http://ld.company.org/prod-instances/empl-Baldwin.Dirksen%40company.org> pv:phone ?phone .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:2-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/2-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is Heinrich Hoch's manager?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?manager WHERE { <http://ld.company.org/prod-instances/empl-Heinrich.Hoch%40company.org> pv:hasManager ?manager . } LIMIT 1",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:3-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist Heinrich Hochs Manager?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?manager WHERE { <http://ld.company.org/prod-instances/empl-Heinrich.Hoch%40company.org> pv:hasManager ?manager . }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:3-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/3-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you tell me Sabrina's email address from the Marketing department?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?email WHERE {\n  ?emp pv:memberOf ?dept ;\n       rdfs:label ?name ;\n       pv:email ?email .\n  ?dept rdfs:label \"Marketing\" .\n  FILTER(LCASE(STR(?name)) = \"sabrina geiger\")\n} LIMIT 1",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:4-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie mir bitte Sabrinas E-Mail-Adresse aus der Marketingabteilung geben?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?person ?name WHERE {\n  ?person pv:memberOf <http://ld.company.org/prod-instances/dept-85880> .\n  OPTIONAL { ?person pv:name ?name }\n} LIMIT 20",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:4-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/4-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is knowledgeable about transistors?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?agent WHERE {\n  ?agent pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Transistor> .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:5-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer kennt sich mit Transistoren aus?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?agent WHERE {\n  ?agent pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Transistor> .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:5-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/5-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is our sensor specialist?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?agent WHERE { ?agent pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Sensor> ; pv:memberOf ?dept . ?dept rdfs:label ?dl . FILTER(LCASE(STR(?dl)) = \"product management\") }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:6-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist unser Sensor-Spezialist?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?employee WHERE {\n  ?employee pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Sensor> .\n} ORDER BY ?employee",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:6-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/6-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who heads the Data Services department?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?manager ?managerLabel WHERE {\n  ?manager a pv:Manager ;\n           pv:memberOf <http://ld.company.org/prod-instances/dept-41622> .\n  OPTIONAL { ?manager rdfs:label ?managerLabel }\n} LIMIT 20",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:7-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer leitet die Abteilung f\u00fcr Datenmanagement?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?manager WHERE {\n  ?manager a pv:Manager ;\n           pv:memberOf ?dept .\n  ?dept rdfs:label ?deptLabel .\n  FILTER(LCASE(STR(?deptLabel)) = \"data services\")\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:7-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/7-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department handles the Sensor Switch M558-2275045?",
+    "query": "",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:8-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilung ist f\u00fcr den Sensor-Schalter M558-2275045 zust\u00e4ndig?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?product WHERE {\n  ?product rdfs:label ?label .\n  FILTER(CONTAINS(LCASE(STR(?label)), \"m558-2275045\"))\n} LIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:8-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/8-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many different Sensor Switches do we offer?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT (COUNT(DISTINCT ?product) AS ?count) WHERE { ?product pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Sensor> , <http://ld.company.org/prod-instances/prod-cat-Switch> . }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:9-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele verschiedene Sensor-Schalter bieten wir an?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT (COUNT(DISTINCT ?product) AS ?count) WHERE { ?product pv:hasCategory ?cat . VALUES ?cat { <http://ld.company.org/prod-instances/prod-cat-Sensor> <http://ld.company.org/prod-instances/prod-cat-Switch> } }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:9-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/9-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is the network expert in the marketing department?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?agent WHERE {\n  ?agent pv:memberOf <http://ld.company.org/prod-instances/dept-85880> ;\n         pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Network> .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:10-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist der Netzwerkspezialist in der Marketingabteilung?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?agent WHERE {\n  ?agent pv:memberOf <http://ld.company.org/prod-instances/dept-85880> ;\n         pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Network> .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:10-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/10-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which departments have transducer experts?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?dept WHERE {\n  ?agent pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Transducer> .\n  ?agent pv:memberOf ?dept .\n}\nLIMIT 20",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:11-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilungen haben Experten f\u00fcr Sensoren/Wandler?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?department WHERE {\n  ?agent pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Sensor> ;\n         pv:memberOf ?department .\n  ?department a pv:Department .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:11-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/11-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which suppliers can deliver compensators?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?supplier WHERE { ?product pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Compensator> ; pv:hasSupplier ?supplier . }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:12-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Lieferanten k\u00f6nnen Kompensatoren liefern?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?supplier ?label WHERE {\n  ?product pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Compensator> ;\n           pv:hasSupplier ?supplier .\n  OPTIONAL { ?supplier rdfs:label ?label }\n} LIMIT 50",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:12-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/12-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many of our suppliers are based in France?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT (COUNT(?supplier) AS ?count) WHERE { ?supplier a pv:Supplier ; pv:country <http://dbpedia.org/resource/France> . }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:13-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele unserer Lieferanten haben ihren Sitz in Frankreich?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT (COUNT(?supplier) AS ?count) WHERE { ?supplier a pv:Supplier ; pv:country <http://dbpedia.org/resource/France> . }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:13-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/13-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which supplier in France provides compensators?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?supplier WHERE { ?product pv:hasSupplier ?supplier ; pv:hasCategory ?cat . ?supplier pv:country <http://dbpedia.org/resource/France> . ?cat rdfs:label ?cl . FILTER(LCASE(STR(?cl)) = \"compensator\") }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:14-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Lieferant in Frankreich bietet Kompensatoren an?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?supplier ?label WHERE {\n  ?prod pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Compensator> ;\n        pv:hasSupplier ?supplier .\n  ?supplier pv:country dbr:France .\n  OPTIONAL { ?supplier rdfs:label ?label }\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:14-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/14-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which encoder is the most affordable from a French or German supplier?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?p ?supplier ?amount WHERE {\n  ?p pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Encoder> ;\n     pv:hasSupplier ?supplier ;\n     pv:price ?price .\n  ?supplier pv:country ?country .\n  ?price pv:amount ?amount .\n  VALUES ?country { dbr:France dbr:Germany }\n  FILTER(?amount = 0.39)\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:15-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Encoder ist von einem franz\u00f6sischen oder deutschen Anbieter am g\u00fcnstigsten?",
+    "query": "",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:15-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/15-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Are there any suppliers we have in Toulouse?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier WHERE { ?supplier a pv:Supplier ; pv:addressLocality ?loc . FILTER(LCASE(STR(?loc)) = \"toulouse\") } LIMIT 1",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:16-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Haben wir Lieferanten in Toulouse?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier ?country WHERE { ?supplier a pv:Supplier ; pv:country ?country . } LIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:16-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/16-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who are our suppliers in Toulouse?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?supplier WHERE {\n  ?supplier a pv:Supplier ;\n            pv:addressLocality \"Toulouse\" .\n}\nLIMIT 20",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:17-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer sind unsere Lieferanten in Toulouse?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier ?label ?locality WHERE {\n  ?supplier a pv:Supplier ;\n            rdfs:label ?label ;\n            pv:addressLocality ?locality .\n  FILTER(LCASE(STR(?locality)) = \"toulouse\")\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:17-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/17-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which oscillator do we offer at the lowest price?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?product WHERE {\n  ?product pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Oscillator> ;\n           pv:price ?price .\n  ?price pv:amount ?amount .\n}\nORDER BY ?amount\nLIMIT 1",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:18-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welchen Oszillator bieten wir zum niedrigsten Preis an?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?product ?amount WHERE {\n  ?product pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Oscillator> ;\n           pv:price ?priceNode .\n  ?priceNode pv:amount ?amount .\n}\nORDER BY ASC(xsd:decimal(?amount))\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:18-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/18-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which of our services is the most expensive?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?service ?amount WHERE {\n  ?service a pv:Service ;\n           pv:price ?price .\n  ?price pv:amount ?amount .\n}\nORDER BY DESC(?amount)\nLIMIT 1",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:19-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche unserer Dienstleistungen ist die teuerste?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?service WHERE {\n  ?service a pv:Service ;\n           pv:price ?priceNode .\n  ?priceNode pv:amount ?amount .\n}\nORDER BY DESC(?amount)\nLIMIT 1",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:19-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/19-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who oversees the most expensive service we offer?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?service ?manager ?amount WHERE {\n  ?service a pv:Service ;\n           pv:price ?price ;\n           pv:hasProductManager ?manager .\n  ?price pv:amount ?amount .\n}\nORDER BY DESC(xsd:decimal(?amount))\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:20-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist f\u00fcr unsere teuerste Dienstleistung verantwortlich?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?dept WHERE {\n  ?dept pv:responsibleFor <http://ld.company.org/prod-instances/srv-D215-3449390> .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:20-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/20-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which coil is the heaviest while still fitting within a 15mm x 15mm base area?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?p ?label ?width ?depth ?weight WHERE {\n  ?p rdfs:label ?label ;\n     pv:width_mm ?width ;\n     pv:depth_mm ?depth ;\n     pv:weight_g ?weight .\n  FILTER(CONTAINS(LCASE(STR(?label)), \"coil\"))\n  FILTER(?width <= 15 && ?depth <= 15)\n}\nORDER BY DESC(?weight)\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:21-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Spule ist am schwersten, w\u00e4hrend sie noch in einen Grundbereich von 15 mm x 15 mm passt?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?item ?weight ?width ?height ?depth WHERE {\n  ?item a pv:Hardware ;\n        pv:name ?name ;\n        pv:weight_g ?weight ;\n        pv:width_mm ?width ;\n        pv:height_mm ?height ;\n        pv:depth_mm ?depth .\n  FILTER(?width <= 15)\n  FILTER(?height <= 15)\n  FILTER(?depth <= 15)\n}\nORDER BY DESC(xsd:decimal(?weight))\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:21-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/21-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which products can be used with the U990 LCD Inductor?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?compatibleProduct ?name WHERE { <http://ld.company.org/prod-instances/hw-U990-5234138> pv:compatibleProduct ?compatibleProduct . ?compatibleProduct pv:name ?name . }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:22-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Produkte k\u00f6nnen mit dem U990 LCD-Induktor verwendet werden?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?product ?label WHERE {\n  <http://ld.company.org/prod-instances/hw-U990-5234138> pv:compatibleProduct ?product .\n  OPTIONAL { ?product rdfs:label ?label }\n} ORDER BY ?label",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:22-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/22-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which products from US suppliers are compatible with the U990 LCD inductor?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?compat ?label WHERE {\n  <http://ld.company.org/prod-instances/hw-U990-5234138> pv:compatibleProduct ?compat .\n  ?compat rdfs:label ?label .\n} ORDER BY ?label",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:23-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Produkte von US-amerikanischen Lieferanten sind mit dem U990-LCD-Induktor kompatibel?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?compatible WHERE {\n  <http://ld.company.org/prod-instances/hw-U990-5234138> pv:compatibleProduct ?compatible .\n  ?compatible pv:hasSupplier ?supplier .\n  ?supplier pv:country <http://dbpedia.org/resource/United_States> .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:23-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/23-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which potentiometer has the smallest volume?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?product ?name ?width ?height ?depth ((xsd:decimal(?width) * xsd:decimal(?height) * xsd:decimal(?depth)) AS ?volume) WHERE {\n  ?product a pv:Hardware ;\n           pv:name ?name ;\n           pv:width_mm ?width ;\n           pv:height_mm ?height ;\n           pv:depth_mm ?depth .\n  FILTER(CONTAINS(LCASE(STR(?name)), \"potentiometer\"))\n}\nORDER BY ?volume\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:24-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welches Potentiometer hat das kleinste Volumen?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?product ?name ?width ?height ?depth ((xsd:decimal(?width) * xsd:decimal(?height) * xsd:decimal(?depth)) AS ?volume) WHERE {\n  ?product pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Potentiometer> ;\n           pv:name ?name ;\n           pv:width_mm ?width ;\n           pv:height_mm ?height ;\n           pv:depth_mm ?depth .\n}\nORDER BY ?volume\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:24-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/24-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which coil has the greatest density?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?coil ?name ?weight ?width ?height ?depth ((xsd:decimal(?weight)) / (xsd:decimal(?width) * xsd:decimal(?height) * xsd:decimal(?depth)) AS ?density)\nWHERE {\n  ?coil a pv:Hardware ;\n        pv:name ?name ;\n        pv:weight_g ?weight ;\n        pv:width_mm ?width ;\n        pv:height_mm ?height ;\n        pv:depth_mm ?depth .\n  FILTER(CONTAINS(LCASE(STR(?name)), \"coil\"))\n}\nORDER BY DESC(?density)\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:25-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Spule hat die gr\u00f6\u00dfte Dichte?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?p ?name ?density WHERE {\n  ?p a pv:Hardware ;\n     pv:name ?name ;\n     pv:weight_g ?weight ;\n     pv:height_mm ?h ;\n     pv:width_mm ?w ;\n     pv:depth_mm ?d .\n  FILTER(CONTAINS(LCASE(STR(?name)), \"coil\"))\n  BIND(xsd:decimal(?weight) / (xsd:decimal(?h) * xsd:decimal(?w) * xsd:decimal(?d)) AS ?density)\n}\nORDER BY DESC(?density)\nLIMIT 1",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:25-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/25-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which cities are our US LCD suppliers located in?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?s ?city WHERE { ?p pv:hasSupplier ?s ; pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-LCD> . ?s pv:country dbr:United_States ; pv:addressLocality ?city . }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:26-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "In welchen St\u00e4dten befinden sich unsere US-amerikanischen LCD-Lieferanten?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?supplier ?city WHERE {\n  ?product pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-LCD> ;\n           pv:hasSupplier ?supplier .\n  ?supplier pv:country dbr:United_States ;\n            pv:addressLocality ?city .\n} LIMIT 50",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:26-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/26-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you provide a staff phone directory that includes the name, email, and phone number of every employee who doesn\u2019t manage anyone, sorted alphabetically by name?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?employee ?name ?email ?phone WHERE {\n  ?employee a pv:Employee ;\n            pv:name ?name ;\n            pv:email ?email ;\n            pv:phone ?phone .\n  FILTER NOT EXISTS { ?subordinate pv:hasManager ?employee }\n} ORDER BY ?name LIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:27-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie ein Telefonverzeichnis f\u00fcr die Mitarbeiter erstellen, das den Namen, die E-Mail-Adresse und die Telefonnummer aller Mitarbeiter enth\u00e4lt, die keine leitende Position innehaben, und dieses alphabetisch nach Namen sortieren?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?employee ?name WHERE {\n  ?employee a pv:Manager ;\n            pv:name ?name .\n} LIMIT 5",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:27-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/27-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Is there a service that can handle a BOM containing parts sourced from Russia?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?service WHERE {\n  ?bom a pv:BillOfMaterial ;\n       pv:hasBomPart ?part .\n  ?part pv:hasPart ?product .\n  ?product pv:hasSupplier ?supplier .\n  ?supplier pv:country <http://dbpedia.org/resource/Russia> .\n  ?service a pv:Service ;\n           pv:eligibleFor ?product .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:28-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Gibt es einen Dienst, der eine St\u00fcckliste (BOM) mit aus Russland bezogenen Bauteilen verarbeiten kann?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT (COUNT(*) AS ?count) WHERE {\n  ?supplier pv:country dbr:Russia .\n  ?product pv:hasSupplier ?supplier .\n  ?bom a pv:BillOfMaterial ; pv:hasBomPart ?bp .\n  ?bp pv:hasPart ?product .\n  ?service a pv:Service ; pv:eligibleFor ?product .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:28-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/28-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which suppliers\u2014including their name, country, and price\u2014provide the hardware items that rank from the 6th to the 10th most expensive?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier ?name ?country ?amount WHERE {\n  {\n    SELECT ?product ?supplier ?country ?amount WHERE {\n      ?product a pv:Hardware ;\n               pv:hasSupplier ?supplier ;\n               pv:price ?priceNode .\n      ?priceNode pv:amount ?amount .\n      OPTIONAL { ?supplier pv:country ?country }\n    }\n    ORDER BY DESC(?amount)\n    LIMIT 5\n    OFFSET 5\n  }\n  ?supplier pv:name ?name .\n}\nORDER BY DESC(?amount) ?supplier",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:29-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Lieferanten - einschlie\u00dflich Name, Land und Preis - liefern die Hardwareartikel, die vom 6. bis zum 10. teuersten Artikel geh\u00f6ren?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier ?name ?country ?amount WHERE {\n  {\n    SELECT ?prod ?amount WHERE {\n      ?prod a pv:Hardware ;\n            pv:price ?price .\n      ?price pv:amount ?amount .\n    }\n    ORDER BY DESC(?amount) ?prod\n    OFFSET 5\n    LIMIT 5\n  }\n  ?prod pv:hasSupplier ?supplier .\n  OPTIONAL { ?supplier rdfs:label ?name }\n  OPTIONAL { ?supplier pv:country ?country }\n}\nORDER BY DESC(?amount) ?supplier",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:29-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/29-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which departments have more than five employees, and could you list each department's name together with its employee count?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?dept ?deptName (COUNT(?employee) AS ?employeeCount)\nWHERE {\n  ?employee pv:memberOf ?dept .\n  ?dept pv:name ?deptName .\n}\nGROUP BY ?dept ?deptName\nHAVING (COUNT(?employee) > 5)\nORDER BY ?deptName",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:30-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilungen haben mehr als f\u00fcnf Mitarbeiter, und k\u00f6nnten Sie den Namen jeder Abteilung zusammen mit der Anzahl ihrer Mitarbeiter auflisten?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?dept (COUNT(?emp) AS ?employeeCount) WHERE {\n  ?emp pv:memberOf ?dept .\n  ?dept a pv:Department .\n}\nGROUP BY ?dept\nHAVING (COUNT(?emp) > 5)\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:30-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/30-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each product category, which hardware item is the lightest and which is the heaviest?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?cat ?lightest ?heaviest WHERE {\n  {\n    SELECT ?cat (SAMPLE(?l) AS ?lightest) (SAMPLE(?h) AS ?heaviest) WHERE {\n      {\n        SELECT ?cat (MIN(?w) AS ?minW) (MAX(?w) AS ?maxW) WHERE {\n          ?item a pv:Hardware ; pv:hasCategory ?cat ; pv:weight_g ?w .\n        }\n        GROUP BY ?cat\n      }\n      ?l a pv:Hardware ; pv:hasCategory ?cat ; pv:weight_g ?minW .\n      ?h a pv:Hardware ; pv:hasCategory ?cat ; pv:weight_g ?maxW .\n    }\n    GROUP BY ?cat\n  }\n}\nORDER BY ?cat\nLIMIT 50",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:31-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "F\u00fcr jede Produktkategorie, welches Hardware-Produkt ist das leichteste und welches das schwerste?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?cat\n       (GROUP_CONCAT(DISTINCT STR(?lightest); separator=\", \") AS ?lightestProducts)\n       (GROUP_CONCAT(DISTINCT STR(?heaviest); separator=\", \") AS ?heaviestProducts)\nWHERE {\n  {\n    SELECT ?cat (MIN(?w) AS ?minW) (MAX(?w) AS ?maxW) WHERE {\n      ?prod pv:hasCategory ?cat ; pv:weight_g ?w .\n      FILTER(STRSTARTS(STR(?prod), \"http://ld.company.org/prod-instances/hw-\"))\n    } GROUP BY ?cat\n  }\n  {\n    SELECT DISTINCT ?cat ?lightest WHERE {\n      {\n        SELECT ?cat (MIN(?w) AS ?minW) WHERE {\n          ?prod pv:hasCategory ?cat ; pv:weight_g ?w .\n          FILTER(STRSTARTS(STR(?prod), \"http://ld.company.org/prod-instances/hw-\"))\n        } GROUP BY ?cat\n      }\n      ?lightest pv:hasCategory ?cat ; pv:weight_g ?minW .\n      FILTER(STRSTARTS(STR(?lightest), \"http://ld.company.org/prod-instances/hw-\"))\n    }\n  }\n  {\n    SELECT DISTINCT ?cat ?heaviest WHERE {\n      {\n        SELECT ?cat (MAX(?w) AS ?maxW) WHERE {\n          ?prod pv:hasCategory ?cat ; pv:weight_g ?w .\n          FILTER(STRSTARTS(STR(?prod), \"http://ld.company.org/prod-instances/hw-\"))\n        } GROUP BY ?cat\n      }\n      ?heaviest pv:hasCategory ?cat ; pv:weight_g ?maxW .\n      FILTER(STRSTARTS(STR(?heaviest), \"http://ld.company.org/prod-instances/hw-\"))\n    }\n  }\n}\nGROUP BY ?cat\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:31-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/31-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What is the average price in euros of each supplier's products, rounded to a reasonable amount?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier (ROUND(AVG(xsd:decimal(?amount)) * 100) / 100 AS ?avgPriceEUR) WHERE {\n  ?product pv:hasSupplier ?supplier ;\n           pv:price ?price .\n  ?price pv:amount ?amount ;\n         pv:currency \"EUR\" .\n}\nGROUP BY ?supplier\nORDER BY ?supplier",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:32-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Was ist der durchschnittliche Preis in Euro f\u00fcr die Produkte jedes Anbieters, gerundet auf einen angemessenen Betrag?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier (ROUND(AVG(xsd:decimal(?amount)) * 100) / 100 AS ?avgPriceEUR)\nWHERE {\n  ?product pv:hasSupplier ?supplier ;\n           pv:price ?price .\n  ?price pv:amount ?amount ;\n         pv:currency \"EUR\" .\n}\nGROUP BY ?supplier\nORDER BY ?supplier",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:32-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/32-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Do any departments lack an assigned manager?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT (COUNT(?dept) AS ?cnt) WHERE {\n  ?dept a pv:Department .\n  FILTER NOT EXISTS {\n    ?mgr a pv:Manager ;\n         pv:memberOf ?dept .\n  }\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:33-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Gibt es Abteilungen, denen kein Verantwortlicher zugewiesen ist?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?dept ?agent WHERE { ?dept a pv:Department . OPTIONAL { ?agent pv:memberOf ?dept . } } LIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:33-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/33-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "I need to refresh my supplier contact list by collecting each supplier's name along with their full address information.",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier ?name ?addressLocality ?addressCountry ?addressCountryCode WHERE {\n  ?supplier a pv:Supplier ;\n            pv:name ?name ;\n            pv:addressLocality ?addressLocality ;\n            pv:addressCountry ?addressCountry ;\n            pv:addressCountryCode ?addressCountryCode .\n}\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:34-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Ich muss meine Lieferantenkontaktliste aktualisieren, indem ich die Namen aller Lieferanten sowie deren vollst\u00e4ndige Adressdaten erfasse.",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?supplier ?name ?countryObj ?countryLabel WHERE {\n  ?supplier a pv:Supplier ;\n            pv:name ?name .\n  OPTIONAL { \n    ?supplier pv:country ?countryObj .\n    OPTIONAL { ?countryObj rdfs:label ?countryLabel }\n  }\n}\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:34-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/34-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each product, could you list the other products it's compatible with and show the price differences between them?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?product ?compatible ?amount1 ?amount2 (?amount1 - ?amount2 AS ?priceDifference) WHERE { ?product pv:compatibleProduct ?compatible . ?product pv:price ?price1 . ?price1 pv:amount ?amount1 . ?compatible pv:price ?price2 . ?price2 pv:amount ?amount2 . } LIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:35-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie f\u00fcr jedes Produkt auflisten, mit welchen anderen Produkten es kompatibel ist, und die Preisunterschiede zwischen diesen Produkten anzeigen?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?product ?compatible ?amount1 ?amount2 (?amount1 - ?amount2 AS ?priceDifference) WHERE { ?product pv:compatibleProduct ?compatible . ?product pv:price ?price1 . ?price1 pv:amount ?amount1 . ?compatible pv:price ?price2 . ?price2 pv:amount ?amount2 . } LIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:35-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/35-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which product area is most relevant, and what are the top three associated skills?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?term (COUNT(*) AS ?freq) WHERE {\n  ?product pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Compensator> .\n  ?product rdfs:label ?label .\n  VALUES ?term { \"Compensator\" \"Transistor\" \"Film\" \"Memristor\" \"Resonator\" }\n  FILTER(CONTAINS(STR(?label), ?term))\n}\nGROUP BY ?term\nORDER BY DESC(?freq)",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:36-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Produktbereich ist am relevantesten, und welche sind die drei wichtigsten damit verbundenen F\u00e4higkeiten?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?topCat ?relatedExpertise\nWHERE {\n  {\n    SELECT ?topCat\n    WHERE {\n      ?agent pv:areaOfExpertise ?topCat .\n    }\n    GROUP BY ?topCat\n    ORDER BY DESC(COUNT(?agent))\n    LIMIT 1\n  }\n  ?agent pv:areaOfExpertise ?topCat ;\n         pv:areaOfExpertise ?relatedExpertise .\n  FILTER(?relatedExpertise != ?topCat)\n}\nLIMIT 20",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:36-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/36-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each bill of materials, show the count of parts and the total material quantity, but display only those BOMs with more than 600 items, sorted in descending order.",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?bom (COUNT(?part) AS ?partCount) (SUM(?qty) AS ?totalQuantity)\nWHERE {\n  ?bom a pv:BillOfMaterial ;\n       pv:hasBomPart ?part .\n  ?part pv:quantity ?qty .\n}\nGROUP BY ?bom\nORDER BY DESC(?totalQuantity)\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:37-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "F\u00fcr jede St\u00fcckliste die Anzahl der Teile und die Gesamtmaterialmenge anzeigen, aber nur die St\u00fccklisten mit mehr als 600 Artikeln, sortiert in absteigender Reihenfolge, ausgeben.",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?bom (COUNT(?bp) AS ?anzahlTeile) (SUM(?qty) AS ?gesamtmaterialmenge)\nWHERE {\n  ?bom a pv:BillOfMaterial ;\n       pv:hasBomPart ?bp .\n  ?bp pv:quantity ?qty .\n}\nGROUP BY ?bom\nORDER BY DESC(?anzahlTeile)",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:37-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/37-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you give me an updated contact list that includes each employee's name, email, phone number, department, and direct manager?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?name ?email ?phone ?department ?manager WHERE {\n  ?employee a pv:Employee ;\n            pv:name ?name ;\n            pv:email ?email ;\n            pv:memberOf ?dept ;\n            pv:hasManager ?mgr .\n  OPTIONAL { ?employee pv:phone ?phone }\n  ?dept pv:name ?department .\n  ?mgr pv:name ?manager .\n}\nORDER BY ?name",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:38-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie mir bitte eine aktualisierte Kontaktliste zukommen lassen, die den Namen, die E-Mail-Adresse, die Telefonnummer, die Abteilung und den direkten Vorgesetzten jedes Mitarbeiters enth\u00e4lt?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?employeeName ?email ?phone ?departmentName ?managerName WHERE {\n  ?employee a pv:Employee ;\n            pv:name ?employeeName ;\n            pv:email ?email ;\n            pv:phone ?phone ;\n            pv:memberOf ?department ;\n            pv:hasManager ?manager .\n  ?department rdfs:label ?departmentName .\n  ?manager pv:name ?managerName .\n} LIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:38-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/38-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Can you list the dimensions of hardware items that are wider than they are tall and have a depth under 50 mm?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?item ?width ?height ?depth WHERE {\n  ?item a pv:Hardware ;\n        pv:width_mm ?width ;\n        pv:height_mm ?height ;\n        pv:depth_mm ?depth .\n  FILTER(?width > ?height && ?depth < 50)\n}\nORDER BY ?item",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:39-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnen Sie die Abmessungen von Hardware-Artikeln auflisten, die breiter als hoch sind und eine Tiefe von unter 50 mm haben?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?item ?width ?height ?depth WHERE { ?item a pv:Hardware ; pv:width_mm ?width ; pv:height_mm ?height ; pv:depth_mm ?depth . FILTER(xsd:decimal(?width) > xsd:decimal(?height) && xsd:decimal(?depth) < 50) } ORDER BY ?item LIMIT 20",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:39-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/39-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you list the IDs and names of hardware items that don't have an active product manager?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?product ?name WHERE {\n  ?product pv:hasCategory ?cat ;\n           rdfs:label ?name .\n  FILTER(STRSTARTS(STR(?product), \"http://ld.company.org/prod-instances/hw-\"))\n  FILTER NOT EXISTS {\n    ?product pv:hasProductManager ?pm .\n    ?pm a pv:Employee .\n  }\n} LIMIT 20",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:40-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie die IDs und Namen der Hardware-Artikel auflisten, die keinen aktiven Produktmanager haben?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT (COUNT(DISTINCT ?p) AS ?count) WHERE {\n  ?p a pv:Hardware ;\n     pv:id ?id ;\n     pv:name ?name ;\n     pv:hasProductManager ?pm .\n  FILTER NOT EXISTS { ?pm a pv:Employee }\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:40-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/40-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What share of each manager's overall team works in the same department as the manager?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?manager ?teamSize ?sameDeptTeamSize ((xsd:decimal(?sameDeptTeamSize) / xsd:decimal(?teamSize)) AS ?share) WHERE {\n  {\n    SELECT ?manager (COUNT(DISTINCT ?employee) AS ?teamSize) (COUNT(DISTINCT ?sameDeptEmployee) AS ?sameDeptTeamSize) WHERE {\n      ?employee pv:hasManager ?manager .\n      OPTIONAL {\n        ?manager pv:memberOf ?managerDept .\n        ?sameDeptEmployee pv:hasManager ?manager ;\n                          pv:memberOf ?managerDept .\n      }\n    }\n    GROUP BY ?manager\n  }\n}\nORDER BY ?manager",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:41-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Anteil der Teammitglieder jedes Managers arbeitet in derselben Abteilung wie der Manager selbst?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?m (COUNT(DISTINCT ?e) AS ?teamSize) (COUNT(DISTINCT ?sameDeptE) AS ?sameDeptCount) ((COUNT(DISTINCT ?sameDeptE) * 1.0) / COUNT(DISTINCT ?e) AS ?share) WHERE { ?e pv:hasManager ?m . ?m pv:memberOf ?md . OPTIONAL { ?sameDeptE pv:hasManager ?m ; pv:memberOf ?md . } } GROUP BY ?m ORDER BY ?m",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:41-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/41-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which bill of materials has the highest average unit cost for its hardware components, and what is that average?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?bom (AVG(xsd:decimal(?amt)) AS ?avg) WHERE {\n  ?bom a pv:BillOfMaterial ;\n       pv:hasBomPart ?part .\n  ?part pv:hasPart ?product .\n  ?product a pv:Hardware ;\n           pv:price ?price .\n  ?price pv:amount ?amt .\n} GROUP BY ?bom\nORDER BY DESC(?avg)\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:42-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche St\u00fcckliste hat die h\u00f6chsten durchschnittlichen St\u00fcckkosten f\u00fcr ihre Hardwarekomponenten, und wie hoch sind diese durchschnittlichen Kosten?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?bom ?avgCost WHERE { { SELECT ?bom (AVG(?amount) AS ?avgCost) WHERE { ?bom a pv:BillOfMaterial ; pv:hasBomPart ?part . ?part pv:hasPart ?product . ?product a pv:Hardware ; pv:price ?price . ?price pv:amount ?amount . } GROUP BY ?bom ORDER BY DESC(?avgCost) LIMIT 1 } }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:42-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/42-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you list any product compatibility cycles\u2014instances where product A states it's compatible with product B and product B likewise lists product A as compatible?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?productA ?productB WHERE { ?productA pv:compatibleProduct ?productB . ?productB pv:compatibleProduct ?productA . FILTER(STR(?productA) < STR(?productB)) } ORDER BY ?productA ?productB",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:43-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie Beispiele f\u00fcr Produktkompatibilit\u00e4tszyklen nennen - F\u00e4lle, in denen Produkt A angibt, dass es mit Produkt B kompatibel ist, und Produkt B wiederum Produkt A als kompatibel auflistet?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?productA ?productB WHERE { ?productA pv:compatibleProduct ?productB . ?productB pv:compatibleProduct ?productA . FILTER(STR(?productA) < STR(?productB)) } ORDER BY ?productA ?productB LIMIT 5",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:43-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/43-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which hardware items fall within the top 10% of widths, and what are their IDs, names, and width measurements?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?id ?name ?width\nWHERE {\n  {\n    SELECT ?h ?id ?name ?width\n    WHERE {\n      ?h a pv:Hardware ;\n         pv:id ?id ;\n         pv:name ?name ;\n         pv:width_mm ?width .\n      FILTER(xsd:integer(?width) >= 74)\n    }\n  }\n}\nORDER BY DESC(xsd:integer(?width)) ?id",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:44-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Hardware-Komponenten geh\u00f6ren zu den 10% mit der gr\u00f6\u00dften Breite, und welche IDs, Namen und Breitenma\u00dfe haben sie?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?id ?name ?width WHERE { ?hw a pv:Hardware ; pv:id ?id ; pv:name ?name ; pv:width_mm ?width . FILTER(?width >= 71) } ORDER BY DESC(?width) ?id",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:44-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/44-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which supplier provides the most reliable inductors?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier (MAX(?rel) AS ?maxRel) WHERE { ?product pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Inductor> ; pv:hasSupplier ?supplier ; pv:reliabilityIndex ?rel . } GROUP BY ?supplier ORDER BY DESC(?maxRel) LIMIT 5",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:45-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Lieferant bietet die zuverl\u00e4ssigsten Induktivit\u00e4ten an?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier (AVG(?rel) AS ?avgRel) WHERE {\n  ?product pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Inductor> ;\n           pv:hasSupplier ?supplier ;\n           pv:reliabilityIndex ?rel .\n}\nGROUP BY ?supplier\nORDER BY DESC(?avgRel)\nLIMIT 10",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:45-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/45-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which five suppliers have the highest average reliability across their products?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier (AVG(?rel) AS ?avgReliability) WHERE {\n  ?product pv:hasSupplier ?supplier ;\n           pv:reliabilityIndex ?rel .\n}\nGROUP BY ?supplier\nORDER BY DESC(?avgReliability)\nLIMIT 5",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:46-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche f\u00fcnf Lieferanten weisen die h\u00f6chste durchschnittliche Zuverl\u00e4ssigkeit \u00fcber ihre Produkte hinweg auf?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?supplier (AVG(?rel) AS ?avgReliability)\nWHERE {\n  ?product pv:hasSupplier ?supplier ;\n           pv:reliabilityIndex ?rel .\n}\nGROUP BY ?supplier\nORDER BY DESC(?avgReliability)\nLIMIT 5",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:46-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/46-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which countries supply the BOM parts for our SkySync MechWave?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?country WHERE {\n  <http://ld.company.org/prod-instances/bom-17> pv:hasBomPart ?bomPart .\n  ?bomPart pv:hasPart ?part .\n  ?part pv:hasSupplier ?supplier .\n  ?supplier pv:country ?country .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:47-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche L\u00e4nder liefern die Komponenten f\u00fcr unser SkySync MechWave?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?country WHERE {\n  <http://ld.company.org/prod-instances/bom-17> pv:hasBomPart ?bomPart .\n  ?bomPart pv:hasPart ?part .\n  ?part pv:hasSupplier ?supplier .\n  ?supplier pv:country ?country .\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:47-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/47-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Please list all BOMs that include at least one part supplied by a Polish vendor.",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?bom WHERE {\n  ?bom a pv:BillOfMaterial .\n  ?bom pv:hasBomPart ?bp .\n  ?bp pv:hasPart ?product .\n  ?product pv:hasSupplier ?supplier .\n  ?supplier pv:country <http://dbpedia.org/resource/Poland> .\n} ORDER BY ?bom",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:48-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Bitte listen Sie alle St\u00fccklisten auf, die mindestens ein Teil enthalten, das von einem polnischen Lieferanten bezogen wird.",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?bom ?part ?product ?supplier WHERE {\n  ?bom a pv:BillOfMaterial ;\n       pv:hasBomPart ?part .\n  ?part pv:hasPart ?product .\n  ?product pv:hasSupplier ?supplier .\n  ?supplier pv:country <http://dbpedia.org/resource/Poland> .\n} LIMIT 20",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:48-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/48-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many suppliers can provide alternative compatible products for the K367 Strain Encoder?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE { <http://ld.company.org/prod-instances/hw-K367-1320550> pv:compatibleProduct ?alt . ?alt pv:hasSupplier ?supplier . }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:49-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele Lieferanten k\u00f6nnen alternative, kompatible Produkte f\u00fcr den K367-Dehnungsmesswandler anbieten?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE { <http://ld.company.org/prod-instances/hw-K367-1320550> pv:compatibleProduct ?alt . ?alt pv:hasSupplier ?supplier . }",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:49-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/49-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department is responsible for the most products, and how many products is that?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?dept ?count\nWHERE {\n  {\n    SELECT ?dept (COUNT(?product) AS ?count)\n    WHERE {\n      ?dept a pv:Department ;\n            pv:responsibleFor ?product .\n    }\n    GROUP BY ?dept\n  }\n  {\n    SELECT (MAX(?c) AS ?maxCount)\n    WHERE {\n      {\n        SELECT ?dept (COUNT(?product) AS ?c)\n        WHERE {\n          ?dept a pv:Department ;\n                pv:responsibleFor ?product .\n        }\n        GROUP BY ?dept\n      }\n    }\n  }\n  FILTER(?count = ?maxCount)\n}",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:50-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilung ist f\u00fcr die meisten Produkte verantwortlich, und wie viele Produkte sind das?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?department (COUNT(?product) AS ?productCount) WHERE {\n  ?department a pv:Department ;\n              pv:responsibleFor ?product .\n}\nGROUP BY ?department\nORDER BY DESC(?productCount) ?department\nLIMIT 1",
+    "endpoint": "https://26c.text2sparql.cc-eti.org/text2sparql",
+    "qname": "ck26:50-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/50-de"
+  }
+]

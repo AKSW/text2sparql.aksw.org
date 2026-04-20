@@ -1,0 +1,802 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are all the Presidents of France?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?president ?presLabel WHERE {\n  ?president rdf:type dbo:Person .\n  ?president (dbo:office|dbp:office|dbo:position|dbp:position|dbp:post) dbr:President_of_France .\n  OPTIONAL { ?president rdfs:label ?presLabel . FILTER(lang(?presLabel)='en') }\n} ORDER BY ?presLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:1-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son todos los Presidentes de Francia?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?pres ?presLabel WHERE {\n  {\n    ?pres rdf:type dbo:Person ;\n          rdfs:label ?presLabel ;\n          (dbo:office|dbp:office|dbp:position) dbr:President_of_France .\n    FILTER(lang(?presLabel) = 'en')\n  }\n  UNION\n  {\n    dbr:President_of_France dbp:incumbent ?pres .\n    ?pres rdfs:label ?presLabel .\n    FILTER(lang(?presLabel) = 'en')\n  }\n}\nORDER BY ?presLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:1-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/1-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which actor appeared in the most films in a single decade?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?actor ?actorLabel ?decade (COUNT(DISTINCT ?film) AS ?count) WHERE {\n  ?film rdf:type ?ft .\n  ?film rdfs:label ?filmLabel . FILTER(lang(?filmLabel)='en')\n  FILTER(regex(str(?ft),\"Film|Work\",\"i\"))\n\n  { ?film dbo:starring ?actor } UNION { ?film dbp:starring ?actor }\n  ?actor rdfs:label ?actorLabel . FILTER(lang(?actorLabel)='en')\n\n  OPTIONAL { ?film dbo:releaseDate ?rdate }\n  OPTIONAL { ?film dbp:released ?rdate }\n  OPTIONAL { ?film dbp:releaseDate ?rdate }\n  OPTIONAL { ?film dbp:releasedYear ?ryear }\n\n  BIND(COALESCE(STR(?rdate), STR(?ryear), \"\") AS ?rstr)\n  FILTER(regex(?rstr, \"\\\\d{4}\"))\n  BIND(xsd:integer(REPLACE(?rstr, \"^.*?(\\\\d{4}).*$\", \"$1\")) AS ?yr)\n  BIND(xsd:integer(FLOOR(?yr / 10) * 10) AS ?decade)\n}\nGROUP BY ?actor ?actorLabel ?decade\nORDER BY DESC(?count)\nLIMIT 1",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:2-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 actor apareci\u00f3 en la mayor cantidad de pel\u00edculas en una sola d\u00e9cada?",
+    "query": "SELECT ?actor (SAMPLE(?actorLabel) AS ?actorLabelSample) ?decade (COUNT(DISTINCT ?film) AS ?filmsCount) WHERE {\n  VALUES ?starringProp { dbo:starring dbp:starring dbo:starring } \n  ?film a dbo:Film .\n  ?film ?starringProp ?actor .\n  ?actor a dbo:Actor .\n  OPTIONAL { ?actor rdfs:label ?actorLabel FILTER(lang(?actorLabel) IN (\"es\",\"en\")) }\n\n  # Try several date properties and year literals\n  OPTIONAL { ?film dbo:releaseDate ?date1 }\n  OPTIONAL { ?film dbp:releaseDate ?date2 }\n  OPTIONAL { ?film dbp:year ?yearLit }\n  OPTIONAL { ?film dbo:year ?yearLit2 }\n\n  BIND(COALESCE(?date1, ?date2, ?yearLit, ?yearLit2) AS ?d)\n  # extract year robustly: use YEAR() when possible, otherwise take first 4 chars\n  BIND(\n    IF(\n      (datatype(?d) = xsd:date || datatype(?d) = xsd:dateTime),\n      YEAR(?d),\n      IF(regex(str(?d), \"^\\\\d{4}\"), xsd:integer(substr(str(?d),1,4)), null)\n    ) AS ?yr\n  )\n  FILTER(bound(?yr))\n  BIND( (FLOOR(?yr/10) * 10) AS ?decade )\n}\nGROUP BY ?actor ?decade\nORDER BY DESC(?filmsCount)\nLIMIT 1\n",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:2-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/2-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who (either an actor or a musician) has received the highest number of awards?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?person (COUNT(DISTINCT ?award) AS ?awardCount) (SAMPLE(?lab) AS ?label) WHERE {\n  ?person rdf:type dbo:Person .\n  FILTER ( EXISTS { ?person rdf:type dbo:Actor } || EXISTS { ?person rdf:type dbr:Musician } || EXISTS { ?person rdf:type dbo:MusicalArtist } )\n  ?person (dbo:award|dbp:award) ?award .\n  OPTIONAL { ?person rdfs:label ?lab . FILTER(lang(?lab) = 'en') }\n} GROUP BY ?person ORDER BY DESC(?awardCount) LIMIT 1",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:3-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9n (ya sea un actor o un m\u00fasico) ha recibido el mayor n\u00famero de premios?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?person (COUNT(DISTINCT ?award) AS ?awardsCount) WHERE {\n  ?person a dbo:Person .\n  VALUES ?type { dbo:Actor dbo:MusicalArtist dbo:Musician }\n  ?person a ?type .\n  { ?person dbo:award ?award } UNION { ?person dbp:award ?award }\n} GROUP BY ?person\nORDER BY DESC(?awardsCount)\nLIMIT 1",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:3-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/3-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which are the 5 bands or musicians who have produced the highest number of albums?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?artist (SAMPLE(?name) AS ?label) (COUNT(DISTINCT ?album) AS ?albums) WHERE {\n  ?album a dbo:Album ;\n         (dbo:artist|dbp:artist) ?artist .\n  ?artist rdfs:label ?name FILTER(lang(?name)='en').\n  FILTER(\n    EXISTS { ?artist rdf:type dbo:Band } ||\n    EXISTS { ?artist rdf:type dbo:MusicalArtist } ||\n    EXISTS { ?artist dbo:occupation dbr:Musician }\n  )\n}\nGROUP BY ?artist\nORDER BY DESC(?albums)\nLIMIT 5",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:4-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las 5 bandas o m\u00fasicos que han producido el mayor n\u00famero de \u00e1lbumes?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?artist (SAMPLE(?artistLabel) AS ?label) (COUNT(DISTINCT ?album) AS ?albumCount) WHERE {\n  ?album a dbo:Album .\n  OPTIONAL { ?album dbo:artist ?artist . }\n  OPTIONAL { ?album dbp:artist ?artist . }\n  FILTER(BOUND(?artist))\n  OPTIONAL { ?artist rdfs:label ?artistLabel . FILTER(lang(?artistLabel) = 'en') }\n} GROUP BY ?artist\nORDER BY DESC(?albumCount)\nLIMIT 5",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:4-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/4-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which are the top 3 taxonomic kingdoms that have the largest number of endangered species?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?kingdomIRI (SAMPLE(?kingdomLabel) AS ?kingdomLabel) (COUNT(DISTINCT ?species) AS ?count) WHERE {\n  ?species (dbo:conservationStatus|dbp:conservationStatus) ?status .\n  ?species (dbo:kingdom|dbp:kingdom) ?kingdomIRI .\n  OPTIONAL { ?kingdomIRI rdfs:label ?kingdomLabel . FILTER(lang(?kingdomLabel) = 'en') }\n  FILTER( regex(lcase(str(?status)), \"endanger\") || lcase(str(?status)) = \"en\" )\n}\nGROUP BY ?kingdomIRI\nORDER BY DESC(?count)\nLIMIT 3",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:5-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los 3 reinos taxon\u00f3micos con el mayor n\u00famero de especies en peligro de extinci\u00f3n?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?kingdom (COUNT(DISTINCT ?s) AS ?count) WHERE {\n  ?s rdf:type dbo:Species .\n  ?s (dbo:conservationStatus|dbp:conservationStatus|dbo:iucnCategory|dbp:iucnCategory) ?status .\n  ?s dbo:kingdom ?kingdom .\n  FILTER(regex(lcase(str(?status)), \"endang\"))\n}\nGROUP BY ?kingdom\nORDER BY DESC(?count)\nLIMIT 3",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:5-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/5-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Was Sasha Banks trained by Booker T?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nASK WHERE { { dbr:Sasha_Banks dbo:trainer <http://dbpedia.org/resource/Booker_T_(wrestler)> } UNION { dbr:Sasha_Banks dbp:trainer <http://dbpedia.org/resource/Booker_T_(wrestler)> } }",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:6-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfSasha Banks fue entrenada por Booker T?",
+    "query": "ASK WHERE {\n  VALUES ?trainerProp { dbo:trainer dbp:trainer }\n  dbr:Sasha_Banks ?trainerProp dbr:Booker_T_(wrestler) .\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:6-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/6-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Does Watervliet have a junction on the New York State Route 470?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nASK WHERE {\n  VALUES ?route { dbr:New_York_State_Route_470 }\n  VALUES ?place { <http://dbpedia.org/resource/Watervliet,_New_York> }\n  {\n    ?route ?p ?place .\n  }\n  UNION\n  {\n    ?route rdfs:comment ?c .\n    FILTER(regex(lcase(str(?c)),\"watervliet\"))\n  }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:7-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfWatervliet tiene una intersecci\u00f3n en la Ruta Estatal de Nueva York 470?",
+    "query": "PREFIX dbr: <http://dbpedia.org/resource/>\nASK WHERE {\n  { dbr:New_York_State_Route_470 ?p <http://dbpedia.org/resource/Watervliet,_New_York> }\n  UNION\n  { <http://dbpedia.org/resource/Watervliet,_New_York> ?p dbr:New_York_State_Route_470 }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:7-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/7-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Did Clyde Tombaugh discover Pluto?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nASK WHERE {\n  {\n    dbr:Pluto dbo:discoverer dbr:Clyde_Tombaugh .\n  } UNION {\n    dbr:Pluto dbp:discoverer dbr:Clyde_Tombaugh .\n  } UNION {\n    dbr:Pluto dbp:discoveredBy dbr:Clyde_Tombaugh .\n  } UNION {\n    dbr:Clyde_Tombaugh dbo:discoverer dbr:Pluto .\n  } UNION {\n    dbr:Clyde_Tombaugh dbp:discoverer dbr:Pluto .\n  } UNION {\n    dbr:Clyde_Tombaugh dbp:discoveredBy dbr:Pluto .\n  }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:8-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfDescubri\u00f3 Clyde Tombaugh a Plut\u00f3n?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nASK WHERE {\n  VALUES ?tombaugh { dbr:Clyde_Tombaugh }\n  dbr:Pluto (dbo:discoverer|dbp:discoverer|dbp:discoverers|dbo:discoveredBy|dbp:discoveredBy) ?t .\n  FILTER(\n    (isIRI(?t) && ?t = ?tombaugh)\n    || (isLiteral(?t) && regex(lcase(str(?t)), \"tombaugh\", \"i\"))\n  )\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:8-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/8-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Was Bret Easton Ellis the author of American Psycho?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nASK WHERE {\n  VALUES (?book ?author) { (dbr:American_Psycho dbr:Bret_Easton_Ellis) }\n  {\n    ?book dbo:author ?author .\n  } UNION {\n    ?book dbp:author ?author .\n  } UNION {\n    ?book dbo:writer ?author .\n  } UNION {\n    ?book dbp:writer ?author .\n  }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:9-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfFue Bret Easton Ellis el autor de American Psycho?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nASK WHERE {\n  VALUES (?book ?author) {(dbr:American_Psycho dbr:Bret_Easton_Ellis)}\n  {\n    ?book (dbo:author|dbp:author|dbo:writer|dbp:writer) ?author .\n  }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:9-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/9-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Is Blender released under the GNU license?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nASK WHERE {\n  VALUES ?s { <http://dbpedia.org/resource/Blender_(software)> }\n  {\n    ?s dbo:license ?lic .\n    FILTER(\n      (isIRI(?lic) && EXISTS { ?lic rdfs:label ?l . FILTER(lang(?l)='en' && (regex(?l,'GNU','i') || regex(?l,'GPL','i') || regex(?l,'General Public License','i'))) })\n    || (!isIRI(?lic) && (regex(str(?lic),'GNU','i') || regex(str(?lic),'GPL','i') || regex(str(?lic),'General Public License','i')))\n    )\n  }\n  UNION\n  {\n    ?s dbp:license ?lic2 .\n    FILTER(\n      (isIRI(?lic2) && EXISTS { ?lic2 rdfs:label ?l2 . FILTER(lang(?l2)='en' && (regex(?l2,'GNU','i') || regex(?l2,'GPL','i') || regex(?l2,'General Public License','i'))) })\n    || (!isIRI(?lic2) && (regex(str(?lic2),'GNU','i') || regex(str(?lic2),'GPL','i') || regex(str(?lic2),'General Public License','i')))\n    )\n  }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:10-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfBlender se publica bajo la licencia GNU?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nASK WHERE {\n  VALUES ?sw { <http://dbpedia.org/resource/Blender_(software)> }\n  {\n    ?sw dbo:license dbr:GNU_General_Public_License .\n  } UNION {\n    ?sw dbp:license dbr:GNU_General_Public_License .\n  } UNION {\n    ?sw dbo:license ?lic . ?lic rdfs:label ?l . FILTER(langMatches(lang(?l), \"EN\") && regex(?l, \"GNU\", \"i\"))\n  } UNION {\n    ?sw dbp:license ?licLit . FILTER(isLiteral(?licLit) && regex(str(?licLit), \"GNU\", \"i\"))\n  } UNION {\n    ?sw dbo:license ?licIRI . FILTER(isIRI(?licIRI)) . ?licIRI rdfs:label ?ll . FILTER(regex(?ll, \"GNU\", \"i\"))\n  }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:10-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/10-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are the prime ministers of the United Kingdom?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?pm ?label WHERE {\n  ?pm rdf:type dbo:Person .\n  {\n    ?pm dbo:office dbr:Prime_Minister_of_the_United_Kingdom .\n  } UNION {\n    ?pm dbp:office dbr:Prime_Minister_of_the_United_Kingdom .\n  } UNION {\n    ?pm dbp:post dbr:Prime_Minister_of_the_United_Kingdom .\n  }\n  OPTIONAL { ?pm rdfs:label ?label . FILTER(lang(?label)='en') }\n}\nORDER BY ?label",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:11-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los primeros ministros del Reino Unido?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?pm ?pmLabelEN WHERE {\n  ?pm (dbo:office|dbp:office|dbp:post) dbr:Prime_Minister_of_the_United_Kingdom .\n  ?pm rdf:type dbo:Person .\n  OPTIONAL { ?pm rdfs:label ?pmLabelEN FILTER(lang(?pmLabelEN) = 'en') }\n} ORDER BY ?pmLabelEN",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:11-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/11-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What are the 10 oldest works by Mark Twain?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?work ?label ?pubDate WHERE {\n  {\n    ?work dbo:author dbr:Mark_Twain .\n  } UNION {\n    ?work dbp:author dbr:Mark_Twain .\n  } UNION {\n    ?work dbo:writer dbr:Mark_Twain .\n  } UNION {\n    ?work dbp:writer dbr:Mark_Twain .\n  }\n  OPTIONAL { ?work dbo:publicationDate ?pd1 }\n  OPTIONAL { ?work dbp:published ?pd2 }\n  OPTIONAL { ?work dbp:publicationDate ?pd3 }\n  OPTIONAL { ?work dbo:releaseDate ?pd4 }\n  OPTIONAL { ?work dbp:year ?pd5 }\n  BIND(COALESCE(?pd1, ?pd2, ?pd3, ?pd4, ?pd5) AS ?pubDate)\n  ?work rdfs:label ?label FILTER(lang(?label)='en')\n  FILTER(BOUND(?pubDate))\n}\nORDER BY STR(?pubDate) ?label\nLIMIT 10",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:12-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las 10 obras m\u00e1s antiguas de Mark Twain?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?work ?labelFinal ?year WHERE {\n  VALUES ?mark { dbr:Mark_Twain }\n  ?work (dbo:author|dbp:author|dbo:writer|dbp:writer) ?mark .\n  OPTIONAL { ?work rdfs:label ?labelEs FILTER(lang(?labelEs) = 'es') }\n  OPTIONAL { ?work rdfs:label ?labelEn FILTER(lang(?labelEn) = 'en') }\n  BIND(COALESCE(?labelEs, ?labelEn, STRAFTER(STR(?work), '/resource/')) AS ?labelFinal)\n  OPTIONAL { ?work dbo:publicationDate ?date }\n  OPTIONAL { ?work dbp:published ?date2 }\n  OPTIONAL { ?work dbp:pubDate ?date3 }\n  OPTIONAL { ?work dbo:releaseDate ?date4 }\n  OPTIONAL { ?work dbp:releaseDate ?date5 }\n  OPTIONAL { ?work dbo:date ?date6 }\n  BIND(COALESCE(?date, ?date2, ?date3, ?date4, ?date5, ?date6) AS ?anyDate)\n  BIND(IF(BOUND(?anyDate), SUBSTR(STR(?anyDate),1,4), \"\") AS ?yearStr)\n  FILTER(STRLEN(?yearStr) > 0)\n  BIND(xsd:integer(?yearStr) AS ?year)\n}\nORDER BY ASC(?year) ?labelFinal\nLIMIT 10",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:12-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/12-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "In which settlement was the wife of Barack Obama born?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?place (SAMPLE(?label) AS ?labelEN) WHERE { dbr:Michelle_Obama (dbo:birthPlace|dbp:birthPlace) ?place . OPTIONAL { ?place rdfs:label ?label FILTER(lang(?label)='en') } } GROUP BY ?place",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:13-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 asentamiento naci\u00f3 la esposa de Barack Obama?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?birthPlace (COALESCE(?labelEs, ?labelEn) AS ?birthPlaceLabel) WHERE {\n  dbr:Barack_Obama (dbo:spouse|dbp:spouse) ?wife .\n  ?wife (dbo:birthPlace|dbp:birthPlace) ?birthPlace .\n  OPTIONAL { ?birthPlace rdfs:label ?labelEs FILTER(lang(?labelEs) = 'es') }\n  OPTIONAL { ?birthPlace rdfs:label ?labelEn FILTER(lang(?labelEn) = 'en') }\n} LIMIT 10",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:13-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/13-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where was the badminton player who won the silver medal at the 2012 Summer Olympics Women's doubles badminton event born at?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?player ?playerLabel ?birthPlaceLabel ?comment WHERE {\n  <http://dbpedia.org/resource/Badminton_at_the_2012_Summer_Olympics_\u2013_Women's_doubles> (dbp:silver|dbo:silver) ?player .\n  OPTIONAL { ?player rdfs:label ?playerLabel FILTER(lang(?playerLabel)='en') }\n  OPTIONAL { ?player (dbo:birthPlace|dbp:birthPlace) ?birthPlace . ?birthPlace rdfs:label ?birthPlaceLabel FILTER(lang(?birthPlaceLabel)='en') }\n  OPTIONAL { ?player rdfs:comment ?comment FILTER(lang(?comment)='en') }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:14-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde naci\u00f3 la jugadora de b\u00e1dminton que gan\u00f3 la medalla de plata en la prueba de dobles femeninos de los Juegos Ol\u00edmpicos de Verano de 2012?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?place ?placeLabel WHERE { <http://dbpedia.org/resource/Yu_Yang_(badminton)> dbo:birthPlace ?place . OPTIONAL { ?place rdfs:label ?placeLabel FILTER(lang(?placeLabel)='en') } }",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:14-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/14-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name some comic characters created by Stan Lee?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?char ?charLabel WHERE {\n  VALUES ?p { dbo:creator dbp:creator dbo:writer dbp:writer dbp:coCreator dbp:creators }\n  ?char ?p dbr:Stan_Lee .\n  ?char rdf:type dbo:ComicsCharacter .\n  OPTIONAL { ?char rdfs:label ?charLabel FILTER(lang(?charLabel) = 'en') }\n} LIMIT 50",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:15-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfNombra algunos personajes de c\u00f3mic creados por Stan Lee?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?character ?label WHERE { { ?character dbo:creator dbr:Stan_Lee } UNION { ?character dbp:creator dbr:Stan_Lee } OPTIONAL { ?character rdfs:label ?label FILTER(lang(?label) = 'en') } } LIMIT 20",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:15-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/15-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which artist created American IV: The Man Comes Around and also performed Hurt at least once?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?artist ?artistLabel WHERE {\n  dbr:American_IV:_The_Man_Comes_Around (dbp:artist|dbo:artist) ?artist .\n  <http://dbpedia.org/resource/Hurt_(Nine_Inch_Nails_song)> (dbp:artist|dbo:artist) ?artist .\n  OPTIONAL { ?artist rdfs:label ?artistLabel . FILTER(lang(?artistLabel) = 'en') }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:16-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 artista cre\u00f3 American IV: The Man Comes Around y tambi\u00e9n interpret\u00f3 Hurt al menos una vez?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?artist ?artistLabel WHERE {\n  VALUES ?album { dbr:American_IV:_The_Man_Comes_Around }\n  VALUES ?song { <http://dbpedia.org/resource/Hurt_(Nine_Inch_Nails_song)> }\n  { ?album dbo:artist ?artist } UNION { ?album dbp:artist ?artist }\n  { ?song dbo:artist ?artist } UNION { ?song dbp:artist ?artist } .\n  OPTIONAL { ?artist rdfs:label ?artistLabel FILTER(lang(?artistLabel) = 'en') }\n} LIMIT 20",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:16-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/16-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Stephen Merchant is the executive producer of the series having how many fictional characters?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?series (SAMPLE(?seriesLabel) AS ?label) (COUNT(DISTINCT ?char) AS ?numChars) WHERE {\n  VALUES ?person { dbr:Stephen_Merchant }\n  {\n    ?series dbo:executiveProducer ?person .\n  } UNION {\n    ?series dbp:executiveProducer ?person .\n  }\n  # Prefer English label\n  OPTIONAL { ?series rdfs:label ?seriesLabel FILTER(lang(?seriesLabel) = 'en') }\n  # candidate character links/literals\n  {\n    ?series dbp:characters ?char .\n  } UNION {\n    ?series dbp:character ?char .\n  } UNION {\n    ?series dbo:fictionalCharacter ?char .\n  } UNION {\n    ?series dbo:character ?char .\n  } UNION {\n    # if starring points to a fictional character resource (typed as dbo:FictionalCharacter)\n    ?series dbo:starring ?starring .\n    ?starring rdf:type ?starringType .\n    FILTER(regex(str(?starringType), \"FictionalCharacter\",\"i\") || ?starringType = dbo:FictionalCharacter)\n    BIND(?starring AS ?char)\n  }\n}\nGROUP BY ?series\nORDER BY DESC(?numChars)\nLIMIT 50",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:17-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Stephen Merchant es el productor ejecutivo de la serie que tiene \u00bfcu\u00e1ntos personajes ficticios?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?series ?seriesLabel (SAMPLE(?numLit) AS ?numLiteral) (COUNT(DISTINCT ?char) AS ?countChars) WHERE {\n  VALUES ?series { dbr:An_Idiot_Abroad <http://dbpedia.org/resource/Life's_Too_Short> dbr:Lip_Sync_Battle <http://dbpedia.org/resource/The_Office_(U.S._TV_series)> }\n  OPTIONAL { ?series rdfs:label ?seriesLabel FILTER(lang(?seriesLabel)='en') }\n  OPTIONAL {\n    { ?series dbp:numberOfCharacters ?numLit } UNION { ?series dbp:numCharacters ?numLit } UNION { ?series dbp:characters ?numLit } UNION { ?series dbp:numberOf_characters ?numLit }\n  }\n  OPTIONAL {\n    { ?series dbo:character ?char } UNION { ?series dbp:character ?char } UNION { ?series dbp:characters ?char }\n    ?char rdf:type dbo:FictionalCharacter .\n  }\n}\nGROUP BY ?series ?seriesLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:17-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/17-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "In which countries are the children peaks from Denali located and what are them?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?peak ?peakLabel (SAMPLE(COALESCE(?countryLabel1, ?countryLabel2, ?countryLabel3)) AS ?countryLabel) WHERE {\n  { ?peak dbo:parentMountainPeak dbr:Denali } UNION { ?peak dbp:parentPeak dbr:Denali }\n  OPTIONAL { ?peak rdfs:label ?peakLabel FILTER(lang(?peakLabel)='en') }\n  OPTIONAL { ?peak dbo:country ?country1 . ?country1 rdfs:label ?countryLabel1 FILTER(lang(?countryLabel1)='en') }\n  OPTIONAL { ?peak dbo:locatedInArea ?area . ?area dbo:country ?country2 . ?country2 rdfs:label ?countryLabel2 FILTER(lang(?countryLabel2)='en') }\n  OPTIONAL { ?peak dbp:location ?loc3 . FILTER(regex(str(?loc3), 'Canada', 'i')) BIND('Canada' AS ?countryLabel3) }\n} GROUP BY ?peak ?peakLabel ORDER BY ?peakLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:18-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00edses se encuentran los picos secundarios del Denali y cu\u00e1les son?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?peak ?peakLabelEn ?country ?countryLabelEn WHERE {\n  ?peak a dbo:Place .\n  OPTIONAL { ?peak rdfs:label ?peakLabelEn FILTER(lang(?peakLabelEn)='en') }\n  OPTIONAL { ?peak rdfs:comment ?c FILTER(lang(?c)='en') }\n  FILTER(\n    (BOUND(?peakLabelEn) && regex(?peakLabelEn, '\\bDenali\\b','i'))\n    || (BOUND(?c) && regex(?c, '\\bDenali\\b','i'))\n  )\n  OPTIONAL {\n    { ?peak dbo:location ?country } UNION { ?peak dbo:country ?country } UNION { ?peak dbp:location ?country }\n  }\n  OPTIONAL { ?country rdfs:label ?countryLabelEn FILTER(lang(?countryLabelEn)='en') }\n} LIMIT 100",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:18-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/18-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are footballers coached by Pep Guardiola?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?player ?playerLabel ?team ?teamLabel WHERE {\n  VALUES ?mgrProp { dbo:manager dbp:manager dbo:coach dbp:coach dbo:managerClub dbp:managerClub }\n  ?team ?mgrProp dbr:Pep_Guardiola .\n  ?player dbo:team ?team .\n  ?player rdf:type dbo:SoccerPlayer .\n  OPTIONAL { ?player rdfs:label ?playerLabel . FILTER(lang(?playerLabel) = 'en') }\n  OPTIONAL { ?team rdfs:label ?teamLabel . FILTER(lang(?teamLabel) = 'en') }\n}\nORDER BY ?teamLabel ?playerLabel\nLIMIT 500",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:19-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 futbolistas han sido entrenados por Pep Guardiola?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?player (COALESCE(?labelEs, ?labelEn, STR(?player)) AS ?label) WHERE {\n  # equipos gestionados por Pep Guardiola (varios predicados posibles)\n  ?team (dbo:manager|dbp:manager) dbr:Pep_Guardiola .\n  # jugadores que han pertenecido a esos equipos (varios predicados posibles)\n  ?player (dbo:team|dbp:team) ?team .\n  # etiquetas en espa\u00f1ol o ingl\u00e9s\n  OPTIONAL { ?player rdfs:label ?labelEs FILTER(lang(?labelEs) = 'es') }\n  OPTIONAL { ?player rdfs:label ?labelEn FILTER(lang(?labelEn) = 'en') }\n}\nORDER BY ?label",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:19-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/19-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Through which cities do the rivers originating in Yellowstone National Park flow?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?river ?riverLabel ?city ?cityLabel WHERE {\n  VALUES ?park { dbr:Yellowstone_National_Park }\n  ?river ?srcProp ?park .\n  VALUES ?srcProp { dbo:source dbp:source }\n  FILTER ( EXISTS { ?river rdf:type dbo:River } || EXISTS { ?river rdfs:label ?rlabel . FILTER(lang(?rlabel)='en' && regex(?rlabel, '\\\\bRiver\\\\b','i')) } )\n  OPTIONAL {\n    ?river ?flowProp ?city .\n    VALUES ?flowProp { dbp:flowsThrough dbp:through dbo:location dbp:location }\n    ?city rdf:type dbo:City .\n    ?city rdfs:label ?cityLabel . FILTER(lang(?cityLabel)='en')\n  }\n  ?river rdfs:label ?riverLabel . FILTER(lang(?riverLabel)='en')\n}\nORDER BY ?riverLabel ?cityLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:20-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfPor qu\u00e9 ciudades fluyen los r\u00edos que se originan en el Parque Nacional de Yellowstone?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?river ?riverLabel ?src ?srcLabel ?city ?cityLabel WHERE {\n  ?river a dbo:River .\n  { ?river dbo:source ?src } UNION { ?river dbp:source ?src } UNION { ?river dbo:sourceLocation ?src }\n  ?src rdfs:label ?srcLabel FILTER(LANG(?srcLabel)='en')\n  FILTER(regex(?srcLabel, \"Yellowstone\", 'i'))\n  { ?city dbo:river ?river } UNION { ?city dbp:river ?river }\n  ?river rdfs:label ?riverLabel FILTER(LANG(?riverLabel)='en')\n  ?city rdfs:label ?cityLabel FILTER(LANG(?cityLabel)='en')\n} ORDER BY ?riverLabel ?cityLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:20-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/20-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which alliance has the most member airlines?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?alliance (SAMPLE(?label) AS ?label) (COUNT(DISTINCT ?airline) AS ?members) WHERE {\n  {\n    ?airline rdf:type dbo:Airline .\n    ?airline (dbo:alliance | dbp:alliance) ?alliance .\n  }\n  UNION\n  {\n    ?alliance (dbo:member | dbp:member) ?airline .\n    ?airline rdf:type dbo:Airline .\n  }\n  OPTIONAL { ?alliance rdfs:label ?label FILTER(lang(?label)='en') }\n}\nGROUP BY ?alliance\nORDER BY DESC(?members)\nLIMIT 1",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:21-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 alianza tiene la mayor cantidad de aerol\u00edneas miembros?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?alliance (COUNT(DISTINCT ?airline) AS ?members) (SAMPLE(?allianceLabel) AS ?label) WHERE {\n  ?airline rdf:type dbo:Airline .\n  {\n    ?airline dbo:alliance ?alliance .\n  } UNION {\n    ?airline dbp:alliance ?alliance .\n  }\n  OPTIONAL { ?alliance rdfs:label ?allianceLabel . FILTER(lang(?allianceLabel) = 'en') }\n}\nGROUP BY ?alliance\nORDER BY DESC(?members)\nLIMIT 1",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:21-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/21-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which companies built the stadium whose tenant was the BC Lions?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?stadium ?stadiumLabel ?builder ?builderLabel WHERE {\n  VALUES ?team { dbr:BC_Lions }\n  # find stadiums where the BC Lions are tenants (cover dbo/dbp variants)\n  ?stadium (dbo:tenant|dbp:tenant|dbp:tenants|dbp:formerTenants) ?team .\n  # try to find builder/constructor/contractor companies via multiple property variants\n  OPTIONAL {\n    ?stadium (dbo:builder|dbp:builtBy|dbp:builder|dbp:contractor|dbp:generalcontractor|dbo:architect|dbp:architect) ?builder .\n    FILTER(isIRI(?builder))\n  }\n  OPTIONAL { ?stadium rdfs:label ?stadiumLabel FILTER(lang(?stadiumLabel)='en') }\n  OPTIONAL { ?builder rdfs:label ?builderLabel FILTER(lang(?builderLabel)='en') }\n}\nORDER BY ?stadium ?builder",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:22-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas construyeron el estadio cuyo inquilino eran los BC Lions?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?company ?companyLabel WHERE {\n  dbr:BC_Place (dbo:builder|dbp:builder|dbo:generalContractor|dbp:generalContractor|dbo:contractor|dbp:contractor) ?company .\n  OPTIONAL { ?company rdfs:label ?companyLabel FILTER(lang(?companyLabel)='en') }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:22-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/22-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which artists were influenced by Pablo Picasso?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?artist ?artistLabel WHERE {\n  dbr:Pablo_Picasso (dbo:influenced|dbp:influenced) ?artist .\n  ?artist rdfs:label ?artistLabel FILTER(lang(?artistLabel)='en')\n}\nORDER BY ?artistLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:23-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 artistas fueron influenciados(as) por Pablo Picasso?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?artist ?labelEs ?labelEn WHERE {\n  VALUES (?p) { (dbr:Pablo_Picasso) }\n  { ?artist dbo:influencedBy ?p } UNION { ?artist dbp:influencedBy ?p }\n  OPTIONAL { ?artist rdfs:label ?labelEs FILTER(lang(?labelEs) = 'es') }\n  OPTIONAL { ?artist rdfs:label ?labelEn FILTER(lang(?labelEn) = 'en') }\n  FILTER(isIRI(?artist))\n} ORDER BY ?labelEn",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:23-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/23-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What was the party of the predecessor from Yingluck Shinawatra?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?predecessor ?party WHERE {\n  dbr:Yingluck_Shinawatra (dbo:predecessor|dbp:predecessor) ?predecessor .\n  OPTIONAL { ?predecessor (dbo:party|dbp:party) ?party . }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:24-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l era el partido del predecesor de Yingluck Shinawatra?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?predecessor ?predecessorLabel ?party ?partyLabel WHERE {\n  { ?predecessor dbo:successor dbr:Yingluck_Shinawatra } UNION { ?predecessor dbp:successor dbr:Yingluck_Shinawatra }\n  OPTIONAL { ?predecessor rdfs:label ?predecessorLabel FILTER(lang(?predecessorLabel)='en') }\n  OPTIONAL { ?predecessor dbo:party ?party }\n  OPTIONAL { ?predecessor dbp:party ?party }\n  OPTIONAL { ?party rdfs:label ?partyLabel FILTER(lang(?partyLabel)='en') }\n} LIMIT 10",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:24-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/24-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which television shows were produced through a collaboration between HBO and BBC?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?show ?label WHERE {\n  VALUES ?hbo { dbr:HBO }\n  VALUES ?bbc { dbr:BBC }\n\n  ?show (dbo:productionCompany|dbo:company|dbp:coProduction|dbp:company|dbp:productionCompany) ?hbo .\n  ?show (dbo:productionCompany|dbo:company|dbp:coProduction|dbp:company|dbp:productionCompany) ?bbc .\n\n  OPTIONAL { ?show rdfs:label ?label FILTER(lang(?label)='en') }\n  FILTER(?show != ?hbo && ?show != ?bbc)\n} ORDER BY ?label",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:25-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 programas de televisi\u00f3n fueron producidos mediante una colaboraci\u00f3n entre HBO y la BBC?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT DISTINCT ?show ?label WHERE {\n  ?show ?p dbr:HBO .\n  ?show ?q dbr:BBC .\n  OPTIONAL { ?show rdfs:label ?label . FILTER(lang(?label) IN ('es','en')) }\n  FILTER(\n    EXISTS{ ?show rdf:type dbo:TelevisionShow } ||\n    EXISTS{ ?show rdf:type dbo:TelevisionSeries } ||\n    EXISTS{ ?show rdf:type dbo:TelevisionEpisode } ||\n    regex(str(?label),'TV','i') || regex(str(?label),'miniseries','i') || regex(str(?label),'television','i')\n  )\n}\nORDER BY ?label",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:25-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/25-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "List all the publishers of the Oddworld series.",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?publisher ?publisherLabel WHERE {\n  VALUES ?series { dbr:Oddworld }\n  {\n    ?game dbp:series ?series .\n  } UNION {\n    ?game dbo:series ?series .\n  }\n  OPTIONAL { ?game dbo:publisher ?publisherIRI . }\n  OPTIONAL { ?game dbp:publisher ?publisherIRI2 . }\n  BIND(COALESCE(?publisherIRI, ?publisherIRI2) AS ?publisherRaw)\n  BIND(IF(isIRI(?publisherRaw), ?publisherRaw, STR(?publisherRaw)) AS ?publisher)\n  OPTIONAL {\n    FILTER(isIRI(?publisher))\n    ?publisher rdfs:label ?publisherLabel . FILTER(lang(?publisherLabel) = 'en')\n  }\n}\nORDER BY ?publisherLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:26-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son todos los editores de la serie Oddworld?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT DISTINCT ?publisher ?publisherLabel WHERE {\n  ?game rdfs:label ?glabel .\n  FILTER(LANG(?glabel) = 'en')\n  FILTER(CONTAINS(LCASE(?glabel), \"oddworld\"))\n  ?game rdf:type ?type .\n  FILTER(?type IN (dbo:VideoGame, dbo:Software, dbo:Work))\n  { ?game dbo:publisher ?publisher } UNION { ?game dbp:publisher ?publisher } UNION { ?game dbp:publishedBy ?publisher }\n  OPTIONAL { ?publisher rdfs:label ?publisherLabel . FILTER(LANG(?publisherLabel)='en') }\n} ORDER BY ?publisherLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:26-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/26-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What are the films whose music was composed by Ennio Morricone?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?film ?filmLabel WHERE {\n  { ?film dbo:musicComposer dbr:Ennio_Morricone . }\n  UNION { ?film dbp:musicComposer dbr:Ennio_Morricone . }\n  UNION { ?film dbo:composer dbr:Ennio_Morricone . }\n  UNION { ?film dbp:music dbr:Ennio_Morricone . }\n  ?film rdf:type ?type .\n  FILTER(?type IN (dbo:Film, dbo:Work))\n  OPTIONAL { ?film rdfs:label ?filmLabel . FILTER(lang(?filmLabel)='en') }\n} ORDER BY ?filmLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:27-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las pel\u00edculas cuya m\u00fasica fue compuesta por Ennio Morricone?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?film ?filmLabel WHERE {\n  ?film (dbo:musicComposer|dbp:musicComposer|dbp:musicComposers|dbp:musicDirectorAndComposer) dbr:Ennio_Morricone .\n  OPTIONAL { ?film rdfs:label ?filmLabel FILTER(lang(?filmLabel) = 'en') }\n} ORDER BY ?filmLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:27-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/27-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name some television shows related to the one whose opening theme was composed by Bear McCreary.",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?origShow ?origShowLabel ?related ?relatedLabel WHERE {\n  VALUES ?composer { dbr:Bear_McCreary }\n  ?origShow rdf:type ?type .\n  FILTER EXISTS { ?type rdfs:label ?tlabel FILTER(regex(str(?tlabel),'Television','i')) }\n  ?origShow (dbo:musicComposer|dbp:musicComposer|dbp:themeMusicComposer|dbo:composer|dbp:composer) ?composer .\n  OPTIONAL { ?origShow dbo:related ?related . }\n  OPTIONAL { ?origShow dbp:related ?related . }\n  FILTER(bound(?related))\n  OPTIONAL { ?origShow rdfs:label ?origShowLabel FILTER(lang(?origShowLabel)='en') }\n  OPTIONAL { ?related rdfs:label ?relatedLabel FILTER(lang(?relatedLabel)='en') }\n} LIMIT 50",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:28-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Nombra algunos programas de televisi\u00f3n relacionados con aquel cuya m\u00fasica de apertura fue compuesta por Bear McCreary.",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?related ?relatedLabel WHERE {\n  VALUES ?s { <http://dbpedia.org/resource/Battlestar_Galactica_(2004_TV_series)> }\n  ?s (dbo:related|dbo:followedBy|dbo:prequel|dbo:sequel|dbo:spinOff|dbp:related) ?related .\n  FILTER(isIRI(?related))\n  OPTIONAL { ?related rdfs:label ?relatedLabel . FILTER(lang(?relatedLabel)='en') }\n} LIMIT 50",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:28-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/28-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where was the song 'Imagine' recorded?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?placeIRI ?placeLabel ?recordedLiteral ?studioLiteral WHERE {\n  BIND(<http://dbpedia.org/resource/Imagine_(John_Lennon_song)> AS ?song)\n  OPTIONAL { ?song dbo:recordedIn ?placeIRI . OPTIONAL { ?placeIRI rdfs:label ?placeLabel FILTER(lang(?placeLabel)='en') } }\n  OPTIONAL { ?song dbp:recorded ?recordedLiteral }\n  OPTIONAL { ?song dbp:studio ?studioLiteral }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:29-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde fue grabada la canci\u00f3n 'Imagine'?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?place ?placeLabel WHERE {\n  VALUES ?song { <http://dbpedia.org/resource/Imagine_(John_Lennon_song)> }\n  {\n    ?song dbo:recordedIn ?place .\n  } UNION {\n    ?song dbp:recorded ?place .\n  } UNION {\n    ?song dbo:recorded ?place .\n  }\n  FILTER(isIRI(?place))\n  OPTIONAL { ?place rdfs:label ?placeLabel . FILTER(lang(?placeLabel) = 'en') }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:29-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/29-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where did the spouse of Aung San Suu Kyi go to school?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?school ?schoolLabel WHERE {\n  dbr:Michael_Aris (dbo:almaMater|dbp:almaMater|dbo:education|dbp:education) ?school .\n  OPTIONAL { ?school rdfs:label ?schoolLabel FILTER(lang(?schoolLabel) = 'en') }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:30-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde estudi\u00f3 el c\u00f3nyuge de Aung San Suu Kyi?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?spouse ?spouseLabel ?study ?studyLabel WHERE {\n  VALUES ?person { dbr:Aung_San_Suu_Kyi }\n  # spouse via dbo:spouse or dbp:spouse\n  { ?person dbo:spouse ?spouse } UNION { ?person dbp:spouse ?spouse }\n  # education/alma mater via several common predicates; allow literals too\n  OPTIONAL { ?spouse dbo:almaMater ?study . }\n  OPTIONAL { ?spouse dbo:education ?study . }\n  OPTIONAL { ?spouse dbp:almaMater ?study . }\n  OPTIONAL { ?spouse dbp:education ?study . }\n  # if study is literal return it as a literal node; otherwise get label\n  OPTIONAL { ?spouse rdfs:label ?spouseLabel FILTER(lang(?spouseLabel)='en') }\n  OPTIONAL { ?study rdfs:label ?studyLabel FILTER(lang(?studyLabel)='en') }\n  # also prefer to capture literal literal studies from dbp:* as ?studyLabel when ?study is a literal\n  BIND(IF(isLiteral(?study), STR(?study), ?studyLabel) AS ?studyLabelFinal)\n} LIMIT 50",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:30-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/30-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the birthplace of Barack Obama that is also the location of the University of Hawaii at Manoa?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?place ?placeLabel WHERE {\n  VALUES ?person { dbr:Barack_Obama }\n  VALUES ?univ { dbr:University_of_Hawaii_at_Manoa }\n\n  { ?person dbo:birthPlace ?place } UNION { ?person dbp:birthPlace ?place }\n\n  {\n    ?univ dbo:city ?place\n  } UNION {\n    ?univ dbp:city ?place\n  } UNION {\n    ?univ dbo:location ?place\n  } UNION {\n    ?univ dbp:location ?place\n  } .\n\n  OPTIONAL { ?place rdfs:label ?placeLabel FILTER(lang(?placeLabel) = 'en') }\n} LIMIT 20",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:31-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Barack Obama que tambi\u00e9n es la ubicaci\u00f3n de la Universidad de Haw\u00e1i en M\u0101noa?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?place ?placeLabel WHERE {\n  VALUES ?person { dbr:Barack_Obama }\n  VALUES ?uni { dbr:University_of_Hawaii_at_Manoa }\n\n  # birth place variants for the person\n  ?person (dbo:birthPlace|dbp:birthPlace) ?place .\n\n  # location variants for the university\n  ?uni (dbo:location|dbo:city|dbo:campus|dbo:locatedInArea|dbp:location) ?place .\n\n  OPTIONAL { ?place rdfs:label ?placeLabel FILTER(lang(?placeLabel) = 'en') }\n} LIMIT 50",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:31-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/31-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "How many rivers do structures designed by Gustave Eiffel cross?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT (COUNT(DISTINCT ?river) AS ?riverCount) WHERE {\n  VALUES ?person { dbr:Gustave_Eiffel }\n  {\n    ?structure dbo:designer ?person .\n  } UNION {\n    ?structure dbp:designer ?person .\n  } UNION {\n    ?structure dbo:engineer ?person .\n  } UNION {\n    ?structure dbp:engineer ?person .\n  }\n  {\n    ?structure dbo:crosses ?river .\n  } UNION {\n    ?structure dbp:crosses ?river .\n  }\n  FILTER(isIRI(?river))\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:32-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos r\u00edos cruzan las estructuras dise\u00f1adas por Gustave Eiffel?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT (COUNT(DISTINCT ?river) AS ?numRios) WHERE {\n  VALUES ?work { dbr:Casa_de_Fierro <http://dbpedia.org/resource/Eiffel_Bridge,_Ungheni> dbr:Garabit_viaduct dbr:Hacho_Bridge dbr:Maria_Pia_Bridge dbr:Souleuvre_Viaduct }\n  {\n    ?work dbo:crosses ?river .\n  } UNION {\n    ?work dbp:crosses ?river .\n  } UNION {\n    ?work dbo:river ?river .\n  } UNION {\n    ?work dbp:river ?river .\n  } UNION {\n    ?work dbo:waterway ?river .\n  } UNION {\n    ?work dbp:waterway ?river .\n  }\n  FILTER(isIRI(?river))\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:32-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/32-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where did the musical styles originate that are associated with Back to Black?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?genreLabel ?comment WHERE {\n  dbr:Back_to_Black (dbo:genre|dbp:genre) ?genre .\n  OPTIONAL { ?genre rdfs:label ?genreLabel FILTER(lang(?genreLabel)='en') }\n  OPTIONAL { ?genre rdfs:comment ?comment FILTER(lang(?comment)='en') }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:33-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde se originaron los estilos musicales asociados con Back to Black?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?genre ?genreLabel ?origin ?originLabel WHERE {\n  VALUES ?genre { <http://dbpedia.org/resource/Contemporary_R&B> dbr:Rhythm_and_blues dbr:Soul_music }\n  OPTIONAL { ?genre rdfs:label ?genreLabel FILTER(lang(?genreLabel)='en') }\n  OPTIONAL { ?genre dbo:regionalOrigin|dbo:origin|dbp:origin ?origin . }\n  OPTIONAL { ?origin rdfs:label ?originLabel FILTER(lang(?originLabel)='en') }\n  OPTIONAL {\n    ?genre dbp:origin ?originLit . FILTER(isLiteral(?originLit)) BIND(str(?originLit) AS ?originLabel)\n  }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:33-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/33-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What other countries speak the same language as Brazil's official one?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?country ?countryLabel WHERE {\n  VALUES ?lang { dbr:Portuguese_language }\n  ?country rdf:type dbo:Country .\n  ?country rdfs:label ?countryLabel .\n  FILTER(lang(?countryLabel) = 'en')\n  FILTER(?country != dbr:Brazil)\n  {\n    ?country dbo:officialLanguage ?lang .\n  } UNION {\n    ?country dbp:officialLanguage ?lang .\n  } UNION {\n    ?country dbp:officialLanguages ?lang .\n  }\n} ORDER BY ?countryLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:34-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otros pa\u00edses hablan el mismo idioma que el oficial de Brasil?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?country ?countryLabel WHERE {\n  ?country rdf:type dbo:Country .\n  ?country (dbo:officialLanguage|dbp:officialLanguages) dbr:Portuguese_language .\n  FILTER(?country NOT IN (dbr:Brazil, dbr:Portuguese_Empire, dbr:Cabe%C3%A7a_do_Cachorro, dbr:Macau))\n  OPTIONAL { ?country rdfs:label ?countryLabel FILTER(lang(?countryLabel)='en') }\n} ORDER BY ?countryLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:34-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/34-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name the island that is part of the Tuamotus archipelago and has its largest city named Rotoava.",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?island ?islandLabel WHERE {\n  ?island dbo:archipelago dbr:Tuamotus ;\n          dbo:largestCity dbr:Rotoava .\n  OPTIONAL { ?island rdfs:label ?islandLabel FILTER(lang(?islandLabel)='en') }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:35-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Nombra la isla que forma parte del archipi\u00e9lago de Tuamotu y cuya ciudad m\u00e1s grande se llama Rotoava.",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?island ?islandLabel WHERE {\n  ?island dbo:archipelago dbr:Tuamotu .\n  ?island rdfs:label ?islandLabel . FILTER(langMatches(lang(?islandLabel), \"EN\")) .\n  ?settlement ?p ?island .\n  ?settlement rdfs:label ?settlementLabel . FILTER(langMatches(lang(?settlementLabel), \"EN\")) .\n  FILTER regex(str(?settlementLabel), \"Rotoava\", \"i\")\n} LIMIT 50",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:35-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/35-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the land size of the country where the University of Oxford is located?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?country ?countryLabel ?areaTotal WHERE {\n  VALUES ?uni { dbr:University_of_Oxford }\n  { ?uni dbo:country ?country } UNION { ?uni dbp:country ?country }\n  OPTIONAL { ?country rdfs:label ?countryLabel . FILTER(lang(?countryLabel) = 'en') }\n  ?country dbo:areaTotal ?areaTotal .\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:36-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la superficie terrestre del pa\u00eds donde se encuentra la Universidad de Oxford?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?country ?countryLabel ?area WHERE {\n  dbr:University_of_Oxford dbo:country ?country .\n  OPTIONAL {\n    ?country (dbo:areaLand|dbo:areaTotal|dbo:area|dbp:areaKm2|dbp:area) ?area .\n  }\n  OPTIONAL { ?country rdfs:label ?countryLabel FILTER(lang(?countryLabel)='en') }\n} LIMIT 10",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:36-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/36-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the motto of the military unit in which Stewart Bovell served?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?unit ?unitLabel ?motto WHERE {\n  VALUES ?person { dbr:Stewart_Bovell }\n  {\n    ?person dbo:militaryBranch ?unit .\n  } UNION {\n    ?person dbp:allegiance ?unit .\n  } UNION {\n    ?person dbp:branch ?unit .\n  } UNION {\n    ?person dbp:service ?unit .\n  }\n  OPTIONAL { ?unit dbo:motto ?motto . }\n  OPTIONAL { ?unit dbp:motto ?motto . }\n  OPTIONAL { ?unit rdfs:label ?unitLabel FILTER(lang(?unitLabel)='en') }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:37-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lema de la unidad militar en la que sirvi\u00f3 Stewart Bovell?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?unit ?unitLabel ?motto WHERE {\n  VALUES ?person { dbr:Stewart_Bovell }\n  # try common predicates for military unit/branch\n  ?person (dbo:militaryUnit|dbp:unit|dbp:branch|dbo:militaryBranch|dbp:allegiance) ?unit .\n  OPTIONAL { ?unit dbo:motto ?motto . }\n  OPTIONAL { ?unit dbp:motto ?motto . }\n  OPTIONAL { ?unit rdfs:label ?unitLabel . FILTER(langMatches(lang(?unitLabel),\"EN\")) }\n}\nLIMIT 10",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:37-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/37-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which person has been married to both Jennifer Aniston and Angelina Jolie?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?person ?personLabel WHERE {\n  ?person a dbo:Person .\n  {\n    { ?person dbo:spouse dbr:Jennifer_Aniston }\n    UNION\n    { dbr:Jennifer_Aniston dbo:spouse ?person }\n    UNION\n    { ?person dbp:spouse dbr:Jennifer_Aniston }\n    UNION\n    { dbr:Jennifer_Aniston dbp:spouse ?person }\n  }\n  {\n    { ?person dbo:spouse dbr:Angelina_Jolie }\n    UNION\n    { dbr:Angelina_Jolie dbo:spouse ?person }\n    UNION\n    { ?person dbp:spouse dbr:Angelina_Jolie }\n    UNION\n    { dbr:Angelina_Jolie dbp:spouse ?person }\n  }\n  OPTIONAL { ?person rdfs:label ?personLabel FILTER(lang(?personLabel) = 'en') }\n} LIMIT 50",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:38-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 persona ha estado casada con Jennifer Aniston y Angelina Jolie?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?person ?personLabel WHERE {\n  VALUES ?actress { dbr:Jennifer_Aniston dbr:Angelina_Jolie }\n  ?actress (dbo:spouse|dbp:spouse) ?person .\n  OPTIONAL { ?person rdfs:label ?personLabel . FILTER(lang(?personLabel)='en') }\n}\nGROUP BY ?person ?personLabel\nHAVING (COUNT(DISTINCT ?actress) = 2)",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:38-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/38-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "List all the software that works on Linux and MacOS operating systems.",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT DISTINCT ?software (SAMPLE(?label) AS ?label) WHERE {\n  ?software rdf:type dbo:Software .\n  ?software (dbo:operatingSystem|dbp:operatingSystem) ?os .\n  ?os rdfs:label ?osLabel FILTER(lang(?osLabel)='en') .\n  ?software rdfs:label ?label FILTER(lang(?label)='en') .\n}\nGROUP BY ?software\nHAVING(\n  SUM(IF(CONTAINS(LCASE(?osLabel),'linux'),1,0))>0\n  && SUM(IF(CONTAINS(LCASE(?osLabel),'mac'),1,0))>0\n)\nORDER BY ?label",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:39-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 programas inform\u00e1ticos funcionan tanto en Linux como en MacOS?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?software ?softwareLabel WHERE {\n  ?software (dbo:operatingSystem|dbp:operatingSystem|dbp:operatingSystems) ?os1 .\n  ?software (dbo:operatingSystem|dbp:operatingSystem|dbp:operatingSystems) ?os2 .\n  ?os1 rdfs:label ?os1Label .\n  ?os2 rdfs:label ?os2Label .\n  FILTER(regex(lcase(str(?os1Label)),\"linux\"))\n  FILTER(regex(lcase(str(?os2Label)),\"mac|os x|mac os|macos\"))\n  OPTIONAL { ?software rdfs:label ?softwareLabel FILTER(lang(?softwareLabel)='es') }\n  OPTIONAL { ?software rdfs:label ?softwareLabel FILTER(lang(?softwareLabel)='en') }\n} ORDER BY ?softwareLabel LIMIT 200",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:39-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/39-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What academic affiliations can be found at universities in Metro Manila?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?aff ?affLabel WHERE {\n  ?uni rdf:type dbo:University .\n  ?uni (dbo:location|dbo:locatedInArea|dbp:location) ?city .\n  ?city dbo:isPartOf* dbr:Metro_Manila .\n  ?uni (dbo:affiliation|dbp:academicAffiliation|dbp:affiliations) ?aff .\n  OPTIONAL { ?aff rdfs:label ?affLabel FILTER(lang(?affLabel) = 'en') }\n} ORDER BY ?affLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:40-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 afiliaciones acad\u00e9micas se pueden encontrar en las universidades de Metro Manila?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?aff (SAMPLE(?affLabel) AS ?affLabelSample) WHERE {\n  VALUES ?metro { dbr:Metro_Manila }\n  ?uni rdf:type dbo:University .\n  { ?uni dbo:location ?metro } UNION { ?uni dbo:locatedInArea ?metro } UNION { ?uni dbo:isPartOf ?metro } UNION { ?uni dbp:location ?loc FILTER(regex(lcase(str(?loc)), \"metro manila\")) }\n  OPTIONAL { ?uni (dbo:affiliation|dbp:affiliation|dbp:academicAffiliation) ?aff }\n  OPTIONAL { ?aff rdfs:label ?affLabel FILTER(lang(?affLabel) = 'en') }\n}\nGROUP BY ?aff\nORDER BY ?affLabelSample",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:40-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/40-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which other firearms were designed by the creator of the AK-47?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?weapon ?weaponLabel WHERE {\n  ?weapon (dbo:designer | dbp:designer) dbr:Mikhail_Kalashnikov .\n  OPTIONAL { ?weapon rdfs:label ?weaponLabel . FILTER(lang(?weaponLabel) = 'en') }\n} ORDER BY ?weaponLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:41-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otras armas de fuego fueron dise\u00f1adas por el creador del AK-47?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?weapon ?label WHERE {\n  { ?weapon dbo:designer dbr:Mikhail_Kalashnikov }\n  UNION\n  { ?weapon dbp:designer dbr:Mikhail_Kalashnikov }\n  FILTER(?weapon != dbr:AK-47)\n  OPTIONAL { ?weapon rdfs:label ?label FILTER(lang(?label) = 'en') }\n} ORDER BY ?label",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:41-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/41-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which band's former members are Nick Jonas and Joe Jonas?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?band ?bandLabel WHERE {\n  dbr:Nick_Jonas a ?t1 .\n  dbr:Joe_Jonas a ?t2 .\n  ?band (dbo:bandMember|dbp:pastMembers|dbp:members|dbp:currentMembers) dbr:Nick_Jonas .\n  ?band (dbo:bandMember|dbp:pastMembers|dbp:members|dbp:currentMembers) dbr:Joe_Jonas .\n  OPTIONAL { ?band rdfs:label ?bandLabel FILTER(lang(?bandLabel)='en') }\n} LIMIT 50",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:42-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfDe qu\u00e9 banda fueron exmiembros Nick Jonas y Joe Jonas?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nSELECT ?band ?bandLabel WHERE { BIND(dbr:Jonas_Brothers AS ?band) OPTIONAL { ?band rdfs:label ?bandLabel FILTER(lang(?bandLabel)='en') } }",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:42-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/42-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the birth place of the athlete trained by Ring of Honor?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?athlete ?athleteLabel ?birthPlace ?birthPlaceLabel WHERE {\n  VALUES ?prom { dbr:Ring_of_Honor }\n  ?athlete (dbo:trainer|dbp:trainer|dbp:trainers) ?prom .\n  OPTIONAL { ?athlete (dbo:birthPlace|dbp:birthPlace) ?birthPlace .\n             OPTIONAL { ?birthPlace rdfs:label ?birthPlaceLabel FILTER(lang(?birthPlaceLabel)='en') }\n           }\n  OPTIONAL { ?athlete rdfs:label ?athleteLabel FILTER(lang(?athleteLabel)='en') }\n  FILTER(isIRI(?athlete))\n} ORDER BY ?athleteLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:43-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento del atleta entrenado por Ring of Honor?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?athlete ?athleteLabel ?birthplace ?birthplaceLabel WHERE {\n  VALUES ?org { dbr:Ring_of_Honor }\n  ?athlete (dbo:trainer|dbp:trainer) ?org .\n  ?athlete rdf:type dbo:Person .\n  OPTIONAL { ?athlete (dbo:birthPlace|dbp:birthPlace) ?birthplace }\n  OPTIONAL { ?athlete rdfs:label ?athleteLabel FILTER(lang(?athleteLabel)='en') }\n  OPTIONAL { ?birthplace rdfs:label ?birthplaceLabel FILTER(lang(?birthplaceLabel)='en') }\n} LIMIT 100",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:43-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/43-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What other honors have recipients of the Presidential Medal of Freedom received?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?otherAward ?otherAwardLabel WHERE {\n  ?person a dbo:Person .\n  {\n    ?person dbo:award dbr:Presidential_Medal_of_Freedom .\n  } UNION {\n    ?person dbp:award dbr:Presidential_Medal_of_Freedom .\n  } UNION {\n    ?person dbp:awards dbr:Presidential_Medal_of_Freedom .\n  } UNION {\n    ?person dbp:honors dbr:Presidential_Medal_of_Freedom .\n  }\n\n  # other awards the same person has\n  {\n    ?person dbo:award ?otherAward .\n  } UNION {\n    ?person dbp:award ?otherAward .\n  } UNION {\n    ?person dbp:awards ?otherAward .\n  } UNION {\n    ?person dbp:honors ?otherAward .\n  }\n\n  FILTER(?otherAward != dbr:Presidential_Medal_of_Freedom)\n  OPTIONAL { ?otherAward rdfs:label ?otherAwardLabel FILTER(lang(?otherAwardLabel) = 'en') }\n} ORDER BY ?otherAwardLabel",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:44-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otros honores han recibido los destinatarios de la Medalla Presidencial de la Libertad?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?recipient ?recipientLabel ?otherAward ?otherAwardLabel WHERE {\n  VALUES ?medal { dbr:Presidential_Medal_of_Freedom }\n  {\n    ?recipient (dbo:award|dbp:awards) ?medal .\n  }\n  ?recipient rdf:type dbo:Person .\n  ?recipient rdfs:label ?recipientLabel FILTER(lang(?recipientLabel)='en')\n  ?recipient (dbo:award|dbp:awards|dbp:honours|dbp:honors) ?otherAward .\n  FILTER(?otherAward != ?medal)\n  OPTIONAL { ?otherAward rdfs:label ?otherAwardLabel FILTER(lang(?otherAwardLabel)='en') }\n}\nLIMIT 200",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:44-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/44-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which saints were venerated in Christianity?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT DISTINCT ?saint ?label WHERE { ?saint rdf:type dbo:Saint . ?saint rdfs:label ?label . FILTER(lang(?label) = 'en') } ORDER BY ?label LIMIT 200",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:45-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 santos fueron venerados en el cristianismo?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?saint ?labelEN ?labelES WHERE {\n  ?saint rdf:type dbo:Saint .\n  {\n    ?saint dbo:veneratedIn dbr:Christianity .\n  } UNION {\n    ?saint dbp:veneratedIn dbr:Christianity .\n  } UNION {\n    ?saint dbp:venerated dbr:Christianity .\n  } UNION {\n    ?saint dbo:veneratedIn ?church .\n    ?church rdfs:label ?churchLabel .\n    FILTER(LCASE(STR(?churchLabel)) = \"christianity\"@en || regex(LCASE(STR(?churchLabel)), \"christianity\"))\n  }\n  OPTIONAL { ?saint rdfs:label ?labelEN . FILTER(lang(?labelEN) = 'en') }\n  OPTIONAL { ?saint rdfs:label ?labelES . FILTER(lang(?labelES) = 'es') }\n} LIMIT 200",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:45-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/45-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which city is the radio station located in that is a sister station of WXME?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?sister ?sisterLabel ?city ?cityLabel WHERE {\n  VALUES ?station { dbr:WXME }\n  {\n    ?station dbo:sisterStation ?sister .\n  } UNION {\n    ?station dbp:sisterStations ?sister .\n  }\n  OPTIONAL { ?sister dbo:city ?city . }\n  OPTIONAL { ?sister dbo:location ?city . }\n  OPTIONAL { ?sister dbp:city ?city . }\n  OPTIONAL { ?sister dbo:licensedToServe ?city . }\n  OPTIONAL { ?sister dbp:licensedToServe ?city . }\n  OPTIONAL { ?sister rdfs:label ?sisterLabel . FILTER(lang(?sisterLabel)='en') }\n  OPTIONAL { ?city rdfs:label ?cityLabel . FILTER(lang(?cityLabel)='en') }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:46-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 ciudad est\u00e1 ubicada la emisora de radio que es una estaci\u00f3n hermana de WXME?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?s ?sLabel ?city ?cityLabel WHERE {\n  VALUES ?me { dbr:WXME }\n  {\n    ?me dbo:sisterStation ?s .\n  } UNION {\n    ?me dbp:sisterStations ?s .\n  }\n  OPTIONAL { ?s rdfs:label ?sLabel . FILTER(lang(?sLabel) = 'en') }\n  OPTIONAL {\n    { ?s dbo:city ?city } UNION { ?s dbp:city ?city } UNION { ?s dbo:location ?city }\n    OPTIONAL { ?city rdfs:label ?cityLabel . FILTER(lang(?cityLabel) = 'en') }\n  }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:46-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/46-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the name of the river that has its source in Lake Itasca and its river mouth located in Gulf of Mexico?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT DISTINCT ?river WHERE {\n  ?river rdf:type ?t .\n  ?river rdfs:comment ?c .\n  FILTER(regex(str(?c), \"Lake Itasca\", \"i\") && regex(str(?c), \"Gulf of Mexico\", \"i\"))\n  FILTER(EXISTS { ?river dbo:type dbr:River } || EXISTS { ?river dbo:river ?any } || EXISTS { ?river dbo:mouth ?m } )\n} LIMIT 10",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:47-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el nombre del r\u00edo que nace en el lago Itasca y desemboca en el Golfo de M\u00e9xico?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT DISTINCT ?river ?label WHERE {\n  VALUES ?lake { dbr:Lake_Itasca }\n  VALUES ?sea  { dbr:Gulf_of_Mexico }\n\n  {\n    ?river (dbo:source|dbo:sourceLocation|dbp:source) ?lake .\n  }\n  UNION\n  {\n    ?river (dbo:origin|dbp:origin) ?lake .\n  }\n\n  {\n    ?river (dbo:mouth|dbo:mouthLocation|dbp:mouth) ?sea .\n  }\n  UNION\n  {\n    ?river (dbo:dischargeLocation|dbp:discharge) ?sea .\n  }\n\n  OPTIONAL { ?river rdfs:label ?label . FILTER(lang(?label) IN ('en','es')) }\n} LIMIT 10",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:47-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/47-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "For how many other teams have the members of HC Slovan Bratislava played?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT (COUNT(DISTINCT ?other) AS ?count) WHERE {\n  # players who have (at some point) played for HC Slovan Bratislava\n  {\n    ?player dbo:team dbr:HC_Slovan_Bratislava .\n  } UNION {\n    ?player dbp:team dbr:HC_Slovan_Bratislava .\n  } UNION {\n    ?player dbp:teams dbr:HC_Slovan_Bratislava .\n  }\n\n  # other teams these players have played for (capture multiple modeling variants)\n  {\n    ?player dbo:team ?other .\n  } UNION {\n    ?player dbp:team ?other .\n  } UNION {\n    ?player dbp:teams ?other .\n  }\n\n  FILTER(isIRI(?other))\n  FILTER(?other != dbr:HC_Slovan_Bratislava)\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:48-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfPara cu\u00e1ntos otros equipos han jugado los miembros del HC Slovan Bratislava?",
+    "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT ?player (SAMPLE(?labelEN) AS ?label) (COUNT(DISTINCT ?otherTeam) AS ?otherTeams) WHERE {\n  ?player a dbo:Person .\n  {\n    ?player dbo:team dbr:HC_Slovan_Bratislava .\n  } UNION {\n    ?player dbp:team dbr:HC_Slovan_Bratislava .\n  } UNION {\n    ?player dbp:formerTeam dbr:HC_Slovan_Bratislava .\n  } UNION {\n    ?player dbo:formerTeam dbr:HC_Slovan_Bratislava .\n  }\n  {\n    ?player dbo:team ?otherTeam .\n  } UNION {\n    ?player dbp:team ?otherTeam .\n  } UNION {\n    ?player dbp:formerTeam ?otherTeam .\n  } UNION {\n    ?player dbo:formerTeam ?otherTeam .\n  }\n  FILTER(?otherTeam != dbr:HC_Slovan_Bratislava)\n  OPTIONAL { ?player rdfs:label ?labelEN FILTER(lang(?labelEN)='en') }\n} GROUP BY ?player\nORDER BY DESC(?otherTeams)",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:48-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/48-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the population difference between Tokyo and Delhi?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?tokyo ?delhi ?popTokyo ?popDelhi (?popDelhi - ?popTokyo AS ?populationDifference) WHERE {\n  BIND(dbr:Tokyo AS ?tokyo)\n  BIND(dbr:Delhi AS ?delhi)\n  OPTIONAL { ?tokyo dbo:populationTotal ?tokyo_dbo . }\n  OPTIONAL { ?tokyo dbp:populationTotal ?tokyo_dbp . }\n  OPTIONAL { ?tokyo dbo:populationMetro ?tokyo_metro . }\n  OPTIONAL { ?tokyo dbp:populationMetro ?tokyo_metro_dbp . }\n  OPTIONAL { ?delhi dbo:populationTotal ?delhi_dbo . }\n  OPTIONAL { ?delhi dbp:populationTotal ?delhi_dbp . }\n  OPTIONAL { ?delhi dbo:populationMetro ?delhi_metro . }\n  OPTIONAL { ?delhi dbp:populationMetro ?delhi_metro_dbp . }\n  BIND(COALESCE(xsd:integer(?tokyo_dbo), xsd:integer(?tokyo_dbp), xsd:integer(?tokyo_metro), xsd:integer(?tokyo_metro_dbp)) AS ?popTokyo)\n  BIND(COALESCE(xsd:integer(?delhi_dbo), xsd:integer(?delhi_dbp), xsd:integer(?delhi_metro), xsd:integer(?delhi_metro_dbp)) AS ?popDelhi)\n}\nLIMIT 1",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:49-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la diferencia de poblaci\u00f3n entre Tokio y Delhi?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?tokyo ?delhi ?popTokyo ?popDelhi (ABS(xsd:integer(?popTokyo) - xsd:integer(?popDelhi)) AS ?difference) WHERE {\n  VALUES ?tokyo { dbr:Tokyo }\n  VALUES ?delhi { dbr:Delhi }\n\n  OPTIONAL { ?tokyo dbo:populationTotal ?p1. }\n  OPTIONAL { ?tokyo dbp:populationTotal ?p1b. }\n  OPTIONAL { ?tokyo dbo:populationMetro ?p1c. }\n  BIND( COALESCE(?p1, ?p1b, ?p1c) AS ?popTokyo )\n\n  OPTIONAL { ?delhi dbo:populationTotal ?q1. }\n  OPTIONAL { ?delhi dbp:populationTotal ?q1b. }\n  OPTIONAL { ?delhi dbo:populationMetro ?q1c. }\n  BIND( COALESCE(?q1, ?q1b, ?q1c) AS ?popDelhi )\n\n  FILTER(BOUND(?popTokyo) && BOUND(?popDelhi))\n}LIMIT 1",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:49-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/49-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "How many movies there are in French language?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT (COUNT(DISTINCT ?film) AS ?count) WHERE {\n  ?film rdf:type ?t .\n  VALUES ?t { dbo:Film dbo:Work }\n  {\n    ?film dbo:language dbr:French_language .\n  } UNION {\n    ?film dbp:language dbr:French_language .\n  } UNION {\n    ?film dbp:language ?langLit .\n    FILTER(regex(lcase(str(?langLit)), \"french\"))\n  } UNION {\n    ?film dbo:language ?langLit2 .\n    FILTER(regex(lcase(str(?langLit2)), \"french\"))\n  }\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:50-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas hay en idioma franc\u00e9s?",
+    "query": "PREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nSELECT (COUNT(DISTINCT ?film) AS ?count) WHERE {\n  ?film a ?type .\n  FILTER(?type IN (dbo:Film, dbo:Work)) .\n  ?film (dbo:language|dbp:language) ?lang .\n  FILTER( ?lang = dbr:French_language || (isLiteral(?lang) && regex(str(?lang), \"French\", \"i\")) )\n}",
+    "endpoint": "https://grasp.cs.uni-freiburg.de/text2sparql-2026/",
+    "qname": "db26:50-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/50-es"
+  }
+]

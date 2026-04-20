@@ -1,0 +1,778 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department does Ms. Brant belong to?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  <http://ld.company.org/prod-instances/empl-Karen.Brant%40company.org> <http://ld.company.org/prod-vocab/memberOf> ?dept .\n  ?dept <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:1-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Zu welcher Abteilung geh\u00f6rt Frau Brant?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  <http://ld.company.org/prod-instances/empl-Karen.Brant%40company.org> <http://ld.company.org/prod-vocab/memberOf> ?dept .\n  ?dept <http://ld.company.org/prod-vocab/name> ?name .\n  ?dept a <http://ld.company.org/prod-vocab/Department> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:1-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/1-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What's Baldwin Dirksen's phone number?",
+    "query": "SELECT DISTINCT ?phone WHERE {\n  <http://ld.company.org/prod-instances/empl-Baldwin.Dirksen%40company.org> <http://ld.company.org/prod-vocab/phone> ?phone .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:2-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie lautet Baldwin Dirksens Telefonnummer?",
+    "query": "SELECT DISTINCT ?phone WHERE {\n  <http://ld.company.org/prod-instances/empl-Baldwin.Dirksen%40company.org> <http://ld.company.org/prod-vocab/phone> ?phone .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:2-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/2-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is Heinrich Hoch's manager?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  <http://ld.company.org/prod-instances/empl-Heinrich.Hoch%40company.org> <http://ld.company.org/prod-vocab/hasManager> ?mgr .\n  ?mgr <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:3-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist Heinrich Hochs Manager?",
+    "query": "SELECT ?name WHERE {\n  <http://ld.company.org/prod-instances/empl-Heinrich.Hoch%40company.org> <http://ld.company.org/prod-vocab/hasManager> ?mgr .\n  ?mgr <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:3-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/3-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you tell me Sabrina's email address from the Marketing department?",
+    "query": "SELECT DISTINCT ?email WHERE {\n  <http://ld.company.org/prod-instances/empl-Sabrina.Bayer%40company.org> <http://ld.company.org/prod-vocab/memberOf> <http://ld.company.org/prod-instances/dept-85880> .\n  <http://ld.company.org/prod-instances/empl-Sabrina.Bayer%40company.org> <http://ld.company.org/prod-vocab/email> ?email .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:4-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie mir bitte Sabrinas E-Mail-Adresse aus der Marketingabteilung geben?",
+    "query": "SELECT DISTINCT ?email WHERE {\n  ?employee <http://ld.company.org/prod-vocab/email> ?email .\n  ?employee <http://ld.company.org/prod-vocab/memberOf> <http://ld.company.org/prod-instances/dept-85880> .\n  ?employee <http://ld.company.org/prod-vocab/name> ?empName .\n  FILTER(CONTAINS(LCASE(?empName), \"sabrina\"))\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:4-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/4-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is knowledgeable about transistors?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?emp <http://ld.company.org/prod-vocab/areaOfExpertise> <http://ld.company.org/prod-instances/prod-cat-Transistor> .\n  ?emp <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:5-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer kennt sich mit Transistoren aus?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?emp <http://ld.company.org/prod-vocab/areaOfExpertise> <http://ld.company.org/prod-instances/prod-cat-Transistor> .\n  ?emp <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:5-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/5-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is our sensor specialist?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?emp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Employee> .\n  ?emp <http://ld.company.org/prod-vocab/areaOfExpertise> <http://ld.company.org/prod-instances/prod-cat-Sensor> .\n  ?emp <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:6-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist unser Sensor-Spezialist?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?emp <http://ld.company.org/prod-vocab/hasProductManager> <http://ld.company.org/prod-instances/prod-cat-Sensor> .\n  ?emp <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:6-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/6-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who heads the Data Services department?",
+    "query": "SELECT ?name WHERE {\n  <http://ld.company.org/prod-instances/dept-41622> <http://ld.company.org/prod-vocab/hasManager> ?mgr .\n  ?mgr <http://ld.company.org/prod-vocab/name> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:7-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer leitet die Abteilung f\u00fcr Datenmanagement?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  <http://ld.company.org/prod-instances/dept-41622> <http://ld.company.org/prod-vocab/hasManager> ?manager .\n  ?manager <http://ld.company.org/prod-vocab/name> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:7-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/7-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department handles the Sensor Switch M558-2275045?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  <http://ld.company.org/prod-instances/hw-M558-2275045> <http://ld.company.org/prod-vocab/responsibleFor> ?dept .\n  ?dept <http://ld.company.org/prod-vocab/name> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:8-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilung ist f\u00fcr den Sensor-Schalter M558-2275045 zust\u00e4ndig?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?dept <http://ld.company.org/prod-vocab/hasProductManager> <http://ld.company.org/prod-instances/hw-M558-2275045> .\n  ?dept <http://ld.company.org/prod-vocab/name> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:8-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/8-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many different Sensor Switches do we offer?",
+    "query": "SELECT (COUNT(DISTINCT ?product) AS ?count) WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Sensor> .\n  ?product a <http://ld.company.org/prod-vocab/Product> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:9-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele verschiedene Sensor-Schalter bieten wir an?",
+    "query": "SELECT (COUNT(DISTINCT ?product) AS ?count) WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Switch> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:9-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/9-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is the network expert in the marketing department?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?emp <http://ld.company.org/prod-vocab/areaOfExpertise> <http://ld.company.org/prod-instances/prod-cat-Network> .\n  ?emp <http://ld.company.org/prod-vocab/memberOf> <http://ld.company.org/prod-instances/dept-85880> .\n  ?emp <http://ld.company.org/prod-vocab/name> ?name .\n  ?emp a <http://ld.company.org/prod-vocab/Employee> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:10-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist der Netzwerkspezialist in der Marketingabteilung?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?emp <http://ld.company.org/prod-vocab/memberOf> <http://ld.company.org/prod-instances/dept-85880> .\n  ?emp <http://ld.company.org/prod-vocab/areaOfExpertise> <http://ld.company.org/prod-instances/prod-cat-Network> .\n  ?emp <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:10-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/10-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which departments have transducer experts?",
+    "query": "SELECT DISTINCT ?deptName WHERE {\n  ?dept <http://ld.company.org/prod-vocab/hasPart> ?emp .\n  ?emp <http://ld.company.org/prod-vocab/areaOfExpertise> <http://ld.company.org/prod-instances/prod-cat-Transducer> .\n  ?dept <http://ld.company.org/prod-vocab/name> ?deptName .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:11-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilungen haben Experten f\u00fcr Sensoren/Wandler?",
+    "query": "SELECT DISTINCT ?deptName WHERE {\n  ?emp <http://ld.company.org/prod-vocab/areaOfExpertise> <http://ld.company.org/prod-instances/prod-cat-Sensor> .\n  ?emp <http://ld.company.org/prod-vocab/memberOf> ?dept .\n  ?dept <http://ld.company.org/prod-vocab/name> ?deptName .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:11-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/11-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which suppliers can deliver compensators?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Compensator> .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n  ?supplier a <http://ld.company.org/prod-vocab/Supplier> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:12-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Lieferanten k\u00f6nnen Kompensatoren liefern?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Compensator> .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:12-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/12-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many of our suppliers are based in France?",
+    "query": "SELECT (COUNT(?s) AS ?count) WHERE {\n  ?s <http://ld.company.org/prod-vocab/addressCountry> \"France\" .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:13-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele unserer Lieferanten haben ihren Sitz in Frankreich?",
+    "query": "SELECT (COUNT(?s) AS ?count) WHERE {\n  ?s <http://ld.company.org/prod-vocab/country> \"France\" .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:13-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/13-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which supplier in France provides compensators?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?supplier <http://ld.company.org/prod-vocab/addressCountry> \"France\" .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Compensator> .\n  ?supplier <http://ld.company.org/prod-vocab/name> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:14-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Lieferant in Frankreich bietet Kompensatoren an?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?s <http://ld.company.org/prod-vocab/country> <http://dbpedia.org/resource/France> .\n  ?p <http://ld.company.org/prod-vocab/hasSupplier> ?s .\n  ?p <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Compensator> .\n  ?s <http://ld.company.org/prod-vocab/name> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:14-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/14-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which encoder is the most affordable from a French or German supplier?",
+    "query": "SELECT DISTINCT ?product ?name ?amount WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Encoder> .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/addressCountry> ?country .\n  FILTER(STR(?country) CONTAINS \"France\" || STR(?country) CONTAINS \"Germany\") .\n  ?product <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?amount .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}\nORDER BY ASC(?amount)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:15-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Encoder ist von einem franz\u00f6sischen oder deutschen Anbieter am g\u00fcnstigsten?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Encoder> .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  FILTER(?supplier = <http://ld.company.org/prod-instances/suppl-9e95d78d-7f95-4752-9e1f-d522e67e63d7> || ?supplier = <http://ld.company.org/prod-instances/suppl-0d183bba-b1df-4c41-be10-c0896378b406>) .\n  ?product <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?amount .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}\nORDER BY ?amount\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:15-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/15-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Are there any suppliers we have in Toulouse?",
+    "query": "ASK WHERE {\n  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Supplier> .\n  ?s <http://ld.company.org/prod-vocab/addressLocality> \"Toulouse\" .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:16-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Haben wir Lieferanten in Toulouse?",
+    "query": "ASK WHERE {\n  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Supplier> .\n  ?s <http://ld.company.org/prod-vocab/addressLocality> \"Toulouse\" .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:16-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/16-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who are our suppliers in Toulouse?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Supplier> .\n  ?s <http://ld.company.org/prod-vocab/addressLocality> \"Toulouse\" .\n  ?s <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:17-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer sind unsere Lieferanten in Toulouse?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Supplier> .\n  ?s <http://ld.company.org/prod-vocab/addressLocality> \"Toulouse\" .\n  ?s <http://ld.company.org/prod-vocab/name> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:17-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/17-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which oscillator do we offer at the lowest price?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Oscillator> .\n  ?product <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?amount .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}\nORDER BY ASC(?amount)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:18-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welchen Oszillator bieten wir zum niedrigsten Preis an?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Oscillator> .\n  ?product <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?amount .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}\nORDER BY ASC(?amount)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:18-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/18-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which of our services is the most expensive?",
+    "query": "SELECT ?service ?amount WHERE {\n  ?service <http://ld.company.org/prod-vocab/price> ?amount .\n}\nORDER BY DESC(?amount)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:19-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche unserer Dienstleistungen ist die teuerste?",
+    "query": "SELECT DISTINCT ?service ?amount WHERE {\n  ?service a <http://ld.company.org/prod-vocab/Service> .\n  ?service <http://ld.company.org/prod-vocab/price> ?amount .\n}\nORDER BY DESC(?amount)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:19-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/19-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who oversees the most expensive service we offer?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?service <http://ld.company.org/prod-vocab/hasProductManager> ?emp .\n  ?emp <http://ld.company.org/prod-vocab/name> ?name .\n  ?service <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?amount .\n}\nORDER BY DESC(?amount)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:20-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist f\u00fcr unsere teuerste Dienstleistung verantwortlich?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?service <http://ld.company.org/prod-vocab/hasProductManager> ?emp .\n  ?service <http://ld.company.org/prod-vocab/price> ?amount .\n  ?emp <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}\nORDER BY DESC(?amount)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:20-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/20-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which coil is the heaviest while still fitting within a 15mm x 15mm base area?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Coil> .\n  ?product <http://ld.company.org/prod-vocab/width_mm> ?width .\n  ?product <http://ld.company.org/prod-vocab/depth_mm> ?depth .\n  ?product <http://ld.company.org/prod-vocab/weight_g> ?weight .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n  FILTER(?width <= 15 && ?depth <= 15)\n}\nORDER BY DESC(?weight)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:21-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Spule ist am schwersten, w\u00e4hrend sie noch in einen Grundbereich von 15 mm x 15 mm passt?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Coil> .\n  ?product <http://ld.company.org/prod-vocab/width_mm> ?width .\n  ?product <http://ld.company.org/prod-vocab/depth_mm> ?depth .\n  ?product <http://ld.company.org/prod-vocab/weight_g> ?weight .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n  FILTER (?width <= 15 && ?depth <= 15)\n}\nORDER BY DESC(?weight)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:21-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/21-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which products can be used with the U990 LCD Inductor?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  <http://ld.company.org/prod-instances/hw-U990-5234138> <http://ld.company.org/prod-vocab/compatibleProduct> ?product .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:22-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Produkte k\u00f6nnen mit dem U990 LCD-Induktor verwendet werden?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  <http://ld.company.org/prod-instances/hw-U990-5234138> <http://ld.company.org/prod-vocab/compatibleProduct> ?product .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n  FILTER(STRLEN(?name) > 0)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:22-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/22-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which products from US suppliers are compatible with the U990 LCD inductor?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?product <http://ld.company.org/prod-vocab/compatibleProduct> <http://ld.company.org/prod-instances/hw-U990-5234138> .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/addressCountry> \"US\" .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:23-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Produkte von US-amerikanischen Lieferanten sind mit dem U990-LCD-Induktor kompatibel?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  <http://ld.company.org/prod-instances/hw-U990-5234138> <http://ld.company.org/prod-vocab/compatibleProduct> ?product .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/addressCountry> \"USA\" .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:23-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/23-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which potentiometer has the smallest volume?",
+    "query": "SELECT DISTINCT ?name ?volume WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Potentiometer> .\n  ?product <http://ld.company.org/prod-vocab/height_mm> ?h .\n  ?product <http://ld.company.org/prod-vocab/width_mm> ?w .\n  ?product <http://ld.company.org/prod-vocab/depth_mm> ?d .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n  BIND(?h * ?w * ?d AS ?volume)\n}\nORDER BY ASC(?volume)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:24-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welches Potentiometer hat das kleinste Volumen?",
+    "query": "SELECT DISTINCT ?name WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Potentiometer> .\n  ?product <http://ld.company.org/prod-vocab/height_mm> ?height .\n  ?product <http://ld.company.org/prod-vocab/width_mm> ?width .\n  ?product <http://ld.company.org/prod-vocab/depth_mm> ?depth .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n  BIND(?height * ?width * ?depth AS ?volume)\n}\nORDER BY ASC(?volume)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:24-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/24-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which coil has the greatest density?",
+    "query": "SELECT DISTINCT ?product ?name ?density WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Coil> .\n  ?product <http://ld.company.org/prod-vocab/weight_g> ?density .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}\nORDER BY DESC(?density)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:25-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Spule hat die gr\u00f6\u00dfte Dichte?",
+    "query": "SELECT DISTINCT ?product ?name ?density WHERE {\n  ?product <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Hardware> .\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n  ?product <http://ld.company.org/prod-vocab/weight_g> ?weight .\n  ?product <http://ld.company.org/prod-vocab/height_mm> ?height .\n  ?product <http://ld.company.org/prod-vocab/width_mm> ?width .\n  ?product <http://ld.company.org/prod-vocab/depth_mm> ?depth .\n  BIND(?weight / (?height * ?width * ?depth) AS ?density)\n}\nORDER BY DESC(?density)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:25-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/25-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which cities are our US LCD suppliers located in?",
+    "query": "SELECT DISTINCT ?city WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-LCD> .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/country> <http://ld.company.org/prod-instances/country-US> .\n  ?supplier <http://ld.company.org/prod-vocab/addressLocality> ?city .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:26-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "In welchen St\u00e4dten befinden sich unsere US-amerikanischen LCD-Lieferanten?",
+    "query": "SELECT DISTINCT ?city WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-LCD> .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/addressCountry> <http://dbpedia.org/resource/United_States> .\n  ?supplier <http://ld.company.org/prod-vocab/addressLocality> ?city .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:26-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/26-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you provide a staff phone directory that includes the name, email, and phone number of every employee who doesn\u2019t manage anyone, sorted alphabetically by name?",
+    "query": "SELECT DISTINCT ?name ?email ?phone WHERE {\n  ?emp <http://ld.company.org/prod-vocab/name> ?name .\n  ?emp <http://ld.company.org/prod-vocab/email> ?email .\n  ?emp <http://ld.company.org/prod-vocab/phone> ?phone .\n  FILTER NOT EXISTS { ?emp <http://ld.company.org/prod-vocab/hasDirectReport> ?report . }\n}\nORDER BY ?name",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:27-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie ein Telefonverzeichnis f\u00fcr die Mitarbeiter erstellen, das den Namen, die E-Mail-Adresse und die Telefonnummer aller Mitarbeiter enth\u00e4lt, die keine leitende Position innehaben, und dieses alphabetisch nach Namen sortieren?",
+    "query": "SELECT DISTINCT ?name ?email ?phone WHERE {\n  ?emp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Employee> .\n  ?emp <http://ld.company.org/prod-vocab/name> ?name .\n  ?emp <http://ld.company.org/prod-vocab/email> ?email .\n  ?emp <http://ld.company.org/prod-vocab/phone> ?phone .\n  FILTER NOT EXISTS { ?emp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Manager> }\n}\nORDER BY ?name",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:27-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/27-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Is there a service that can handle a BOM containing parts sourced from Russia?",
+    "query": "ASK WHERE {\n  ?service <http://ld.company.org/prod-vocab/eligibleFor> ?product .\n  ?product <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n  ?bomPart <http://ld.company.org/prod-vocab/hasPart> ?part .\n  ?part <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/addressCountry> \"Russia\" .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:28-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Gibt es einen Dienst, der eine St\u00fcckliste (BOM) mit aus Russland bezogenen Bauteilen verarbeiten kann?",
+    "query": "ASK WHERE {\n  ?service <http://ld.company.org/prod-vocab/eligibleFor> ?product .\n  ?product <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n  ?bomPart <http://ld.company.org/prod-vocab/hasPart> ?component .\n  ?component <http://ld.company.org/prod-vocab/country> <http://ld.company.org/prod-instances/suppl-ac3591e8-16d9-4c35-a73e-7ee8466155c6> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:28-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/28-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which suppliers\u2014including their name, country, and price\u2014provide the hardware items that rank from the 6th to the 10th most expensive?",
+    "query": "SELECT DISTINCT ?supplierName ?country ?priceAmount WHERE {\n  {\n    SELECT ?product ?priceAmount WHERE {\n      ?product <http://ld.company.org/prod-vocab/price> ?price .\n      ?price <http://ld.company.org/prod-vocab/amount> ?priceAmount .\n      ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-vocab/Hardware> .\n    }\n    ORDER BY DESC(?priceAmount)\n    LIMIT 5\n    OFFSET 5\n  }\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/name> ?supplierName .\n  ?supplier <http://ld.company.org/prod-vocab/addressCountry> ?country .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:29-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Lieferanten - einschlie\u00dflich Name, Land und Preis - liefern die Hardwareartikel, die vom 6. bis zum 10. teuersten Artikel geh\u00f6ren?",
+    "query": "SELECT DISTINCT ?supplierName ?country ?priceAmount ?currency WHERE {\n  ?hw <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?hw <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?priceAmount .\n  ?price <http://ld.company.org/prod-vocab/currency> ?currency .\n  ?supplier <http://www.w3.org/2000/01/rdf-schema#label> ?supplierName .\n  ?supplier <http://ld.company.org/prod-vocab/addressCountry> ?country .\n  ?hw <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Hardware> .\n}\nORDER BY DESC(?priceAmount)\nOFFSET 5\nLIMIT 5",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:29-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/29-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which departments have more than five employees, and could you list each department's name together with its employee count?",
+    "query": "SELECT ?deptName (COUNT(?emp) AS ?empCount) WHERE {\n  ?emp <http://ld.company.org/prod-vocab/memberOf> ?dept .\n  ?dept <http://ld.company.org/prod-vocab/name> ?deptName .\n} GROUP BY ?deptName HAVING (COUNT(?emp) > 5)",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:30-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilungen haben mehr als f\u00fcnf Mitarbeiter, und k\u00f6nnten Sie den Namen jeder Abteilung zusammen mit der Anzahl ihrer Mitarbeiter auflisten?",
+    "query": "SELECT ?deptName (COUNT(?emp) AS ?empCount) WHERE {\n  ?emp <http://ld.company.org/prod-vocab/memberOf> ?dept .\n  ?dept <http://ld.company.org/prod-vocab/name> ?deptName .\n}\nGROUP BY ?deptName\nHAVING (COUNT(?emp) > 5)\nORDER BY ?empCount",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:30-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/30-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each product category, which hardware item is the lightest and which is the heaviest?",
+    "query": "SELECT DISTINCT ?categoryName ?lightestName ?heaviestName WHERE {\n  ?category <http://www.w3.org/2000/01/rdf-schema#label> ?categoryName .\n  \n  {\n    SELECT ?category (MIN(?weight) AS ?minWeight) (MAX(?weight) AS ?maxWeight) WHERE {\n      ?hw <http://ld.company.org/prod-vocab/hasCategory> ?category .\n      ?hw <http://ld.company.org/prod-vocab/weight_g> ?weight .\n    } GROUP BY ?category\n  }\n  \n  ?lightest <http://ld.company.org/prod-vocab/hasCategory> ?category .\n  ?lightest <http://ld.company.org/prod-vocab/weight_g> ?minWeight .\n  ?lightest <http://www.w3.org/2000/01/rdf-schema#label> ?lightestName .\n  \n  ?heaviest <http://ld.company.org/prod-vocab/hasCategory> ?category .\n  ?heaviest <http://ld.company.org/prod-vocab/weight_g> ?maxWeight .\n  ?heaviest <http://www.w3.org/2000/01/rdf-schema#label> ?heaviestName .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:31-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "F\u00fcr jede Produktkategorie, welches Hardware-Produkt ist das leichteste und welches das schwerste?",
+    "query": "SELECT ?categoryName ?minProduct ?minWeight ?maxProduct ?maxWeight WHERE {\n  {\n    SELECT ?category (MIN(?weight) AS ?minWeight) (MAX(?weight) AS ?maxWeight) WHERE {\n      ?product a <http://ld.company.org/prod-vocab/Hardware> .\n      ?product <http://ld.company.org/prod-vocab/hasCategory> ?category .\n      ?product <http://ld.company.org/prod-vocab/weight_g> ?weight .\n    } GROUP BY ?category\n  }\n  ?minProduct a <http://ld.company.org/prod-vocab/Hardware> .\n  ?minProduct <http://ld.company.org/prod-vocab/hasCategory> ?category .\n  ?minProduct <http://ld.company.org/prod-vocab/weight_g> ?minWeight .\n  ?maxProduct a <http://ld.company.org/prod-vocab/Hardware> .\n  ?maxProduct <http://ld.company.org/prod-vocab/hasCategory> ?category .\n  ?maxProduct <http://ld.company.org/prod-vocab/weight_g> ?maxWeight .\n  ?category <http://ld.company.org/prod-vocab/name> ?categoryName .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:31-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/31-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What is the average price in euros of each supplier's products, rounded to a reasonable amount?",
+    "query": "SELECT ?supplierName (ROUND(AVG(?amount)) AS ?avgPrice) WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?product <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?amount .\n  ?price <http://ld.company.org/prod-vocab/currency> \"EUR\" .\n  ?supplier <http://www.w3.org/2000/01/rdf-schema#label> ?supplierName .\n}\nGROUP BY ?supplierName",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:32-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Was ist der durchschnittliche Preis in Euro f\u00fcr die Produkte jedes Anbieters, gerundet auf einen angemessenen Betrag?",
+    "query": "SELECT DISTINCT ?supplierName (ROUND(AVG(?amount)) AS ?avgPrice) WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://www.w3.org/2000/01/rdf-schema#label> ?supplierName .\n  ?product <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?amount .\n  ?price <http://ld.company.org/prod-vocab/currency> \"EUR\" .\n}\nGROUP BY ?supplierName\nORDER BY ?supplierName",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:32-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/32-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Do any departments lack an assigned manager?",
+    "query": "ASK WHERE {\n  ?dept a <http://ld.company.org/prod-vocab/Department> .\n  FILTER NOT EXISTS { ?dept <http://ld.company.org/prod-vocab/hasManager> ?manager }\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:33-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Gibt es Abteilungen, denen kein Verantwortlicher zugewiesen ist?",
+    "query": "ASK WHERE {\n  ?dept a <http://ld.company.org/prod-vocab/Department> .\n  FILTER NOT EXISTS { ?dept <http://ld.company.org/prod-vocab/responsibleFor> ?person }\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:33-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/33-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "I need to refresh my supplier contact list by collecting each supplier's name along with their full address information.",
+    "query": "SELECT DISTINCT ?name ?addressCountry ?addressLocality ?addressText WHERE {\n  ?supplier <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Supplier> .\n  ?supplier <http://ld.company.org/prod-vocab/name> ?name .\n  ?supplier <http://ld.company.org/prod-vocab/addressCountry> ?addressCountry .\n  ?supplier <http://ld.company.org/prod-vocab/addressLocality> ?addressLocality .\n  ?supplier <http://ld.company.org/prod-vocab/addressText> ?addressText .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:34-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each product, could you list the other products it's compatible with and show the price differences between them?",
+    "query": "SELECT DISTINCT ?productName ?compatibleProductName ?priceAmount ?compatiblePriceAmount ?priceDifference WHERE {\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?productName .\n  ?product <http://ld.company.org/prod-vocab/compatibleProduct> ?compatibleProduct .\n  ?compatibleProduct <http://www.w3.org/2000/01/rdf-schema#label> ?compatibleProductName .\n  ?product <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?priceAmount .\n  ?compatibleProduct <http://ld.company.org/prod-vocab/price> ?compatiblePrice .\n  ?compatiblePrice <http://ld.company.org/prod-vocab/amount> ?compatiblePriceAmount .\n  BIND(?priceAmount - ?compatiblePriceAmount AS ?priceDifference)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:35-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie f\u00fcr jedes Produkt auflisten, mit welchen anderen Produkten es kompatibel ist, und die Preisunterschiede zwischen diesen Produkten anzeigen?",
+    "query": "SELECT DISTINCT ?product ?productName ?compatibleProduct ?compatibleProductName ?priceAmount ?compatiblePriceAmount ?priceDifference WHERE {\n  ?product <http://www.w3.org/2000/01/rdf-schema#label> ?productName .\n  ?product <http://ld.company.org/prod-vocab/compatibleProduct> ?compatibleProduct .\n  ?compatibleProduct <http://www.w3.org/2000/01/rdf-schema#label> ?compatibleProductName .\n  ?product <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?priceAmount .\n  ?compatibleProduct <http://ld.company.org/prod-vocab/price> ?compatiblePrice .\n  ?compatiblePrice <http://ld.company.org/prod-vocab/amount> ?compatiblePriceAmount .\n  BIND(?priceAmount - ?compatiblePriceAmount AS ?priceDifference)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:35-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/35-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which product area is most relevant, and what are the top three associated skills?",
+    "query": "SELECT ?categoryName ?skillName WHERE {\n  ?category <http://www.w3.org/2000/01/rdf-schema#label> ?categoryName .\n  ?category <http://ld.company.org/prod-vocab/hasProductManager> ?emp .\n  ?emp <http://ld.company.org/prod-vocab/areaOfExpertise> ?skill .\n  ?skill <http://www.w3.org/2000/01/rdf-schema#label> ?skillName .\n}\nGROUP BY ?categoryName ?skillName\nORDER BY DESC(COUNT(?emp))\nLIMIT 3",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:36-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each bill of materials, show the count of parts and the total material quantity, but display only those BOMs with more than 600 items, sorted in descending order.",
+    "query": "SELECT ?bom (COUNT(?part) AS ?partCount) (SUM(?quantity) AS ?totalQuantity) WHERE {\n  ?bom <http://ld.company.org/prod-vocab/hasPart> ?part .\n  ?part <http://ld.company.org/prod-vocab/quantity> ?quantity .\n} GROUP BY ?bom HAVING (COUNT(?part) > 600) ORDER BY DESC(?partCount)",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:37-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "F\u00fcr jede St\u00fcckliste die Anzahl der Teile und die Gesamtmaterialmenge anzeigen, aber nur die St\u00fccklisten mit mehr als 600 Artikeln, sortiert in absteigender Reihenfolge, ausgeben.",
+    "query": "SELECT ?bom (COUNT(?part) AS ?partCount) (SUM(?quantity) AS ?totalQuantity)\nWHERE {\n  ?bom <http://ld.company.org/prod-vocab/hasBomPart> ?part .\n  ?part <http://ld.company.org/prod-vocab/quantity> ?quantity .\n}\nGROUP BY ?bom\nHAVING (COUNT(?part) > 600)\nORDER BY DESC(?partCount)",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:37-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/37-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you give me an updated contact list that includes each employee's name, email, phone number, department, and direct manager?",
+    "query": "SELECT DISTINCT ?name ?email ?phone ?department ?managerName WHERE {\n  ?emp <http://ld.company.org/prod-vocab/Employee> ?empType .\n  ?emp <http://ld.company.org/prod-vocab/name> ?name .\n  ?emp <http://ld.company.org/prod-vocab/email> ?email .\n  ?emp <http://ld.company.org/prod-vocab/phone> ?phone .\n  ?emp <http://ld.company.org/prod-vocab/memberOf> ?dept .\n  ?dept <http://ld.company.org/prod-vocab/Department> ?deptType .\n  ?dept <http://ld.company.org/prod-vocab/name> ?department .\n  ?emp <http://ld.company.org/prod-vocab/hasManager> ?mgr .\n  ?mgr <http://ld.company.org/prod-vocab/Manager> ?mgrType .\n  ?mgr <http://ld.company.org/prod-vocab/name> ?managerName .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:38-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie mir bitte eine aktualisierte Kontaktliste zukommen lassen, die den Namen, die E-Mail-Adresse, die Telefonnummer, die Abteilung und den direkten Vorgesetzten jedes Mitarbeiters enth\u00e4lt?",
+    "query": "SELECT DISTINCT ?name ?email ?phone ?deptName ?managerName WHERE {\n  ?emp <http://ld.company.org/prod-vocab/name> ?name .\n  ?emp <http://ld.company.org/prod-vocab/email> ?email .\n  ?emp <http://ld.company.org/prod-vocab/phone> ?phone .\n  ?emp <http://ld.company.org/prod-vocab/memberOf> ?dept .\n  ?dept <http://ld.company.org/prod-vocab/name> ?deptName .\n  ?emp <http://ld.company.org/prod-vocab/hasManager> ?manager .\n  ?manager <http://ld.company.org/prod-vocab/name> ?managerName .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:38-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/38-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Can you list the dimensions of hardware items that are wider than they are tall and have a depth under 50 mm?",
+    "query": "SELECT DISTINCT ?name ?width ?height ?depth WHERE {\n  ?hw a <http://ld.company.org/prod-vocab/Hardware> .\n  ?hw <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n  ?hw <http://ld.company.org/prod-vocab/width_mm> ?width .\n  ?hw <http://ld.company.org/prod-vocab/height_mm> ?height .\n  ?hw <http://ld.company.org/prod-vocab/depth_mm> ?depth .\n  FILTER (?width > ?height)\n  FILTER (?depth < 50)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:39-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnen Sie die Abmessungen von Hardware-Artikeln auflisten, die breiter als hoch sind und eine Tiefe von unter 50 mm haben?",
+    "query": "SELECT DISTINCT ?product ?width ?height ?depth WHERE {\n  ?product <http://ld.company.org/prod-vocab/width_mm> ?width .\n  ?product <http://ld.company.org/prod-vocab/height_mm> ?height .\n  ?product <http://ld.company.org/prod-vocab/depth_mm> ?depth .\n  ?product a <http://ld.company.org/prod-vocab/Hardware> .\n  FILTER (?width > ?height)\n  FILTER (?depth < 50)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:39-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/39-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you list the IDs and names of hardware items that don't have an active product manager?",
+    "query": "SELECT DISTINCT ?id ?name WHERE {\n  ?hw <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Hardware> .\n  ?hw <http://ld.company.org/prod-vocab/id> ?id .\n  ?hw <http://ld.company.org/prod-vocab/name> ?name .\n  FILTER NOT EXISTS { ?hw <http://ld.company.org/prod-vocab/hasProductManager> ?pm }\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:40-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie die IDs und Namen der Hardware-Artikel auflisten, die keinen aktiven Produktmanager haben?",
+    "query": "SELECT DISTINCT ?id ?name WHERE {\n  ?product <http://ld.company.org/prod-vocab/id> ?id .\n  ?product <http://ld.company.org/prod-vocab/name> ?name .\n  ?product <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Hardware> .\n  FILTER NOT EXISTS { ?product <http://ld.company.org/prod-vocab/hasProductManager> ?manager }\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:40-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/40-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What share of each manager's overall team works in the same department as the manager?",
+    "query": "SELECT DISTINCT ?manager ?managerName ?sameDeptCount ?totalCount ?percentage WHERE {\n  ?manager <http://ld.company.org/prod-vocab/hasDirectReport> ?report .\n  ?manager <http://ld.company.org/prod-vocab/label> ?managerName .\n  ?manager <http://ld.company.org/prod-vocab/memberOf> ?managerDept .\n  ?report <http://ld.company.org/prod-vocab/memberOf> ?reportDept .\n  \n  {\n    SELECT ?manager (COUNT(?report) AS ?totalCount) WHERE {\n      ?manager <http://ld.company.org/prod-vocab/hasDirectReport> ?report .\n    } GROUP BY ?manager\n  }\n  \n  {\n    SELECT ?manager (COUNT(?report) AS ?sameDeptCount) WHERE {\n      ?manager <http://ld.company.org/prod-vocab/hasDirectReport> ?report .\n      ?manager <http://ld.company.org/prod-vocab/memberOf> ?managerDept .\n      ?report <http://ld.company.org/prod-vocab/memberOf> ?reportDept .\n      FILTER(?managerDept = ?reportDept)\n    } GROUP BY ?manager\n  }\n  \n  BIND(?sameDeptCount / ?totalCount * 100 AS ?percentage)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:41-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Anteil der Teammitglieder jedes Managers arbeitet in derselben Abteilung wie der Manager selbst?",
+    "query": "SELECT ?manager ?managerName (COUNT(?report) AS ?totalCount) (SUM(IF(?reportDept = ?managerDept, 1, 0)) AS ?sameDeptCount) ((SUM(IF(?reportDept = ?managerDept, 1, 0)) / COUNT(?report)) * 100 AS ?percentage) WHERE {\n  ?manager <http://ld.company.org/prod-vocab/hasDirectReport> ?report .\n  ?manager <http://www.w3.org/2000/01/rdf-schema#label> ?managerName .\n  ?manager <http://ld.company.org/prod-vocab/memberOf> ?managerDept .\n  ?report <http://ld.company.org/prod-vocab/memberOf> ?reportDept .\n} GROUP BY ?manager ?managerName ?managerDept",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:41-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/41-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which bill of materials has the highest average unit cost for its hardware components, and what is that average?",
+    "query": "SELECT ?bom (AVG(?amount) AS ?avgCost) WHERE {\n  ?bom <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n  ?bomPart <http://ld.company.org/prod-vocab/hasPart> ?product .\n  ?product a <http://ld.company.org/prod-vocab/Hardware> .\n  ?product <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?amount .\n}\nGROUP BY ?bom\nORDER BY DESC(?avgCost)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:42-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche St\u00fcckliste hat die h\u00f6chsten durchschnittlichen St\u00fcckkosten f\u00fcr ihre Hardwarekomponenten, und wie hoch sind diese durchschnittlichen Kosten?",
+    "query": "SELECT DISTINCT ?bom ?bomName (AVG(?amount) AS ?avgCost) WHERE {\n  ?bom <http://www.w3.org/2000/01/rdf-schema#label> ?bomName .\n  ?bom <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n  ?bomPart <http://ld.company.org/prod-vocab/hasPart> ?product .\n  ?product <http://ld.company.org/prod-vocab/price> ?price .\n  ?price <http://ld.company.org/prod-vocab/amount> ?amount .\n}\nGROUP BY ?bom ?bomName\nORDER BY DESC(?avgCost)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:42-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/42-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you list any product compatibility cycles\u2014instances where product A states it's compatible with product B and product B likewise lists product A as compatible?",
+    "query": "SELECT DISTINCT ?productA ?productB ?nameA ?nameB WHERE {\n  ?productA <http://ld.company.org/prod-vocab/compatibleProduct> ?productB .\n  ?productB <http://ld.company.org/prod-vocab/compatibleProduct> ?productA .\n  ?productA <http://www.w3.org/2000/01/rdf-schema#label> ?nameA .\n  ?productB <http://www.w3.org/2000/01/rdf-schema#label> ?nameB .\n  FILTER (?productA != ?productB)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:43-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie Beispiele f\u00fcr Produktkompatibilit\u00e4tszyklen nennen - F\u00e4lle, in denen Produkt A angibt, dass es mit Produkt B kompatibel ist, und Produkt B wiederum Produkt A als kompatibel auflistet?",
+    "query": "SELECT DISTINCT ?nameA ?nameB WHERE {\n  ?productA <http://ld.company.org/prod-vocab/compatibleProduct> ?productB .\n  ?productB <http://ld.company.org/prod-vocab/compatibleProduct> ?productA .\n  ?productA <http://www.w3.org/2000/01/rdf-schema#label> ?nameA .\n  ?productB <http://www.w3.org/2000/01/rdf-schema#label> ?nameB .\n  FILTER(?productA != ?productB)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:43-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/43-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which hardware items fall within the top 10% of widths, and what are their IDs, names, and width measurements?",
+    "query": "SELECT DISTINCT ?id ?name ?width WHERE {\n  ?hw <http://ld.company.org/prod-vocab/width_mm> ?width .\n  ?hw <http://ld.company.org/prod-vocab/name> ?name .\n  ?hw <http://ld.company.org/prod-vocab/id> ?id .\n}\nORDER BY DESC(?width)",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:44-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which supplier provides the most reliable inductors?",
+    "query": "SELECT ?name WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Inductor> .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?product <http://ld.company.org/prod-vocab/reliabilityIndex> ?reliability .\n  ?supplier <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n}\nORDER BY DESC(?reliability)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:45-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Lieferant bietet die zuverl\u00e4ssigsten Induktivit\u00e4ten an?",
+    "query": "SELECT DISTINCT ?supplierName WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Inductor> .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://www.w3.org/2000/01/rdf-schema#label> ?supplierName .\n  ?product <http://ld.company.org/prod-vocab/reliabilityIndex> ?reliability .\n}\nORDER BY DESC(?reliability)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:45-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/45-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which five suppliers have the highest average reliability across their products?",
+    "query": "SELECT DISTINCT ?supplierName (AVG(?reliability) AS ?avgReliability) WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?product <http://ld.company.org/prod-vocab/reliabilityIndex> ?reliability .\n  ?supplier <http://www.w3.org/2000/01/rdf-schema#label> ?supplierName .\n  ?product <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ld.company.org/prod-vocab/Product> .\n}\nGROUP BY ?supplier ?supplierName\nORDER BY DESC(?avgReliability)\nLIMIT 5",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:46-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche f\u00fcnf Lieferanten weisen die h\u00f6chste durchschnittliche Zuverl\u00e4ssigkeit \u00fcber ihre Produkte hinweg auf?",
+    "query": "SELECT ?supplierName (AVG(?reliability) AS ?avgReliability) WHERE {\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?product <http://ld.company.org/prod-vocab/reliabilityIndex> ?reliability .\n  ?supplier <http://www.w3.org/2000/01/rdf-schema#label> ?supplierName .\n}\nGROUP BY ?supplier ?supplierName\nORDER BY DESC(?avgReliability)\nLIMIT 5",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:46-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/46-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which countries supply the BOM parts for our SkySync MechWave?",
+    "query": "SELECT DISTINCT ?country WHERE {\n  <http://ld.company.org/prod-instances/bom-17> <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n  ?bomPart <http://ld.company.org/prod-vocab/hasPart> ?product .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/addressCountry> ?country .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:47-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche L\u00e4nder liefern die Komponenten f\u00fcr unser SkySync MechWave?",
+    "query": "SELECT DISTINCT ?country WHERE {\n  <http://ld.company.org/prod-instances/bom-17> <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n  ?bomPart <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/country> ?country .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:47-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/47-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Please list all BOMs that include at least one part supplied by a Polish vendor.",
+    "query": "SELECT DISTINCT ?bom WHERE {\n  ?bom <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n  ?bomPart <http://ld.company.org/prod-vocab/hasPart> ?product .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/country> <http://ld.company.org/prod-instances/suppl-7478aeec-1a1e-4d96-95ff-05d5b3a5522b> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:48-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Bitte listen Sie alle St\u00fccklisten auf, die mindestens ein Teil enthalten, das von einem polnischen Lieferanten bezogen wird.",
+    "query": "SELECT DISTINCT ?bom ?name WHERE {\n  ?bom <http://www.w3.org/2000/01/rdf-schema#label> ?name .\n  ?bom <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n  ?bomPart <http://ld.company.org/prod-vocab/hasPart> ?product .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/country> <http://ld.company.org/prod-instances/suppl-7478aeec-1a1e-4d96-95ff-05d5b3a5522b> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:48-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/48-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many suppliers can provide alternative compatible products for the K367 Strain Encoder?",
+    "query": "SELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE {\n  <http://ld.company.org/prod-instances/hw-K367-1320550> <http://ld.company.org/prod-vocab/compatibleProduct> ?compatible .\n  ?compatible <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:49-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele Lieferanten k\u00f6nnen alternative, kompatible Produkte f\u00fcr den K367-Dehnungsmesswandler anbieten?",
+    "query": "SELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE {\n  <http://ld.company.org/prod-instances/hw-K367-1320550> <http://ld.company.org/prod-vocab/compatibleProduct> ?compatible .\n  ?compatible <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier a <http://ld.company.org/prod-vocab/Supplier> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:49-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/49-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department is responsible for the most products, and how many products is that?",
+    "query": "SELECT ?deptName (COUNT(?product) AS ?productCount) WHERE {\n  ?dept <http://ld.company.org/prod-vocab/hasProductManager> ?product .\n  ?dept <http://ld.company.org/prod-vocab/name> ?deptName .\n}\nGROUP BY ?deptName\nORDER BY DESC(?productCount)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:50-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilung ist f\u00fcr die meisten Produkte verantwortlich, und wie viele Produkte sind das?",
+    "query": "SELECT ?deptName (COUNT(?product) AS ?productCount) WHERE {\n  ?dept <http://ld.company.org/prod-vocab/responsibleFor> ?product .\n  ?dept <http://www.w3.org/2000/01/rdf-schema#label> ?deptName .\n}\nGROUP BY ?dept ?deptName\nORDER BY DESC(?productCount)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "ck26:50-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/50-de"
+  }
+]

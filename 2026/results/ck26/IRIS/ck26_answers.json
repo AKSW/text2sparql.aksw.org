@@ -1,0 +1,802 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department does Ms. Brant belong to?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  BIND(<http://ld.company.org/prod-instances/empl-Karen.Brant%40company.org> AS ?employee)\n  {\n    ?employee ?p ?result .\n  }\n  UNION\n  {\n    ?result ?p ?employee .\n  }\n  ?result a pv:Department .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:1-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Zu welcher Abteilung geh\u00f6rt Frau Brant?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  prodi:empl-Karen.Brant%40company.org pv:memberOf ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:1-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/1-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What's Baldwin Dirksen's phone number?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  <http://ld.company.org/prod-instances/empl-Baldwin.Dirksen%40company.org> pv:phone ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:2-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie lautet Baldwin Dirksens Telefonnummer?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  prodi:empl-Baldwin.Dirksen%40company.org pv:phone ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:2-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/2-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is Heinrich Hoch's manager?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  prodi:empl-Heinrich.Hoch%40company.org pv:hasManager ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:3-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist Heinrich Hochs Manager?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  prodi:empl-Heinrich.Hoch%40company.org ?p ?result .\n  FILTER(\n    regex(str(?p), \"manager\", \"i\")\n    || regex(str(?p), \"supervisor\", \"i\")\n    || regex(str(?p), \"reportsTo\", \"i\")\n    || regex(str(?p), \"boss\", \"i\")\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:3-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/3-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you tell me Sabrina's email address from the Marketing department?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nASK {\n  <http://ld.company.org/prod-instances/empl-Sabrina.Geiger%40company.org> pv:email ?email .\n  prodi:dept-85880 a pv:Department .\n  { <http://ld.company.org/prod-instances/empl-Sabrina.Geiger%40company.org> ?rel prodi:dept-85880 . }\n  UNION\n  { prodi:dept-85880 ?rel <http://ld.company.org/prod-instances/empl-Sabrina.Geiger%40company.org> . }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:4-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie mir bitte Sabrinas E-Mail-Adresse aus der Marketingabteilung geben?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?person a pv:Employee ;\n          pv:memberOf ?dept ;\n          foaf:name ?name ;\n          foaf:mbox ?result .\n  ?dept rdfs:label ?deptLabel .\n  FILTER(regex(?name, \"Sabrina\", \"i\") && regex(?deptLabel, \"Marketing\", \"i\"))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:4-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/4-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is knowledgeable about transistors?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result pv:eligibleFor ?product .\n  ?result a foaf:Person .\n  ?product rdfs:label ?label .\n  FILTER regex(?label, \"transistor\", \"i\")\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:5-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer kennt sich mit Transistoren aus?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Agent ;\n          pv:hasExpertise ?item .\n  OPTIONAL { ?item rdfs:label ?label. }\n  FILTER (\n    regex(str(?item), \"Transistor\", \"i\")\n    || (bound(?label) && regex(str(?label), \"Transistor\", \"i\"))\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:5-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/5-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is our sensor specialist?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a foaf:Person ;\n          pv:hasRole pv:SensorSpecialist .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:6-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist unser Sensor-Spezialist?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?specialist WHERE {\n  prodi:prod-cat-Sensor pv:hasProductManager ?specialist .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:6-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/6-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who heads the Data Services department?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    ?person pv:manages prodi:dept-41622 .\n  }\n  UNION\n  {\n    ?person pv:hasDirectReport ?member .\n    ?member pv:memberOf prodi:dept-41622 .\n  }\n  OPTIONAL { ?person foaf:name ?name }\n  OPTIONAL { ?person rdfs:label ?label }\n  BIND(COALESCE(?name, ?label, STR(?person)) AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:7-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer leitet die Abteilung f\u00fcr Datenmanagement?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?dept a pv:Department ;\n        rdfs:label ?dlabel .\n  FILTER(regex(str(?dlabel), \"Datenmanagement\", \"i\"))\n  {\n    ?result a pv:Employee ;\n            pv:responsibleFor ?dept .\n  }\n  UNION\n  {\n    ?dept pv:hasManager ?result .\n    ?result a pv:Employee .\n  }\n  UNION\n  {\n    ?result a pv:Employee ;\n            pv:memberOf ?dept ;\n            pv:hasDirectReport ?any .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:7-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/7-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department handles the Sensor Switch M558-2275045?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    prodi:hw-M558-2275045 ?p ?result .\n    ?result a pv:Department .\n  }\n  UNION\n  {\n    ?result ?p prodi:hw-M558-2275045 .\n    ?result a pv:Department .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:8-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilung ist f\u00fcr den Sensor-Schalter M558-2275045 zust\u00e4ndig?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Department ;\n          pv:responsibleFor prodi:hw-M558-2275045 .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:8-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/8-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many different Sensor Switches do we offer?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT (COUNT(DISTINCT ?prod) AS ?count) WHERE {\n  {\n    ?prod rdfs:label ?label .\n    FILTER(regex(str(?label), \"Sensor Switch\", \"i\"))\n  }\n  UNION\n  {\n    ?prod pv:memberOf ?cat .\n    ?cat rdfs:label ?catLabel .\n    FILTER(regex(str(?catLabel), \"Sensor Switch\", \"i\"))\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:9-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele verschiedene Sensor-Schalter bieten wir an?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    SELECT (COUNT(DISTINCT ?p) AS ?count) WHERE {\n      ?p pv:hasCategory ?cat .\n      ?cat rdfs:label ?label .\n      FILTER(\n        CONTAINS(LCASE(STR(?label)), \"sensor\") &&\n        CONTAINS(LCASE(STR(?label)), \"schalter\")\n      )\n    }\n  }\n  BIND(?count AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:9-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/9-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is the network expert in the marketing department?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  prodi:dept-85880 foaf:member ?result .\n  ?result pv:areaOfExpertise prodi:prod-cat-Network .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:10-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist der Netzwerkspezialist in der Marketingabteilung?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?dept a pv:Department ;\n        rdfs:label ?deptLabel ;\n        pv:hasDirectReport ?result .\n  ?result pv:hasRole ?role .\n  ?role rdfs:label ?roleLabel .\n  \n  FILTER(regex(str(?deptLabel), \"Marketing\", \"i\"))\n  FILTER(regex(str(?roleLabel), \"Netzwerkspezialist\", \"i\"))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:10-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/10-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which departments have transducer experts?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  VALUES ?transducer { prodi:prod-cat-Transducer prodi:hw-W304-6414305 }\n\n  {\n    # Departments that directly list transducer as an area of expertise\n    ?result a pv:Department .\n    ?result pv:areaOfExpertise ?transducer .\n  }\n  UNION\n  {\n    # Departments that are related to a person who has transducer as an area of expertise\n    ?result a pv:Department .\n    ?person a pv:Person .\n    ?person pv:areaOfExpertise ?transducer .\n    ?person pv:worksIn ?result .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:11-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilungen haben Experten f\u00fcr Sensoren/Wandler?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  # find people with expertise in sensors/wandler (transducers)\n  ?person pv:areaOfExpertise ?exp .\n  FILTER(regex(str(?exp), \"sensor|wandler\", \"i\"))\n\n  # consider several ways a person can be linked to a department\n  {\n    ?dept pv:hasManager ?person .\n  } UNION {\n    ?dept pv:hasDirectReport ?person .\n  } UNION {\n    ?dept pv:responsibleFor ?person .\n  } UNION {\n    ?person pv:worksFor ?dept .\n  }\n\n  # ensure we only return department entities\n  ?dept a pv:Department .\n\n  OPTIONAL { ?dept rdfs:label ?label . }\n  BIND(COALESCE(?label, STR(?dept)) AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:11-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/11-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which suppliers can deliver compensators?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?prod rdfs:label ?prodLabel .\n  FILTER regex(?prodLabel, \"Compensator\", \"i\")\n  ?prod pv:hasSupplier ?result .\n  ?result a pv:Supplier .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:12-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Lieferanten k\u00f6nnen Kompensatoren liefern?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?product pv:hasSupplier ?result .\n  ?result a pv:Supplier .\n  ?product rdfs:label ?productLabel .\n  FILTER(\n    regex(str(?productLabel), \"Kompensator|Kompensatoren|Compensator|Compensators\", \"i\")\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:12-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/12-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many of our suppliers are based in France?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE {\n  ?supplier a pv:Supplier .\n  ?supplier pv:country dbpedia:France .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:13-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele unserer Lieferanten haben ihren Sitz in Frankreich?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE {\n  ?supplier a pv:Agent ;\n            pv:addressCountry ?country .\n  prodi:OurCompany pv:hasSupplier ?supplier .\n  FILTER(\n    ?country = dbpedia:France ||\n    ?country = \"France\"@en ||\n    ?country = \"France\"\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:13-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/13-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which supplier in France provides compensators?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?product pv:hasSupplier ?result .\n  ?result a pv:Supplier ;\n          pv:addressCountry dbpedia:France .\n  ?product rdfs:label ?label .\n  FILTER(regex(str(?label), \"compensator\", \"i\"))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:14-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Lieferant in Frankreich bietet Kompensatoren an?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Agent ;\n          pv:offers ?prod .\n  OPTIONAL { ?result pv:addressText ?addr . }\n  ?prod a pv:Product ;\n        rdfs:label ?label .\n\n  OPTIONAL {\n    ?result pv:country ?country .\n    ?country rdfs:label ?countryLabel .\n  }\n\n  FILTER(\n    ( CONTAINS(LCASE(?label), \"kompensat\") || CONTAINS(LCASE(?label), \"compensat\") )\n  )\n\n  FILTER(\n    ( bound(?addr) && ( CONTAINS(LCASE(?addr), \"frankreich\") || CONTAINS(LCASE(?addr), \"france\") ) )\n    ||\n    ( bound(?countryLabel) && ( CONTAINS(LCASE(?countryLabel), \"frankreich\") || CONTAINS(LCASE(?countryLabel), \"france\") || CONTAINS(LCASE(?countryLabel), \"fran\u00e7ais\") ) )\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:14-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/14-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which encoder is the most affordable from a French or German supplier?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Hardware .\n  ?result rdfs:label ?label .\n  FILTER regex(?label, \"Encoder\", \"i\") .\n  ?result pv:hasSupplier ?supplier .\n  ?supplier a pv:Supplier .\n  ?supplier pv:country ?country .\n  FILTER (?country IN (dbpedia:France, dbpedia:Germany)) .\n  ?result pv:price ?price .\n}\nORDER BY ASC(xsd:decimal(?price))\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:15-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Encoder ist von einem franz\u00f6sischen oder deutschen Anbieter am g\u00fcnstigsten?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  # select products that are encoders\n  ?result a pv:Product ;\n          rdfs:label ?label ;\n          pv:price ?price ;\n          pv:hasSupplier ?supplier .\n  FILTER regex(?label, \"Encoder\", \"i\")\n\n  # supplier is from France or Germany (allow resource or literal)\n  ?supplier ?supProp ?countryVal .\n  OPTIONAL { ?countryVal rdfs:label ?countryLabel . }\n  FILTER (\n    ?countryVal = dbpedia:France ||\n    ?countryVal = dbpedia:Germany ||\n    (isLiteral(?countryVal) && lcase(str(?countryVal)) IN (\"france\",\"germany\",\"deutschland\",\"frankreich\")) ||\n    (bound(?countryLabel) && lcase(str(?countryLabel)) IN (\"france\",\"germany\",\"deutschland\",\"frankreich\"))\n  )\n}\nORDER BY xsd:decimal(REPLACE(str(?price), \"[^0-9\\\\.-]\", \"\"))\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:15-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/15-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Are there any suppliers we have in Toulouse?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nASK WHERE {\n  {\n    ?s a pv:Supplier ;\n       pv:addressLocality dbpedia:Toulouse .\n  }\n  UNION\n  {\n    ?s a pv:Supplier ;\n       pv:addressLocality ?loc .\n    FILTER(isLiteral(?loc) && regex(str(?loc), \"Toulouse\", \"i\"))\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:16-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Haben wir Lieferanten in Toulouse?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Supplier .\n  ?result pv:addressCity ?o .\n  FILTER(\n    (isIRI(?o) && ?o = dbpedia:Toulouse)\n    || regex(str(?o), \"Toulouse\", \"i\")\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:16-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/16-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who are our suppliers in Toulouse?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?result WHERE {\n  prodi:OurCompany pv:hasSupplier ?result .\n  ?result a pv:Supplier ;\n          pv:addressLocality \"Toulouse\" .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:17-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer sind unsere Lieferanten in Toulouse?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Supplier ;\n          pv:addressLocality ?locality .\n  FILTER(\n    (isLiteral(?locality) && lcase(str(?locality)) = \"toulouse\")\n    || ?locality = dbpedia:Toulouse\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:17-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/17-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which oscillator do we offer at the lowest price?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    SELECT (MIN(?price) AS ?minPrice) WHERE {\n      ?x pv:price ?price .\n      ?x rdfs:label ?lab .\n      FILTER(CONTAINS(LCASE(STR(?lab)), \"oscillator\"))\n    }\n  }\n  ?result pv:price ?price2 .\n  ?result rdfs:label ?lab2 .\n  FILTER(CONTAINS(LCASE(STR(?lab2)), \"oscillator\"))\n  FILTER(?price2 = ?minPrice)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:18-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welchen Oszillator bieten wir zum niedrigsten Preis an?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result rdfs:label ?label .\n  FILTER(\n    CONTAINS(LCASE(STR(?label)), \"oscillator\")\n    || CONTAINS(LCASE(STR(?label)), \"oszillator\")\n  )\n  ?result pv:price ?priceVal .\n  \n  {\n    SELECT (MIN(?p) AS ?minPrice) WHERE {\n      ?s rdfs:label ?l .\n      FILTER(\n        CONTAINS(LCASE(STR(?l)), \"oscillator\")\n        || CONTAINS(LCASE(STR(?l)), \"oszillator\")\n      )\n      ?s pv:price ?p .\n    }\n  }\n  FILTER(?priceVal = ?minPrice)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:18-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/18-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which of our services is the most expensive?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Service .\n  ?result pv:price ?price .\n  ?price pv:amount ?amount .\n}\nORDER BY DESC(?amount)\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:19-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche unserer Dienstleistungen ist die teuerste?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Service ;\n          pv:price ?price .\n\n  {\n    SELECT (MAX(?p) AS ?maxPrice) WHERE {\n      ?s a pv:Service ;\n         pv:price ?p .\n    }\n  }\n\n  FILTER(?price = ?maxPrice)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:19-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/19-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who oversees the most expensive service we offer?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?result pv:responsibleFor ?service .\n  ?service a pv:Service .\n\n  # Service price may be represented directly as a literal...\n  OPTIONAL { ?service pv:price ?priceLit . FILTER(isLiteral(?priceLit)) }\n\n  # ...or as a Price node with an amount property\n  OPTIONAL {\n    ?service pv:price ?priceNode .\n    ?priceNode a pv:Price ;\n               pv:amount ?priceAmount .\n  }\n\n  BIND(COALESCE(?priceAmount, ?priceLit) AS ?price)\n  FILTER(bound(?price))\n}\nORDER BY DESC(xsd:decimal(?price))\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:20-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist f\u00fcr unsere teuerste Dienstleistung verantwortlich?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?service a pv:Service .\n  ?service <http://purl.org/dc/terms/creator> ?result .\n  ?service pv:hasPrice ?price .\n}\nORDER BY DESC(xsd:decimal(?price))\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:20-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/20-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which coil is the heaviest while still fitting within a 15mm x 15mm base area?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result rdf:type pv:Coil ;\n          pv:height_mm ?width ;\n          pv:height_mm ?depth ;\n          pv:weight_g ?weight .\n  FILTER(?width <= 15 && ?depth <= 15)\n  FILTER NOT EXISTS {\n    ?other rdf:type pv:Coil ;\n           pv:height_mm ?ow ;\n           pv:height_mm ?od ;\n           pv:weight_g ?owt .\n    FILTER(?ow <= 15 && ?od <= 15 && ?owt > ?weight)\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:21-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Spule ist am schwersten, w\u00e4hrend sie noch in einen Grundbereich von 15 mm x 15 mm passt?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result rdfs:label ?label .\n  FILTER(CONTAINS(LCASE(STR(?label)), \"spule\")) .\n  ?result pv:width_mm ?w .\n  ?result pv:height_mm ?d .\n  ?result pv:weight_g ?weight .\n  FILTER(xsd:decimal(?w) <= 15 && xsd:decimal(?d) <= 15) .\n}\nORDER BY DESC(xsd:decimal(?weight))\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:21-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/21-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which products can be used with the U990 LCD Inductor?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  { <http://ld.company.org/prod-instances/hw-U990-5234138> pv:compatibleProduct ?result . }\n  UNION\n  { ?result pv:compatibleProduct <http://ld.company.org/prod-instances/hw-U990-5234138> . }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:22-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Produkte k\u00f6nnen mit dem U990 LCD-Induktor verwendet werden?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?result pv:hasBomPart prodi:hw-S649-2935217 .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:22-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/22-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which products from US suppliers are compatible with the U990 LCD inductor?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    prodi:hw-U990-5234138 pv:compatibleProduct ?result .\n  }\n  UNION\n  {\n    ?result pv:compatibleProduct prodi:hw-U990-5234138 .\n  }\n\n  ?result pv:hasSupplier ?sup .\n\n  OPTIONAL { ?sup rdfs:label ?supLabel . }\n  OPTIONAL { ?sup pv:country ?country . }\n\n  FILTER (\n    (bound(?supLabel) && regex(str(?supLabel), \"United[_ ]?States|\\\\bUS\\\\b|\\\\bUSA\\\\b\", \"i\"))\n    ||\n    (bound(?country) && regex(str(?country), \"United[_ ]?States|\\\\bUS\\\\b|\\\\bUSA\\\\b\", \"i\"))\n    ||\n    (bound(?country) && ?country = dbpedia:United_States)\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:23-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Produkte von US-amerikanischen Lieferanten sind mit dem U990-LCD-Induktor kompatibel?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\n\nSELECT DISTINCT ?result WHERE {\n  # find the U990-LCD inductor by label (flexible matching)\n  ?inductor rdfs:label ?indLabel .\n  FILTER regex(?indLabel, \"U990\\\\s*-?LCD\", \"i\") .\n\n  # products compatible with that inductor (either direction)\n  { ?result pv:compatibleProduct ?inductor . }\n  UNION\n  { ?inductor pv:compatibleProduct ?result . }\n\n  # the product must have a supplier whose label or country indicates United States\n  ?result pv:hasSupplier ?supplier .\n  OPTIONAL { ?supplier rdfs:label ?supplierLabel . }\n  OPTIONAL { ?supplier foaf:based_near ?basedNear . }\n  OPTIONAL { ?supplier rdfs:comment ?supplierComment . }\n  OPTIONAL { ?supplier pv:country ?supplierCountry . }\n  OPTIONAL { ?supplier pv:basedIn ?supplierBasedIn . }\n\n  FILTER(\n    (bound(?supplierCountry) && ( ?supplierCountry = dbpedia:United_States || regex(str(?supplierCountry), \"United States|USA|US|Vereinigte Staaten\", \"i\") ))\n    ||\n    (bound(?supplierBasedIn) && ( ?supplierBasedIn = dbpedia:United_States || regex(str(?supplierBasedIn), \"United States|USA|US|Vereinigte Staaten\", \"i\") ))\n    ||\n    (bound(?supplierLabel) && regex(str(?supplierLabel), \"\\\\b(United States|USA|US|Vereinigte Staaten)\\\\b\", \"i\"))\n    ||\n    (bound(?supplierComment) && regex(str(?supplierComment), \"United States|USA|Vereinigte Staaten\", \"i\"))\n    ||\n    (bound(?basedNear) && regex(str(?basedNear), \"United States|USA|Vereinigte Staaten\", \"i\"))\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:23-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/23-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which potentiometer has the smallest volume?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?result rdf:type prodi:prod-cat-Potentiometer ;\n          pv:hasVolume ?vol .\n}\nORDER BY ASC(xsd:decimal(?vol))\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:24-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welches Potentiometer hat das kleinste Volumen?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Hardware ;\n          rdfs:label ?label ;\n          pv:size ?vol .\n  FILTER(CONTAINS(LCASE(STR(?label)), \"potentiometer\"))\n}\nORDER BY xsd:double(?vol)\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:24-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/24-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which coil has the greatest density?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result pv:reliabilityIndex ?d ;\n          rdfs:label ?label .\n  FILTER(CONTAINS(LCASE(STR(?label)), \"coil\"))\n  {\n    SELECT (MAX(?d2) AS ?maxD) WHERE {\n      ?c pv:reliabilityIndex ?d2 ;\n         rdfs:label ?lbl .\n      FILTER(CONTAINS(LCASE(STR(?lbl)), \"coil\"))\n    }\n  }\n  FILTER(?d = ?maxD)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:25-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Spule hat die gr\u00f6\u00dfte Dichte?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Hardware ;\n          rdfs:label ?label ;\n          pv:weight_g ?densityVal .\n  FILTER(regex(str(?label), \"Spule|Inductor\", \"i\"))\n}\nORDER BY DESC(xsd:decimal(?densityVal))\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:25-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/25-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which cities are our US LCD suppliers located in?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?product rdfs:label ?productLabel .\n  FILTER(regex(?productLabel, \"LCD\", \"i\")) .\n  ?product pv:hasSupplier ?supplier .\n  ?supplier a pv:Supplier .\n  ?supplier pv:addressLocality ?result .\n  ?supplier pv:addressCountry ?country .\n  FILTER(regex(str(?country), \"US|United States|United States of America\", \"i\")) .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:26-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "In welchen St\u00e4dten befinden sich unsere US-amerikanischen LCD-Lieferanten?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?supplier pv:addressCountry ?country ;\n            pv:addressCity ?result .\n  ?product pv:suppliedBy ?supplier .\n  ?product pv:hasCategory ?cat .\n  ?cat rdfs:label ?catLabel .\n  FILTER( (?country = dbpedia:United_States) || regex(str(?country), \"United States\", \"i\") )\n  FILTER(regex(str(?catLabel), \"LCD\", \"i\"))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:26-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/26-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you provide a staff phone directory that includes the name, email, and phone number of every employee who doesn\u2019t manage anyone, sorted alphabetically by name?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT ?name ?email ?phone WHERE {\n  ?emp rdf:type pv:Employee ;\n       pv:name ?name ;\n       pv:email ?email ;\n       pv:phone ?phone .\n  FILTER NOT EXISTS { ?emp pv:hasDirectReport ?report . }\n}\nORDER BY ?name",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:27-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie ein Telefonverzeichnis f\u00fcr die Mitarbeiter erstellen, das den Namen, die E-Mail-Adresse und die Telefonnummer aller Mitarbeiter enth\u00e4lt, die keine leitende Position innehaben, und dieses alphabetisch nach Namen sortieren?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?name ?email ?phone\nWHERE {\n  ?person a pv:Employee ;\n          foaf:name ?name .\n  OPTIONAL { ?person foaf:mbox  ?email . }\n  OPTIONAL { ?person foaf:phone ?phone . }\n  FILTER NOT EXISTS { ?person pv:hasDirectReport ?any . }\n}\nORDER BY ASC(?name)",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:27-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/27-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Is there a service that can handle a BOM containing parts sourced from Russia?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nASK {\n  ?service rdf:type pv:Service .\n  ?service pv:responsibleFor ?bom .\n  ?bom rdf:type pv:BillOfMaterial .\n  ?bom pv:hasBomPart ?part .\n  ?part rdf:type pv:BomPart .\n  ?part pv:addressCountry dbpedia:Russia .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:28-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Gibt es einen Dienst, der eine St\u00fcckliste (BOM) mit aus Russland bezogenen Bauteilen verarbeiten kann?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Service ;\n          (pv:eligibleFor|pv:responsibleFor) ?bom .\n  ?bom a pv:BillOfMaterial ;\n       pv:hasBomPart ?part .\n  ?part pv:addressCountry dbpedia:Russia .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:28-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/28-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which suppliers\u2014including their name, country, and price\u2014provide the hardware items that rank from the 6th to the 10th most expensive?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?supplierName ?country ?price WHERE {\n  {\n    SELECT ?hw ?price WHERE {\n      ?hw a pv:Hardware ;\n          pv:price ?price .\n    }\n    ORDER BY DESC(xsd:decimal(?price))\n    LIMIT 5\n    OFFSET 5\n  }\n  ?hw pv:supplier ?supplier .\n  ?supplier pv:name ?supplierName ;\n            pv:addressCountry ?country .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:29-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Lieferanten - einschlie\u00dflich Name, Land und Preis - liefern die Hardwareartikel, die vom 6. bis zum 10. teuersten Artikel geh\u00f6ren?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?supplier ?supplierName ?country ?price WHERE {\n  {\n    SELECT ?item ?price WHERE {\n      ?item a pv:Hardware ;\n            pv:price ?price .\n    }\n    ORDER BY DESC(?price)\n    OFFSET 5\n    LIMIT 5\n  }\n  ?supplier a pv:Supplier ;\n            pv:responsibleFor ?item .\n  OPTIONAL { ?supplier pv:name ?supplierName. }\n  OPTIONAL { ?supplier pv:addressText ?country. }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:29-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/29-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which departments have more than five employees, and could you list each department's name together with its employee count?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT ?dept ?deptName (COUNT(?emp) AS ?employeeCount)\nWHERE {\n  ?dept a pv:Department ;\n        pv:name ?deptName .\n  ?emp a pv:Employee ;\n       pv:department ?dept .\n}\nGROUP BY ?dept ?deptName\nHAVING (COUNT(?emp) > 5)\nORDER BY DESC(?employeeCount)",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:30-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilungen haben mehr als f\u00fcnf Mitarbeiter, und k\u00f6nnten Sie den Namen jeder Abteilung zusammen mit der Anzahl ihrer Mitarbeiter auflisten?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT ?dept ?name (COUNT(DISTINCT ?emp) AS ?numEmployees)\nWHERE {\n  ?dept a pv:Department .\n  OPTIONAL { ?dept rdfs:label ?label. }\n  OPTIONAL { ?dept foaf:name ?fname. }\n  BIND(COALESCE(?label, ?fname, STR(?dept)) AS ?name)\n\n  {\n    # Employees who are direct reports of the department's manager(s)\n    ?dept pv:hasManager ?mgr .\n    ?mgr pv:hasDirectReport ?emp .\n  }\n  UNION\n  {\n    # Employees who are members of the department (modeled that way)\n    ?emp pv:memberOf ?dept .\n  }\n}\nGROUP BY ?dept ?name\nHAVING (COUNT(DISTINCT ?emp) > 5)\nORDER BY DESC(?numEmployees)",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:30-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/30-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each product category, which hardware item is the lightest and which is the heaviest?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?category ?lightest ?minWeight ?heaviest ?maxWeight WHERE {\n  {\n    SELECT ?category (MIN(?w) AS ?minWeight) (MAX(?w) AS ?maxWeight) WHERE {\n      ?category a pv:ProductCategory .\n      ?hw a pv:Hardware ;\n          pv:hasCategory ?category ;\n          pv:weight ?w .\n    } GROUP BY ?category\n  }\n  # hardware item(s) matching the minimum weight for the category\n  ?lightest a pv:Hardware ;\n            pv:hasCategory ?category ;\n            pv:weight ?minWeight .\n  # hardware item(s) matching the maximum weight for the category\n  ?heaviest a pv:Hardware ;\n            pv:hasCategory ?category ;\n            pv:weight ?maxWeight .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:31-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "F\u00fcr jede Produktkategorie, welches Hardware-Produkt ist das leichteste und welches das schwerste?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?category ?lightestProd ?lightestWeight ?heaviestProd ?heaviestWeight\nWHERE {\n  {\n    SELECT ?category (MIN(?w) AS ?minW) (MAX(?w) AS ?maxW)\n    WHERE {\n      ?p rdf:type pv:HardwareProduct ;\n         pv:hasCategory ?category ;\n         pv:weight ?w .\n    }\n    GROUP BY ?category\n  }\n\n  # products that match the min weight for the category\n  ?lightestProd rdf:type pv:HardwareProduct ;\n                pv:hasCategory ?category ;\n                pv:weight ?lightestWeight .\n  FILTER(?lightestWeight = ?minW)\n\n  # products that match the max weight for the category\n  ?heaviestProd rdf:type pv:HardwareProduct ;\n                pv:hasCategory ?category ;\n                pv:weight ?heaviestWeight .\n  FILTER(?heaviestWeight = ?maxW)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:31-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/31-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What is the average price in euros of each supplier's products, rounded to a reasonable amount?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?supplier ( (ROUND(AVG(xsd:decimal(?amount)) * 100) / 100) AS ?avgEur )\nWHERE {\n  ?product a pv:Product ;\n           pv:hasSupplier ?supplier ;\n           pv:price ?price .\n  ?price pv:amount ?amount ;\n         pv:currency \"EUR\" .\n}\nGROUP BY ?supplier",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:32-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Was ist der durchschnittliche Preis in Euro f\u00fcr die Produkte jedes Anbieters, gerundet auf einen angemessenen Betrag?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\n\nASK {\n  {\n    SELECT ?provider ((ROUND(AVG(xsd:decimal(?price)) * 100) / 100) AS ?avgRounded)\n    WHERE {\n      ?product pv:hasProvider ?provider ;\n               pv:price ?price ;\n               pv:priceCurrency ?currency .\n      FILTER(\n        STR(?currency) = \"EUR\" ||\n        ?currency = dbpedia:Euro\n      )\n    }\n    GROUP BY ?provider\n    LIMIT 1\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:32-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/32-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Do any departments lack an assigned manager?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nASK {\n  ?dept rdf:type pv:Department .\n  FILTER NOT EXISTS { ?dept pv:hasManager ?mgr }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:33-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Gibt es Abteilungen, denen kein Verantwortlicher zugewiesen ist?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:Department .\n  FILTER NOT EXISTS { ?result pv:hasManager ?mgr . }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:33-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/33-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "I need to refresh my supplier contact list by collecting each supplier's name along with their full address information.",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?supplier ?name ?addressText ?addressLocality ?addressCountry ?addressCountryCode\nWHERE {\n  ?supplier a pv:Supplier .\n  OPTIONAL { ?supplier pv:name ?name. }\n  OPTIONAL { ?supplier pv:addressText ?addressText. }\n  OPTIONAL { ?supplier pv:addressLocality ?addressLocality. }\n  OPTIONAL { ?supplier pv:addressCountry ?addressCountry. }\n  OPTIONAL { ?supplier pv:addressCountryCode ?addressCountryCode. }\n}\nORDER BY ?name",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:34-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Ich muss meine Lieferantenkontaktliste aktualisieren, indem ich die Namen aller Lieferanten sowie deren vollst\u00e4ndige Adressdaten erfasse.",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?supplier ?chosenName ?street ?postalCode ?locality ?country ?lat ?long WHERE {\n  ?supplier a pv:Supplier .\n\n  OPTIONAL { ?supplier foaf:name ?name. }\n  OPTIONAL { ?supplier rdfs:label ?label. }\n\n  OPTIONAL { ?supplier pv:addressStreet ?street. }\n  OPTIONAL { ?supplier pv:addressPostalCode ?postalCode. }\n  OPTIONAL { ?supplier pv:addressLocality ?locality. }\n  OPTIONAL { ?supplier pv:addressCountry ?country. }\n\n  OPTIONAL { ?supplier wgs84:lat ?lat. }\n  OPTIONAL { ?supplier wgs84:long ?long. }\n\n  # choose a name (foaf:name, rdfs:label, or the resource IRI as fallback)\n  BIND(COALESCE(?name, ?label, STR(?supplier)) AS ?chosenName)\n\n  # build a single textual result containing name and full address components\n  BIND(\n    CONCAT(\n      ?chosenName,\n      \" | \",\n      COALESCE(?street, \"\"),\n      IF(bound(?street), \", \", \"\"),\n      COALESCE(?postalCode, \"\"),\n      IF(bound(?postalCode) && bound(?locality), \" \", \"\"),\n      COALESCE(?locality, \"\"),\n      IF(bound(?country), \", \", \"\"),\n      COALESCE(?country, \"\"),\n      IF(bound(?lat) && bound(?long),\n         CONCAT(\" (lat:\", STR(?lat), \", long:\", STR(?long), \")\"),\n         \"\"\n      )\n    ) AS ?result\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:34-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/34-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each product, could you list the other products it's compatible with and show the price differences between them?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?product ?productName ?compatible ?compatibleName ?price ?compatiblePrice ?priceDifference\nWHERE {\n  ?product a pv:Product ;\n           pv:compatibleProduct ?compatible .\n  ?compatible a pv:Product .\n  FILTER(?product != ?compatible)\n\n  OPTIONAL { ?product rdfs:label ?productName. }\n  OPTIONAL { ?compatible rdfs:label ?compatibleName. }\n\n  OPTIONAL { ?product pv:price ?price. }\n  OPTIONAL { ?compatible pv:price ?compatiblePrice. }\n\n  OPTIONAL {\n    FILTER(BOUND(?price) && BOUND(?compatiblePrice))\n    BIND(xsd:decimal(?price) AS ?p1)\n    BIND(xsd:decimal(?compatiblePrice) AS ?p2)\n    BIND((?p1 - ?p2) AS ?priceDifference)\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:35-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie f\u00fcr jedes Produkt auflisten, mit welchen anderen Produkten es kompatibel ist, und die Preisunterschiede zwischen diesen Produkten anzeigen?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?product ?productLabel ?compatible ?compatibleLabel ?price ?compatiblePrice ?priceDiff\nWHERE {\n  ?product pv:compatibleProduct ?compatible .\n  FILTER(?product != ?compatible)\n\n  OPTIONAL { ?product rdfs:label ?productLabel . }\n  OPTIONAL { ?compatible rdfs:label ?compatibleLabel . }\n\n  OPTIONAL { ?product pv:price ?priceInst . ?priceInst rdf:value ?price . }\n  OPTIONAL { ?compatible pv:price ?compatiblePriceInst . ?compatiblePriceInst rdf:value ?compatiblePrice . }\n\n  BIND(\n    IF(\n      isLiteral(?price) && isLiteral(?compatiblePrice)\n      && regex(str(?price), \"^[+-]?[0-9]+(\\\\.[0-9]+)?$\") \n      && regex(str(?compatiblePrice), \"^[+-]?[0-9]+(\\\\.[0-9]+)?$\"),\n      STR(ABS(xsd:decimal(str(?price)) - xsd:decimal(str(?compatiblePrice)))),\n      \"unknown\"\n    ) AS ?priceDiff\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:35-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/35-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which product area is most relevant, and what are the top three associated skills?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?area ?skill ?skillCount WHERE {\n  {\n    # Find the single most relevant product area (by number of products assigned)\n    SELECT ?area (COUNT(DISTINCT ?p) AS ?prodCount) WHERE {\n      ?p a pv:Product ;\n         pv:areaOfExpertise ?area .\n    }\n    GROUP BY ?area\n    ORDER BY DESC(?prodCount)\n    LIMIT 1\n  }\n  {\n    # For that area, find the top three associated skills (by how many products require them)\n    SELECT ?area ?skill (COUNT(DISTINCT ?p2) AS ?skillCount) WHERE {\n      ?p2 a pv:Product ;\n          pv:areaOfExpertise ?area ;\n          pv:requiresSkill ?skill .\n    }\n    GROUP BY ?area ?skill\n  }\n}\nORDER BY DESC(?skillCount)\nLIMIT 3",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:36-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Produktbereich ist am relevantesten, und welche sind die drei wichtigsten damit verbundenen F\u00e4higkeiten?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?productArea ?skill ?skillScore WHERE {\n  {\n    SELECT ?productArea WHERE {\n      ?productArea a pv:ProductCategory ;\n                   pv:reliabilityIndex ?catScore .\n    } ORDER BY DESC(?catScore) LIMIT 1\n  }\n  ?productArea pv:hasManager ?skill .\n  OPTIONAL { ?skill pv:reliabilityIndex ?skillScore . }\n}\nORDER BY DESC(?skillScore)\nLIMIT 3",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:36-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/36-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each bill of materials, show the count of parts and the total material quantity, but display only those BOMs with more than 600 items, sorted in descending order.",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?bom (COUNT(DISTINCT ?part) AS ?partsCount) (SUM(xsd:decimal(?qty)) AS ?totalQuantity)\nWHERE {\n  ?bom a pv:BillOfMaterial .\n  ?bom pv:hasPart ?part .\n  ?part a pv:BomPart .\n  OPTIONAL { ?part pv:quantity ?qty . }\n}\nGROUP BY ?bom\nHAVING (COUNT(DISTINCT ?part) > 600)\nORDER BY DESC(?partsCount)",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:37-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "F\u00fcr jede St\u00fcckliste die Anzahl der Teile und die Gesamtmaterialmenge anzeigen, aber nur die St\u00fccklisten mit mehr als 600 Artikeln, sortiert in absteigender Reihenfolge, ausgeben.",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?bom (COUNT(DISTINCT ?part) AS ?numParts) (SUM(xsd:decimal(?qty)) AS ?totalMaterial)\nWHERE {\n  ?bom a pv:BillOfMaterial .\n  ?bom pv:hasPart ?part .\n  OPTIONAL { ?part pv:materialQuantity ?qty . }\n}\nGROUP BY ?bom\nHAVING (COUNT(DISTINCT ?part) > 600)\nORDER BY DESC(?numParts)",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:37-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/37-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you give me an updated contact list that includes each employee's name, email, phone number, department, and direct manager?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?employee ?name ?email ?phone ?deptName ?managerName WHERE {\n  ?employee a pv:Employee ;\n            pv:name ?name .\n\n  OPTIONAL { ?employee pv:email ?email . }\n  OPTIONAL { ?employee pv:phone ?phone . }\n\n  OPTIONAL {\n    ?employee pv:department ?dept .\n    ?dept a pv:Department ;\n          pv:name ?deptName .\n  }\n\n  OPTIONAL {\n    ?employee pv:hasManager ?manager .\n    ?manager a pv:Employee ;\n             pv:name ?managerName .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:38-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie mir bitte eine aktualisierte Kontaktliste zukommen lassen, die den Namen, die E-Mail-Adresse, die Telefonnummer, die Abteilung und den direkten Vorgesetzten jedes Mitarbeiters enth\u00e4lt?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?name ?email ?phone ?deptName ?mgrName WHERE {\n  # employees (use the Employee class)\n  ?emp a pv:Employee .\n\n  OPTIONAL { ?emp foaf:name ?name. }\n  OPTIONAL { ?emp foaf:mbox ?email. }\n  OPTIONAL { ?emp foaf:phone ?phone. }\n\n  # department (optional). If departments use rdfs:label, prefer that.\n  OPTIONAL {\n    ?emp pv:department ?dept .\n    OPTIONAL { ?dept rdfs:label ?deptName. }\n  }\n\n  # direct manager (optional) \u2014 support manager property on the employee\n  OPTIONAL {\n    ?emp pv:hasManager ?mgr .\n    OPTIONAL { ?mgr foaf:name ?mgrName. }\n  }\n\n  # Construct a single result string: Name | Email | Phone | Department | Manager\n  BIND(\n    CONCAT(\n      COALESCE(STR(?name), \"\"),\n      \" | \",\n      COALESCE(STR(?email), \"\"),\n      \" | \",\n      COALESCE(STR(?phone), \"\"),\n      \" | \",\n      COALESCE(STR(?deptName), COALESCE(STR(?dept), \"\")),\n      \" | \",\n      COALESCE(STR(?mgrName), COALESCE(STR(?mgr), \"\"))\n    ) AS ?result\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:38-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/38-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Can you list the dimensions of hardware items that are wider than they are tall and have a depth under 50 mm?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?w ?h ?d WHERE {\n  ?hw a pv:Hardware ;\n      pv:width_mm ?w ;\n      pv:height_mm ?h ;\n      pv:depth_mm ?d .\n  FILTER( xsd:decimal(?w) > xsd:decimal(?h) && xsd:decimal(?d) < xsd:decimal(\"50\") )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:39-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnen Sie die Abmessungen von Hardware-Artikeln auflisten, die breiter als hoch sind und eine Tiefe von unter 50 mm haben?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?item rdf:type pv:Hardware ;\n        pv:width_mm ?width ;\n        pv:height_mm ?height ;\n        pv:depth_mm ?depth .\n  FILTER( xsd:decimal(?width) > xsd:decimal(?height) && xsd:decimal(?depth) < \"50\"^^xsd:decimal )\n  BIND(CONCAT(STR(?item), \" width=\", STR(?width), \"mm; height=\", STR(?height), \"mm; depth=\", STR(?depth), \"mm\") AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:39-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/39-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you list the IDs and names of hardware items that don't have an active product manager?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT ?id ?name WHERE {\n  ?hw a pv:Hardware .\n  FILTER NOT EXISTS {\n    ?hw pv:hasProductManager ?pm .\n    {\n      ?pm a pv:ActiveManager\n    } UNION {\n      ?pm pv:status ?st .\n      FILTER(lcase(str(?st)) = \"active\")\n    }\n  }\n\n  OPTIONAL { ?hw rdfs:label ?lbl1 . }\n  OPTIONAL { ?hw foaf:name ?lbl2 . }\n  BIND(COALESCE(?lbl1, ?lbl2) AS ?name)\n\n  BIND(REPLACE(STR(?hw), \"^.*/\", \"\") AS ?id)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:40-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie die IDs und Namen der Hardware-Artikel auflisten, die keinen aktiven Produktmanager haben?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?id ?name WHERE {\n  ?hw ?p ?o .\n  FILTER(CONTAINS(STR(?hw), \"/prod-instances/hw-\")) .\n\n  OPTIONAL { ?hw rdfs:label ?lbl . }\n  OPTIONAL { ?hw foaf:name ?fn . }\n  BIND(COALESCE(?lbl, ?fn, \"\") AS ?name) .\n  BIND(REPLACE(STR(?hw), STR(<http://ld.company.org/prod-instances/>), \"\") AS ?id) .\n\n  FILTER NOT EXISTS {\n    ?hw pv:productManager ?pm .\n    ?pm pv:status \"active\" .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:40-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/40-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What share of each manager's overall team works in the same department as the manager?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?manager ?share WHERE {\n  {\n    SELECT ?manager ?dept (SUM(IF(BOUND(?deptEmp) && ?deptEmp = ?dept, 1, 0)) AS ?same) (COUNT(DISTINCT ?employee) AS ?total) WHERE {\n      ?manager a pv:Manager .\n      ?manager pv:department ?dept .\n      ?employee pv:hasManager ?manager .\n      OPTIONAL { ?employee pv:department ?deptEmp . }\n    } GROUP BY ?manager ?dept\n  }\n  BIND( IF(?total > 0, xsd:decimal(?same) / xsd:decimal(?total), xsd:decimal(0)) AS ?share )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:41-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Anteil der Teammitglieder jedes Managers arbeitet in derselben Abteilung wie der Manager selbst?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?manager ?dept (COUNT(DISTINCT ?member) AS ?totalMembers)\n       (SUM(IF(BOUND(?mdept) && ?mdept = ?dept, 1, 0)) AS ?sameDeptMembers)\n       (xsd:decimal(SUM(IF(BOUND(?mdept) && ?mdept = ?dept, 1, 0))) / xsd:decimal(COUNT(DISTINCT ?member)) AS ?shareSameDept)\nWHERE {\n  ?manager pv:hasDirectReport ?member .\n  ?manager pv:worksIn ?dept .\n  OPTIONAL { ?member pv:worksIn ?mdept . }\n  FILTER(?member != ?manager)\n}\nGROUP BY ?manager ?dept\nHAVING (COUNT(DISTINCT ?member) > 0)",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:41-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/41-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which bill of materials has the highest average unit cost for its hardware components, and what is that average?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?bom (AVG(xsd:double(?cost)) AS ?avgUnitCost)\nWHERE {\n  ?bom a pv:BillOfMaterial ;\n       pv:hasBomPart ?hw .\n  ?hw a pv:Hardware ;\n      pv:unitPrice ?cost .\n}\nGROUP BY ?bom\nORDER BY DESC(?avgUnitCost)\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:42-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche St\u00fcckliste hat die h\u00f6chsten durchschnittlichen St\u00fcckkosten f\u00fcr ihre Hardwarekomponenten, und wie hoch sind diese durchschnittlichen Kosten?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?bom (AVG(xsd:decimal(?cost)) AS ?avgCost)\nWHERE {\n  ?bom a pv:BillOfMaterial ;\n       pv:hasComponent ?hw .\n  ?hw a pv:Hardware ;\n      pv:unitCost ?cost .\n}\nGROUP BY ?bom\nORDER BY DESC(?avgCost)\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:42-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/42-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you list any product compatibility cycles\u2014instances where product A states it's compatible with product B and product B likewise lists product A as compatible?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nASK WHERE {\n  ?a a pv:Product ;\n     pv:compatibleProduct ?b .\n  ?b a pv:Product ;\n     pv:compatibleProduct ?a .\n  FILTER(?a != ?b)\n  FILTER(str(?a) < str(?b))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:43-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie Beispiele f\u00fcr Produktkompatibilit\u00e4tszyklen nennen - F\u00e4lle, in denen Produkt A angibt, dass es mit Produkt B kompatibel ist, und Produkt B wiederum Produkt A als kompatibel auflistet?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?a pv:compatibleProduct ?b .\n  ?b pv:compatibleProduct ?a .\n  FILTER(str(?a) < str(?b))\n  BIND(CONCAT(STR(?a), \" <-> \", STR(?b)) AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:43-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/43-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which hardware items fall within the top 10% of widths, and what are their IDs, names, and width measurements?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT DISTINCT ?hw ?label ?width WHERE {\n  {\n    SELECT (COUNT(DISTINCT ?hAll) AS ?total) WHERE {\n      ?hAll rdf:type pv:Hardware ;\n            pv:width_mm ?wAll .\n    }\n  }\n  BIND(CEIL(?total * 0.1) AS ?topCount)\n  ?hw rdf:type pv:Hardware ;\n      pv:width_mm ?width .\n  OPTIONAL { ?hw rdfs:label ?label. }\n  {\n    SELECT (COUNT(DISTINCT ?h2) AS ?higher) WHERE {\n      ?h2 rdf:type pv:Hardware ;\n          pv:width_mm ?w2 .\n      FILTER(?w2 > ?width)\n    }\n  }\n  BIND((?higher + 1) AS ?rank)\n  FILTER(?rank <= ?topCount)\n}\nORDER BY DESC(?width)",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:44-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Hardware-Komponenten geh\u00f6ren zu den 10% mit der gr\u00f6\u00dften Breite, und welche IDs, Namen und Breitenma\u00dfe haben sie?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?id ?name ?width WHERE {\n  {\n    SELECT (COUNT(DISTINCT ?x) AS ?cnt) WHERE {\n      ?x pv:width ?w .\n      ?x rdf:type pv:HardwareComponent .\n    }\n  }\n  BIND(CEIL(xsd:decimal(?cnt) * 0.1) AS ?topN)\n\n  {\n    SELECT ?hw ?width ?name (COUNT(DISTINCT ?other) AS ?higherCount) WHERE {\n      ?hw pv:width ?width .\n      ?hw rdf:type pv:HardwareComponent .\n      OPTIONAL { ?hw rdfs:label ?name . }\n      ?other pv:width ?otherWidth .\n      ?other rdf:type pv:HardwareComponent .\n      FILTER(xsd:decimal(?otherWidth) > xsd:decimal(?width))\n    }\n    GROUP BY ?hw ?width ?name\n  }\n\n  FILTER((?higherCount + 1) <= ?topN)\n  BIND(?hw AS ?id)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:44-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/44-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which supplier provides the most reliable inductors?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    SELECT ?result (AVG(xsd:double(?ri)) AS ?avg) WHERE {\n      ?prod a pv:Product ;\n            rdfs:label ?label ;\n            pv:reliabilityIndex ?ri ;\n            pv:hasSupplier ?result .\n      FILTER(regex(?label, \"inductor\", \"i\"))\n    }\n    GROUP BY ?result\n    ORDER BY DESC(?avg)\n    LIMIT 1\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:45-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Lieferant bietet die zuverl\u00e4ssigsten Induktivit\u00e4ten an?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    SELECT ?s (AVG(xsd:double(?rel)) AS ?avg) WHERE {\n      ?s a pv:Agent .\n      ?s pv:provides ?prod .\n      ?prod rdfs:label ?label .\n      FILTER(regex(lcase(str(?label)), \"indukt\")) .\n      ?prod pv:reliability ?rel .\n    } GROUP BY ?s\n  }\n  {\n    SELECT (MAX(?avg2) AS ?maxAvg) WHERE {\n      {\n        SELECT ?s2 (AVG(xsd:double(?rel2)) AS ?avg2) WHERE {\n          ?s2 a pv:Agent .\n          ?s2 pv:provides ?prod2 .\n          ?prod2 rdfs:label ?label2 .\n          FILTER(regex(lcase(str(?label2)), \"indukt\")) .\n          ?prod2 pv:reliability ?rel2 .\n        } GROUP BY ?s2\n      }\n    }\n  }\n  FILTER(ABS(xsd:double(?avg) - xsd:double(?maxAvg)) < 1e-6)\n  BIND(?s AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:45-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/45-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which five suppliers have the highest average reliability across their products?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    SELECT ?result (AVG(xsd:decimal(?reliability)) AS ?avgReliability) WHERE {\n      ?product a pv:Product ;\n               pv:hasSupplier ?result ;\n               pv:reliabilityIndex ?reliability .\n    }\n    GROUP BY ?result\n    ORDER BY DESC(?avgReliability)\n    LIMIT 5\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:46-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche f\u00fcnf Lieferanten weisen die h\u00f6chste durchschnittliche Zuverl\u00e4ssigkeit \u00fcber ihre Produkte hinweg auf?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    SELECT ?supplier (AVG(xsd:double(?ri)) AS ?avgReliability) WHERE {\n      ?product pv:memberOf ?supplier ;\n               pv:reliabilityIndex ?ri .\n      FILTER(bound(?ri))\n    }\n    GROUP BY ?supplier\n  }\n  BIND(?supplier AS ?result)\n}\nORDER BY DESC(?avgReliability)\nLIMIT 5",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:46-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/46-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which countries supply the BOM parts for our SkySync MechWave?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  prodi:bom-17 pv:hasBomPart ?part .\n  ?part pv:hasSupplier ?supplier .\n  {\n    ?supplier pv:country ?result .\n  }\n  UNION\n  {\n    ?supplier pv:addressCountryCode ?result .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:47-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche L\u00e4nder liefern die Komponenten f\u00fcr unser SkySync MechWave?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  # Komponenten, die f\u00fcr das Produkt SkySync MechWave geeignet/zugeordnet sind\n  ?component pv:eligibleFor prodi:bom-17 ;\n             pv:hasSupplier ?supplier .\n  # Land des Lieferanten\n  ?supplier pv:addressCountry ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:47-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/47-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Please list all BOMs that include at least one part supplied by a Polish vendor.",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:BillOfMaterial ;\n          pv:hasBomPart ?part .\n  ?part a pv:BomPart ;\n        pv:hasSupplier ?supplier .\n  {\n    ?supplier pv:country dbpedia:Poland .\n  }\n  UNION\n  {\n    ?supplier pv:country ?country .\n    FILTER( isLiteral(?country) && LCASE(STR(?country)) = \"poland\" )\n  }\n  UNION\n  {\n    ?supplier pv:country ?countryNode .\n    ?countryNode rdfs:label ?clabel .\n    FILTER(regex(?clabel, \"Poland\", \"i\"))\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:48-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Bitte listen Sie alle St\u00fccklisten auf, die mindestens ein Teil enthalten, das von einem polnischen Lieferanten bezogen wird.",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a pv:BillOfMaterial ;\n          pv:hasBomPart ?part .\n  ?part pv:hasSupplier ?supplier .\n  ?supplier pv:country dbpedia:Poland .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:48-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/48-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many suppliers can provide alternative compatible products for the K367 Strain Encoder?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE {\n  {\n    prodi:hw-K367-1320550 pv:compatibleProduct ?alt .\n  } UNION {\n    ?alt pv:compatibleProduct prodi:hw-K367-1320550 .\n  }\n  FILTER (?alt != prodi:hw-K367-1320550)\n  ?supplier a pv:Supplier .\n  ?supplier pv:offersProduct ?alt .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:49-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele Lieferanten k\u00f6nnen alternative, kompatible Produkte f\u00fcr den K367-Dehnungsmesswandler anbieten?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nSELECT (COUNT(DISTINCT ?supplier) AS ?count) WHERE {\n  prodi:bom-part-10-K367-1320550 pv:compatibleProduct ?altProduct .\n  ?supplier pv:supplies ?altProduct .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:49-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/49-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department is responsible for the most products, and how many products is that?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX dbpedia: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT ?department (COUNT(DISTINCT ?product) AS ?count)\nWHERE {\n  ?department a pv:Department ;\n              pv:responsibleFor ?product .\n  ?product a pv:Product .\n}\nGROUP BY ?department\nORDER BY DESC(?count)\nLIMIT 1",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:50-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilung ist f\u00fcr die meisten Produkte verantwortlich, und wie viele Produkte sind das?",
+    "query": "PREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX prodi: <http://ld.company.org/prod-instances/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?dept ?deptName ?count WHERE {\n  {\n    SELECT ?dept (COALESCE(?label, STR(?dept)) AS ?deptName) (COUNT(DISTINCT ?product) AS ?count) WHERE {\n      ?product pv:hasProductManager ?mgr .\n      ?mgr pv:hasManager ?dept .\n      OPTIONAL { ?dept rdfs:label ?label. }\n    }\n    GROUP BY ?dept ?label\n    ORDER BY DESC(?count)\n    LIMIT 1\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "ck26:50-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/50-de"
+  }
+]

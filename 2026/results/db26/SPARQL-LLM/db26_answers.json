@@ -1,0 +1,802 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are all the Presidents of France?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .\n  {\n    ?uri <http://dbpedia.org/property/office> <http://dbpedia.org/resource/President_of_France> .\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/ontology/office> <http://dbpedia.org/resource/President_of_France> .\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/ontology/office> \"President of France\"@en .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:1-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son todos los Presidentes de Francia?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  {\n    <http://dbpedia.org/resource/List_of_presidents_of_France> <http://dbpedia.org/ontology/wikiPageWikiLink> ?uri .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/List_of_Presidents_of_France> <http://dbpedia.org/ontology/wikiPageWikiLink> ?uri .\n  }\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/President> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:1-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/1-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which actor appeared in the most films in a single decade?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Actor> .\n  ?film <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film> .\n\n  { { ?film <http://dbpedia.org/ontology/starring> ?uri }\n    UNION\n    { ?film <http://dbpedia.org/property/starring> ?uri }\n  }\n\n  { { ?film <http://dbpedia.org/ontology/releaseDate> ?date }\n    UNION\n    { ?film <http://dbpedia.org/property/released> ?date }\n    UNION\n    { ?film <http://dbpedia.org/property/releaseDate> ?date }\n  }\n\n  BIND(SUBSTR(STR(?date), 1, 4) AS ?year)\n  FILTER(REGEX(?year, \"^[0-9]{4}$\"))\n  FILTER(?year >= \"1880\" && ?year <= \"2100\")\n\n  BIND(CONCAT(SUBSTR(?year, 1, 3), \"0\") AS ?decade)\n}\nGROUP BY ?uri ?decade\nORDER BY DESC(COUNT(DISTINCT ?film))\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:2-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 actor apareci\u00f3 en la mayor cantidad de pel\u00edculas en una sola d\u00e9cada?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT ?uri\nWHERE {\n  {\n    SELECT ?uri (COUNT(DISTINCT ?film) AS ?filmCount)\n    WHERE {\n      ?film <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film> .\n      ?film <http://dbpedia.org/ontology/starring> ?uri .\n      ?uri  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Actor> .\n\n      {\n        ?film <http://dbpedia.org/ontology/releaseDate> ?date .\n        BIND(YEAR(?date) AS ?year)\n      }\n      UNION\n      {\n        ?film <http://dbpedia.org/ontology/releaseYear> ?yearLit .\n        BIND(<http://www.w3.org/2001/XMLSchema#integer>(?yearLit) AS ?year)\n      }\n      UNION\n      {\n        ?film <http://dbpedia.org/property/released> ?released .\n        FILTER(\n          datatype(?released) = <http://www.w3.org/2001/XMLSchema#date> ||\n          datatype(?released) = <http://www.w3.org/2001/XMLSchema#dateTime> ||\n          datatype(?released) = <http://www.w3.org/2001/XMLSchema#gYear>\n        )\n        BIND(\n          IF(\n            datatype(?released) = <http://www.w3.org/2001/XMLSchema#date> ||\n            datatype(?released) = <http://www.w3.org/2001/XMLSchema#dateTime>,\n            YEAR(?released),\n            <http://www.w3.org/2001/XMLSchema#integer>(?released)\n          ) AS ?year\n        )\n      }\n\n      BIND((<http://www.w3.org/2001/XMLSchema#integer>(FLOOR((?year) / 10)) * 10) AS ?decadeStart)\n    }\n    GROUP BY ?uri ?decadeStart\n    ORDER BY DESC(?filmCount)\n    LIMIT 1\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:2-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/2-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who (either an actor or a musician) has received the highest number of awards?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT ?uri\nWHERE {\n  {\n    SELECT ?uri (COUNT(DISTINCT ?award) AS ?cnt)\n    WHERE {\n      {\n        ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Actor> .\n      }\n      UNION\n      {\n        ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/MusicalArtist> .\n      }\n      UNION\n      {\n        ?uri <http://dbpedia.org/ontology/occupation> <http://dbpedia.org/resource/Actor> .\n      }\n      UNION\n      {\n        ?uri <http://dbpedia.org/ontology/occupation> <http://dbpedia.org/resource/Musician> .\n      }\n\n      {\n        ?uri <http://dbpedia.org/ontology/award> ?award .\n      }\n      UNION\n      {\n        ?uri <http://dbpedia.org/property/awards> ?award .\n      }\n\n      FILTER(isIRI(?award))\n    }\n    GROUP BY ?uri\n    ORDER BY DESC(?cnt)\n    LIMIT 1\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:3-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9n (ya sea un actor o un m\u00fasico) ha recibido el mayor n\u00famero de premios?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT ?uri WHERE {\n  {\n    SELECT ?uri (COUNT(DISTINCT ?award) AS ?cnt) WHERE {\n      {\n        ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Actor> .\n      }\n      UNION\n      {\n        ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/MusicalArtist> .\n      }\n      UNION\n      {\n        ?uri <http://dbpedia.org/ontology/occupation> <http://dbpedia.org/resource/Musician> .\n      }\n      UNION\n      {\n        ?uri <http://dbpedia.org/property/occupation> <http://dbpedia.org/resource/Musician> .\n      }\n\n      {\n        ?uri <http://dbpedia.org/ontology/award> ?award .\n      }\n      UNION\n      {\n        ?uri <http://dbpedia.org/property/awards> ?award .\n      }\n\n      FILTER(isIRI(?award))\n    }\n    GROUP BY ?uri\n    ORDER BY DESC(?cnt)\n    LIMIT 1\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:3-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/3-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which are the 5 bands or musicians who have produced the highest number of albums?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?album <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Album> ;\n         <http://dbpedia.org/ontology/producer> ?uri .\n\n  {\n    ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Band> .\n  }\n  UNION\n  {\n    ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/MusicalArtist> .\n  }\n}\nGROUP BY ?uri\nORDER BY DESC(COUNT(DISTINCT ?album))\nLIMIT 5",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:4-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las 5 bandas o m\u00fasicos que han producido el mayor n\u00famero de \u00e1lbumes?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT ?uri WHERE {\n  ?album <http://dbpedia.org/ontology/producer> ?uri .\n  {\n    ?album a <http://dbpedia.org/ontology/Album> .\n  }\n  UNION\n  {\n    ?album a <http://schema.org/MusicAlbum> .\n  }\n\n  {\n    ?uri a <http://dbpedia.org/ontology/Band> .\n  }\n  UNION\n  {\n    ?uri a <http://dbpedia.org/ontology/MusicalArtist> .\n  }\n  UNION\n  {\n    ?uri a <http://dbpedia.org/ontology/Musician> .\n  }\n}\nGROUP BY ?uri\nORDER BY DESC(COUNT(DISTINCT ?album))\nLIMIT 5",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:4-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/4-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which are the top 3 taxonomic kingdoms that have the largest number of endangered species?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT ?uri WHERE {\n  {\n    SELECT ?uri (COUNT(DISTINCT ?species) AS ?cnt) WHERE {\n      ?species <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Species> ;\n               <http://dbpedia.org/ontology/kingdom> ?uri ;\n               <http://dbpedia.org/ontology/conservationStatus> ?status .\n      FILTER(REGEX(STR(?status), \"endangered\", \"i\"))\n    }\n    GROUP BY ?uri\n  }\n}\nORDER BY DESC(?cnt)\nLIMIT 3",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:5-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los 3 reinos taxon\u00f3micos con el mayor n\u00famero de especies en peligro de extinci\u00f3n?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT ?uri\nWHERE {\n  {\n    SELECT ?uri (COUNT(DISTINCT ?species) AS ?c)\n    WHERE {\n      ?species <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Species> ;\n               <http://dbpedia.org/ontology/kingdom> ?uri ;\n               <http://www.w3.org/2000/01/rdf-schema#comment> ?comment .\n\n      FILTER (\n        REGEX(LCASE(STR(?comment)), \"endangered\") ||\n        REGEX(LCASE(STR(?comment)), \"threatened\") ||\n        REGEX(LCASE(STR(?comment)), \"en peligro\")\n      )\n    }\n    GROUP BY ?uri\n  }\n}\nORDER BY DESC(?c)\nLIMIT 3",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:5-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/5-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Was Sasha Banks trained by Booker T?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nASK WHERE {\n  <http://dbpedia.org/resource/Sasha_Banks> <http://dbpedia.org/property/trainer> <http://dbpedia.org/resource/Booker_T_(wrestler)> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:6-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfSasha Banks fue entrenada por Booker T?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nASK WHERE {\n  <http://dbpedia.org/resource/Sasha_Banks> <http://dbpedia.org/ontology/trainer> <http://dbpedia.org/resource/Booker_T_(wrestler)> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:6-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/6-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Does Watervliet have a junction on the New York State Route 470?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nASK WHERE {\n  <http://dbpedia.org/resource/New_York_State_Route_470> <http://dbpedia.org/ontology/routeJunction> <http://dbpedia.org/resource/Watervliet,_New_York> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:7-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfWatervliet tiene una intersecci\u00f3n en la Ruta Estatal de Nueva York 470?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nASK WHERE {\n  <http://dbpedia.org/resource/New_York_State_Route_470>\n    <http://dbpedia.org/ontology/routeJunction>\n    <http://dbpedia.org/resource/Watervliet,_New_York> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:7-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/7-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Did Clyde Tombaugh discover Pluto?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nASK WHERE {\n  <http://dbpedia.org/resource/Pluto> <http://dbpedia.org/ontology/discoverer> <http://dbpedia.org/resource/Clyde_Tombaugh> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:8-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfDescubri\u00f3 Clyde Tombaugh a Plut\u00f3n?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nASK WHERE {\n  <http://dbpedia.org/resource/Pluto> <http://dbpedia.org/ontology/discoverer> <http://dbpedia.org/resource/Clyde_Tombaugh> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:8-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/8-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Was Bret Easton Ellis the author of American Psycho?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nASK WHERE {\n  <http://dbpedia.org/resource/American_Psycho> <http://dbpedia.org/property/author> <http://dbpedia.org/resource/Bret_Easton_Ellis> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:9-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfFue Bret Easton Ellis el autor de American Psycho?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nASK WHERE {\n  <http://dbpedia.org/resource/American_Psycho> <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/Bret_Easton_Ellis> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:9-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/9-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Is Blender released under the GNU license?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nASK WHERE {\n  <http://dbpedia.org/resource/Blender_(software)> <http://dbpedia.org/ontology/license> <http://dbpedia.org/resource/GNU> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:10-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfBlender se publica bajo la licencia GNU?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nASK WHERE {\n  <http://dbpedia.org/resource/Blender_(software)> <http://dbpedia.org/ontology/license> <http://dbpedia.org/resource/GNU> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:10-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/10-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are the prime ministers of the United Kingdom?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .\n  {\n    ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/PrimeMinistersOfTheUnitedKingdom> .\n  }\n  UNION\n  {\n    ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/PrimeMinister> ;\n         <http://dbpedia.org/property/title> <http://dbpedia.org/resource/Prime_Minister_of_the_United_Kingdom> .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:11-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los primeros ministros del Reino Unido?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri a <http://dbpedia.org/ontology/Person> .\n\n  {\n    ?uri a <http://dbpedia.org/class/yago/PrimeMinistersOfTheUnitedKingdom> .\n  }\n  UNION\n  {\n    ?uri a <http://dbpedia.org/ontology/PrimeMinister> ;\n         <http://dbpedia.org/property/title> <http://dbpedia.org/resource/Prime_Minister_of_the_United_Kingdom> .\n  }\n\n  FILTER NOT EXISTS { ?uri <http://dbpedia.org/ontology/wikiPageDisambiguates> ?x }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:11-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/11-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What are the 10 oldest works by Mark Twain?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?uri\nWHERE {\n  {\n    ?uri <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/Mark_Twain> .\n    ?uri <http://dbpedia.org/ontology/publicationDate> ?d .\n    BIND(xsd:date(?d) AS ?date)\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/Mark_Twain> .\n    ?uri <http://dbpedia.org/property/releaseDate> ?d .\n    BIND(xsd:date(?d) AS ?date)\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/Mark_Twain> .\n    ?uri <http://dbpedia.org/ontology/releaseDate> ?d .\n    BIND(xsd:date(?d) AS ?date)\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/Mark_Twain> .\n    ?uri <http://dbpedia.org/property/published> ?y .\n    FILTER ( REGEX(STR(?y), \"^[0-9]{4}$\") )\n    BIND(xsd:date(CONCAT(STR(?y), \"-01-01\")) AS ?date)\n  }\n}\nGROUP BY ?uri\nORDER BY ASC(MIN(?date))\nLIMIT 10",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:12-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las 10 obras m\u00e1s antiguas de Mark Twain?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/Mark_Twain> ;\n       <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type .\n\n  FILTER (?type IN (\n    <http://dbpedia.org/ontology/Book>,\n    <http://dbpedia.org/ontology/WrittenWork>,\n    <http://dbpedia.org/ontology/LiteraryWork>,\n    <http://dbpedia.org/ontology/Work>,\n    <http://dbpedia.org/ontology/Novel>\n  ))\n\n  {\n    ?uri <http://dbpedia.org/ontology/publicationDate> ?dateRaw .\n  } UNION {\n    ?uri <http://dbpedia.org/property/publicationDate> ?dateRaw .\n  } UNION {\n    ?uri <http://dbpedia.org/property/releaseDate> ?dateRaw .\n  } UNION {\n    ?uri <http://dbpedia.org/property/pubDate> ?dateRaw .\n  } UNION {\n    ?uri <http://dbpedia.org/property/published> ?dateRaw .\n  }\n\n  BIND(<http://www.w3.org/2001/XMLSchema#integer>(SUBSTR(STR(?dateRaw), 1, 4)) AS ?year)\n  FILTER(?year >= 1)\n}\nORDER BY ASC(?year) ASC(STR(?uri))\nLIMIT 10",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:12-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/12-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "In which settlement was the wife of Barack Obama born?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Barack_Obama> <http://dbpedia.org/ontology/spouse> ?spouse .\n  ?spouse <http://dbpedia.org/ontology/birthPlace> ?uri .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Settlement> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:13-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 asentamiento naci\u00f3 la esposa de Barack Obama?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Barack_Obama> <http://dbpedia.org/ontology/spouse> ?spouse .\n  ?spouse <http://dbpedia.org/ontology/birthPlace> ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:13-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/13-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where was the badminton player who won the silver medal at the 2012 Summer Olympics Women's doubles badminton event born at?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?event <http://www.w3.org/2000/01/rdf-schema#label> \"Badminton at the 2012 Summer Olympics \u2013 Women's doubles\"@en .\n\n  { ?event <http://dbpedia.org/ontology/silverMedalist> ?player . }\n  UNION\n  { ?event <http://dbpedia.org/property/silver> ?player . }\n\n  {\n    ?player <http://dbpedia.org/ontology/birthPlace> ?uri .\n  }\n  UNION\n  {\n    ?player <http://dbpedia.org/property/birthPlace> ?uri .\n  }\n  UNION\n  {\n    ?player <http://dbpedia.org/property/placeOfBirth> ?uri .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:14-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde naci\u00f3 la jugadora de b\u00e1dminton que gan\u00f3 la medalla de plata en la prueba de dobles femeninos de los Juegos Ol\u00edmpicos de Verano de 2012?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Badminton_at_the_2012_Summer_Olympics_\u2013_Women's_doubles> ?p ?player .\n\n  FILTER(\n    ?p = <http://dbpedia.org/ontology/silverMedalist> ||\n    ( STRSTARTS(STR(?p), \"http://dbpedia.org/property/silver\")\n      && !CONTAINS(LCASE(STR(?p)), \"noc\")\n    )\n  )\n  FILTER(isIRI(?player))\n\n  ?player (\n    <http://dbpedia.org/ontology/birthPlace> |\n    <http://dbpedia.org/property/birthPlace> |\n    <http://dbpedia.org/property/placeOfBirth>\n  ) ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:14-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/14-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name some comic characters created by Stan Lee?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/ontology/creator> <http://dbpedia.org/resource/Stan_Lee> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/ComicsCharacter> .\n}\nLIMIT 50",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:15-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfNombra algunos personajes de c\u00f3mic creados por Stan Lee?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/ontology/creator> <http://dbpedia.org/resource/Stan_Lee> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/ComicsCharacter> .\n}\nLIMIT 50",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:15-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/15-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which artist created American IV: The Man Comes Around and also performed Hurt at least once?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  <http://dbpedia.org/resource/American_IV:_The_Man_Comes_Around>\n    (<http://dbpedia.org/ontology/artist> | <http://dbpedia.org/property/artist>) ?uri .\n\n  VALUES ?hurtWork {\n    <http://dbpedia.org/resource/Hurt_(Johnny_Cash_song)>\n    <http://dbpedia.org/resource/Hurt_(Nine_Inch_Nails_song)>\n  }\n\n  ?hurtWork (<http://dbpedia.org/ontology/artist> | <http://dbpedia.org/property/artist>) ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:16-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 artista cre\u00f3 American IV: The Man Comes Around y tambi\u00e9n interpret\u00f3 Hurt al menos una vez?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  <http://dbpedia.org/resource/American_IV:_The_Man_Comes_Around>\n    (<http://dbpedia.org/ontology/artist> | <http://dbpedia.org/property/artist>) ?uri .\n\n  VALUES ?hurtWork {\n    <http://dbpedia.org/resource/Hurt_(song)>\n    <http://dbpedia.org/resource/Hurt_(Nine_Inch_Nails_song)>\n    <http://dbpedia.org/resource/Hurt_(Johnny_Cash_song)>\n  }\n\n  ?hurtWork (<http://dbpedia.org/ontology/artist> | <http://dbpedia.org/property/artist>) ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:16-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/16-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Stephen Merchant is the executive producer of the series having how many fictional characters?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT (COUNT(?uri) AS ?uri)\nWHERE {\n  ?series <http://dbpedia.org/ontology/executiveProducer> <http://dbpedia.org/resource/Stephen_Merchant> .\n  ?uri <http://dbpedia.org/ontology/series> ?series .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/FictionalCharacter> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:17-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Stephen Merchant es el productor ejecutivo de la serie que tiene \u00bfcu\u00e1ntos personajes ficticios?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT (COUNT(DISTINCT ?uri) AS ?count)\nWHERE {\n  ?x <http://dbpedia.org/ontology/executiveProducer> <http://dbpedia.org/resource/Stephen_Merchant> .\n  ?uri <http://dbpedia.org/ontology/series> ?x .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/FictionalCharacter> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:17-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/17-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "In which countries are the children peaks from Denali located and what are them?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?peak ?country\nWHERE {\n  ?peak <http://dbpedia.org/ontology/parentMountainPeak> <http://dbpedia.org/resource/Denali> .\n\n  OPTIONAL { ?peak <http://dbpedia.org/ontology/country> ?country1 . }\n  OPTIONAL {\n    ?peak <http://dbpedia.org/ontology/locatedInArea> ?area .\n    ?area <http://dbpedia.org/ontology/country> ?country2 .\n  }\n  OPTIONAL {\n    ?peak <http://dbpedia.org/ontology/location> ?country3 .\n    ?country3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .\n  }\n\n  BIND(COALESCE(?country1, ?country2, ?country3) AS ?country)\n  FILTER(BOUND(?country))\n}\nORDER BY ?country ?peak",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:18-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00edses se encuentran los picos secundarios del Denali y cu\u00e1les son?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?peak <http://dbpedia.org/ontology/parentMountainPeak> <http://dbpedia.org/resource/Denali> .\n  ?peak <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Mountain> .\n\n  OPTIONAL { ?peak <http://dbpedia.org/ontology/country> ?country1 . }\n\n  OPTIONAL {\n    ?peak <http://dbpedia.org/ontology/locatedInArea> ?area .\n    ?area <http://dbpedia.org/ontology/country> ?country2 .\n  }\n\n  BIND(COALESCE(?country1, ?country2) AS ?country)\n  FILTER(BOUND(?country))\n\n  BIND(CONCAT(STR(?peak), \" | \", STR(?country)) AS ?uri)\n}\nORDER BY ?uri",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:18-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/18-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are footballers coached by Pep Guardiola?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri a <http://dbpedia.org/ontology/SoccerPlayer> .\n\n  {\n    ?uri <http://dbpedia.org/ontology/team> ?team .\n    <http://dbpedia.org/resource/Pep_Guardiola> <http://dbpedia.org/ontology/managerClub> ?team .\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/ontology/team> ?team .\n    ?team <http://dbpedia.org/ontology/manager> <http://dbpedia.org/resource/Pep_Guardiola> .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:19-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 futbolistas han sido entrenados por Pep Guardiola?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  {\n    <http://dbpedia.org/resource/Pep_Guardiola> <http://dbpedia.org/ontology/managerClub> ?club .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Pep_Guardiola> <http://dbpedia.org/property/managerclubs> ?club .\n  }\n\n  ?uri a <http://dbpedia.org/ontology/SoccerPlayer> .\n\n  {\n    ?uri <http://dbpedia.org/ontology/team> ?club .\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/property/clubs> ?club .\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/ontology/careerStation> ?cs .\n    ?cs  <http://dbpedia.org/ontology/team> ?club .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:19-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/19-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Through which cities do the rivers originating in Yellowstone National Park flow?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?river <http://dbpedia.org/ontology/sourcePlace> <http://dbpedia.org/resource/Yellowstone_National_Park> .\n  ?river <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/River> .\n  ?river <http://dbpedia.org/ontology/city> ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:20-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfPor qu\u00e9 ciudades fluyen los r\u00edos que se originan en el Parque Nacional de Yellowstone?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?river <http://dbpedia.org/ontology/sourcePlace> <http://dbpedia.org/resource/Yellowstone_National_Park> .\n  ?river <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/River> .\n  ?river <http://dbpedia.org/ontology/city> ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:20-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/20-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which alliance has the most member airlines?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?airline <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airline> .\n  {\n    ?airline <http://dbpedia.org/ontology/alliance> ?uri .\n  }\n  UNION\n  {\n    ?airline <http://dbpedia.org/ontology/Alliance> ?uri .\n  }\n}\nGROUP BY ?uri\nORDER BY DESC(COUNT(DISTINCT ?airline))\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:21-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 alianza tiene la mayor cantidad de aerol\u00edneas miembros?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT ?uri\nWHERE {\n  ?airline a <http://dbpedia.org/ontology/Airline> .\n  {\n    ?airline <http://dbpedia.org/ontology/alliance> ?uri .\n  }\n  UNION\n  {\n    ?airline <http://dbpedia.org/ontology/Alliance> ?uri .\n  }\n}\nGROUP BY ?uri\nORDER BY DESC(COUNT(DISTINCT ?airline))\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:21-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/21-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which companies built the stadium whose tenant was the BC Lions?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?stadium <http://dbpedia.org/ontology/tenant> <http://dbpedia.org/resource/BC_Lions> .\n  ?stadium <http://dbpedia.org/ontology/builder> ?uri .\n  ?stadium <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Stadium> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:22-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas construyeron el estadio cuyo inquilino eran los BC Lions?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?stadium <http://dbpedia.org/ontology/tenant> <http://dbpedia.org/resource/BC_Lions> .\n  ?stadium <http://dbpedia.org/ontology/builder> ?uri .\n  ?stadium <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Stadium> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Company> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:22-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/22-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which artists were influenced by Pablo Picasso?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Artist> ;\n       <http://dbpedia.org/ontology/influencedBy> <http://dbpedia.org/resource/Pablo_Picasso> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:23-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 artistas fueron influenciados(as) por Pablo Picasso?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  {\n    ?uri <http://dbpedia.org/ontology/influencedBy> <http://dbpedia.org/resource/Pablo_Picasso> .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Pablo_Picasso> <http://dbpedia.org/ontology/influenced> ?uri .\n  }\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Artist> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:23-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/23-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What was the party of the predecessor from Yingluck Shinawatra?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Yingluck_Shinawatra> <http://dbpedia.org/property/predecessor> ?predecessor .\n  { ?predecessor <http://dbpedia.org/ontology/party> ?uri }\n  UNION\n  { ?predecessor <http://dbpedia.org/property/party> ?uri }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:24-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l era el partido del predecesor de Yingluck Shinawatra?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Yingluck_Shinawatra> <http://dbpedia.org/property/predecessor> ?predecessor .\n  {\n    ?predecessor <http://dbpedia.org/ontology/party> ?uri .\n  }\n  UNION\n  {\n    ?predecessor <http://dbpedia.org/property/party> ?uri .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:24-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/24-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which television shows were produced through a collaboration between HBO and BBC?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/TelevisionShow> .\n  ?uri <http://dbpedia.org/ontology/company> <http://dbpedia.org/resource/HBO> .\n  ?uri <http://dbpedia.org/ontology/company> <http://dbpedia.org/resource/BBC> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:25-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 programas de televisi\u00f3n fueron producidos mediante una colaboraci\u00f3n entre HBO y la BBC?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/TelevisionShow> .\n\n  ?uri (<http://dbpedia.org/ontology/company> | <http://dbpedia.org/property/company>)\n       <http://dbpedia.org/resource/HBO> .\n\n  ?uri (<http://dbpedia.org/ontology/company> | <http://dbpedia.org/property/company>)\n       <http://dbpedia.org/resource/BBC> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:25-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/25-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "List all the publishers of the Oddworld series.",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?game <http://dbpedia.org/ontology/series> <http://dbpedia.org/resource/Oddworld> .\n  ?game <http://dbpedia.org/ontology/publisher> ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:26-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son todos los editores de la serie Oddworld?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?game <http://dbpedia.org/ontology/series> <http://dbpedia.org/resource/Oddworld> .\n  ?game <http://dbpedia.org/ontology/publisher> ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:26-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/26-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What are the films whose music was composed by Ennio Morricone?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/ontology/musicComposer> <http://dbpedia.org/resource/Ennio_Morricone> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:27-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las pel\u00edculas cuya m\u00fasica fue compuesta por Ennio Morricone?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/ontology/musicComposer> <http://dbpedia.org/resource/Ennio_Morricone> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:27-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/27-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name some television shows related to the one whose opening theme was composed by Bear McCreary.",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?show <http://dbpedia.org/property/themeMusicComposer> <http://dbpedia.org/resource/Bear_McCreary> ;\n        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/TelevisionShow> ;\n        <http://dbpedia.org/ontology/genre> ?genre .\n\n  ?uri  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/TelevisionShow> ;\n        <http://dbpedia.org/ontology/genre> ?genre .\n\n  FILTER (?uri != ?show)\n}\nLIMIT 50",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:28-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Nombra algunos programas de televisi\u00f3n relacionados con aquel cuya m\u00fasica de apertura fue compuesta por Bear McCreary.",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?x <http://dbpedia.org/property/themeMusicComposer> <http://dbpedia.org/resource/Bear_McCreary> .\n  ?uri <http://dbpedia.org/ontology/related> ?x .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/TelevisionShow> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:28-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/28-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where was the song 'Imagine' recorded?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  {\n    <http://dbpedia.org/resource/Imagine_(John_Lennon_song)> <http://dbpedia.org/ontology/recordedIn> ?uri .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Imagine_(John_Lennon_song)> <http://dbpedia.org/property/recorded> ?uri .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:29-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde fue grabada la canci\u00f3n 'Imagine'?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  {\n    <http://dbpedia.org/resource/Imagine_(John_Lennon_song)> <http://dbpedia.org/ontology/recordedIn> ?uri .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Imagine_(John_Lennon_song)> <http://dbpedia.org/property/recorded> ?uri .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:29-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/29-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where did the spouse of Aung San Suu Kyi go to school?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Aung_San_Suu_Kyi> <http://dbpedia.org/ontology/spouse> ?spouse .\n  ?spouse <http://dbpedia.org/property/almaMater> ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:30-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde estudi\u00f3 el c\u00f3nyuge de Aung San Suu Kyi?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  {\n    <http://dbpedia.org/resource/Aung_San_Suu_Kyi> <http://dbpedia.org/ontology/spouse> ?spouse .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Aung_San_Suu_Kyi> <http://dbpedia.org/property/spouse> ?spouse .\n  }\n\n  {\n    ?spouse <http://dbpedia.org/ontology/almaMater> ?uri .\n  }\n  UNION\n  {\n    ?spouse <http://dbpedia.org/property/almaMater> ?uri .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:30-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/30-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the birthplace of Barack Obama that is also the location of the University of Hawaii at Manoa?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Barack_Obama> <http://dbpedia.org/ontology/birthPlace> ?uri .\n  {\n    <http://dbpedia.org/resource/University_of_Hawaii_at_Manoa> <http://dbpedia.org/ontology/city> ?uri .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/University_of_Hawaii_at_Manoa> <http://dbpedia.org/ontology/location> ?uri .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:31-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Barack Obama que tambi\u00e9n es la ubicaci\u00f3n de la Universidad de Haw\u00e1i en M\u0101noa?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Barack_Obama>\n    ( <http://dbpedia.org/ontology/birthPlace> | <http://dbpedia.org/property/birthPlace> )\n    ?uri .\n\n  <http://dbpedia.org/resource/University_of_Hawaii_at_Manoa>\n    ( <http://dbpedia.org/ontology/city> | <http://dbpedia.org/ontology/location> |\n      <http://dbpedia.org/property/city> | <http://dbpedia.org/property/location> )\n    ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:31-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/31-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "How many rivers do structures designed by Gustave Eiffel cross?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT (COUNT(DISTINCT ?river) AS ?uri)\nWHERE {\n  ?structure <http://dbpedia.org/ontology/architect> <http://dbpedia.org/resource/Gustave_Eiffel> .\n  ?structure <http://dbpedia.org/ontology/crosses> ?river .\n  ?river <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/River> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:32-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos r\u00edos cruzan las estructuras dise\u00f1adas por Gustave Eiffel?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT (COUNT(DISTINCT ?river) AS ?uri)\nWHERE {\n  VALUES ?designPred {\n    <http://dbpedia.org/ontology/designer>\n    <http://dbpedia.org/ontology/architect>\n    <http://dbpedia.org/property/designer>\n    <http://dbpedia.org/property/architect>\n    <http://dbpedia.org/property/engineer>\n  }\n\n  ?structure ?designPred <http://dbpedia.org/resource/Gustave_Eiffel> ;\n             <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?stype .\n\n  FILTER (?stype IN (\n    <http://dbpedia.org/ontology/ArchitecturalStructure>,\n    <http://dbpedia.org/ontology/Bridge>,\n    <http://dbpedia.org/ontology/Monument>\n  ))\n\n  { ?structure <http://dbpedia.org/ontology/crosses> ?river }\n  UNION\n  { ?structure <http://dbpedia.org/property/crosses> ?river }\n  UNION\n  { ?structure <http://dbpedia.org/ontology/river> ?river }\n  UNION\n  { ?structure <http://dbpedia.org/property/river> ?river }\n\n  FILTER(isIRI(?river))\n  ?river <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/River> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:32-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/32-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where did the musical styles originate that are associated with Back to Black?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  {\n    <http://dbpedia.org/resource/Back_to_Black> <http://dbpedia.org/ontology/genre> ?genre .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Back_to_Black> <http://dbpedia.org/property/genre> ?genre .\n  }\n  ?genre <http://dbpedia.org/ontology/stylisticOrigin> ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:33-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde se originaron los estilos musicales asociados con Back to Black?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  {\n    <http://dbpedia.org/resource/Back_to_Black> <http://dbpedia.org/ontology/genre> ?genre .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Back_to_Black> <http://dbpedia.org/property/genre> ?genre .\n  }\n  FILTER(isIRI(?genre))\n  ?genre <http://dbpedia.org/ontology/stylisticOrigin> ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:33-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/33-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What other countries speak the same language as Brazil's official one?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Brazil> <http://dbpedia.org/ontology/officialLanguage> ?lang .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> ;\n       <http://dbpedia.org/ontology/officialLanguage> ?lang .\n  FILTER(?uri != <http://dbpedia.org/resource/Brazil>)\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:34-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otros pa\u00edses hablan el mismo idioma que el oficial de Brasil?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Brazil> <http://dbpedia.org/ontology/officialLanguage> ?lang .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> ;\n       <http://dbpedia.org/ontology/officialLanguage> ?lang .\n  FILTER(?uri != <http://dbpedia.org/resource/Brazil>)\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:34-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/34-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name the island that is part of the Tuamotus archipelago and has its largest city named Rotoava.",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/ontology/largestCity> <http://dbpedia.org/resource/Rotoava> .\n  ?uri <http://dbpedia.org/property/archipelago> <http://dbpedia.org/resource/Tuamotus> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Island> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:35-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Nombra la isla que forma parte del archipi\u00e9lago de Tuamotu y cuya ciudad m\u00e1s grande se llama Rotoava.",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/ontology/largestCity> <http://dbpedia.org/resource/Rotoava> .\n  ?uri <http://dbpedia.org/property/archipelago> <http://dbpedia.org/resource/Tuamotus> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Island> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:35-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/35-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the land size of the country where the University of Oxford is located?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?area\nWHERE {\n  {\n    <http://dbpedia.org/resource/University_of_Oxford>\n      <http://dbpedia.org/ontology/country> ?country .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/University_of_Oxford>\n      <http://dbpedia.org/property/country> ?country .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/University_of_Oxford>\n      <http://dbpedia.org/ontology/city> ?city .\n    ?city <http://dbpedia.org/ontology/country> ?country .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/University_of_Oxford>\n      <http://dbpedia.org/property/city> ?city .\n    ?city <http://dbpedia.org/ontology/country> ?country .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/University_of_Oxford>\n      <http://dbpedia.org/ontology/location> ?loc .\n    ?loc <http://dbpedia.org/ontology/country> ?country .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/University_of_Oxford>\n      <http://dbpedia.org/property/location> ?loc .\n    ?loc <http://dbpedia.org/ontology/country> ?country .\n  }\n\n  OPTIONAL { ?country <http://dbpedia.org/ontology/areaLand> ?a1 . }\n  OPTIONAL { ?country <http://dbpedia.org/ontology/areaTotal> ?a2 . }\n  OPTIONAL { ?country <http://dbpedia.org/property/areaLandKm> ?a3 . }\n  OPTIONAL { ?country <http://dbpedia.org/property/areaKm> ?a4 . }\n  OPTIONAL { ?country <http://dbpedia.org/property/areaTotalKm> ?a5 . }\n  OPTIONAL { ?country <http://dbpedia.org/property/area> ?a6 . }\n\n  BIND(COALESCE(?a1, ?a2, ?a3, ?a4, ?a5, ?a6) AS ?area)\n  FILTER(BOUND(?area))\n}\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:36-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la superficie terrestre del pa\u00eds donde se encuentra la Universidad de Oxford?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?area\nWHERE {\n  {\n    <http://dbpedia.org/resource/University_of_Oxford> <http://dbpedia.org/ontology/country> ?country .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/University_of_Oxford> <http://dbpedia.org/property/country> ?country .\n  }\n\n  OPTIONAL { ?country <http://dbpedia.org/ontology/areaLand> ?aLand1 . }\n  OPTIONAL { ?country <http://dbpedia.org/property/areaLand> ?aLand2 . }\n\n  OPTIONAL { ?country <http://dbpedia.org/ontology/areaTotal> ?aTotal1 . }\n  OPTIONAL { ?country <http://dbpedia.org/property/areaTotal> ?aTotal2 . }\n  OPTIONAL { ?country <http://dbpedia.org/property/areaKm> ?aKm . }\n\n  BIND(COALESCE(?aLand1, ?aLand2, ?aTotal1, ?aTotal2, ?aKm) AS ?area)\n  FILTER(BOUND(?area))\n}\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:36-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/36-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the motto of the military unit in which Stewart Bovell served?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  {\n    <http://dbpedia.org/resource/Stewart_Bovell> <http://dbpedia.org/ontology/militaryBranch> ?x .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/Stewart_Bovell> <http://dbpedia.org/property/branch> ?x .\n  }\n  ?x <http://dbpedia.org/property/motto> ?uri .\n  ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/MilitaryUnit> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:37-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lema de la unidad militar en la que sirvi\u00f3 Stewart Bovell?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Stewart_Bovell> <http://dbpedia.org/ontology/militaryBranch> ?x .\n  ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/MilitaryUnit> .\n\n  OPTIONAL { ?x <http://dbpedia.org/ontology/motto> ?motto1 . }\n  OPTIONAL { ?x <http://dbpedia.org/property/motto> ?motto2 . }\n\n  BIND(COALESCE(?motto1, ?motto2) AS ?uri)\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:37-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/37-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which person has been married to both Jennifer Aniston and Angelina Jolie?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Jennifer_Aniston> <http://dbpedia.org/ontology/spouse> ?uri .\n  <http://dbpedia.org/resource/Angelina_Jolie> <http://dbpedia.org/ontology/spouse> ?uri .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:38-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 persona ha estado casada con Jennifer Aniston y Angelina Jolie?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  {\n    { <http://dbpedia.org/resource/Jennifer_Aniston> <http://dbpedia.org/ontology/spouse> ?uri }\n    UNION\n    { ?uri <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Jennifer_Aniston> }\n  }\n  {\n    { <http://dbpedia.org/resource/Angelina_Jolie> <http://dbpedia.org/ontology/spouse> ?uri }\n    UNION\n    { ?uri <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Angelina_Jolie> }\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:38-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/38-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "List all the software that works on Linux and MacOS operating systems.",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/ontology/operatingSystem> <http://dbpedia.org/resource/Linux> .\n  ?uri <http://dbpedia.org/ontology/operatingSystem> <http://dbpedia.org/resource/Mac_OS> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Software> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:39-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 programas inform\u00e1ticos funcionan tanto en Linux como en MacOS?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/ontology/operatingSystem> <http://dbpedia.org/resource/Linux> .\n  ?uri <http://dbpedia.org/ontology/operatingSystem> <http://dbpedia.org/resource/Mac_OS> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Software> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:39-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/39-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What academic affiliations can be found at universities in Metro Manila?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?univ <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/University> .\n  ?univ <http://dbpedia.org/property/state> <http://dbpedia.org/resource/Metro_Manila> .\n\n  {\n    ?univ <http://dbpedia.org/property/affiliation> ?uri .\n  }\n  UNION\n  {\n    ?univ <http://dbpedia.org/property/affiliations> ?uri .\n  }\n  UNION\n  {\n    ?univ <http://dbpedia.org/ontology/affiliation> ?uri .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:40-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 afiliaciones acad\u00e9micas se pueden encontrar en las universidades de Metro Manila?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?univ <http://dbpedia.org/property/state> <http://dbpedia.org/resource/Metro_Manila> ;\n        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/University> .\n  {\n    ?univ <http://dbpedia.org/property/affiliations> ?uri .\n  }\n  UNION\n  {\n    ?univ <http://dbpedia.org/ontology/affiliation> ?uri .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:40-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/40-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which other firearms were designed by the creator of the AK-47?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  <http://dbpedia.org/resource/AK-47> <http://dbpedia.org/property/designer> ?designer .\n\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Weapon> ;\n       <http://dbpedia.org/property/designer> ?designer .\n\n  FILTER ( ?uri != <http://dbpedia.org/resource/AK-47> )\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:41-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otras armas de fuego fueron dise\u00f1adas por el creador del AK-47?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  {\n    <http://dbpedia.org/resource/AK-47> <http://dbpedia.org/property/designer> ?designer .\n  }\n  UNION\n  {\n    <http://dbpedia.org/resource/AK-47> <http://dbpedia.org/ontology/designer> ?designer .\n  }\n\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Weapon> .\n\n  {\n    ?uri <http://dbpedia.org/property/designer> ?designer .\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/ontology/designer> ?designer .\n  }\n\n  FILTER ( ?uri != <http://dbpedia.org/resource/AK-47> )\n\n  # Aproximaci\u00f3n a \"armas de fuego\": recursos tipados como Firearm o con propiedades t\u00edpicas de armas de fuego.\n  FILTER (\n    EXISTS { ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Firearm> } ||\n    EXISTS { ?uri <http://dbpedia.org/property/cartridge> ?_cartridge } ||\n    EXISTS { ?uri <http://dbpedia.org/property/caliber> ?_caliber }\n  )\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:41-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/41-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which band's former members are Nick Jonas and Joe Jonas?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/property/pastMembers> <http://dbpedia.org/resource/Nick_Jonas> .\n  ?uri <http://dbpedia.org/property/pastMembers> <http://dbpedia.org/resource/Joe_Jonas> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Band> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:42-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfDe qu\u00e9 banda fueron exmiembros Nick Jonas y Joe Jonas?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/property/pastMembers> <http://dbpedia.org/resource/Nick_Jonas> .\n  ?uri <http://dbpedia.org/property/pastMembers> <http://dbpedia.org/resource/Joe_Jonas> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Band> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:42-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/42-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the birth place of the athlete trained by Ring of Honor?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?x <http://dbpedia.org/property/trainer> <http://dbpedia.org/resource/Ring_of_Honor> .\n  ?x <http://dbpedia.org/property/birthPlace> ?uri .\n  ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Athlete> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:43-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento del atleta entrenado por Ring of Honor?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?x <http://dbpedia.org/property/trainer> <http://dbpedia.org/resource/Ring_of_Honor> .\n  ?x <http://dbpedia.org/property/birthPlace> ?uri .\n  ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Athlete> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:43-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/43-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What other honors have recipients of the Presidential Medal of Freedom received?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?person <http://dbpedia.org/ontology/award> <http://dbpedia.org/resource/Presidential_Medal_of_Freedom> ;\n          <http://dbpedia.org/ontology/award> ?uri ;\n          <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .\n  FILTER(?uri != <http://dbpedia.org/resource/Presidential_Medal_of_Freedom>)\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:44-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otros honores han recibido los destinatarios de la Medalla Presidencial de la Libertad?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?x <http://dbpedia.org/ontology/award> <http://dbpedia.org/resource/Presidential_Medal_of_Freedom> .\n  ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .\n  ?x <http://dbpedia.org/property/awards> ?uri .\n  FILTER (?uri != <http://dbpedia.org/resource/Presidential_Medal_of_Freedom>)\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:44-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/44-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which saints were venerated in Christianity?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/ontology/veneratedIn> <http://dbpedia.org/resource/Christianity> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Saint> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:45-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 santos fueron venerados en el cristianismo?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/ontology/veneratedIn> <http://dbpedia.org/resource/Christianity> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Saint> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:45-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/45-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which city is the radio station located in that is a sister station of WXME?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/WXME> <http://dbpedia.org/property/sisterStations> ?x .\n  ?x <http://dbpedia.org/property/city> ?uri .\n  ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/RadioStation> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:46-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 ciudad est\u00e1 ubicada la emisora de radio que es una estaci\u00f3n hermana de WXME?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/WXME> <http://dbpedia.org/property/sisterStations> ?x .\n  ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/RadioStation> .\n  { ?x <http://dbpedia.org/property/city> ?uri . }\n  UNION\n  { ?x <http://dbpedia.org/ontology/city> ?uri . }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:46-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/46-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the name of the river that has its source in Lake Itasca and its river mouth located in Gulf of Mexico?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri\nWHERE {\n  ?uri <http://dbpedia.org/ontology/source> <http://dbpedia.org/resource/Lake_Itasca> .\n  ?uri <http://dbpedia.org/ontology/riverMouth> <http://dbpedia.org/resource/Gulf_of_Mexico> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/River> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:47-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el nombre del r\u00edo que nace en el lago Itasca y desemboca en el Golfo de M\u00e9xico?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/ontology/riverMouth> <http://dbpedia.org/resource/Gulf_of_Mexico> .\n  {\n    ?uri <http://dbpedia.org/property/source> <http://dbpedia.org/resource/Lake_Itasca> .\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/ontology/source> <http://dbpedia.org/resource/Lake_Itasca> .\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/property/sourceLocation> <http://dbpedia.org/resource/Lake_Itasca> .\n  }\n  UNION\n  {\n    ?uri <http://dbpedia.org/property/sourceLocation> <http://dbpedia.org/resource/Itasca_State_Park> .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:47-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/47-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "For how many other teams have the members of HC Slovan Bratislava played?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT (COUNT(DISTINCT ?count) AS ?count)\nWHERE {\n  ?player <http://dbpedia.org/property/playedFor> <http://dbpedia.org/resource/HC_Slovan_Bratislava> .\n  ?player <http://dbpedia.org/ontology/formerTeam> ?count .\n  ?count <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/SportsTeam> .\n  FILTER (?count != <http://dbpedia.org/resource/HC_Slovan_Bratislava>)\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:48-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfPara cu\u00e1ntos otros equipos han jugado los miembros del HC Slovan Bratislava?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT (COUNT(DISTINCT ?uri) AS ?count)\nWHERE {\n  ?x <http://dbpedia.org/property/playedFor> <http://dbpedia.org/resource/HC_Slovan_Bratislava> .\n  ?x <http://dbpedia.org/ontology/formerTeam> ?uri .\n  FILTER(?uri != <http://dbpedia.org/resource/HC_Slovan_Bratislava>)\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:48-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/48-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the population difference between Tokyo and Delhi?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT ?diff WHERE {\n  <http://dbpedia.org/resource/Tokyo> <http://dbpedia.org/ontology/populationTotal> ?pTokyo .\n  <http://dbpedia.org/resource/Delhi> <http://dbpedia.org/ontology/populationTotal> ?pDelhi .\n\n  BIND(\n    ABS(\n      <http://www.w3.org/2001/XMLSchema#decimal>(?pTokyo) -\n      <http://www.w3.org/2001/XMLSchema#decimal>(?pDelhi)\n    ) AS ?diff\n  )\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:49-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la diferencia de poblaci\u00f3n entre Tokio y Delhi?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT (ABS(?tokyoPop - ?delhiPop) AS ?answer)\nWHERE {\n  {\n    SELECT (MAX(?p) AS ?tokyoPop)\n    WHERE {\n      <http://dbpedia.org/resource/Tokyo> <http://dbpedia.org/ontology/populationTotal> ?p .\n    }\n  }\n  {\n    SELECT (MAX(?p) AS ?delhiPop)\n    WHERE {\n      <http://dbpedia.org/resource/Delhi> <http://dbpedia.org/ontology/populationTotal> ?p .\n    }\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:49-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/49-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "How many movies there are in French language?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT (COUNT(DISTINCT ?uri) AS ?c)\nWHERE {\n  ?uri <http://dbpedia.org/property/language> <http://dbpedia.org/resource/French_language> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:50-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas hay en idioma franc\u00e9s?",
+    "query": "#+ endpoint: http://virtuoso-dbpedia:8890/sparql\nSELECT (COUNT(DISTINCT ?uri) AS ?c)\nWHERE {\n  ?uri <http://dbpedia.org/property/language> <http://dbpedia.org/resource/French_language> .\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Film> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "db26:50-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/50-es"
+  }
+]
