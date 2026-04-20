@@ -1,0 +1,802 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are all the Presidents of France?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/France> .\n  ?uri <http://dbpedia.org/ontology/position> <http://dbpedia.org/resource/President_of_France> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:1-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son todos los Presidentes de Francia?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/president> <http://dbpedia.org/resource/France> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:1-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/1-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which actor appeared in the most films in a single decade?",
+    "query": "SELECT ?actor (COUNT(?film) AS ?filmCount) WHERE {\n  ?film <http://dbpedia.org/ontology/starring> ?actor .\n  ?film <http://dbpedia.org/ontology/releaseDate> ?date .\n  BIND(FLOOR(YEAR(?date)/10)*10 AS ?decade)\n}\nGROUP BY ?actor ?decade\nORDER BY DESC(?filmCount)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:2-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 actor apareci\u00f3 en la mayor cantidad de pel\u00edculas en una sola d\u00e9cada?",
+    "query": "SELECT ?actor (COUNT(?film) AS ?filmCount)\nWHERE {\n  ?film <http://dbpedia.org/property/starring> ?actor .\n  ?film <http://dbpedia.org/property/year> ?year .\n  FILTER(isNumeric(?year))\n  BIND(FLOOR(?year / 10) * 10 AS ?decade)\n}\nGROUP BY ?actor ?decade\nORDER BY DESC(?filmCount)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:2-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/2-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who (either an actor or a musician) has received the highest number of awards?",
+    "query": "SELECT ?person (COUNT(?award) AS ?awardCount) WHERE {\n  ?person <http://dbpedia.org/property/awards> ?award .\n} GROUP BY ?person ORDER BY DESC(?awardCount) LIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:3-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9n (ya sea un actor o un m\u00fasico) ha recibido el mayor n\u00famero de premios?",
+    "query": "SELECT ?person (COUNT(?award) AS ?awardCount) WHERE {\n  ?person <http://dbpedia.org/property/awards> ?award .\n} GROUP BY ?person ORDER BY DESC(?awardCount) LIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:3-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/3-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which are the 5 bands or musicians who have produced the highest number of albums?",
+    "query": "SELECT ?artist (COUNT(?album) AS ?count) WHERE {\n  ?album <http://dbpedia.org/property/producer> ?artist .\n} GROUP BY ?artist ORDER BY DESC(?count) LIMIT 5",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:4-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las 5 bandas o m\u00fasicos que han producido el mayor n\u00famero de \u00e1lbumes?",
+    "query": "SELECT DISTINCT ?artist (COUNT(?album) AS ?albumCount) WHERE {\n  ?album <http://dbpedia.org/property/producer> ?artist .\n} GROUP BY ?artist ORDER BY DESC(?albumCount) LIMIT 5",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:4-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/4-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which are the top 3 taxonomic kingdoms that have the largest number of endangered species?",
+    "query": "SELECT ?kingdom (COUNT(?species) AS ?count) WHERE {\n  ?species <http://dbpedia.org/property/status> ?status .\n  ?species <http://dbpedia.org/property/regnum> ?kingdom .\n  FILTER(CONTAINS(LCASE(STR(?status)), \"endangered\"))\n} GROUP BY ?kingdom ORDER BY DESC(?count) LIMIT 3",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:5-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los 3 reinos taxon\u00f3micos con el mayor n\u00famero de especies en peligro de extinci\u00f3n?",
+    "query": "SELECT ?kingdom (COUNT(?species) AS ?count) WHERE {\n  ?species <http://dbpedia.org/property/regnum> ?kingdom .\n} GROUP BY ?kingdom ORDER BY DESC(?count) LIMIT 3",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:5-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/5-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Was Sasha Banks trained by Booker T?",
+    "query": "ASK WHERE {\n  <http://dbpedia.org/resource/Sasha_Banks> <http://dbpedia.org/property/coach> <http://dbpedia.org/resource/Booker_T> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:6-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfSasha Banks fue entrenada por Booker T?",
+    "query": "ASK WHERE {\n  <http://dbpedia.org/resource/Sasha_Banks> <http://dbpedia.org/ontology/trainer> <http://dbpedia.org/resource/Booker_T> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:6-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/6-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Does Watervliet have a junction on the New York State Route 470?",
+    "query": "ASK WHERE {\n  <http://dbpedia.org/resource/New_York_State_Route_470> <http://dbpedia.org/property/junction> ?junction .\n  ?junction <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/Watervliet> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:7-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfWatervliet tiene una intersecci\u00f3n en la Ruta Estatal de Nueva York 470?",
+    "query": "ASK WHERE {\n  <http://dbpedia.org/resource/New_York_State_Route_470> <http://dbpedia.org/ontology/routeJunction> ?junction .\n  ?junction <http://dbpedia.org/property/city> <http://dbpedia.org/resource/Watervliet> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:7-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/7-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Did Clyde Tombaugh discover Pluto?",
+    "query": "ASK WHERE {\n  <http://dbpedia.org/resource/Pluto> <http://dbpedia.org/ontology/discoverer> <http://dbpedia.org/resource/Clyde_Tombaugh> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:8-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfDescubri\u00f3 Clyde Tombaugh a Plut\u00f3n?",
+    "query": "ASK WHERE {\n  <http://dbpedia.org/resource/Pluto> <http://dbpedia.org/ontology/discoverer> <http://dbpedia.org/resource/Clyde_Tombaugh> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:8-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/8-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Was Bret Easton Ellis the author of American Psycho?",
+    "query": "ASK WHERE {\n  <http://dbpedia.org/resource/American_Psycho> <http://dbpedia.org/property/writer> <http://dbpedia.org/resource/Bret_Easton_Ellis> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:9-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfFue Bret Easton Ellis el autor de American Psycho?",
+    "query": "ASK WHERE {\n  <http://dbpedia.org/resource/American_Psycho> <http://dbpedia.org/property/writer> <http://dbpedia.org/resource/Bret_Easton_Ellis> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:9-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/9-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Is Blender released under the GNU license?",
+    "query": "ASK WHERE {\n  <http://dbpedia.org/resource/Blender> <http://dbpedia.org/ontology/license> ?license .\n  FILTER(CONTAINS(LCASE(?license), \"gnu\"))\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:10-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfBlender se publica bajo la licencia GNU?",
+    "query": "ASK WHERE {\n  <http://dbpedia.org/resource/Blender> <http://dbpedia.org/ontology/license> <http://dbpedia.org/resource/GNU_General_Public_License> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:10-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/10-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are the prime ministers of the United Kingdom?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/United_Kingdom> <http://dbpedia.org/ontology/primeMinister> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:11-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los primeros ministros del Reino Unido?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/United_Kingdom> <http://dbpedia.org/ontology/primeMinister> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:11-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/11-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What are the 10 oldest works by Mark Twain?",
+    "query": "SELECT DISTINCT ?work WHERE {\n  ?work <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/Mark_Twain> .\n  ?work <http://dbpedia.org/property/pubDate> ?date .\n} ORDER BY ASC(?date) LIMIT 10",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:12-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las 10 obras m\u00e1s antiguas de Mark Twain?",
+    "query": "SELECT DISTINCT ?work ?date WHERE {\n  ?work <http://dbpedia.org/ontology/author> <http://dbpedia.org/resource/Mark_Twain> .\n  ?work <http://dbpedia.org/property/pubDate> ?date .\n} ORDER BY ASC(?date) LIMIT 10",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:12-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/12-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "In which settlement was the wife of Barack Obama born?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Barack_Obama> <http://dbpedia.org/ontology/spouse> ?wife .\n  ?wife <http://dbpedia.org/ontology/birthPlace> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:13-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 asentamiento naci\u00f3 la esposa de Barack Obama?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Barack_Obama> <http://dbpedia.org/ontology/spouse> ?spouse .\n  ?spouse <http://dbpedia.org/ontology/birthPlace> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:13-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/13-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where was the badminton player who won the silver medal at the 2012 Summer Olympics Women's doubles badminton event born at?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Women's_doubles_badminton> <http://dbpedia.org/property/silverMedalist> ?person .\n  ?person <http://dbpedia.org/property/birthplace> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:14-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde naci\u00f3 la jugadora de b\u00e1dminton que gan\u00f3 la medalla de plata en la prueba de dobles femeninos de los Juegos Ol\u00edmpicos de Verano de 2012?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?event <http://dbpedia.org/ontology/silverMedalist> ?athlete .\n  ?athlete <http://dbpedia.org/ontology/birthPlace> ?uri .\n  ?event <http://dbpedia.org/property/tournament> <http://dbpedia.org/resource/Badminton_at_the_2012_Summer_Olympics_\u2013_Women's_doubles> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:14-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/14-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name some comic characters created by Stan Lee?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/creator> <http://dbpedia.org/resource/Stan_Lee> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:15-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfNombra algunos personajes de c\u00f3mic creados por Stan Lee?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/ontology/creator> <http://dbpedia.org/resource/Stan_Lee> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:15-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/15-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which artist created American IV: The Man Comes Around and also performed Hurt at least once?",
+    "query": "SELECT DISTINCT ?artist WHERE {\n  <http://dbpedia.org/resource/American_IV:_The_Man_Comes_Around> <http://dbpedia.org/property/artist> ?artist .\n  <http://dbpedia.org/resource/Hurt> <http://dbpedia.org/property/artist> ?artist .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:16-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 artista cre\u00f3 American IV: The Man Comes Around y tambi\u00e9n interpret\u00f3 Hurt al menos una vez?",
+    "query": "SELECT DISTINCT ?artist WHERE {\n  <http://dbpedia.org/resource/American_IV:_The_Man_Comes_Around> <http://dbpedia.org/property/artist> ?artist .\n  <http://dbpedia.org/resource/Hurt> <http://dbpedia.org/property/artist> ?artist .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:16-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/16-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Stephen Merchant is the executive producer of the series having how many fictional characters?",
+    "query": "SELECT (COUNT(?character) AS ?count) WHERE {\n  <http://dbpedia.org/resource/Stephen_Merchant> <http://dbpedia.org/ontology/executiveProducer> ?series .\n  ?series <http://dbpedia.org/property/characters> ?character .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:17-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Stephen Merchant es el productor ejecutivo de la serie que tiene \u00bfcu\u00e1ntos personajes ficticios?",
+    "query": "SELECT (COUNT(DISTINCT ?character) AS ?count) WHERE {\n  ?series <http://dbpedia.org/ontology/executiveProducer> <http://dbpedia.org/resource/Stephen_Merchant> .\n  ?series <http://dbpedia.org/property/characters> ?character .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:17-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/17-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "In which countries are the children peaks from Denali located and what are them?",
+    "query": "SELECT DISTINCT ?country ?peak WHERE {\n  ?peak <http://dbpedia.org/property/parentPeak> <http://dbpedia.org/resource/Denali> .\n  ?peak <http://dbpedia.org/property/country> ?country .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:18-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00edses se encuentran los picos secundarios del Denali y cu\u00e1les son?",
+    "query": "SELECT DISTINCT ?peak ?country WHERE {\n  ?peak <http://dbpedia.org/property/parentPeak> <http://dbpedia.org/resource/Denali> .\n  ?peak <http://dbpedia.org/ontology/country> ?country .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:18-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/18-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are footballers coached by Pep Guardiola?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/coach> <http://dbpedia.org/resource/Pep_Guardiola> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:19-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 futbolistas han sido entrenados por Pep Guardiola?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/manager> <http://dbpedia.org/resource/Pep_Guardiola> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:19-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/19-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Through which cities do the rivers originating in Yellowstone National Park flow?",
+    "query": "SELECT DISTINCT ?city WHERE {\n  ?river <http://dbpedia.org/property/source> <http://dbpedia.org/resource/Yellowstone_National_Park> .\n  ?river <http://dbpedia.org/property/through> ?city .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:20-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfPor qu\u00e9 ciudades fluyen los r\u00edos que se originan en el Parque Nacional de Yellowstone?",
+    "query": "SELECT DISTINCT ?city WHERE {\n  ?river <http://dbpedia.org/property/source> <http://dbpedia.org/resource/Yellowstone_National_Park> .\n  ?river <http://dbpedia.org/property/through> ?city .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:20-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/20-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which alliance has the most member airlines?",
+    "query": "SELECT ?alliance (COUNT(?airline) AS ?count) WHERE {\n  ?airline <http://dbpedia.org/property/alliances> ?alliance .\n}\nGROUP BY ?alliance\nORDER BY DESC(?count)\nLIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:21-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 alianza tiene la mayor cantidad de aerol\u00edneas miembros?",
+    "query": "SELECT ?alliance (COUNT(?airline) AS ?memberCount) WHERE {\n  ?airline <http://dbpedia.org/property/alliances> ?alliance .\n} GROUP BY ?alliance ORDER BY DESC(?memberCount) LIMIT 1",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:21-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/21-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which companies built the stadium whose tenant was the BC Lions?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?stadium <http://dbpedia.org/property/tenants> <http://dbpedia.org/resource/BC_Lions> .\n  ?stadium <http://dbpedia.org/ontology/builder> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:22-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas construyeron el estadio cuyo inquilino eran los BC Lions?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?stadium <http://dbpedia.org/property/tenants> <http://dbpedia.org/resource/BC_Lions> .\n  ?stadium <http://dbpedia.org/ontology/builder> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:22-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/22-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which artists were influenced by Pablo Picasso?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/ontology/influencedBy> <http://dbpedia.org/resource/Pablo_Picasso> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:23-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 artistas fueron influenciados(as) por Pablo Picasso?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/ontology/influenced> <http://dbpedia.org/resource/Pablo_Picasso> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:23-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/23-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What was the party of the predecessor from Yingluck Shinawatra?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Yingluck_Shinawatra> <http://dbpedia.org/ontology/predecessor> ?predecessor .\n  ?predecessor <http://dbpedia.org/ontology/party> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:24-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l era el partido del predecesor de Yingluck Shinawatra?",
+    "query": "SELECT DISTINCT ?party WHERE {\n  <http://dbpedia.org/resource/Yingluck_Shinawatra> <http://dbpedia.org/ontology/predecessor> ?predecessor .\n  ?predecessor <http://dbpedia.org/ontology/party> ?party .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:24-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/24-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which television shows were produced through a collaboration between HBO and BBC?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/production> <http://dbpedia.org/resource/HBO> .\n  ?uri <http://dbpedia.org/property/production> <http://dbpedia.org/resource/BBC> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:25-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 programas de televisi\u00f3n fueron producidos mediante una colaboraci\u00f3n entre HBO y la BBC?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/production> <http://dbpedia.org/resource/HBO> .\n  ?uri <http://dbpedia.org/property/production> <http://dbpedia.org/resource/BBC> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:25-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/25-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "List all the publishers of the Oddworld series.",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Oddworld_series> <http://dbpedia.org/property/publisher> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:26-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son todos los editores de la serie Oddworld?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Oddworld> <http://dbpedia.org/property/publisher> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:26-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/26-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What are the films whose music was composed by Ennio Morricone?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/music> <http://dbpedia.org/resource/Ennio_Morricone> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:27-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las pel\u00edculas cuya m\u00fasica fue compuesta por Ennio Morricone?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/music> <http://dbpedia.org/resource/Ennio_Morricone> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:27-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/27-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name some television shows related to the one whose opening theme was composed by Bear McCreary.",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?show1 <http://dbpedia.org/property/opening> ?theme .\n  ?theme <http://dbpedia.org/ontology/composer> <http://dbpedia.org/resource/Bear_McCreary> .\n  ?show1 <http://dbpedia.org/ontology/related> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:28-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Nombra algunos programas de televisi\u00f3n relacionados con aquel cuya m\u00fasica de apertura fue compuesta por Bear McCreary.",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?show1 <http://dbpedia.org/property/themeMusicComposer> <http://dbpedia.org/resource/Bear_McCreary> .\n  ?show1 <http://dbpedia.org/property/related> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:28-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/28-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where was the song 'Imagine' recorded?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Imagine_(John_Lennon_song)> <http://dbpedia.org/ontology/recordedIn> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:29-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde fue grabada la canci\u00f3n 'Imagine'?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Imagine> <http://dbpedia.org/ontology/recordedIn> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:29-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/29-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where did the spouse of Aung San Suu Kyi go to school?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Aung_San_Suu_Kyi> <http://dbpedia.org/ontology/spouse> ?spouse .\n  ?spouse <http://dbpedia.org/ontology/almaMater> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:30-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde estudi\u00f3 el c\u00f3nyuge de Aung San Suu Kyi?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Aung_San_Suu_Kyi> <http://dbpedia.org/property/spouse> ?spouse .\n  ?spouse <http://dbpedia.org/ontology/almaMater> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:30-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/30-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the birthplace of Barack Obama that is also the location of the University of Hawaii at Manoa?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Barack_Obama> <http://dbpedia.org/ontology/birthPlace> ?uri .\n  <http://dbpedia.org/resource/University_of_Hawaii_at_Manoa> <http://dbpedia.org/ontology/location> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:31-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Barack Obama que tambi\u00e9n es la ubicaci\u00f3n de la Universidad de Haw\u00e1i en M\u0101noa?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Barack_Obama> <http://dbpedia.org/ontology/birthPlace> ?uri .\n  <http://dbpedia.org/resource/University_of_Hawaii_at_M\u0101noa> <http://dbpedia.org/ontology/location> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:31-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/31-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "How many rivers do structures designed by Gustave Eiffel cross?",
+    "query": "SELECT DISTINCT COUNT(?river) WHERE {\n  ?structure <http://dbpedia.org/property/designer> <http://dbpedia.org/resource/Gustave_Eiffel> .\n  ?structure <http://dbpedia.org/property/crosses> ?river .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:32-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos r\u00edos cruzan las estructuras dise\u00f1adas por Gustave Eiffel?",
+    "query": "SELECT DISTINCT COUNT(?river) WHERE {\n  ?structure <http://dbpedia.org/property/designer> <http://dbpedia.org/resource/Gustave_Eiffel> .\n  ?structure <http://dbpedia.org/property/crosses> ?river .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:32-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/32-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where did the musical styles originate that are associated with Back to Black?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Back_to_Black> <http://dbpedia.org/ontology/genre> ?genre .\n  ?genre <http://dbpedia.org/ontology/origin> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:33-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde se originaron los estilos musicales asociados con Back to Black?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/Back_to_Black> <http://dbpedia.org/property/genre> ?genre .\n  ?genre <http://dbpedia.org/ontology/origin> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:33-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/33-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What other countries speak the same language as Brazil's official one?",
+    "query": "SELECT DISTINCT ?country WHERE {\n  <http://dbpedia.org/resource/Brazil> <http://dbpedia.org/property/language> ?language .\n  ?country <http://dbpedia.org/property/language> ?language .\n  FILTER (?country != <http://dbpedia.org/resource/Brazil>)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:34-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otros pa\u00edses hablan el mismo idioma que el oficial de Brasil?",
+    "query": "SELECT DISTINCT ?country WHERE {\n  <http://dbpedia.org/resource/Brasil> <http://dbpedia.org/property/language> ?lang .\n  ?country <http://dbpedia.org/property/language> ?lang .\n  FILTER(?country != <http://dbpedia.org/resource/Brasil>)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:34-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/34-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name the island that is part of the Tuamotus archipelago and has its largest city named Rotoava.",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/archipelago> <http://dbpedia.org/resource/Tuamotus> .\n  ?uri <http://dbpedia.org/property/largestCityWl> <http://dbpedia.org/resource/Rotoava> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:35-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Nombra la isla que forma parte del archipi\u00e9lago de Tuamotu y cuya ciudad m\u00e1s grande se llama Rotoava.",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/archipelago> <http://dbpedia.org/resource/Tuamotu> .\n  ?uri <http://dbpedia.org/ontology/largestCity> <http://dbpedia.org/resource/Rotoava> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:35-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/35-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the land size of the country where the University of Oxford is located?",
+    "query": "SELECT DISTINCT ?area WHERE {\n  <http://dbpedia.org/resource/University_of_Oxford> <http://dbpedia.org/ontology/location> ?location .\n  ?location <http://dbpedia.org/ontology/country> ?country .\n  ?country <http://dbpedia.org/property/areaTotal> ?area .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:36-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la superficie terrestre del pa\u00eds donde se encuentra la Universidad de Oxford?",
+    "query": "SELECT DISTINCT ?area WHERE {\n  <http://dbpedia.org/resource/University_of_Oxford> <http://dbpedia.org/ontology/country> ?country .\n  ?country <http://dbpedia.org/property/area> ?area .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:36-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/36-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the motto of the military unit in which Stewart Bovell served?",
+    "query": "SELECT DISTINCT ?motto WHERE {\n  <http://dbpedia.org/resource/Stewart_Bovell> <http://dbpedia.org/property/unit> ?unit .\n  ?unit <http://dbpedia.org/ontology/motto> ?motto .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:37-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lema de la unidad militar en la que sirvi\u00f3 Stewart Bovell?",
+    "query": "SELECT DISTINCT ?motto WHERE {\n  <http://dbpedia.org/resource/Stewart_Bovell> <http://dbpedia.org/property/unit> ?unit .\n  ?unit <http://dbpedia.org/property/motto> ?motto .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:37-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/37-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which person has been married to both Jennifer Aniston and Angelina Jolie?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Jennifer_Aniston> .\n  ?uri <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Angelina_Jolie> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:38-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 persona ha estado casada con Jennifer Aniston y Angelina Jolie?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/spouse> <http://dbpedia.org/resource/Jennifer_Aniston> .\n  ?uri <http://dbpedia.org/property/spouse> <http://dbpedia.org/resource/Angelina_Jolie> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:38-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/38-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "List all the software that works on Linux and MacOS operating systems.",
+    "query": "SELECT DISTINCT ?software WHERE {\n  ?software <http://dbpedia.org/ontology/operatingSystem> <http://dbpedia.org/resource/Linux> .\n  ?software <http://dbpedia.org/ontology/operatingSystem> <http://dbpedia.org/resource/MacOS> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:39-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 programas inform\u00e1ticos funcionan tanto en Linux como en MacOS?",
+    "query": "SELECT DISTINCT ?software WHERE {\n  ?software <http://dbpedia.org/ontology/operatingSystem> <http://dbpedia.org/resource/Linux> .\n  ?software <http://dbpedia.org/ontology/operatingSystem> <http://dbpedia.org/resource/MacOS> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:39-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/39-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What academic affiliations can be found at universities in Metro Manila?",
+    "query": "SELECT DISTINCT ?affiliation WHERE {\n  ?university <http://dbpedia.org/property/location> <http://dbpedia.org/resource/Metro_Manila> .\n  ?university <http://dbpedia.org/property/affiliations> ?affiliation .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:40-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 afiliaciones acad\u00e9micas se pueden encontrar en las universidades de Metro Manila?",
+    "query": "SELECT DISTINCT ?affiliation WHERE {\n  ?university <http://dbpedia.org/property/location> <http://dbpedia.org/resource/Metro_Manila> .\n  ?university <http://dbpedia.org/property/affiliations> ?affiliation .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:40-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/40-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which other firearms were designed by the creator of the AK-47?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/AK-47> <http://dbpedia.org/property/designer> ?designer .\n  ?uri <http://dbpedia.org/property/designer> ?designer .\n  FILTER (?uri != <http://dbpedia.org/resource/AK-47>)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:41-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otras armas de fuego fueron dise\u00f1adas por el creador del AK-47?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/AK-47> <http://dbpedia.org/property/designer> ?designer .\n  ?uri <http://dbpedia.org/property/designer> ?designer .\n  FILTER(?uri != <http://dbpedia.org/resource/AK-47>)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:41-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/41-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which band's former members are Nick Jonas and Joe Jonas?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/property/pastMembers> <http://dbpedia.org/resource/Nick_Jonas> .\n  ?uri <http://dbpedia.org/property/pastMembers> <http://dbpedia.org/resource/Joe_Jonas> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:42-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfDe qu\u00e9 banda fueron exmiembros Nick Jonas y Joe Jonas?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/ontology/formerBandMember> <http://dbpedia.org/resource/Nick_Jonas> .\n  ?uri <http://dbpedia.org/ontology/formerBandMember> <http://dbpedia.org/resource/Joe_Jonas> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:42-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/42-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the birth place of the athlete trained by Ring of Honor?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?athlete <http://dbpedia.org/property/trainer> <http://dbpedia.org/resource/Ring_of_Honor> .\n  ?athlete <http://dbpedia.org/property/birthplace> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:43-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento del atleta entrenado por Ring of Honor?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?athlete <http://dbpedia.org/property/trainer> <http://dbpedia.org/resource/Ring_of_Honor> .\n  ?athlete <http://dbpedia.org/ontology/birthPlace> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:43-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/43-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What other honors have recipients of the Presidential Medal of Freedom received?",
+    "query": "SELECT DISTINCT ?award WHERE {\n  ?person <http://dbpedia.org/property/awards> <http://dbpedia.org/resource/Presidential_Medal_of_Freedom> .\n  ?person <http://dbpedia.org/property/awards> ?award .\n  FILTER(?award != <http://dbpedia.org/resource/Presidential_Medal_of_Freedom>)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:44-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otros honores han recibido los destinatarios de la Medalla Presidencial de la Libertad?",
+    "query": "SELECT DISTINCT ?honors WHERE {\n  <http://dbpedia.org/resource/Presidential_Medal_of_Freedom> <http://dbpedia.org/property/receiver> ?recipient .\n  ?recipient <http://dbpedia.org/property/honors> ?honors .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:44-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/44-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which saints were venerated in Christianity?",
+    "query": "SELECT DISTINCT ?saint WHERE {\n  ?saint <http://dbpedia.org/ontology/veneratedIn> <http://dbpedia.org/resource/Christianity> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:45-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 santos fueron venerados en el cristianismo?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Saint> .\n  ?uri <http://dbpedia.org/ontology/religion> <http://dbpedia.org/resource/Christianity> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:45-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/45-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which city is the radio station located in that is a sister station of WXME?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/WXME> <http://dbpedia.org/property/sisterStations> ?station .\n  ?station <http://dbpedia.org/property/location> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:46-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 ciudad est\u00e1 ubicada la emisora de radio que es una estaci\u00f3n hermana de WXME?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  <http://dbpedia.org/resource/WXME> <http://dbpedia.org/property/sisterStations> ?station .\n  ?station <http://dbpedia.org/property/location> ?uri .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:46-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/46-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the name of the river that has its source in Lake Itasca and its river mouth located in Gulf of Mexico?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/ontology/source> <http://dbpedia.org/resource/Lake_Itasca> .\n  ?uri <http://dbpedia.org/property/mouth> <http://dbpedia.org/resource/Gulf_of_Mexico> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:47-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el nombre del r\u00edo que nace en el lago Itasca y desemboca en el Golfo de M\u00e9xico?",
+    "query": "SELECT DISTINCT ?uri WHERE {\n  ?uri <http://dbpedia.org/ontology/source> <http://dbpedia.org/resource/Lake_Itasca> .\n  ?uri <http://dbpedia.org/property/mouth> <http://dbpedia.org/resource/Gulf_of_Mexico> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:47-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/47-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "For how many other teams have the members of HC Slovan Bratislava played?",
+    "query": "SELECT DISTINCT COUNT(?team) WHERE {\n  <http://dbpedia.org/resource/HC_Slovan_Bratislava> <http://dbpedia.org/property/players> ?player .\n  ?player <http://dbpedia.org/property/playerTeam> ?team .\n  FILTER(?team != <http://dbpedia.org/resource/HC_Slovan_Bratislava>)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:48-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfPara cu\u00e1ntos otros equipos han jugado los miembros del HC Slovan Bratislava?",
+    "query": "SELECT (COUNT(DISTINCT ?team) AS ?count) WHERE {\n  <http://dbpedia.org/resource/HC_Slovan_Bratislava> <http://dbpedia.org/property/member> ?member .\n  ?member <http://dbpedia.org/ontology/team> ?team .\n  FILTER(?team != <http://dbpedia.org/resource/HC_Slovan_Bratislava>)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:48-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/48-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the population difference between Tokyo and Delhi?",
+    "query": "SELECT DISTINCT ((ABS(?popTokyo - ?popDelhi)) AS ?difference) WHERE {\n  <http://dbpedia.org/resource/Tokyo> <http://dbpedia.org/ontology/populationTotal> ?popTokyo .\n  <http://dbpedia.org/resource/Delhi> <http://dbpedia.org/ontology/populationTotal> ?popDelhi .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:49-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la diferencia de poblaci\u00f3n entre Tokio y Delhi?",
+    "query": "SELECT DISTINCT ?difference WHERE {\n  <http://dbpedia.org/resource/Tokyo> <http://dbpedia.org/property/population> ?tokyoPop .\n  <http://dbpedia.org/resource/Delhi> <http://dbpedia.org/property/population> ?delhiPop .\n  BIND(?tokyoPop - ?delhiPop AS ?difference)\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:49-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/49-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "How many movies there are in French language?",
+    "query": "SELECT (COUNT(?uri) AS ?count) WHERE {\n  ?uri <http://dbpedia.org/property/movieLanguage> <http://dbpedia.org/resource/French_language> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:50-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas hay en idioma franc\u00e9s?",
+    "query": "SELECT DISTINCT COUNT(?uri) WHERE {\n  ?uri <http://dbpedia.org/property/language> <http://dbpedia.org/resource/French_language> .\n}",
+    "endpoint": "http://research.liberai.org:8000/m/qwen3.5-122b-a10b/answer",
+    "qname": "db26:50-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/50-es"
+  }
+]

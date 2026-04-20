@@ -1,0 +1,802 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are all the Presidents of France?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  { ?result dbo:position dbr:President_of_the_French_Republic . }\n  UNION\n  { ?result dbo:office dbr:President_of_France . }\n  UNION\n  { ?result dbp:office dbr:President_of_the_French_Republic . }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:1-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son todos los Presidentes de Francia?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a dbo:Person .\n  {\n    ?result dbp:office dbr:President_of_France .\n  }\n  UNION\n  {\n    ?result dbp:office ?role .\n    ?role a dbo:Office ;\n          rdfs:label ?label .\n    FILTER(langMatches(lang(?label),\"en\") && regex(?label, \"President of France\", \"i\"))\n  }\n  UNION\n  {\n    ?result dbp:office ?role2 .\n    ?role2 rdfs:label ?labelEs .\n    FILTER(langMatches(lang(?labelEs),\"es\") && regex(?labelEs, \"Presidente de Francia\", \"i\"))\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:1-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/1-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which actor appeared in the most films in a single decade?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT (?actor AS ?result) WHERE {\n  {\n    SELECT ?actor (MAX(?decadeCount) AS ?maxCnt) WHERE {\n      {\n        SELECT ?actor ?decadeStart (COUNT(DISTINCT ?film) AS ?decadeCount) WHERE {\n          ?film rdf:type dbo:Film ;\n                dbo:starring ?actor .\n          OPTIONAL { ?film dbo:releaseDate ?date . }\n          OPTIONAL { ?film dbp:released ?released . }\n          BIND(COALESCE(?date, ?released) AS ?reldate)\n          FILTER(BOUND(?reldate))\n          BIND(xsd:integer(SUBSTR(str(?reldate), 1, 4)) AS ?yr)\n          BIND((?yr - (?yr % 10)) AS ?decadeStart)\n        } GROUP BY ?actor ?decadeStart\n      }\n    } GROUP BY ?actor\n  }\n  {\n    SELECT (MAX(?actorMax) AS ?globalMax) WHERE {\n      {\n        SELECT ?actor_ (MAX(?decadeCount_) AS ?actorMax) WHERE {\n          {\n            SELECT ?actor_ ?decadeStart_ (COUNT(DISTINCT ?film_) AS ?decadeCount_) WHERE {\n              ?film_ rdf:type dbo:Film ;\n                     dbo:starring ?actor_ .\n              OPTIONAL { ?film_ dbo:releaseDate ?date_ . }\n              OPTIONAL { ?film_ dbp:released ?released_ . }\n              BIND(COALESCE(?date_, ?released_) AS ?reldate_)\n              FILTER(BOUND(?reldate_))\n              BIND(xsd:integer(SUBSTR(str(?reldate_), 1, 4)) AS ?yr_)\n              BIND((?yr_ - (?yr_ % 10)) AS ?decadeStart_)\n            } GROUP BY ?actor_ ?decadeStart_\n          }\n        } GROUP BY ?actor_\n      }\n    }\n  }\n  FILTER(?maxCnt = ?globalMax)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:2-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 actor apareci\u00f3 en la mayor cantidad de pel\u00edculas en una sola d\u00e9cada?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    SELECT ?actor ?decadeStart (COUNT(DISTINCT ?film) AS ?count) WHERE {\n      ?actor rdf:type dbo:Actor .\n      ?film rdf:type dbo:Film .\n      ?film dbo:starring ?actor .\n      ?film dbo:releaseDate ?date .\n      BIND(YEAR(?date) AS ?yr) .\n      BIND((?yr - MOD(?yr, 10)) AS ?decadeStart) .\n    }\n    GROUP BY ?actor ?decadeStart\n  }\n  {\n    SELECT (MAX(?c) AS ?maxCount) WHERE {\n      SELECT ?a ?ds (COUNT(DISTINCT ?f) AS ?c) WHERE {\n        ?a rdf:type dbo:Actor .\n        ?f rdf:type dbo:Film .\n        ?f dbo:starring ?a .\n        ?f dbo:releaseDate ?d .\n        BIND(YEAR(?d) AS ?y) .\n        BIND((?y - MOD(?y, 10)) AS ?ds) .\n      }\n      GROUP BY ?a ?ds\n    }\n  }\n  FILTER(?count = ?maxCount) .\n  BIND(?actor AS ?result) .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:2-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/2-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who (either an actor or a musician) has received the highest number of awards?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT ?person ?awardCount WHERE {\n  {\n    SELECT ?person (COUNT(DISTINCT ?a) AS ?awardCount) WHERE {\n      {\n        { ?person a ?type . FILTER(?type IN (dbo:Actor, dbo:MusicalArtist, dbo:Musician)) }\n        UNION\n        { ?person dbo:occupation ?typeOcc . FILTER(?typeOcc IN (dbo:Actor, dbo:MusicalArtist, dbo:Musician)) . BIND(?typeOcc AS ?type) }\n      }\n      OPTIONAL {\n        { ?person dbo:award ?a } \n        UNION { ?person dbp:awards ?a } \n        UNION { ?person dbp:award ?a }\n        UNION { ?person dbo:awards ?a }\n      }\n    } GROUP BY ?person\n  }\n  {\n    SELECT (MAX(?awardCount) AS ?maxCount) WHERE {\n      {\n        SELECT ?p (COUNT(DISTINCT ?a2) AS ?awardCount) WHERE {\n          {\n            { ?p a ?type2 . FILTER(?type2 IN (dbo:Actor, dbo:MusicalArtist, dbo:Musician)) }\n            UNION\n            { ?p dbo:occupation ?type2Occ . FILTER(?type2Occ IN (dbo:Actor, dbo:MusicalArtist, dbo:Musician)) . BIND(?type2Occ AS ?type2) }\n          }\n          OPTIONAL {\n            { ?p dbo:award ?a2 } \n            UNION { ?p dbp:awards ?a2 } \n            UNION { ?p dbp:award ?a2 }\n            UNION { ?p dbo:awards ?a2 }\n          }\n        } GROUP BY ?p\n      }\n    }\n  }\n  FILTER(?awardCount = ?maxCount)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:3-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9n (ya sea un actor o un m\u00fasico) ha recibido el mayor n\u00famero de premios?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    SELECT ?result (COUNT(DISTINCT ?award1) AS ?awardCount) WHERE {\n      { ?result a dbo:Actor } UNION { ?result a dbo:MusicalArtist }\n      ?result dbo:award ?award1 .\n    } GROUP BY ?result\n  }\n  {\n    SELECT (MAX(?c) AS ?maxCount) WHERE {\n      {\n        SELECT ?p (COUNT(DISTINCT ?awardItem2) AS ?c) WHERE {\n          { ?p a dbo:Actor } UNION { ?p a dbo:MusicalArtist }\n          ?p dbo:award ?awardItem2 .\n        } GROUP BY ?p\n      }\n    }\n  }\n  FILTER(?awardCount = ?maxCount)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:3-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/3-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which are the 5 bands or musicians who have produced the highest number of albums?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT ?artist ?num WHERE {\n  {\n    SELECT ?artist (COUNT(DISTINCT ?album) AS ?num) WHERE {\n      ?album a dbo:Album .\n      ?album dbo:artist|dbp:artist ?artist .\n    }\n    GROUP BY ?artist\n    ORDER BY DESC(?num)\n    LIMIT 5\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:4-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las 5 bandas o m\u00fasicos que han producido el mayor n\u00famero de \u00e1lbumes?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result ?count WHERE {\n  {\n    SELECT (?artist AS ?result) (COUNT(DISTINCT ?album) AS ?count) WHERE {\n      ?album a dbo:Album .\n      {\n        ?album dbo:artist ?artist .\n      } UNION {\n        ?album dbp:artist ?artist .\n      }\n      ?artist a ?artistType .\n      FILTER(isURI(?artist) && ?artistType IN (dbo:MusicalArtist, dbo:Band, dbo:Artist, dbo:ClassicalMusicArtist))\n    }\n    GROUP BY ?artist\n    ORDER BY DESC(?count)\n    LIMIT 5\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:4-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/4-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which are the top 3 taxonomic kingdoms that have the largest number of endangered species?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT ?kingdom (COUNT(DISTINCT ?species) AS ?count) WHERE {\n  ?species a dbo:Species ;\n           dbo:conservationStatus ?status ;\n           dbp:kingdom ?kingdom .\n  FILTER(?status = dbr:Endangered)\n}\nGROUP BY ?kingdom\nORDER BY DESC(?count)\nLIMIT 3",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:5-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los 3 reinos taxon\u00f3micos con el mayor n\u00famero de especies en peligro de extinci\u00f3n?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?kingdom (COUNT(DISTINCT ?species) AS ?count) WHERE {\n  { { ?species dbo:kingdom ?kingdom } UNION { ?species dbp:kingdom ?kingdom } } .\n  ?species rdf:type dbo:Species .\n  { { ?species dbo:conservationStatus ?status } UNION { ?species dbp:status ?status } } .\n  OPTIONAL { ?status rdfs:label ?statusLabel . }\n  FILTER(\n    regex(str(?status),\"endangered\",\"i\")\n    || (bound(?statusLabel) && regex(str(?statusLabel),\"endangered\",\"i\"))\n    || regex(str(?status),\"en peligro\",\"i\")\n    || (bound(?statusLabel) && regex(str(?statusLabel),\"en peligro\",\"i\"))\n    || regex(str(?status),\"peligro de extinci\u00f3n\",\"i\")\n    || (bound(?statusLabel) && regex(str(?statusLabel),\"peligro de extinci\u00f3n\",\"i\"))\n    || regex(str(?status),\"\\\\bEN\\\\b\",\"i\")\n    || (bound(?statusLabel) && regex(str(?statusLabel),\"\\\\bEN\\\\b\",\"i\"))\n    || ?status = dbr:Endangered\n  )\n}\nGROUP BY ?kingdom\nORDER BY DESC(?count)\nLIMIT 3",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:5-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/5-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Was Sasha Banks trained by Booker T?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nASK {\n  dbr:Sasha_Banks dbo:trainer dbr:Booker_T .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:6-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfSasha Banks fue entrenada por Booker T?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  VALUES ?wrestler { dbr:Sasha_Banks }\n  {\n    ?wrestler dbo:trainer ?result .\n  }\n  UNION\n  {\n    ?wrestler dbp:trainer ?result .\n  }\n  FILTER (?result = dbr:Booker_T)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:6-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/6-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Does Watervliet have a junction on the New York State Route 470?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\nASK WHERE {\n  ?junction a dbo:RoadJunction ;\n            dbo:location dbr:Watervliet,_New_York ;\n            dbo:route dbr:New_York_State_Route_470 .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:7-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfWatervliet tiene una intersecci\u00f3n en la Ruta Estatal de Nueva York 470?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  VALUES ?result { dbo:route dbp:through dbp:junctions dbo:location dbp:throughCity }\n  {\n    dbr:Watervliet,_New_York ?result dbr:New_York_State_Route_470 .\n  }\n  UNION\n  {\n    dbr:New_York_State_Route_470 ?result dbr:Watervliet,_New_York .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:7-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/7-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Did Clyde Tombaugh discover Pluto?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nASK {\n  { dbr:Pluto dbo:discoverer dbr:Clyde_Tombaugh. }\n  UNION\n  { dbr:Clyde_Tombaugh dbo:bodyDiscovered dbr:Pluto. }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:8-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfDescubri\u00f3 Clyde Tombaugh a Plut\u00f3n?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    dbr:Pluto_(dwarf_planet) dbo:discoverer dbr:Clyde_Tombaugh .\n    BIND(dbr:Clyde_Tombaugh AS ?result)\n  }\n  UNION\n  {\n    dbr:Pluto_(dwarf_planet) dbp:discoverer dbr:Clyde_Tombaugh .\n    BIND(dbr:Clyde_Tombaugh AS ?result)\n  }\n  UNION\n  {\n    dbr:Clyde_Tombaugh dbo:notableWork dbr:Pluto_(dwarf_planet) .\n    BIND(dbr:Clyde_Tombaugh AS ?result)\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:8-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/8-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Was Bret Easton Ellis the author of American Psycho?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nASK WHERE {\n  { <http://dbpedia.org/resource/American_Psycho> dbo:author dbr:Bret_Easton_Ellis . }\n  UNION\n  { <http://dbpedia.org/resource/American_Psycho_(novel)> dbo:author dbr:Bret_Easton_Ellis . }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:9-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfFue Bret Easton Ellis el autor de American Psycho?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    dbr:American_Psycho dbo:author dbr:Bret_Easton_Ellis .\n    BIND(true AS ?result)\n  }\n  UNION\n  {\n    dbr:Bret_Easton_Ellis dbo:author dbr:American_Psycho .\n    BIND(true AS ?result)\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:9-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/9-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Is Blender released under the GNU license?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nASK {\n  { dbr:Blender_(software) dbo:license ?lic .\n    FILTER(regex(str(?lic), \"GNU\", \"i\"))\n  }\n  UNION\n  { dbr:Blender_(software) dbp:license ?lic2 .\n    FILTER(regex(str(?lic2), \"GNU\", \"i\"))\n  }\n  UNION\n  { dbr:Blender_(software) dbo:license ?L .\n    ?L rdfs:label ?label .\n    FILTER(langMatches(lang(?label),\"en\") && regex(?label, \"GNU\", \"i\"))\n  }\n  UNION\n  { dbr:Blender_(software) dbp:license ?L2 .\n    ?L2 rdfs:label ?label2 .\n    FILTER(langMatches(lang(?label2),\"en\") && regex(?label2, \"GNU\", \"i\"))\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:10-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfBlender se publica bajo la licencia GNU?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nSELECT DISTINCT ?result WHERE {\n  { dbr:Blender_(software) dbo:license ?result }\n  UNION\n  { dbr:Blender_(software) dbp:license ?result }\n  UNION\n  { <http://dbpedia.org/resource/Blender_(software)> dbo:license ?result }\n  UNION\n  { <http://dbpedia.org/resource/Blender_(software)> dbp:license ?result }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:10-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/10-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are the prime ministers of the United Kingdom?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?primeMinister WHERE {\n  ?primeMinister rdf:type dbo:PrimeMinister .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:11-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los primeros ministros del Reino Unido?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a dbo:Person .\n  {\n    # direct link to the Prime Minister office resource (use dbp:office)\n    ?result dbp:office dbr:Prime_Minister_of_the_United_Kingdom .\n  }\n  UNION\n  {\n    # office with a label containing \"Prime Minister\"\n    ?result dbp:office ?office .\n    ?office rdfs:label ?officeLabel .\n    FILTER(langMatches(lang(?officeLabel),\"EN\"))\n    FILTER(regex(?officeLabel, \"Prime Minister\", \"i\"))\n  }\n  UNION\n  {\n    # property in dbp that mentions Prime Minister in its string value\n    ?result dbp:office ?officeStr .\n    FILTER(regex(str(?officeStr), \"Prime Minister\", \"i\"))\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:11-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/11-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What are the 10 oldest works by Mark Twain?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT ?result (MIN(?date) AS ?minDate) WHERE {\n  ?result (dbo:author|dbp:author|foaf:maker) dbr:Mark_Twain .\n  OPTIONAL { ?result dbo:publicationDate ?date . }\n  OPTIONAL { ?result dbo:releaseDate ?date . }\n  OPTIONAL { ?result dbp:year ?date . }\n  OPTIONAL { ?result dbp:published ?date . }\n}\nGROUP BY ?result\nHAVING(BOUND(?minDate))\nORDER BY ASC(?minDate)\nLIMIT 10",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:12-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las 10 obras m\u00e1s antiguas de Mark Twain?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result dbp:author dbr:Mark_Twain .\n  \n  OPTIONAL { ?result dbo:publicationDate ?pd1. }\n  OPTIONAL { ?result dbp:publicationDate ?pd2. }\n  OPTIONAL { ?result dbp:releaseDate ?pd3. }\n  OPTIONAL { ?result dbp:published ?pd4. }\n  OPTIONAL { ?result dbp:pubDate ?pd5. }\n  OPTIONAL { ?result dbo:date ?pd6. }\n  OPTIONAL { ?result dbp:date ?pd7. }\n  OPTIONAL { ?result dbp:year ?pd8. }\n  \n  BIND(COALESCE(?pd1, ?pd2, ?pd3, ?pd4, ?pd5, ?pd6, ?pd7, ?pd8) AS ?date)\n  FILTER(bound(?date))\n}\nORDER BY ASC(?date)\nLIMIT 10",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:12-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/12-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "In which settlement was the wife of Barack Obama born?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Barack_Obama dbp:spouse ?wife .\n  {\n    ?wife dbp:birthPlace ?result .\n  } UNION {\n    ?wife dbp:birthPlace ?place .\n    ?place dbo:settlement ?result .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:13-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 asentamiento naci\u00f3 la esposa de Barack Obama?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Barack_Obama dbp:spouse ?wife .\n  ?wife dbo:birthPlace ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:13-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/13-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where was the badminton player who won the silver medal at the 2012 Summer Olympics Women's doubles badminton event born at?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  VALUES ?event { dbr:Badminton_at_the_2012_Summer_Olympics_\u2013_Women's_doubles }\n  \n  ?event dbo:silverMedalDouble ?player .\n  ?player a dbo:BadmintonPlayer .\n  ?player dbo:birthPlace ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:14-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde naci\u00f3 la jugadora de b\u00e1dminton que gan\u00f3 la medalla de plata en la prueba de dobles femeninos de los Juegos Ol\u00edmpicos de Verano de 2012?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  ?player a dbo:BadmintonPlayer .\n  ?player dbo:birthPlace ?result .\n  \n  dbr:Badminton_at_the_2012_Summer_Olympics_%E2%80%93_Women%27s_doubles dbp:silver ?team .\n  ?team dbp:players ?player .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:14-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/14-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name some comic characters created by Stan Lee?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Stan_Lee dbo:creator ?result .\n  ?result rdf:type dbo:ComicsCharacter .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:15-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfNombra algunos personajes de c\u00f3mic creados por Stan Lee?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  { ?result dbo:creator dbr:Stan_Lee . }\n  UNION\n  { ?result dbp:creator ?creator .\n    FILTER(regex(str(?creator), \"Stan Lee\", \"i\"))\n  }\n  FILTER(?result != dbr:Stan_Lee)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:15-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/15-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which artist created American IV: The Man Comes Around and also performed Hurt at least once?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:American_IV_The_Man_Comes_Around dbo:artist ?result .\n  dbr:Hurt dbp:coverArtist ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:16-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 artista cre\u00f3 American IV: The Man Comes Around y tambi\u00e9n interpret\u00f3 Hurt al menos una vez?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  <http://dbpedia.org/resource/American_IV:_The_Man_Comes_Around> (dbo:artist|dbp:artist) ?result .\n  ?song (dbo:performer|dbp:performer|<http://purl.org/dc/terms/creator>|<http://xmlns.com/foaf/0.1/maker>|dbo:artist|dbp:artist) ?result ;\n        rdfs:label ?label .\n  FILTER (langMatches(lang(?label),\"en\") && CONTAINS(LCASE(?label),\"hurt\"))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:16-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/16-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Stephen Merchant is the executive producer of the series having how many fictional characters?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT (COUNT(DISTINCT ?char) AS ?count) WHERE {\n  ?series dbo:executiveProducer dbr:Stephen_Merchant .\n  ?char a dbo:FictionalCharacter .\n  ?char dbo:series ?series .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:17-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Stephen Merchant es el productor ejecutivo de la serie que tiene \u00bfcu\u00e1ntos personajes ficticios?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT (COUNT(DISTINCT ?character) AS ?count) WHERE {\n  # Series for which Stephen Merchant is an executive producer\n  ?series dbo:executiveProducer dbr:Stephen_Merchant .\n  # fictional characters of that series (typed)\n  ?series dbo:fictionalCharacter ?character .\n  ?character a dbo:FictionalCharacter .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:17-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/17-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "In which countries are the children peaks from Denali located and what are them?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?child ?country WHERE {\n  {\n    { ?child dbo:parentPeak dbr:Denali. }\n    UNION\n    { ?child dbp:parentPeak dbr:Denali. }\n    UNION\n    { ?child dbp:parentPeak dbr:Denali. }\n    UNION\n    { dbr:Denali dbo:subsidiaryPeak ?child. }\n    UNION\n    { dbr:Denali dbp:subsidiaryPeak ?child. }\n    UNION\n    { ?child dbo:partOf dbr:Denali. }\n  }\n  {\n    { ?child dbo:locatedInArea ?loc . ?loc dbo:country ?country. }\n    UNION\n    { ?child dbp:country ?country. }\n    UNION\n    { ?child dbo:location ?loc . ?loc dbo:country ?country. }\n    UNION\n    { ?child dbp:location ?loc . ?loc dbo:country ?country. }\n    UNION\n    { ?child dbp:location ?country. }\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:18-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00edses se encuentran los picos secundarios del Denali y cu\u00e1les son?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    ?peak dbp:parent_peak dbr:Denali .\n  } UNION {\n    ?peak dbo:parentMountain dbr:Denali .\n  }\n\n  OPTIONAL { ?peak dbo:country ?country. }\n  OPTIONAL {\n    ?peak dbo:location ?loc .\n    ?loc dbo:country ?country .\n  }\n\n  OPTIONAL { ?peak rdfs:label ?pl_es FILTER(langMatches(lang(?pl_es),\"es\")) }\n  OPTIONAL { ?peak rdfs:label ?pl_en FILTER(langMatches(lang(?pl_en),\"en\")) }\n  OPTIONAL { ?country rdfs:label ?cl_es FILTER(langMatches(lang(?cl_es),\"es\")) }\n  OPTIONAL { ?country rdfs:label ?cl_en FILTER(langMatches(lang(?cl_en),\"en\")) }\n\n  BIND(COALESCE(?pl_es, ?pl_en, STRAFTER(STR(?peak), \"resource/\")) AS ?peakLabel)\n  BIND(COALESCE(?cl_es, ?cl_en, STR(?country), \"Unknown\") AS ?countryLabel)\n\n  BIND(CONCAT(?peakLabel, \" - \", ?countryLabel) AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:18-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/18-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are footballers coached by Pep Guardiola?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Pep_Guardiola dbo:coachedTeam ?team .\n  ?result dbo:team ?team .\n  ?result rdf:type dbo:SoccerPlayer .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:19-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 futbolistas han sido entrenados por Pep Guardiola?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  { ?result dbo:team ?team } UNION { ?result dbp:team ?team } .\n  VALUES ?team { dbr:FC_Barcelona dbr:FC_Bayern_Munich dbr:Manchester_City_F.C. } .\n  FILTER(?result != dbr:Pep_Guardiola)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:19-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/19-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Through which cities do the rivers originating in Yellowstone National Park flow?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    ?river dbo:sourceLocation dbr:Yellowstone_National_Park .\n  } UNION {\n    ?river dbo:source dbr:Yellowstone_National_Park .\n  } UNION {\n    ?river dbp:source dbr:Yellowstone_National_Park .\n  } UNION {\n    ?river dbo:origin dbr:Yellowstone_National_Park .\n  }\n  {\n    ?result a dbo:PopulatedPlace .\n    {\n      {\n        ?result dbo:river ?river .\n      } UNION {\n        ?result dbp:river ?river .\n      } UNION {\n        ?result dbo:waterway ?river .\n      } UNION {\n        ?result dbp:waterway ?river .\n      } UNION {\n        ?river dbp:cities ?result .\n      } UNION {\n        ?river dbp:towns ?result .\n      } UNION {\n        ?river dbp:city ?result .\n      }\n    }\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:20-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfPor qu\u00e9 ciudades fluyen los r\u00edos que se originan en el Parque Nacional de Yellowstone?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?river dbp:origin dbr:Yellowstone_National_Park .\n  {\n    ?river dbo:mouthLocation ?result .\n  } UNION {\n    ?river dbo:mouth ?result .\n  } UNION {\n    ?river dbp:mouth ?result .\n  } UNION {\n    ?river dbp:cities ?result .\n  } UNION {\n    ?river dbp:towns ?result .\n  } UNION {\n    ?river dbp:through ?result .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:20-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/20-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which alliance has the most member airlines?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    SELECT ?alliance (COUNT(DISTINCT ?airline) AS ?members) WHERE {\n      ?airline dbo:alliance ?alliance .\n      ?airline rdf:type dbo:Airline .\n    }\n    GROUP BY ?alliance\n    ORDER BY DESC(?members)\n    LIMIT 1\n  }\n  BIND(?alliance AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:21-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 alianza tiene la mayor cantidad de aerol\u00edneas miembros?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    SELECT ?alliance (COUNT(DISTINCT ?airline) AS ?count) WHERE {\n      ?airline dbp:alliances ?alliance .\n    }\n    GROUP BY ?alliance\n    ORDER BY DESC(?count)\n    LIMIT 1\n  }\n  BIND(?alliance AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:21-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/21-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which companies built the stadium whose tenant was the BC Lions?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?stadium dbp:tenants dbr:BC_Lions .\n  ?stadium a dbo:Stadium .\n  {\n    ?stadium dbp:builder ?result .\n  }\n  UNION { ?stadium dbo:builder ?result . }\n  UNION { ?stadium dbp:builtBy ?result . }\n  UNION { ?stadium dbo:architect ?result . }\n  UNION { ?stadium dbp:contractor ?result . }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:22-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas construyeron el estadio cuyo inquilino eran los BC Lions?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?stadium ?tenantProp dbr:BC_Lions .\n  FILTER(?tenantProp IN (dbo:tenant, dbp:tenant, dbo:tenants, dbp:tenants))\n\n  {\n    ?stadium ?builderProp ?result .\n  }\n  UNION\n  {\n    ?result ?builderProp ?stadium .\n  }\n  FILTER(?builderProp IN (dbp:builder, dbp:built, dbp:builtBy, dbo:builder, dbo:built, dbp:contractor, dbo:contractor, dbp:architect, dbo:architect))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:22-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/22-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which artists were influenced by Pablo Picasso?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  { dbr:Pablo_Picasso dbo:influenced ?result . }\n  UNION\n  { ?result dbo:influencedBy dbr:Pablo_Picasso . }\n  FILTER (\n    EXISTS { ?result rdf:type dbo:Artist }\n    || EXISTS { ?result rdf:type dbo:Person }\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:23-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 artistas fueron influenciados(as) por Pablo Picasso?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    dbr:Pablo_Picasso dbo:influenced ?result .\n  }\n  UNION\n  {\n    ?result dbo:influenced dbr:Pablo_Picasso .\n  }\n  UNION\n  {\n    dbr:Pablo_Picasso dbp:influenced ?result .\n  }\n  UNION\n  {\n    ?result dbp:influenced_by dbr:Pablo_Picasso .\n  }\n  ?result rdf:type dbo:Artist .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:23-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/23-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What was the party of the predecessor from Yingluck Shinawatra?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Yingluck_Shinawatra dbo:predecessor ?pred .\n  ?pred dbp:party ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:24-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l era el partido del predecesor de Yingluck Shinawatra?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Yingluck_Shinawatra dbo:predecessor ?pred .\n  ?pred dbo:party ?party .\n  OPTIONAL { ?party rdfs:label ?labelEs FILTER(lang(?labelEs) = \"es\") }\n  OPTIONAL { ?party rdfs:label ?labelEn FILTER(langMatches(lang(?labelEn),\"en\")) }\n  BIND(COALESCE(?labelEs, ?labelEn, STR(?party)) AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:24-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/24-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which television shows were produced through a collaboration between HBO and BBC?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a dbo:TelevisionSeries .\n  ?result dbo:collaboration dbr:HBO .\n  ?result dbo:collaboration dbr:BBC .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:25-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 programas de televisi\u00f3n fueron producidos mediante una colaboraci\u00f3n entre HBO y la BBC?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  # produced by both HBO and the BBC (use the ontology productionCompany property)\n  ?result dbo:productionCompany dbr:HBO .\n  ?result dbo:productionCompany dbr:British_Broadcasting_Corporation .\n  \n  # make rdf:type optional so we don't exclude items lacking explicit typing\n  OPTIONAL { ?result rdf:type ?type . }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:25-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/25-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "List all the publishers of the Oddworld series.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    dbr:Oddworld_(series) dbo:publisher ?result .\n  }\n  UNION\n  {\n    dbr:Oddworld_(series) dbp:publisher ?result .\n  }\n  UNION\n  {\n    ?game dbo:series dbr:Oddworld_(series) .\n    ?game dbo:publisher ?result .\n  }\n  UNION\n  {\n    ?game dbo:series dbr:Oddworld_(series) .\n    ?game dbp:publisher ?result .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:26-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son todos los editores de la serie Oddworld?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    dbr:Oddworld_(series) dbo:editor ?result .\n  }\n  UNION\n  {\n    dbr:Oddworld_(series) dbp:editor ?result .\n  }\n  UNION\n  {\n    dbr:Oddworld_(series) dbp:editors ?result .\n  }\n  UNION\n  {\n    dbr:Oddworld_(series) dbo:company ?result .\n    ?result a dbo:Person .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:26-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/26-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What are the films whose music was composed by Ennio Morricone?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result (dbo:musicComposer|dbo:musicBy|dbp:music|dbp:musicComposer) dbr:Ennio_Morricone .\n  ?result a dbo:Film .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:27-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las pel\u00edculas cuya m\u00fasica fue compuesta por Ennio Morricone?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  ?result dbo:musicComposer dbr:Ennio_Morricone .\n  ?result rdf:type dbo:Film .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:27-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/27-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name some television shows related to the one whose opening theme was composed by Bear McCreary.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  # find the show whose opening theme was composed by Bear McCreary\n  {\n    ?show dbp:themeMusicComposer dbr:Bear_McCreary .\n  }\n  UNION\n  {\n    ?show dbo:themeMusicComposer dbr:Bear_McCreary .\n  }\n  UNION\n  {\n    ?show dbo:openingTheme ?theme .\n    ?theme dbo:composer dbr:Bear_McCreary .\n  }\n  UNION\n  {\n    ?show dbp:openingTheme ?theme .\n    ?theme dbp:composer dbr:Bear_McCreary .\n  }\n  \n  # get shows related to that show (try common related properties)\n  {\n    ?show dbo:related ?result .\n  }\n  UNION\n  {\n    ?show dbp:related ?result .\n  }\n  UNION\n  {\n    ?show dbo:relatedFunctions ?result .\n  }\n  \n  # restrict results to television series\n  ?result a dbo:TelevisionSeries .\n  \n  FILTER(?result != ?show)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:28-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Nombra algunos programas de televisi\u00f3n relacionados con aquel cuya m\u00fasica de apertura fue compuesta por Bear McCreary.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  # aceptar tanto la propiedad como el literal que contenga el nombre\n  ?show ?composerProp ?composer .\n  VALUES ?composerProp { dbo:composer dbo:themeMusicComposer dbp:themeMusicComposer dbp:composer dbo:associatedMusicalArtist }\n  FILTER( ?composer = dbr:Bear_McCreary || STR(?composer) = \"Bear McCreary\" )\n\n  # buscar programas relacionados al show cuya m\u00fasica de apertura compuso Bear McCreary\n  ?show (dbo:wikiPageWikiLink|dbo:relatedWork) ?result .\n  ?result rdf:type dbo:TelevisionSeries .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:28-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/28-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where was the song 'Imagine' recorded?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?song a dbo:Song ;\n        rdfs:label ?label ;\n        dbo:recorded ?place .\n  FILTER(regex(str(?label), \"^Imagine\", \"i\"))\n  ?place rdfs:label ?result .\n  FILTER(langMatches(lang(?result),\"en\"))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:29-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde fue grabada la canci\u00f3n 'Imagine'?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  VALUES ?song { dbr:Imagine_(John_Lennon_song) } .\n  ?song ?prop ?result .\n  FILTER(?prop IN (dbp:recorded, dbp:studio, dbp:recording, dbo:studio, dbo:recordingLocation))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:29-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/29-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where did the spouse of Aung San Suu Kyi go to school?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nSELECT DISTINCT ?result WHERE {\n  { dbr:Aung_San_Suu_Kyi dbo:spouse ?spouse . }\n  UNION\n  { ?spouse dbo:spouse dbr:Aung_San_Suu_Kyi . }\n  {\n    { ?spouse dbo:almaMater ?result . }\n    UNION\n    { ?spouse dbp:education ?result . }\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:30-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde estudi\u00f3 el c\u00f3nyuge de Aung San Suu Kyi?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Aung_San_Suu_Kyi (dbo:spouse|dbp:spouse|^dbo:spouse|^dbp:spouse) ?spouse .\n  ?spouse (dbo:almaMater|dbo:education|dbp:almaMater|dbp:education) ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:30-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/30-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the birthplace of Barack Obama that is also the location of the University of Hawaii at Manoa?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nSELECT DISTINCT ?result WHERE {\n  dbr:Barack_Obama dbo:birthPlace ?result .\n  dbr:University_of_Hawaii_at_Manoa dbp:location ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:31-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Barack Obama que tambi\u00e9n es la ubicaci\u00f3n de la Universidad de Haw\u00e1i en M\u0101noa?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Barack_Obama dbo:birthPlace|dbp:birthPlace ?result .\n  dbr:University_of_Hawaii_at_Manoa dbo:location|dbo:city ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:31-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/31-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "How many rivers do structures designed by Gustave Eiffel cross?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT (COUNT(DISTINCT ?river) AS ?count) WHERE {\n  {\n    ?structure dbo:designer dbr:Gustave_Eiffel .\n  } UNION {\n    ?structure dbp:designer dbr:Gustave_Eiffel .\n  } UNION {\n    ?structure dbo:architect dbr:Gustave_Eiffel .\n  } UNION {\n    ?structure dbp:architect dbr:Gustave_Eiffel .\n  }\n  ?structure dbo:crosses ?river .\n  ?river rdf:type dbo:River .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:32-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos r\u00edos cruzan las estructuras dise\u00f1adas por Gustave Eiffel?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT (COUNT(DISTINCT ?river) AS ?result) WHERE {\n  {\n    ?structure dbo:designer dbr:Gustave_Eiffel .\n  } UNION {\n    ?structure dbo:engineer dbr:Gustave_Eiffel .\n  } UNION {\n    ?structure dbo:architect dbr:Gustave_Eiffel .\n  } UNION {\n    ?structure dbp:designer dbr:Gustave_Eiffel .\n  } UNION {\n    ?structure dbp:engineer dbr:Gustave_Eiffel .\n  } UNION {\n    ?structure dbp:architect dbr:Gustave_Eiffel .\n  }\n  VALUES ?crossProp { dbo:crosses dbp:crosses dbp:crossing }\n  ?river ?crossProp ?structure .\n  FILTER(isIRI(?river))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:32-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/32-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where did the musical styles originate that are associated with Back to Black?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    { dbr:Back_to_Black_(album) dbo:musicalStyle ?style }\n    UNION { dbr:Back_to_Black_(album) dbo:genre ?style }\n    UNION { dbr:Back_to_Black_(album) dbp:genre ?style }\n    UNION { dbr:Back_to_Black_(album) dbp:style ?style }\n    UNION { dbr:Back_to_Black_(album) dbo:style ?style }\n  }\n  .\n  {\n    { ?style dbo:stylisticOrigin ?result }\n    UNION { ?style dbo:origin ?result }\n    UNION { ?style dbp:origin ?result }\n    UNION { ?style dbo:culturalOrigin ?result }\n    UNION { ?style dbp:culturalOrigins ?result }\n    UNION { ?style dbp:stylisticOrigin ?result }\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:33-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde se originaron los estilos musicales asociados con Back to Black?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  VALUES ?work { dbr:Back_to_Black_(album) dbr:Back_to_Black_(song) }\n  ?work dbo:genre ?genre .\n  ?genre (dbo:origin|dbp:origin|dbp:stylisticOrigins) ?origin .\n  OPTIONAL { ?origin rdfs:label ?labelEs FILTER(lang(?labelEs) = \"es\") }\n  OPTIONAL { ?origin rdfs:label ?labelEn FILTER(lang(?labelEn) = \"en\") }\n  BIND(COALESCE(?labelEs, ?labelEn, STR(?origin)) AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:33-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/33-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What other countries speak the same language as Brazil's official one?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Brazil dbo:officialLanguage ?lang .\n  ?result dbo:officialLanguage ?lang .\n  ?result rdf:type dbo:Country .\n  FILTER(?result != dbr:Brazil)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:34-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otros pa\u00edses hablan el mismo idioma que el oficial de Brasil?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    { dbr:Brazil dbo:officialLanguage ?lang. }\n    UNION\n    { dbr:Brazil dbp:officialLanguages ?lang. }\n  }\n  {\n    { ?result dbo:officialLanguage ?lang. }\n    UNION\n    { ?result dbp:officialLanguages ?lang. }\n  }\n  ?result rdf:type dbo:Country.\n  FILTER(?result != dbr:Brazil)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:34-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/34-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name the island that is part of the Tuamotus archipelago and has its largest city named Rotoava.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a dbo:Island ;\n          dbo:largestCity dbr:Rotoava .\n  FILTER (\n    EXISTS { ?result dbo:archipelago dbr:Tuamotu_Archipelago } ||\n    EXISTS { ?result dbo:isPartOf ?archName .\n             FILTER(CONTAINS(LCASE(STR(?archName)), \"tuamot\")) }\n  )\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:35-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Nombra la isla que forma parte del archipi\u00e9lago de Tuamotu y cuya ciudad m\u00e1s grande se llama Rotoava.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?island a dbo:Island ;\n          dbo:archipelago dbr:Tuamotu ;\n          (dbo:largestCity|dbp:largestCity|dbp:largest_city) dbr:Rotoava ;\n          rdfs:label ?result .\n  FILTER(lang(?result) = \"es\")\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:35-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/35-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the land size of the country where the University of Oxford is located?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:University_of_Oxford (dbo:country|dbp:country|dbo:locationCountry) ?country .\n  ?country rdf:type dbo:Country .\n  ?country (dbo:areaLand|dbo:areaTotal|dbp:area_km2|dbp:area) ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:36-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la superficie terrestre del pa\u00eds donde se encuentra la Universidad de Oxford?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  { dbr:University_of_Oxford dbo:country ?country. }\n  UNION\n  { dbr:University_of_Oxford dbp:country ?country. }\n  \n  OPTIONAL { ?country dbo:areaLand ?areaLand. }\n  OPTIONAL { ?country dbo:areaTotal ?areaTotal. }\n  OPTIONAL { ?country dbp:areaKm2 ?areaKm2. }\n  OPTIONAL { ?country dbp:area ?area. }\n  \n  BIND(COALESCE(?areaLand, ?areaTotal, ?areaKm2, ?area) AS ?result)\n  FILTER(BOUND(?result))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:36-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/36-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the motto of the military unit in which Stewart Bovell served?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Stewart_Bovell dbo:militaryUnit ?unit .\n  {\n    ?unit dbo:motto ?result .\n  }\n  UNION\n  {\n    ?unit dbp:motto ?result .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:37-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lema de la unidad militar en la que sirvi\u00f3 Stewart Bovell?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Stewart_Bovell dbp:unit ?unit .\n  {\n    ?unit dbo:motto ?result\n  } UNION {\n    ?unit dbp:motto ?result\n  } UNION {\n    ?unit dbp:lema ?result\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:37-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/37-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which person has been married to both Jennifer Aniston and Angelina Jolie?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    { dbr:Jennifer_Aniston dbo:spouse ?result }\n    UNION { ?result dbo:spouse dbr:Jennifer_Aniston }\n    UNION { dbr:Jennifer_Aniston dbp:spouse ?result }\n    UNION { ?result dbp:spouse dbr:Jennifer_Aniston }\n  }\n  {\n    { dbr:Angelina_Jolie dbo:spouse ?result }\n    UNION { ?result dbo:spouse dbr:Angelina_Jolie }\n    UNION { dbr:Angelina_Jolie dbp:spouse ?result }\n    UNION { ?result dbp:spouse dbr:Angelina_Jolie }\n  }\n  OPTIONAL { ?result a dbo:Person }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:38-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 persona ha estado casada con Jennifer Aniston y Angelina Jolie?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nSELECT DISTINCT ?result WHERE {\n  dbr:Jennifer_Aniston dbo:spouse ?result .\n  dbr:Angelina_Jolie dbo:spouse ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:38-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/38-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "List all the software that works on Linux and MacOS operating systems.",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result a dbo:Software .\n  ?result dbo:operatingSystem dbr:Linux .\n  ?result dbo:operatingSystem dbr:Mac_OS_X .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:39-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 programas inform\u00e1ticos funcionan tanto en Linux como en MacOS?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result rdf:type ?type .\n  FILTER(?type IN (dbo:Software, dbo:ComputerProgram))\n  \n  FILTER EXISTS {\n    ?result ?p1 ?os1 .\n    FILTER(?p1 IN (dbo:operatingSystem, dbo:platform, dbp:operatingSystem, dbp:platform, dbp:operating_system))\n    FILTER(\n      ?os1 = dbr:Linux ||\n      CONTAINS(LCASE(STR(?os1)), \"linux\")\n    )\n  }\n  FILTER EXISTS {\n    ?result ?p2 ?os2 .\n    FILTER(?p2 IN (dbo:operatingSystem, dbo:platform, dbp:operatingSystem, dbp:platform, dbp:operating_system))\n    FILTER(\n      ?os2 = dbr:MacOS ||\n      ?os2 = dbr:Mac_OS_X ||\n      CONTAINS(LCASE(STR(?os2)), \"mac\") ||\n      CONTAINS(LCASE(STR(?os2)), \"os x\") ||\n      CONTAINS(LCASE(STR(?os2)), \"macos\")\n    )\n  }\n}\nORDER BY ?result",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:39-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/39-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What academic affiliations can be found at universities in Metro Manila?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  ?uni rdf:type dbo:University ;\n       dbo:affiliation ?result .\n  ?uni dbo:city ?city .\n  ?city dbo:region dbr:Metro_Manila .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:40-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 afiliaciones acad\u00e9micas se pueden encontrar en las universidades de Metro Manila?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    ?uni a dbo:University ;\n         (dbo:city|dbp:city|dbo:location|dbp:location) ?city .\n    ?city (dbo:region|dbp:region) dbr:Metro_Manila .\n  }\n  UNION\n  {\n    ?uni a dbo:University ;\n         (dbo:city|dbp:city|dbo:location|dbp:location) dbr:Metro_Manila .\n  }\n  {\n    ?uni dbp:affiliations ?result .\n  }\n  UNION\n  {\n    ?uni dbp:academic_affiliations ?result .\n  }\n  UNION\n  {\n    ?uni dbo:affiliation ?result .\n  }\n  UNION\n  {\n    ?uni dbp:affiliation ?result .\n  }\n  UNION\n  {\n    ?uni dbp:academic_affiliations ?result .\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:40-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/40-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which other firearms were designed by the creator of the AK-47?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT DISTINCT ?result WHERE {\n  BIND(dbr:Mikhail_Kalashnikov AS ?designer)\n  {\n    { ?result dbo:designer ?designer } \n    UNION { ?result dbp:designer ?designer } \n    UNION { ?result dbo:creator ?designer }\n  }\n  {\n    { ?result rdf:type dbo:Weapon } \n    UNION { ?result rdf:type dbo:Firearm }\n  }\n  FILTER(?result != dbr:AK-47)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:41-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otras armas de fuego fueron dise\u00f1adas por el creador del AK-47?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:AK-47 dbo:designer ?designer .\n  ?result dbo:designer ?designer .\n  FILTER(?result != dbr:AK-47) .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:41-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/41-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which band's former members are Nick Jonas and Joe Jonas?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result dbo:bandMember dbr:Nick_Jonas ;\n          dbo:bandMember dbr:Joe_Jonas ;\n          rdf:type dbo:Band .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:42-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfDe qu\u00e9 banda fueron exmiembros Nick Jonas y Joe Jonas?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    dbr:Nick_Jonas dbo:formerBandMember ?band .\n    dbr:Joe_Jonas dbo:formerBandMember ?band .\n  }\n  UNION\n  {\n    dbr:Nick_Jonas dbo:bandMember ?band .\n    dbr:Joe_Jonas dbo:bandMember ?band .\n  }\n  ?band rdfs:label ?result .\n  FILTER(LANGMATCHES(LANG(?result),\"es\") || LANGMATCHES(LANG(?result),\"en\") || LANG(?result) = \"\")\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:42-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/42-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the birth place of the athlete trained by Ring of Honor?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?athlete a dbo:Athlete ;\n           dbp:promotion dbr:Ring_of_Honor ;\n           dbo:birthPlace ?result .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:43-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento del atleta entrenado por Ring of Honor?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?athlete dbo:trainer dbr:Ring_of_Honor .\n  ?athlete ?birthProp ?result .\n  FILTER(?birthProp IN (dbo:birthPlace, dbp:birthPlace))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:43-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/43-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What other honors have recipients of the Presidential Medal of Freedom received?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    ?person dbo:award dbr:Presidential_Medal_of_Freedom .\n    # other awards recorded as resources for persons with the medal\n    ?person dbo:award ?result .\n    FILTER(?result != dbr:Presidential_Medal_of_Freedom)\n  }\n  UNION\n  {\n    # persons recorded as having the medal in dbp:awards (literal)\n    ?person dbp:awards ?medraw .\n    FILTER(regex(str(?medraw), \"Presidential Medal of Freedom\", \"i\"))\n    # try to get other awards modelled as dbo:award for these persons\n    ?person dbo:award ?result .\n    FILTER(?result != dbr:Presidential_Medal_of_Freedom)\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:44-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otros honores han recibido los destinatarios de la Medalla Presidencial de la Libertad?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    dbr:Presidential_Medal_of_Freedom dbp:recipients ?person .\n  } UNION {\n    ?person dbp:awards dbr:Presidential_Medal_of_Freedom .\n  } UNION {\n    ?person dbp:awards dbr:Presidential_Medal_of_Freedom .\n  } \n  .\n  {\n    ?person dbp:awards ?result .\n  } UNION {\n    ?person dbp:awards ?result .\n  }\n  FILTER(?result != dbr:Presidential_Medal_of_Freedom)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:44-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/44-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which saints were venerated in Christianity?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nSELECT DISTINCT ?result WHERE {\n  ?result dbo:veneratedIn dbr:Christianity .\n  ?result a dbo:Person .\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:45-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 santos fueron venerados en el cristianismo?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  ?result rdf:type dbo:Saint .\n  {\n    ?result dbp:veneratedIn ?v .\n    FILTER( ?v = dbr:Christianity || regex(str(?v),\"Christian\",\"i\") )\n  }\n  UNION\n  {\n    ?result dbo:veneratedIn ?v .\n    FILTER( ?v = dbr:Christianity || regex(str(?v),\"Christian\",\"i\") )\n  }\n  UNION\n  {\n    ?result dbp:venerated_in ?v .\n    FILTER( ?v = dbr:Christianity || regex(str(?v),\"Christian\",\"i\") )\n  }\n  UNION\n  {\n    ?result dbp:venerated ?v .\n    FILTER( ?v = dbr:Christianity || regex(str(?v),\"Christian\",\"i\") )\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:45-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/45-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which city is the radio station located in that is a sister station of WXME?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  { dbr:WXME dbp:sisterStations ?s. } UNION { ?s dbp:sisterStations dbr:WXME. }\n\n  {\n    ?s dbo:city ?result.\n  } UNION {\n    ?s dbo:location ?result.\n  } UNION {\n    ?s dbp:city ?result.\n  } UNION {\n    ?s dbo:city ?cityRes.\n    ?cityRes rdfs:label ?result.\n    FILTER(lang(?result) = \"en\")\n  } UNION {\n    ?s dbo:location ?cityRes.\n    ?cityRes rdfs:label ?result.\n    FILTER(lang(?result) = \"en\")\n  } UNION {\n    ?s dbp:city ?cityRes.\n    ?cityRes rdfs:label ?result.\n    FILTER(lang(?result) = \"en\")\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:46-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 ciudad est\u00e1 ubicada la emisora de radio que es una estaci\u00f3n hermana de WXME?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  {\n    dbr:WXME_(FM) ?rel ?sister .\n  } UNION {\n    ?sister ?rel dbr:WXME_(FM) .\n  }\n  ?sister a dbo:RadioStation .\n  \n  OPTIONAL { ?sister dbo:city ?cityRes . }\n  OPTIONAL { ?sister dbp:city ?cityLit . }\n  OPTIONAL { ?sister dbo:location ?locRes . }\n  OPTIONAL { ?sister dbp:location ?locLit . }\n  OPTIONAL { ?sister dbp:locationCity ?locCity . }\n\n  BIND( COALESCE(?cityRes, ?cityLit, ?locRes, ?locLit, ?locCity) AS ?result )\n  FILTER(BOUND(?result))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:46-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/46-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the name of the river that has its source in Lake Itasca and its river mouth located in Gulf of Mexico?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?result WHERE {\n  ?river a dbo:River ;\n         dbp:source dbr:Lake_Itasca ;\n         dbp:mouth dbr:Gulf_of_Mexico ;\n         rdfs:label ?result .\n  FILTER (lang(?result) = \"en\")\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:47-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el nombre del r\u00edo que nace en el lago Itasca y desemboca en el Golfo de M\u00e9xico?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT (COALESCE(?labelEs, ?labelEn, STR(?river)) AS ?result) WHERE {\n  ?river a dbo:River ;\n         (dbo:mouthLocation|dbp:mouth|dbo:mouth) dbr:Gulf_of_Mexico .\n  ?river (dbo:source|dbp:source|dbo:sourceLocation) ?src .\n  VALUES ?src { dbr:Lake_Itasca }\n  OPTIONAL { ?river rdfs:label ?labelEs FILTER(lang(?labelEs) = \"es\") }\n  OPTIONAL { ?river rdfs:label ?labelEn FILTER(lang(?labelEn) = \"en\") }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:47-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/47-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "For how many other teams have the members of HC Slovan Bratislava played?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nSELECT (COUNT(DISTINCT ?otherTeam) AS ?count) WHERE {\n  { ?player dbo:team dbr:HC_Slovan_Bratislava_(ice_hockey) } UNION { ?player dbp:team dbr:HC_Slovan_Bratislava_(ice_hockey) } .\n  {\n    ?player dbo:team ?otherTeam .\n  } UNION {\n    ?player dbp:team ?otherTeam .\n  } UNION {\n    ?player dbp:clubs ?otherTeam .\n  } UNION {\n    ?player dbo:formerTeam ?otherTeam .\n  }\n  FILTER(?otherTeam != dbr:HC_Slovan_Bratislava_(ice_hockey))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:48-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfPara cu\u00e1ntos otros equipos han jugado los miembros del HC Slovan Bratislava?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT (COUNT(DISTINCT ?result) AS ?count) WHERE {\n  {\n    ?player dbo:team dbr:HC_Slovan_Bratislava_(ice_hockey) .\n  }\n  UNION\n  {\n    ?player dbp:team dbr:HC_Slovan_Bratislava_(ice_hockey) .\n  }\n  UNION\n  {\n    ?player dbp:teams dbr:HC_Slovan_Bratislava_(ice_hockey) .\n  }\n  UNION\n  {\n    ?player dbo:formerTeam dbr:HC_Slovan_Bratislava_(ice_hockey) .\n  }\n  # other teams the same players have been linked to\n  {\n    ?player dbo:team ?result .\n  } UNION {\n    ?player dbp:team ?result .\n  } UNION {\n    ?player dbp:teams ?result .\n  } UNION {\n    ?player dbo:formerTeam ?result .\n  } UNION {\n    ?player dbp:formerteams ?result .\n  } UNION {\n    ?player dbp:formerTeam ?result .\n  }\n  FILTER(?result != dbr:HC_Slovan_Bratislava_(ice_hockey))\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:48-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/48-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the population difference between Tokyo and Delhi?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  dbr:Tokyo dbp:populationTotal ?popTokyo .\n  dbr:Delhi dbp:populationTotal ?popDelhi .\n  BIND(ABS(?popTokyo - ?popDelhi) AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:49-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la diferencia de poblaci\u00f3n entre Tokio y Delhi?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\nSELECT DISTINCT ?result WHERE {\n  OPTIONAL { dbr:Tokyo dbo:populationTotal ?tokyoPop1. }\n  OPTIONAL { dbr:Tokyo dbo:populationTotal ?tokyoPop2. }\n  OPTIONAL { dbr:New_Delhi dbo:populationTotal ?delhiPop1. }\n  OPTIONAL { dbr:New_Delhi dbo:populationTotal ?delhiPop2. }\n\n  FILTER((bound(?tokyoPop1) || bound(?tokyoPop2)) && (bound(?delhiPop1) || bound(?delhiPop2)))\n\n  BIND(REPLACE(str(COALESCE(?tokyoPop1, ?tokyoPop2)), \"[^0-9\\\\.\\\\-]\", \"\") AS ?tokyoClean)\n  BIND(REPLACE(str(COALESCE(?delhiPop1, ?delhiPop2)), \"[^0-9\\\\.\\\\-]\", \"\") AS ?delhiClean)\n  BIND(xsd:decimal(?tokyoClean) AS ?tokyoPop)\n  BIND(xsd:decimal(?delhiClean) AS ?delhiPop)\n  BIND(ABS(?tokyoPop - ?delhiPop) AS ?result)\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:49-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/49-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "How many movies there are in French language?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT (COUNT(DISTINCT ?film) AS ?count) WHERE {\n  {\n    ?film rdf:type dbo:Film ;\n          dbo:language dbr:French .\n  }\n  UNION\n  {\n    ?film rdf:type dbo:Film ;\n          dbo:originalLanguage dbr:French .\n  }\n  UNION\n  {\n    ?film rdf:type dbo:Film ;\n          dbo:language ?lang .\n    ?lang rdfs:label \"French\"@en .\n  }\n  UNION\n  {\n    ?film rdf:type dbo:Film ;\n          dbo:originalLanguage ?lang .\n    ?lang rdfs:label \"French\"@en .\n  }\n  UNION\n  {\n    ?film rdf:type dbo:Film ;\n          dbp:language ?langLit .\n    FILTER(\n      lcase(str(?langLit)) = \"french\" ||\n      lcase(str(?langLit)) = \"fr\" ||\n      regex(str(?langLit), \"French\", \"i\") ||\n      regex(str(?langLit), \"\\\\bfr\\\\b\", \"i\")\n    )\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:50-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas hay en idioma franc\u00e9s?",
+    "query": "PREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT (COUNT(DISTINCT ?film) AS ?count) WHERE {\n  ?film a dbo:Film .\n  {\n    # language as a language resource\n    ?film dbo:language dbr:French_language .\n  }\n  UNION\n  {\n    # language as a dbp property pointing to the resource\n    ?film dbp:language dbr:French_language .\n  }\n  UNION\n  {\n    # language as a literal mentioning \"French\" (case-insensitive)\n    ?film dbp:language ?langLit .\n    FILTER(isLiteral(?langLit) && regex(str(?langLit), \"french|fran\u00e7ais\", \"i\"))\n  }\n  UNION\n  {\n    # language as a resource whose label indicates French\n    ?film dbo:language ?langRes .\n    ?langRes rdfs:label ?lbl .\n    FILTER(regex(str(?lbl), \"french|fran\u00e7ais\", \"i\"))\n  }\n}",
+    "endpoint": "https://insanalex-iris-at-text2sparql.hf.space/text2sparql",
+    "qname": "db26:50-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/50-es"
+  }
+]

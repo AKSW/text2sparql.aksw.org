@@ -1,0 +1,802 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are all the Presidents of France?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:1-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son todos los Presidentes de Francia?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?president ?label WHERE { ?president dbo:office dbr:President_of_France . OPTIONAL { ?president rdfs:label ?label FILTER (lang(?label) = \"en\") } } ORDER BY ?president",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:1-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/1-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which actor appeared in the most films in a single decade?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?actor ?decade (COUNT(?film) as ?filmCount) WHERE {\n  ?film a dbo:Film ;\n        dbo:starring ?actor ;\n        dbo:releaseDate ?date .\n  BIND(FLOOR(YEAR(?date)/10)*10 AS ?decade)\n} GROUP BY ?actor ?decade\nORDER BY DESC(?filmCount)\nLIMIT 5",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:2-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 actor apareci\u00f3 en la mayor cantidad de pel\u00edculas en una sola d\u00e9cada?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?actor ?decade (COUNT(?movie) AS ?movieCount) WHERE { ?movie dbo:starring ?actor ; dbo:releaseDate ?year . BIND(FLOOR(xsd:integer(SUBSTR(str(?year), 1, 4))/10)*10 AS ?decade) } GROUP BY ?actor ?decade ORDER BY DESC(?movieCount) LIMIT 1",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:2-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/2-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who (either an actor or a musician) has received the highest number of awards?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?person (COUNT(?award) AS ?awardCount) WHERE { {?person dbo:occupation dbr:Actor} UNION {?person dbo:occupation dbr:Musician} OPTIONAL { ?person dbo:award ?award. } } GROUP BY ?person ORDER BY DESC(?awardCount) LIMIT 1",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:3-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9n (ya sea un actor o un m\u00fasico) ha recibido el mayor n\u00famero de premios?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:3-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/3-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which are the 5 bands or musicians who have produced the highest number of albums?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?artist (COUNT(?album) AS ?albumCount) WHERE {\n  ?artist a dbo:MusicalArtist .\n  ?album dbo:artist ?artist .\n  ?album a dbo:Album .\n} GROUP BY ?artist\nORDER BY DESC(?albumCount)\nLIMIT 5",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:4-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las 5 bandas o m\u00fasicos que han producido el mayor n\u00famero de \u00e1lbumes?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?artist (COUNT(?album) AS ?albumCount) WHERE {\n  ?album dbo:artist ?artist .\n} GROUP BY ?artist\nORDER BY DESC(?albumCount)\nLIMIT 5",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:4-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/4-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which are the top 3 taxonomic kingdoms that have the largest number of endangered species?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?kingdom ?kingdomLabel (COUNT(?species) AS ?speciesCount) WHERE {\n  ?species dbo:conservationStatus dbr:Endangered_species .\n  ?species dbo:kingdom ?kingdom .\n  ?kingdom rdfs:label ?kingdomLabel .\n  FILTER (lang(?kingdomLabel) = \"en\")\n} GROUP BY ?kingdom ?kingdomLabel ORDER BY DESC(?speciesCount) LIMIT 3",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:5-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son los 3 reinos taxon\u00f3micos con el mayor n\u00famero de especies en peligro de extinci\u00f3n?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?kingdom ?kingdomLabel (COUNT(?species) AS ?count) WHERE {\n  ?species a dbo:Species ;\n          dbo:conservationStatus ?status ;\n          dbo:kingdom ?kingdom .\n  ?status rdfs:label ?statusLabel .\n  FILTER(CONTAINS(LCASE(?statusLabel), \"endangered\"))\n  ?kingdom rdfs:label ?kingdomLabel .\n  FILTER(LANG(?kingdomLabel) = \"en\")\n} GROUP BY ?kingdom ?kingdomLabel ORDER BY DESC(?count) LIMIT 3",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:5-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/5-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Was Sasha Banks trained by Booker T?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:6-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfSasha Banks fue entrenada por Booker T?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?trainer WHERE {\n  dbr:Sasha_Banks dbo:trainer ?trainer .\n  ?trainer rdfs:label ?label .\n  FILTER (lang(?label) = \"en\")\n}",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:6-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/6-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Does Watervliet have a junction on the New York State Route 470?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:7-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfWatervliet tiene una intersecci\u00f3n en la Ruta Estatal de Nueva York 470?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:7-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/7-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Did Clyde Tombaugh discover Pluto?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:8-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfDescubri\u00f3 Clyde Tombaugh a Plut\u00f3n?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT ?predicate ?planet WHERE {\n  {\n    dbr:Clyde_Tombaugh ?predicate ?planet .\n    ?planet rdf:type dbo:Planet .\n  } UNION {\n    ?planet ?predicate dbr:Clyde_Tombaugh .\n    ?planet rdf:type dbo:Planet .\n  }\n}",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:8-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/8-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Was Bret Easton Ellis the author of American Psycho?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?author WHERE { dbr:American_Psycho dbo:author ?author }",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:9-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfFue Bret Easton Ellis el autor de American Psycho?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nSELECT ?author WHERE {\n  dbr:American_Psycho ?property ?author .\n  FILTER (?property IN (dbo:author, dbp:author))\n}",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:9-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/9-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Is Blender released under the GNU license?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:10-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfBlender se publica bajo la licencia GNU?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:10-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/10-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are the prime ministers of the United Kingdom?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:11-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQui\u00e9nes son los primeros ministros del Reino Unido?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:11-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/11-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What are the 10 oldest works by Mark Twain?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:12-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las 10 obras m\u00e1s antiguas de Mark Twain?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:12-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/12-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "In which settlement was the wife of Barack Obama born?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?birthPlace WHERE {\n  dbr:Michelle_Obama dbo:birthPlace ?birthPlace.\n} LIMIT 10",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:13-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 asentamiento naci\u00f3 la esposa de Barack Obama?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT ?birthPlace WHERE { dbr:Michelle_Obama dbo:birthPlace ?birthPlace . }",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:13-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/13-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where was the badminton player who won the silver medal at the 2012 Summer Olympics Women's doubles badminton event born at?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:14-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde naci\u00f3 la jugadora de b\u00e1dminton que gan\u00f3 la medalla de plata en la prueba de dobles femeninos de los Juegos Ol\u00edmpicos de Verano de 2012?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:14-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/14-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name some comic characters created by Stan Lee?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?character WHERE { ?character dbo:creator dbr:Stan_Lee . ?character rdf:type dbo:ComicsCharacter . } LIMIT 10",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:15-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfNombra algunos personajes de c\u00f3mic creados por Stan Lee?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nSELECT DISTINCT ?character WHERE { ?character dbo:creator dbr:Stan_Lee . ?character rdf:type dbo:ComicsCharacter } LIMIT 10",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:15-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/15-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which artist created American IV: The Man Comes Around and also performed Hurt at least once?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:16-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 artista cre\u00f3 American IV: The Man Comes Around y tambi\u00e9n interpret\u00f3 Hurt al menos una vez?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nSELECT DISTINCT ?album WHERE {\n  ?album dbo:artist dbr:Johnny_Cash .\n  ?album rdfs:label ?label .\n  FILTER regex(?label, \"american iv\", \"i\")\n} LIMIT 5",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:16-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/16-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Stephen Merchant is the executive producer of the series having how many fictional characters?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:17-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Stephen Merchant es el productor ejecutivo de la serie que tiene \u00bfcu\u00e1ntos personajes ficticios?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:17-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/17-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "In which countries are the children peaks from Denali located and what are them?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:18-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 pa\u00edses se encuentran los picos secundarios del Denali y cu\u00e1les son?",
+    "query": "PREFIX dbc: <http://dbpedia.org/resource/Category:>\nPREFIX dbd: <http://dbpedia.org/datatype/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbp: <http://dbpedia.org/property/>\nPREFIX dbr: <http://dbpedia.org/resource/>\nPREFIX dbt: <http://dbpedia.org/resource/Template:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfa: <http://www.w3.org/ns/rdfa#>\nPREFIX rdfdf: <http://www.openlinksw.com/virtrdf-data-formats#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX ecc: <https://ns.eccenca.com/>\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX vann: <http://purl.org/vocab/vann/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/Denali>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?subpeak ?country WHERE {\n  ?subpeak dbo:parentPeak dbr:Denali.\n  OPTIONAL { ?subpeak dbo:country ?country }\n} LIMIT 25\n",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:18-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/18-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Who are footballers coached by Pep Guardiola?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:19-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 futbolistas han sido entrenados por Pep Guardiola?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:19-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/19-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Through which cities do the rivers originating in Yellowstone National Park flow?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:20-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfPor qu\u00e9 ciudades fluyen los r\u00edos que se originan en el Parque Nacional de Yellowstone?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:20-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/20-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which alliance has the most member airlines?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:21-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 alianza tiene la mayor cantidad de aerol\u00edneas miembros?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:21-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/21-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which companies built the stadium whose tenant was the BC Lions?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:22-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 empresas construyeron el estadio cuyo inquilino eran los BC Lions?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:22-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/22-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which artists were influenced by Pablo Picasso?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:23-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 artistas fueron influenciados(as) por Pablo Picasso?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:23-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/23-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What was the party of the predecessor from Yingluck Shinawatra?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:24-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l era el partido del predecesor de Yingluck Shinawatra?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:24-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/24-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which television shows were produced through a collaboration between HBO and BBC?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:25-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 programas de televisi\u00f3n fueron producidos mediante una colaboraci\u00f3n entre HBO y la BBC?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:25-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/25-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "List all the publishers of the Oddworld series.",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:26-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son todos los editores de la serie Oddworld?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:26-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/26-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What are the films whose music was composed by Ennio Morricone?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:27-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1les son las pel\u00edculas cuya m\u00fasica fue compuesta por Ennio Morricone?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:27-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/27-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name some television shows related to the one whose opening theme was composed by Bear McCreary.",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:28-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Nombra algunos programas de televisi\u00f3n relacionados con aquel cuya m\u00fasica de apertura fue compuesta por Bear McCreary.",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:28-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/28-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where was the song 'Imagine' recorded?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:29-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde fue grabada la canci\u00f3n 'Imagine'?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:29-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/29-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where did the spouse of Aung San Suu Kyi go to school?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:30-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde estudi\u00f3 el c\u00f3nyuge de Aung San Suu Kyi?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:30-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/30-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the birthplace of Barack Obama that is also the location of the University of Hawaii at Manoa?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:31-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento de Barack Obama que tambi\u00e9n es la ubicaci\u00f3n de la Universidad de Haw\u00e1i en M\u0101noa?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:31-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/31-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "How many rivers do structures designed by Gustave Eiffel cross?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:32-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1ntos r\u00edos cruzan las estructuras dise\u00f1adas por Gustave Eiffel?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:32-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/32-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Where did the musical styles originate that are associated with Back to Black?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:33-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfD\u00f3nde se originaron los estilos musicales asociados con Back to Black?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:33-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/33-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What other countries speak the same language as Brazil's official one?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:34-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otros pa\u00edses hablan el mismo idioma que el oficial de Brasil?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:34-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/34-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Name the island that is part of the Tuamotus archipelago and has its largest city named Rotoava.",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:35-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Nombra la isla que forma parte del archipi\u00e9lago de Tuamotu y cuya ciudad m\u00e1s grande se llama Rotoava.",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:35-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/35-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the land size of the country where the University of Oxford is located?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:36-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la superficie terrestre del pa\u00eds donde se encuentra la Universidad de Oxford?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:36-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/36-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the motto of the military unit in which Stewart Bovell served?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:37-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lema de la unidad militar en la que sirvi\u00f3 Stewart Bovell?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:37-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/37-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which person has been married to both Jennifer Aniston and Angelina Jolie?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:38-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 persona ha estado casada con Jennifer Aniston y Angelina Jolie?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:38-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/38-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "List all the software that works on Linux and MacOS operating systems.",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:39-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 programas inform\u00e1ticos funcionan tanto en Linux como en MacOS?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:39-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/39-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What academic affiliations can be found at universities in Metro Manila?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:40-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 afiliaciones acad\u00e9micas se pueden encontrar en las universidades de Metro Manila?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:40-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/40-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which other firearms were designed by the creator of the AK-47?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:41-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otras armas de fuego fueron dise\u00f1adas por el creador del AK-47?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:41-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/41-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which band's former members are Nick Jonas and Joe Jonas?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:42-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfDe qu\u00e9 banda fueron exmiembros Nick Jonas y Joe Jonas?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:42-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/42-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the birth place of the athlete trained by Ring of Honor?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:43-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el lugar de nacimiento del atleta entrenado por Ring of Honor?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:43-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/43-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What other honors have recipients of the Presidential Medal of Freedom received?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:44-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 otros honores han recibido los destinatarios de la Medalla Presidencial de la Libertad?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:44-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/44-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which saints were venerated in Christianity?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:45-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfQu\u00e9 santos fueron venerados en el cristianismo?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:45-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/45-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "Which city is the radio station located in that is a sister station of WXME?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:46-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfEn qu\u00e9 ciudad est\u00e1 ubicada la emisora de radio que es una estaci\u00f3n hermana de WXME?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:46-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/46-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the name of the river that has its source in Lake Itasca and its river mouth located in Gulf of Mexico?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:47-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es el nombre del r\u00edo que nace en el lago Itasca y desemboca en el Golfo de M\u00e9xico?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:47-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/47-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "For how many other teams have the members of HC Slovan Bratislava played?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:48-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfPara cu\u00e1ntos otros equipos han jugado los miembros del HC Slovan Bratislava?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:48-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/48-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "What is the population difference between Tokyo and Delhi?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:49-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1l es la diferencia de poblaci\u00f3n entre Tokio y Delhi?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:49-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/49-es"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "How many movies there are in French language?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:50-en",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/dbpedia/",
+    "question": "\u00bfCu\u00e1ntas pel\u00edculas hay en idioma franc\u00e9s?",
+    "query": "",
+    "endpoint": "https://26b.text2sparql.cc-eti.org/text2sparql",
+    "qname": "db26:50-es",
+    "uri": "https://text2sparql.aksw.org/2026/dbpedia/50-es"
+  }
+]

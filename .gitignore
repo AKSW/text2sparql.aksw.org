@@ -5,3 +5,7 @@ __pycache__
 tmp
 .DS_Store
 .vscode/
+
+# ignore for results
+*_result_set*
+*_results*

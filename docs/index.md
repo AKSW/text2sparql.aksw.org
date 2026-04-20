@@ -25,6 +25,14 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2026-04-20 - Registration reminder"
+    
+    We would like to remind all participants that the registration for the [ESWC pre-conference](https://2026.eswc-conferences.org/attending/registration/) is required for at least one of the team members.
+
+!!! info "2026-04-20 - Endpoint Responses published!"
+
+    As a first part of the [:material-chart-bar: Challenge Results](results/index.md) we publish the plain endpoint responses. Visit the GitHub issue page for the discussion of eventual problems and next steps.
+
 !!! info "2026-04-15 - Data collection for the evaluation was completed!"
 
     Thank you all for your pariticipation, preparing the endpoints, and fixing eventual issues. We will release the test sets and results as planned! Be ready to check the questions and results for eventual problems and to discuss them on the GitHub issues page.

@@ -1,0 +1,802 @@
+[
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department does Ms. Brant belong to?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  <http://ld.company.org/prod-instances/empl-Karen.Brant%40company.org> pv:memberOf ?result .\n  ?result a <http://ld.company.org/prod-vocab/Department> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:1-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/1-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Zu welcher Abteilung geh\u00f6rt Frau Brant?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  <http://ld.company.org/prod-instances/empl-Karen.Brant%40company.org> <http://ld.company.org/prod-vocab/memberOf> ?result .\n  ?result a <http://ld.company.org/prod-vocab/Department> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:1-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/1-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What's Baldwin Dirksen's phone number?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE\n{\n  <http://ld.company.org/prod-instances/empl-Baldwin.Dirksen%40company.org> <http://ld.company.org/prod-vocab/phone> ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:2-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/2-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie lautet Baldwin Dirksens Telefonnummer?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  <http://ld.company.org/prod-instances/empl-Baldwin.Dirksen%40company.org> <http://ld.company.org/prod-vocab/phone> ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:2-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/2-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is Heinrich Hoch's manager?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  <http://ld.company.org/prod-instances/empl-Heinrich.Hoch%40company.org> <http://ld.company.org/prod-vocab/hasManager> ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:3-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/3-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist Heinrich Hochs Manager?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  <http://ld.company.org/prod-instances/empl-Heinrich.Hoch%40company.org> <http://ld.company.org/prod-vocab/hasManager> ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:3-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/3-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you tell me Sabrina's email address from the Marketing department?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?department pv:name \"Marketing\" .\n  ?person pv:memberOf ?department .\n  ?person pv:email ?result .\n  ?person pv:name ?name .\n  FILTER(CONTAINS(?name, \"Sabrina\"))\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:4-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/4-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie mir bitte Sabrinas E-Mail-Adresse aus der Marketingabteilung geben?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  ?department <http://ld.company.org/prod-vocab/name> \"Marketing\" .\n  ?person <http://ld.company.org/prod-vocab/memberOf> ?department .\n  ?person <http://ld.company.org/prod-vocab/email> ?result .\n  ?person <http://ld.company.org/prod-vocab/name> ?name .\n  FILTER(CONTAINS(?name, \"Sabrina\"))\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:4-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/4-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is knowledgeable about transistors?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?result pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Transistor> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:5-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/5-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer kennt sich mit Transistoren aus?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE\n{\n  ?result pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Transistor> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:5-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/5-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is our sensor specialist?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  ?result <http://ld.company.org/prod-vocab/areaOfExpertise> <http://ld.company.org/prod-instances/prod-cat-Sensor> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:6-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/6-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist unser Sensor-Spezialist?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nSELECT DISTINCT ?result\nWHERE {\n  ?result pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Sensor> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:6-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/6-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who heads the Data Services department?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE\n{\n  ?person <http://ld.company.org/prod-vocab/memberOf> <http://ld.company.org/prod-instances/dept-41622> .\n  ?person <http://ld.company.org/prod-vocab/hasManager> ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:7-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/7-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer leitet die Abteilung f\u00fcr Datenmanagement?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  ?dept a <http://ld.company.org/prod-vocab/Department> .\n  OPTIONAL { ?dept <http://ld.company.org/prod-vocab/name> ?n . }\n  OPTIONAL { ?dept <http://www.w3.org/2000/01/rdf-schema#label> ?l . }\n  BIND(LCASE(STR(COALESCE(?n, ?l))) AS ?deptText)\n  FILTER(REGEX(?deptText, \"datenmanagement|data management|data-management|data services|dataservices\", \"i\"))\n\n  {\n    ?result a <http://ld.company.org/prod-vocab/Manager> ;\n            <http://ld.company.org/prod-vocab/memberOf> ?dept .\n  }\n  UNION\n  {\n    ?emplClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://ld.company.org/prod-vocab/Employee> .\n    ?emp a ?emplClass ;\n         <http://ld.company.org/prod-vocab/memberOf> ?dept ;\n         <http://ld.company.org/prod-vocab/hasManager> ?result .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:7-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/7-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department handles the Sensor Switch M558-2275045?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?result pv:responsibleFor <http://ld.company.org/prod-instances/hw-M558-2275045> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:8-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/8-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilung ist f\u00fcr den Sensor-Schalter M558-2275045 zust\u00e4ndig?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  ?result <http://ld.company.org/prod-vocab/responsibleFor> <http://ld.company.org/prod-instances/hw-M558-2275045> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:8-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/8-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many different Sensor Switches do we offer?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT (COUNT(DISTINCT ?resultR) AS ?result)\nWHERE\n{\n  ?resultR pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Sensor> .\n  ?resultR pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Switch> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:9-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/9-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele verschiedene Sensor-Schalter bieten wir an?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT (COUNT(DISTINCT ?result) AS ?result)\nWHERE\n{\n  ?result <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Sensor> .\n  ?result <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Switch> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:9-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/9-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who is the network expert in the marketing department?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?employee pv:memberOf <http://ld.company.org/prod-instances/dept-85880> .\n  ?employee pv:areaOfExpertise <http://ld.company.org/prod-instances/prod-cat-Network> .\n  ?employee pv:name ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:10-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/10-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist der Netzwerkspezialist in der Marketingabteilung?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE\n{\n  ?employee <http://ld.company.org/prod-vocab/memberOf> <http://ld.company.org/prod-instances/dept-85880> .\n  ?employee <http://ld.company.org/prod-vocab/areaOfExpertise> <http://ld.company.org/prod-instances/prod-cat-Network> .\n  ?employee <http://ld.company.org/prod-vocab/name> ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:10-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/10-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which departments have transducer experts?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?employee <http://ld.company.org/prod-vocab/memberOf> ?result .\n  ?employee <http://ld.company.org/prod-vocab/areaOfExpertise> <http://ld.company.org/prod-instances/prod-cat-Transducer> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:11-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/11-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilungen haben Experten f\u00fcr Sensoren/Wandler?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  ?employee <http://ld.company.org/prod-vocab/memberOf> ?result ;\n            <http://ld.company.org/prod-vocab/areaOfExpertise> ?expertise .\n  VALUES ?expertise {\n    <http://ld.company.org/prod-instances/prod-cat-Sensor>\n    <http://ld.company.org/prod-instances/prod-cat-Transducer>\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:11-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/11-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which suppliers can deliver compensators?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  ?hardware <http://ld.company.org/prod-vocab/hasSupplier> ?result .\n  ?hardware <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Compensator> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:12-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/12-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Lieferanten k\u00f6nnen Kompensatoren liefern?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE\n{\n  ?hardware <http://ld.company.org/prod-vocab/hasSupplier> ?result .\n  ?hardware <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Compensator> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:12-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/12-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many of our suppliers are based in France?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT (COUNT(DISTINCT ?result) AS ?result)\nWHERE {\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?result .\n  ?result <http://ld.company.org/prod-vocab/addressCountry> \"France\" .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:13-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/13-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele unserer Lieferanten haben ihren Sitz in Frankreich?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT (COUNT(DISTINCT ?result) AS ?result)\nWHERE {\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?result .\n  ?result <http://ld.company.org/prod-vocab/addressCountry> \"France\" .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:13-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/13-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which supplier in France provides compensators?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?result .\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Compensator> .\n  ?result  <http://ld.company.org/prod-vocab/addressCountry> \"France\" .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:14-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/14-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Lieferant in Frankreich bietet Kompensatoren an?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?result .\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Compensator> .\n  ?result <http://ld.company.org/prod-vocab/addressCountry> \"France\" .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:14-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/14-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which encoder is the most affordable from a French or German supplier?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE\n{\n  ?result pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Encoder> .\n  ?result pv:price ?priceR .\n  ?priceR pv:amount ?price .\n  ?result pv:hasSupplier ?supplier .\n  ?supplier pv:addressCountry ?country .\n  FILTER ( (?country = \"France\") || (?country = \"Germany\") )\n}\nORDER BY ASC(?price)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:15-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/15-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Encoder ist von einem franz\u00f6sischen oder deutschen Anbieter am g\u00fcnstigsten?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE\n{\n  ?result pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Encoder> .\n  ?result pv:price ?priceR .\n  ?priceR pv:amount ?price .\n  ?result pv:hasSupplier ?supplier .\n  ?supplier pv:addressCountry ?country .\n  FILTER ( (?country = \"France\") || (?country = \"Germany\") )\n}\nORDER BY ASC(?price)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:15-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/15-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Are there any suppliers we have in Toulouse?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nASK\nWHERE {\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/addressLocality> \"Toulouse\" .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:16-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/16-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Haben wir Lieferanten in Toulouse?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nASK\nWHERE {\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/addressLocality> \"Toulouse\" .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:16-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/16-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who are our suppliers in Toulouse?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE\n{\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?result .\n  ?result <http://ld.company.org/prod-vocab/addressLocality> \"Toulouse\" .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:17-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/17-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer sind unsere Lieferanten in Toulouse?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?product pv:hasSupplier ?result .\n  ?result pv:addressLocality \"Toulouse\" .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:17-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/17-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which oscillator do we offer at the lowest price?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE\n{\n  ?result <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Oscillator> .\n  ?result <http://ld.company.org/prod-vocab/price> ?priceR .\n  ?priceR <http://ld.company.org/prod-vocab/amount> ?price .\n}\nORDER BY ASC(?price)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:18-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/18-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welchen Oszillator bieten wir zum niedrigsten Preis an?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE\n{\n  ?result pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Oscillator> .\n  ?result pv:price ?priceR .\n  ?priceR pv:amount ?price .\n}\nORDER BY ASC(?price)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:18-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/18-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which of our services is the most expensive?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  ?result a <http://ld.company.org/prod-vocab/Service> .\n  ?result <http://ld.company.org/prod-vocab/price> ?priceR .\n  ?priceR <http://ld.company.org/prod-vocab/amount> ?price .\n}\nORDER BY DESC(?price)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:19-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/19-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche unserer Dienstleistungen ist die teuerste?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  ?result a <http://ld.company.org/prod-vocab/Service> .\n  ?result <http://ld.company.org/prod-vocab/price> ?priceR .\n  ?priceR <http://ld.company.org/prod-vocab/amount> ?price .\n}\nORDER BY DESC(?price)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:19-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/19-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Who oversees the most expensive service we offer?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  ?service a <http://ld.company.org/prod-vocab/Service> .\n  ?service <http://ld.company.org/prod-vocab/hasProductManager> ?result .\n  ?service <http://ld.company.org/prod-vocab/price> ?priceR .\n  ?priceR <http://ld.company.org/prod-vocab/amount> ?price .\n}\nORDER BY DESC(?price)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:20-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/20-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wer ist f\u00fcr unsere teuerste Dienstleistung verantwortlich?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  ?service a <http://ld.company.org/prod-vocab/Service> .\n  ?service <http://ld.company.org/prod-vocab/hasProductManager> ?result .\n  ?service <http://ld.company.org/prod-vocab/price> ?priceR .\n  ?priceR <http://ld.company.org/prod-vocab/amount> ?price .\n}\nORDER BY DESC(?price)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:20-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/20-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which coil is the heaviest while still fitting within a 15mm x 15mm base area?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?result pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Coil> ;\n          pv:weight_g ?weight_g ;\n          pv:width_mm ?width_mm ;\n          pv:depth_mm ?depth_mm .\n  FILTER(?width_mm <= 15)\n  FILTER(?depth_mm <= 15)\n}\nORDER BY DESC(?weight_g)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:21-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/21-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Spule ist am schwersten, w\u00e4hrend sie noch in einen Grundbereich von 15 mm x 15 mm passt?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE\n{\n  ?result pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Coil> .\n  ?result pv:weight_g ?weight_g .\n  ?result pv:width_mm ?width_mm .\n  ?result pv:depth_mm ?depth_mm .\n  FILTER (?width_mm <= 15)\n  FILTER (?depth_mm <= 15)\n}\nORDER BY DESC(?weight_g)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:21-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/21-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which products can be used with the U990 LCD Inductor?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  <http://ld.company.org/prod-instances/hw-U990-5234138> <http://ld.company.org/prod-vocab/compatibleProduct> ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:22-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/22-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Produkte k\u00f6nnen mit dem U990 LCD-Induktor verwendet werden?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  <http://ld.company.org/prod-instances/hw-U990-5234138> pv:compatibleProduct ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:22-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/22-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which products from US suppliers are compatible with the U990 LCD inductor?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE\n{\n  <http://ld.company.org/prod-instances/hw-U990-5234138> pv:compatibleProduct ?result .\n  ?result pv:hasSupplier ?supplier .\n  ?supplier pv:country <http://dbpedia.org/resource/United_States> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:23-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/23-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Produkte von US-amerikanischen Lieferanten sind mit dem U990-LCD-Induktor kompatibel?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE\n{\n  <http://ld.company.org/prod-instances/hw-U990-5234138> pv:compatibleProduct ?result .\n  ?result pv:hasSupplier ?supplier .\n  ?supplier pv:country <http://dbpedia.org/resource/United_States> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:23-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/23-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which potentiometer has the smallest volume?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE\n{\n  ?result pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Potentiometer> .\n  ?result pv:width_mm ?width_mm .\n  ?result pv:depth_mm ?depth_mm .\n  ?result pv:height_mm ?height_mm .\n  BIND(?width_mm * ?depth_mm * ?height_mm AS ?volume)\n}\nORDER BY ASC(?volume)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:24-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/24-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welches Potentiometer hat das kleinste Volumen?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?result pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Potentiometer> .\n  ?result pv:width_mm ?width_mm .\n  ?result pv:depth_mm ?depth_mm .\n  ?result pv:height_mm ?height_mm .\n  BIND(?width_mm * ?depth_mm * ?height_mm AS ?volume)\n}\nORDER BY ASC(?volume)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:24-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/24-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which coil has the greatest density?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  ?result <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Coil> ;\n          <http://ld.company.org/prod-vocab/width_mm> ?width_mm ;\n          <http://ld.company.org/prod-vocab/depth_mm> ?depth_mm ;\n          <http://ld.company.org/prod-vocab/height_mm> ?height_mm ;\n          <http://ld.company.org/prod-vocab/weight_g> ?weight_g .\n\n  BIND(<http://www.w3.org/2001/XMLSchema#decimal>(?width_mm)  AS ?w)\n  BIND(<http://www.w3.org/2001/XMLSchema#decimal>(?depth_mm)  AS ?d)\n  BIND(<http://www.w3.org/2001/XMLSchema#decimal>(?height_mm) AS ?h)\n  BIND(<http://www.w3.org/2001/XMLSchema#decimal>(?weight_g)  AS ?wg)\n\n  # density (kg/m^3) = weight_g * 1,000,000 / (width_mm * depth_mm * height_mm)\n  FILTER(?w > 0 && ?d > 0 && ?h > 0)\n  BIND( (?wg * 1000000.0) / (?w * ?d * ?h) AS ?density )\n}\nORDER BY DESC(?density)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:25-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/25-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Spule hat die gr\u00f6\u00dfte Dichte?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?result pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Coil> ;\n          pv:width_mm ?w ;\n          pv:depth_mm ?d ;\n          pv:height_mm ?h ;\n          pv:weight_g ?wg .\n\n  BIND( xsd:decimal(?w) * xsd:decimal(?d) * xsd:decimal(?h) AS ?vol_mm3 )\n  FILTER(?vol_mm3 > 0)\n\n  # proportional density (g/mm\u00b3); sufficient for ranking\n  BIND( xsd:decimal(?wg) / ?vol_mm3 AS ?density )\n}\nORDER BY DESC(?density)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:25-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/25-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which cities are our US LCD suppliers located in?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?product pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-LCD> .\n  ?product pv:hasSupplier ?supplier .\n  ?supplier pv:country <http://dbpedia.org/resource/United_States> .\n  ?supplier pv:addressLocality ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:26-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/26-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "In welchen St\u00e4dten befinden sich unsere US-amerikanischen LCD-Lieferanten?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?product <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-LCD> .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/country> <http://dbpedia.org/resource/United_States> .\n  ?supplier <http://ld.company.org/prod-vocab/addressLocality> ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:26-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/26-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you provide a staff phone directory that includes the name, email, and phone number of every employee who doesn\u2019t manage anyone, sorted alphabetically by name?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?empl ?name ?email ?phone\nWHERE {\n  ?emplClass rdfs:subClassOf* <http://ld.company.org/prod-vocab/Employee> .\n  ?empl a ?emplClass ;\n        <http://ld.company.org/prod-vocab/name> ?name ;\n        <http://ld.company.org/prod-vocab/email> ?email .\n  OPTIONAL { ?empl <http://ld.company.org/prod-vocab/phone> ?phone }\n  FILTER NOT EXISTS { [] <http://ld.company.org/prod-vocab/hasManager> ?empl . }\n}\nORDER BY ?name",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:27-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/27-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie ein Telefonverzeichnis f\u00fcr die Mitarbeiter erstellen, das den Namen, die E-Mail-Adresse und die Telefonnummer aller Mitarbeiter enth\u00e4lt, die keine leitende Position innehaben, und dieses alphabetisch nach Namen sortieren?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?employee ?name ?email ?phone\nWHERE {\n  ?emplClass rdfs:subClassOf* <http://ld.company.org/prod-vocab/Employee> .\n  ?employee a ?emplClass ;\n            <http://ld.company.org/prod-vocab/name> ?name ;\n            <http://ld.company.org/prod-vocab/email> ?email .\n  OPTIONAL { ?employee <http://ld.company.org/prod-vocab/phone> ?phone }\n\n  FILTER NOT EXISTS { [] <http://ld.company.org/prod-vocab/hasManager> ?employee . }\n}\nORDER BY ?name",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:27-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/27-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Is there a service that can handle a BOM containing parts sourced from Russia?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nASK\nWHERE {\n  {\n    SELECT DISTINCT ?hw\n    WHERE {\n      ?bom a <http://ld.company.org/prod-vocab/BillOfMaterial> ;\n           <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n      ?bomPart <http://ld.company.org/prod-vocab/hasPart> ?hw .\n      ?hw <http://ld.company.org/prod-vocab/hasSupplier> ?suppl .\n      ?suppl <http://ld.company.org/prod-vocab/addressCountry> ?country .\n      FILTER(CONTAINS(LCASE(STR(?country)), LCASE(\"Russia\")))\n    }\n  }\n\n  ?service a <http://ld.company.org/prod-vocab/Service> ;\n           <http://ld.company.org/prod-vocab/eligibleFor> ?hw .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:28-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/28-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Gibt es einen Dienst, der eine St\u00fcckliste (BOM) mit aus Russland bezogenen Bauteilen verarbeiten kann?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nASK\nWHERE {\n  # BOMs mit mindestens einem Bauteil von einem Lieferanten aus Russland\n  {\n    SELECT DISTINCT ?bom ?hw\n    WHERE {\n      ?bom a <http://ld.company.org/prod-vocab/BillOfMaterial> ;\n           <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n      ?bomPart <http://ld.company.org/prod-vocab/hasPart> ?hw .\n      ?hw <http://ld.company.org/prod-vocab/hasSupplier> ?suppl .\n      ?suppl <http://ld.company.org/prod-vocab/addressCountry> ?country .\n      FILTER(CONTAINS(LCASE(STR(?country)), LCASE(\"Russia\")))\n    }\n  }\n\n  # Gibt es einen Dienst, der f\u00fcr diese Hardware (und damit die BOM) geeignet ist?\n  ?s a <http://ld.company.org/prod-vocab/Service> ;\n     <http://ld.company.org/prod-vocab/eligibleFor> ?hw .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:28-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/28-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which suppliers\u2014including their name, country, and price\u2014provide the hardware items that rank from the 6th to the 10th most expensive?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT ?supplierName ?country ?price\nWHERE {\n  ?supplier a <http://ld.company.org/prod-vocab/Supplier> ;\n    <http://ld.company.org/prod-vocab/name> ?supplierName ;\n    <http://ld.company.org/prod-vocab/addressCountry> ?country .\n\n  ?hw a <http://ld.company.org/prod-vocab/Hardware> ;\n    <http://ld.company.org/prod-vocab/hasSupplier> ?supplier ;\n    <http://ld.company.org/prod-vocab/price> ?p .\n\n  ?p <http://ld.company.org/prod-vocab/amount> ?price ;\n     <http://ld.company.org/prod-vocab/currency> \"EUR\" .\n}\nORDER BY DESC(?price)\nLIMIT 5 OFFSET 5",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:29-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/29-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Lieferanten - einschlie\u00dflich Name, Land und Preis - liefern die Hardwareartikel, die vom 6. bis zum 10. teuersten Artikel geh\u00f6ren?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?result\nWHERE {\n  ?sup a <http://ld.company.org/prod-vocab/Supplier> ;\n       <http://ld.company.org/prod-vocab/name> ?name ;\n       <http://ld.company.org/prod-vocab/addressCountry> ?country .\n\n  ?hw a <http://ld.company.org/prod-vocab/Hardware> ;\n      <http://ld.company.org/prod-vocab/hasSupplier> ?sup ;\n      <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/amount> ?price ;\n      <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/currency> \"EUR\" .\n\n  BIND(CONCAT(STR(?name), \" | \", STR(?country), \" | \", STR(?price)) AS ?result)\n}\nORDER BY DESC(?price)\nLIMIT 5\nOFFSET 5",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:29-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/29-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which departments have more than five employees, and could you list each department's name together with its employee count?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?result\nWHERE {\n  {\n    SELECT (CONCAT(STR(?name), \" \u2014 \", STR(COUNT(?emp))) AS ?result)\n    WHERE {\n      ?dept a <http://ld.company.org/prod-vocab/Department> ;\n            <http://ld.company.org/prod-vocab/name> ?name .\n      ?emp  a <http://ld.company.org/prod-vocab/Employee> ;\n            <http://ld.company.org/prod-vocab/memberOf> ?dept .\n    }\n    GROUP BY ?dept ?name\n    HAVING (COUNT(?emp) > 5)\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:30-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/30-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilungen haben mehr als f\u00fcnf Mitarbeiter, und k\u00f6nnten Sie den Namen jeder Abteilung zusammen mit der Anzahl ihrer Mitarbeiter auflisten?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?name (COUNT(?emp) AS ?numEmployees)\nWHERE {\n  ?dept a <http://ld.company.org/prod-vocab/Department> ;\n        <http://ld.company.org/prod-vocab/name> ?name .\n  ?emp  a <http://ld.company.org/prod-vocab/Employee> ;\n        <http://ld.company.org/prod-vocab/memberOf> ?dept .\n}\nGROUP BY ?dept ?name\nHAVING (COUNT(?emp) > 5)\nORDER BY DESC(?numEmployees) ?name",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:30-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/30-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each product category, which hardware item is the lightest and which is the heaviest?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?cat\n       (SAMPLE(?lightestHw) AS ?lightestHardware)\n       (MIN(?w) AS ?lightestWeight_g)\n       (SAMPLE(?heaviestHw) AS ?heaviestHardware)\n       (MAX(?w) AS ?heaviestWeight_g)\nWHERE {\n  {\n    SELECT ?cat ?lightestHw ?w\n    WHERE {\n      ?catItem a <http://ld.company.org/prod-vocab/ProductCategory> ;\n               <http://ld.company.org/prod-vocab/name> ?cat .\n      ?lightestHw a <http://ld.company.org/prod-vocab/Hardware> ;\n                  <http://ld.company.org/prod-vocab/hasCategory> ?catItem ;\n                  <http://ld.company.org/prod-vocab/weight_g> ?w .\n      FILTER NOT EXISTS {\n        ?other a <http://ld.company.org/prod-vocab/Hardware> ;\n               <http://ld.company.org/prod-vocab/hasCategory> ?catItem ;\n               <http://ld.company.org/prod-vocab/weight_g> ?w2 .\n        FILTER(?w2 < ?w)\n      }\n    }\n  }\n  UNION\n  {\n    SELECT ?cat ?heaviestHw ?w\n    WHERE {\n      ?catItem a <http://ld.company.org/prod-vocab/ProductCategory> ;\n               <http://ld.company.org/prod-vocab/name> ?cat .\n      ?heaviestHw a <http://ld.company.org/prod-vocab/Hardware> ;\n                  <http://ld.company.org/prod-vocab/hasCategory> ?catItem ;\n                  <http://ld.company.org/prod-vocab/weight_g> ?w .\n      FILTER NOT EXISTS {\n        ?other a <http://ld.company.org/prod-vocab/Hardware> ;\n               <http://ld.company.org/prod-vocab/hasCategory> ?catItem ;\n               <http://ld.company.org/prod-vocab/weight_g> ?w2 .\n        FILTER(?w2 > ?w)\n      }\n    }\n  }\n}\nGROUP BY ?cat\nORDER BY ?cat",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:31-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/31-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "F\u00fcr jede Produktkategorie, welches Hardware-Produkt ist das leichteste und welches das schwerste?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\n\nSELECT ?cat (MIN(?w) AS ?minWeight_g) (MAX(?w) AS ?maxWeight_g)\nWHERE {\n  ?catItem a <http://ld.company.org/prod-vocab/ProductCategory> ;\n           <http://ld.company.org/prod-vocab/name> ?cat .\n  ?hw a <http://ld.company.org/prod-vocab/Hardware> ;\n      <http://ld.company.org/prod-vocab/hasCategory> ?catItem ;\n      <http://ld.company.org/prod-vocab/weight_g> ?w .\n}\nGROUP BY ?cat",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:31-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/31-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What is the average price in euros of each supplier's products, rounded to a reasonable amount?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?result (ROUND(AVG(?amt) * 100) / 100 AS ?avgEur)\nWHERE {\n  ?result a <http://ld.company.org/prod-vocab/Supplier> ;\n          <http://ld.company.org/prod-vocab/name> ?name .\n\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?result ;\n           <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/amount> ?amt ;\n           <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/currency> \"EUR\" .\n}\nGROUP BY ?result",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:32-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/32-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Was ist der durchschnittliche Preis in Euro f\u00fcr die Produkte jedes Anbieters, gerundet auf einen angemessenen Betrag?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT ?result (ROUND(AVG(?amt) * 100) / 100 AS ?avgEur)\nWHERE {\n  ?result a <http://ld.company.org/prod-vocab/Supplier> ;\n          <http://ld.company.org/prod-vocab/name> ?name .\n\n  ?prod <http://ld.company.org/prod-vocab/hasSupplier> ?result ;\n        <http://ld.company.org/prod-vocab/price> ?priceR .\n\n  ?priceR <http://ld.company.org/prod-vocab/amount> ?amt ;\n          <http://ld.company.org/prod-vocab/currency> \"EUR\" .\n}\nGROUP BY ?result",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:32-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/32-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Do any departments lack an assigned manager?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nASK\nWHERE {\n  ?dept a <http://ld.company.org/prod-vocab/Department> .\n  FILTER NOT EXISTS {\n    ?m a <http://ld.company.org/prod-vocab/Manager> ;\n       <http://ld.company.org/prod-vocab/memberOf> ?dept .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:33-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/33-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Gibt es Abteilungen, denen kein Verantwortlicher zugewiesen ist?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nASK\nWHERE {\n  ?dept a <http://ld.company.org/prod-vocab/Department> .\n  FILTER NOT EXISTS {\n    ?m a <http://ld.company.org/prod-vocab/Manager> ;\n       <http://ld.company.org/prod-vocab/memberOf> ?dept .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:33-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/33-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "I need to refresh my supplier contact list by collecting each supplier's name along with their full address information.",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?supplier\nWHERE {\n  ?supplier a <http://ld.company.org/prod-vocab/Supplier> ;\n            <http://ld.company.org/prod-vocab/name> ?name .\n  OPTIONAL { ?supplier <http://ld.company.org/prod-vocab/addressLocality> ?locality . }\n  OPTIONAL { ?supplier <http://ld.company.org/prod-vocab/addressCountryCode> ?ccode . }\n  OPTIONAL { ?supplier <http://ld.company.org/prod-vocab/addressCountry> ?country . }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:34-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/34-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Ich muss meine Lieferantenkontaktliste aktualisieren, indem ich die Namen aller Lieferanten sowie deren vollst\u00e4ndige Adressdaten erfasse.",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?supplier\nWHERE {\n  ?supplier a <http://ld.company.org/prod-vocab/Supplier> ;\n            <http://ld.company.org/prod-vocab/name> ?name .\n  OPTIONAL { ?supplier <http://ld.company.org/prod-vocab/addressLocality> ?locality . }\n  OPTIONAL { ?supplier <http://ld.company.org/prod-vocab/addressCountryCode> ?ccode . }\n  OPTIONAL { ?supplier <http://ld.company.org/prod-vocab/addressCountry> ?country . }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:34-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/34-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each product, could you list the other products it's compatible with and show the price differences between them?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?prod ?compatible (?prodAmount - ?compatibleAmount AS ?priceDiff)\nWHERE {\n  ?prodClass rdfs:subClassOf* <http://ld.company.org/prod-vocab/Product> .\n  ?prod a ?prodClass ;\n        <http://ld.company.org/prod-vocab/compatibleProduct> ?compatible ;\n        <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/amount> ?prodAmount ;\n        <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/currency> \"EUR\" .\n\n  ?compatible <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/amount> ?compatibleAmount ;\n              <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/currency> \"EUR\" .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:35-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/35-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie f\u00fcr jedes Produkt auflisten, mit welchen anderen Produkten es kompatibel ist, und die Preisunterschiede zwischen diesen Produkten anzeigen?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?prod ?compatible (?prodAmount - ?compatibleAmount AS ?priceDiff)\nWHERE {\n  ?prodClass rdfs:subClassOf* <http://ld.company.org/prod-vocab/Product> .\n  ?prod a ?prodClass ;\n        <http://ld.company.org/prod-vocab/compatibleProduct> ?compatible ;\n        <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/amount> ?prodAmount ;\n        <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/currency> \"EUR\" .\n\n  ?compatible <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/amount> ?compatibleAmount ;\n              <http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/currency> \"EUR\" .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:35-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/35-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which product area is most relevant, and what are the top three associated skills?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?result\nWHERE {\n  ?hw a <http://ld.company.org/prod-vocab/Hardware> ;\n      <http://ld.company.org/prod-vocab/hasCategory> ?result .\n}\nGROUP BY ?result\nORDER BY DESC(COUNT(?hw))\nLIMIT 3",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:36-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/36-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Produktbereich ist am relevantesten, und welche sind die drei wichtigsten damit verbundenen F\u00e4higkeiten?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?cat ?name\nWHERE {\n  ?hw a <http://ld.company.org/prod-vocab/Hardware> ;\n      <http://ld.company.org/prod-vocab/hasCategory> ?cat .\n  ?cat <http://ld.company.org/prod-vocab/name> ?name .\n}\nGROUP BY ?cat ?name\nORDER BY DESC(COUNT(*))\nLIMIT 3",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:36-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/36-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "For each bill of materials, show the count of parts and the total material quantity, but display only those BOMs with more than 600 items, sorted in descending order.",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?bom (COUNT(?bomPart) AS ?partCount) (SUM(?qty) AS ?totalQty)\nWHERE {\n  ?bom a <http://ld.company.org/prod-vocab/BillOfMaterial> ;\n       <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n  ?bomPart <http://ld.company.org/prod-vocab/quantity> ?qty_ .\n  BIND(xsd:int(?qty_) AS ?qty)\n}\nGROUP BY ?bom\nHAVING (SUM(?qty) > 600)\nORDER BY DESC(SUM(?qty))",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:37-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/37-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "F\u00fcr jede St\u00fcckliste die Anzahl der Teile und die Gesamtmaterialmenge anzeigen, aber nur die St\u00fccklisten mit mehr als 600 Artikeln, sortiert in absteigender Reihenfolge, ausgeben.",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?bom (COUNT(?part) AS ?partCount) (SUM(?qty) AS ?totalQty)\nWHERE {\n  ?bom a <http://ld.company.org/prod-vocab/BillOfMaterial> ;\n       <http://ld.company.org/prod-vocab/hasBomPart> ?part .\n  ?part <http://ld.company.org/prod-vocab/quantity> ?qty_ .\n  BIND(xsd:int(?qty_) AS ?qty)\n}\nGROUP BY ?bom\nHAVING (SUM(?qty) > 600)\nORDER BY DESC(SUM(?qty))",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:37-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/37-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you give me an updated contact list that includes each employee's name, email, phone number, department, and direct manager?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?name ?email ?phone ?department ?manager\nWHERE {\n  ?agentClass rdfs:subClassOf* <http://ld.company.org/prod-vocab/Agent> .\n  ?empl a ?agentClass ;\n        <http://ld.company.org/prod-vocab/name> ?name .\n\n  OPTIONAL { ?empl <http://ld.company.org/prod-vocab/email> ?email . }\n  OPTIONAL { ?empl <http://ld.company.org/prod-vocab/phone> ?phone . }\n  OPTIONAL { ?empl <http://ld.company.org/prod-vocab/memberOf>/<http://ld.company.org/prod-vocab/name> ?department . }\n  OPTIONAL { ?empl <http://ld.company.org/prod-vocab/hasManager>/<http://ld.company.org/prod-vocab/name> ?manager . }\n}\nORDER BY ?name",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:38-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/38-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie mir bitte eine aktualisierte Kontaktliste zukommen lassen, die den Namen, die E-Mail-Adresse, die Telefonnummer, die Abteilung und den direkten Vorgesetzten jedes Mitarbeiters enth\u00e4lt?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?employee\nWHERE {\n  ?empClass rdfs:subClassOf* <http://ld.company.org/prod-vocab/Employee> .\n  ?employee a ?empClass ;\n            <http://ld.company.org/prod-vocab/name> ?name .\n  OPTIONAL { ?employee <http://ld.company.org/prod-vocab/email> ?email . }\n  OPTIONAL { ?employee <http://ld.company.org/prod-vocab/phone> ?phone . }\n  OPTIONAL { ?employee <http://ld.company.org/prod-vocab/memberOf>/<http://ld.company.org/prod-vocab/name> ?departmentName . }\n  OPTIONAL { ?employee <http://ld.company.org/prod-vocab/hasManager>/<http://ld.company.org/prod-vocab/name> ?managerName . }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:38-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/38-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Can you list the dimensions of hardware items that are wider than they are tall and have a depth under 50 mm?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?hw ?width ?height ?depth\nWHERE {\n  ?hw a <http://ld.company.org/prod-vocab/Hardware> ;\n      <http://ld.company.org/prod-vocab/width_mm> ?width ;\n      <http://ld.company.org/prod-vocab/height_mm> ?height ;\n      <http://ld.company.org/prod-vocab/depth_mm> ?depth .\n  FILTER (?width > ?height && ?depth < 50)\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:39-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/39-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnen Sie die Abmessungen von Hardware-Artikeln auflisten, die breiter als hoch sind und eine Tiefe von unter 50 mm haben?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT ?hw\nWHERE {\n  ?hw a <http://ld.company.org/prod-vocab/Hardware> ;\n      <http://ld.company.org/prod-vocab/width_mm> ?width ;\n      <http://ld.company.org/prod-vocab/height_mm> ?height ;\n      <http://ld.company.org/prod-vocab/depth_mm> ?depth .\n  FILTER (?width > ?height && ?depth < 50)\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:39-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/39-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you list the IDs and names of hardware items that don't have an active product manager?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?id ?name\nWHERE {\n  ?hw a <http://ld.company.org/prod-vocab/Hardware> ;\n      <http://ld.company.org/prod-vocab/id> ?id ;\n      <http://ld.company.org/prod-vocab/name> ?name .\n  FILTER NOT EXISTS {\n    ?hw <http://ld.company.org/prod-vocab/hasProductManager>/\n        <http://ld.company.org/prod-vocab/name> [] .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:40-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/40-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie die IDs und Namen der Hardware-Artikel auflisten, die keinen aktiven Produktmanager haben?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?hw ?id ?name\nWHERE {\n  ?hw a <http://ld.company.org/prod-vocab/Hardware> ;\n      <http://ld.company.org/prod-vocab/id> ?id ;\n      <http://ld.company.org/prod-vocab/name> ?name .\n  FILTER NOT EXISTS {\n    ?hw <http://ld.company.org/prod-vocab/hasProductManager>/<http://ld.company.org/prod-vocab/name> [] .\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:40-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/40-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "What share of each manager's overall team works in the same department as the manager?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT ?m (?deptTeam / ?fullteam * 100 AS ?pct)\nWHERE {\n  { # full team size per manager\n    SELECT ?m (COUNT(*) AS ?fullteam)\n    WHERE {\n      ?e <http://ld.company.org/prod-vocab/hasManager> ?m .\n    }\n    GROUP BY ?m\n  }\n\n  { # team members in the same department as the manager\n    SELECT ?m (COUNT(*) AS ?deptTeam)\n    WHERE {\n      ?m <http://ld.company.org/prod-vocab/memberOf> ?dept .\n      ?e <http://ld.company.org/prod-vocab/hasManager> ?m .\n      ?e <http://ld.company.org/prod-vocab/memberOf> ?dept .\n    }\n    GROUP BY ?m\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:41-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/41-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Anteil der Teammitglieder jedes Managers arbeitet in derselben Abteilung wie der Manager selbst?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT ?manager (?sameDeptTeam / ?fullTeam * 100 AS ?pct)\nWHERE {\n  { # full team size per manager\n    SELECT ?manager (COUNT(?e) AS ?fullTeam)\n    WHERE {\n      ?e pv:hasManager ?manager .\n    }\n    GROUP BY ?manager\n  }\n\n  { # team members in same department as the manager\n    SELECT ?manager (COUNT(?e) AS ?sameDeptTeam)\n    WHERE {\n      ?manager pv:memberOf ?dept .\n      ?e pv:hasManager ?manager ;\n         pv:memberOf ?dept .\n    }\n    GROUP BY ?manager\n  }\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:41-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/41-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which bill of materials has the highest average unit cost for its hardware components, and what is that average?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?bom (ROUND(AVG(?spst / ?sq) * 100) / 100 AS ?avgUnitCost)\nWHERE {\n  {\n    SELECT ?bom (SUM(?partSubTotal) AS ?spst) (SUM(xsd:int(?quant)) AS ?sq)\n    WHERE {\n      ?bom a <http://ld.company.org/prod-vocab/BillOfMaterial> ;\n           <http://ld.company.org/prod-vocab/hasBomPart> ?part .\n      ?part <http://ld.company.org/prod-vocab/quantity> ?quant .\n      ?part <http://ld.company.org/prod-vocab/hasPart>/<http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/amount> ?amount .\n      ?part <http://ld.company.org/prod-vocab/hasPart>/<http://ld.company.org/prod-vocab/price>/<http://ld.company.org/prod-vocab/currency> \"EUR\" .\n      BIND(xsd:int(?quant) * ?amount AS ?partSubTotal)\n    }\n    GROUP BY ?bom\n  }\n}\nGROUP BY ?bom\nORDER BY DESC(?avgUnitCost)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:42-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/42-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche St\u00fcckliste hat die h\u00f6chsten durchschnittlichen St\u00fcckkosten f\u00fcr ihre Hardwarekomponenten, und wie hoch sind diese durchschnittlichen Kosten?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?bom (ROUND(AVG(?spst / ?sq) * 100) / 100 AS ?avgUnitCost)\nWHERE {\n  {\n    SELECT ?bom (SUM(?partSubTotal) AS ?spst) (SUM(xsd:int(?quant)) AS ?sq)\n    WHERE {\n      ?bom a <http://ld.company.org/prod-vocab/BillOfMaterial> ;\n           <http://ld.company.org/prod-vocab/hasBomPart> ?part .\n      ?part <http://ld.company.org/prod-vocab/quantity> ?quant .\n      ?part <http://ld.company.org/prod-vocab/hasPart> ?hw .\n      ?hw <http://ld.company.org/prod-vocab/price> ?price .\n      ?price <http://ld.company.org/prod-vocab/amount> ?amount ;\n             <http://ld.company.org/prod-vocab/currency> \"EUR\" .\n      BIND(xsd:int(?quant) * ?amount AS ?partSubTotal)\n    }\n    GROUP BY ?bom\n  }\n}\nGROUP BY ?bom\nORDER BY DESC(?avgUnitCost)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:42-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/42-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Could you list any product compatibility cycles\u2014instances where product A states it's compatible with product B and product B likewise lists product A as compatible?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?a ?b\nWHERE {\n  ?a <http://ld.company.org/prod-vocab/compatibleProduct> ?b .\n  ?b <http://ld.company.org/prod-vocab/compatibleProduct> ?a .\n  FILTER(STR(?a) < STR(?b))\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:43-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/43-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "K\u00f6nnten Sie Beispiele f\u00fcr Produktkompatibilit\u00e4tszyklen nennen - F\u00e4lle, in denen Produkt A angibt, dass es mit Produkt B kompatibel ist, und Produkt B wiederum Produkt A als kompatibel auflistet?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?pair\nWHERE {\n  ?a <http://ld.company.org/prod-vocab/compatibleProduct> ?b .\n  ?b <http://ld.company.org/prod-vocab/compatibleProduct> ?a .\n  FILTER(STR(?a) < STR(?b))\n  BIND(CONCAT(STR(?a), \" \u2194 \", STR(?b)) AS ?pair)\n}\nLIMIT 100",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:43-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/43-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which hardware items fall within the top 10% of widths, and what are their IDs, names, and width measurements?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT ?id ?name ?width\nWHERE {\n  {\n    SELECT (MIN(?w) AS ?minW) (MAX(?w) AS ?maxW)\n    WHERE {\n      ?hw0 a pv:Hardware ;\n           pv:width_mm ?w .\n    }\n  }\n\n  BIND(?minW + (0.9 * (?maxW - ?minW)) AS ?pct90)\n\n  ?hw a pv:Hardware ;\n      pv:id ?id ;\n      pv:name ?name ;\n      pv:width_mm ?width .\n\n  FILTER(?width >= ?pct90)\n}\nORDER BY DESC(?width)",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:44-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/44-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Hardware-Komponenten geh\u00f6ren zu den 10% mit der gr\u00f6\u00dften Breite, und welche IDs, Namen und Breitenma\u00dfe haben sie?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT ?hw ?id ?name ?width\nWHERE {\n  { # Min/Max-Breite ermitteln\n    SELECT (MIN(?w) AS ?minW) (MAX(?w) AS ?maxW)\n    WHERE {\n      ?x a <http://ld.company.org/prod-vocab/Hardware> ;\n         <http://ld.company.org/prod-vocab/width_mm> ?w .\n    }\n  }\n\n  # Schwelle f\u00fcr oberste 10% (lineare Interpolation zwischen Min und Max)\n  BIND(?minW + (0.9 * (?maxW - ?minW)) AS ?pct90)\n\n  ?hw a <http://ld.company.org/prod-vocab/Hardware> ;\n      <http://ld.company.org/prod-vocab/id> ?id ;\n      <http://ld.company.org/prod-vocab/name> ?name ;\n      <http://ld.company.org/prod-vocab/width_mm> ?width .\n\n  FILTER(?width >= ?pct90)\n}\nORDER BY DESC(?width)",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:44-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/44-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which supplier provides the most reliable inductors?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?hardware pv:hasCategory <http://ld.company.org/prod-instances/prod-cat-Inductor> .\n  ?hardware pv:reliabilityIndex ?reliabilityIndex .\n  ?hardware pv:hasSupplier ?result .\n}\nORDER BY DESC(?reliabilityIndex)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:45-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/45-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welcher Lieferant bietet die zuverl\u00e4ssigsten Induktivit\u00e4ten an?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE\n{\n  ?hardware <http://ld.company.org/prod-vocab/hasCategory> <http://ld.company.org/prod-instances/prod-cat-Inductor> .\n  ?hardware <http://ld.company.org/prod-vocab/reliabilityIndex> ?reliabilityIndex .\n  ?hardware <http://ld.company.org/prod-vocab/hasSupplier> ?result .\n}\nORDER BY DESC(?reliabilityIndex)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:45-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/45-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which five suppliers have the highest average reliability across their products?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?result (AVG(?reliabilityIndex) AS ?averageReliabilityIndex)\nWHERE {\n  ?hardware <http://ld.company.org/prod-vocab/reliabilityIndex> ?reliabilityIndex .\n  ?hardware <http://ld.company.org/prod-vocab/hasSupplier> ?result .\n}\nGROUP BY ?result\nORDER BY DESC(?averageReliabilityIndex)\nLIMIT 5",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:46-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/46-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche f\u00fcnf Lieferanten weisen die h\u00f6chste durchschnittliche Zuverl\u00e4ssigkeit \u00fcber ihre Produkte hinweg auf?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result (AVG(?reliabilityIndex) AS ?averageReliabilityIndex)\nWHERE {\n  ?hardware pv:reliabilityIndex ?reliabilityIndex .\n  ?hardware pv:hasSupplier ?result .\n}\nGROUP BY ?result\nORDER BY DESC(?averageReliabilityIndex)\nLIMIT 5",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:46-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/46-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which countries supply the BOM parts for our SkySync MechWave?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  <http://ld.company.org/prod-instances/bom-17> pv:hasBomPart ?bomPart .\n  ?bomPart pv:hasPart ?product .\n  ?product pv:hasSupplier ?supplier .\n  ?supplier pv:country ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:47-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/47-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche L\u00e4nder liefern die Komponenten f\u00fcr unser SkySync MechWave?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT DISTINCT ?result\nWHERE {\n  <http://ld.company.org/prod-instances/bom-17> <http://ld.company.org/prod-vocab/hasBomPart> ?bomPart .\n  ?bomPart <http://ld.company.org/prod-vocab/hasPart> ?product .\n  ?product <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n  ?supplier <http://ld.company.org/prod-vocab/country> ?result .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:47-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/47-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Please list all BOMs that include at least one part supplied by a Polish vendor.",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?result a pv:BillOfMaterial .\n  ?result pv:hasBomPart ?bomPart .\n  ?bomPart pv:hasPart ?product .\n  ?product pv:hasSupplier ?supplier .\n  ?supplier pv:country <http://dbpedia.org/resource/Poland> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:48-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/48-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Bitte listen Sie alle St\u00fccklisten auf, die mindestens ein Teil enthalten, das von einem polnischen Lieferanten bezogen wird.",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT ?result\nWHERE {\n  ?result a pv:BillOfMaterial .\n  ?result pv:hasBomPart ?bomPart .\n  ?bomPart pv:hasPart ?product .\n  ?product pv:hasSupplier ?supplier .\n  ?supplier pv:country <http://dbpedia.org/resource/Poland> .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:48-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/48-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "How many suppliers can provide alternative compatible products for the K367 Strain Encoder?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT (COUNT(DISTINCT ?supplier) AS ?result)\nWHERE\n{\n  <http://ld.company.org/prod-instances/hw-K367-1320550> pv:compatibleProduct ?alternative .\n  ?alternative pv:hasSupplier ?supplier .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:49-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/49-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Wie viele Lieferanten k\u00f6nnen alternative, kompatible Produkte f\u00fcr den K367-Dehnungsmesswandler anbieten?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nPREFIX pv: <http://ld.company.org/prod-vocab/>\n\nSELECT DISTINCT (COUNT(?supplier) AS ?result)\nWHERE\n{\n  <http://ld.company.org/prod-instances/hw-K367-1320550> <http://ld.company.org/prod-vocab/compatibleProduct> ?alternative .\n  ?alternative <http://ld.company.org/prod-vocab/hasSupplier> ?supplier .\n}",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:49-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/49-de"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Which department is responsible for the most products, and how many products is that?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?result (COUNT(?product) AS ?count)\nWHERE {\n  ?result <http://ld.company.org/prod-vocab/responsibleFor> ?product .\n}\nGROUP BY ?result\nORDER BY DESC(?count)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:50-en",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/50-en"
+  },
+  {
+    "dataset": "https://text2sparql.aksw.org/2026/corporate/",
+    "question": "Welche Abteilung ist f\u00fcr die meisten Produkte verantwortlich, und wie viele Produkte sind das?",
+    "query": "#+ endpoint: http://virtuoso-corporate:8890/sparql\nSELECT ?result (COUNT(?product) AS ?count)\nWHERE {\n  ?result <http://ld.company.org/prod-vocab/responsibleFor> ?product .\n}\nGROUP BY ?result\nORDER BY DESC(?count)\nLIMIT 1",
+    "endpoint": "https://biosoda.unil.ch/sparql-llm/",
+    "qname": "ck26:50-de",
+    "uri": "https://text2sparql.aksw.org/2026/corporate/50-de"
+  }
+]
