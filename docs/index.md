@@ -25,6 +25,10 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2026-04-28 - Program added"
+    
+    We would like to remind all participants that the registration for the [ESWC pre-conference](https://2026.eswc-conferences.org/attending/registration/) is required for at least one of the team members.
+
 !!! info "2026-04-20 - Registration reminder"
     
     We would like to remind all participants that the registration for the [ESWC pre-conference](https://2026.eswc-conferences.org/attending/registration/) is required for at least one of the team members.
