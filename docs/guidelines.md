@@ -55,7 +55,7 @@ Also, please **do not change the footer**, which must remain as follows:
 
 > Second International TEXT2SPARQL Challenge, Co-Located with Text2KG at ESWC26, May 10, 2026, Dubrovnik, Croatia.
 
-The pre-modifiec CEUR two-column template is available [here](assets/Text2SPARQL-Template.zip).
+The pre-modified CEUR template is available [here](assets/Text2SPARQL-Template.zip).
 
 All papers should be submitted to easychair under the following link: TBD
 
@@ -74,9 +74,13 @@ Please refer to the CEUR-WS Generative AI policy here:
 #### CEUR agreement
 
 Together with the camera-ready version of your paper, you must also submit the **CEUR agreement**, which is attached to this message.
-Please note that the agreement must be **signed with a pen on paper and then scanned**. Electronic signatures are **not allowed**.
+
+Please note that the agreement must be **signed with a pen on paper and then scanned**.
+Electronic signatures are **not allowed**.
+
 Use the following information when filling in the agreement:
-**Name of Event:** Second International TEXT2SPARQL Challenge (TEXT2SPARQL'26)
-**Editors of the proceedings:** Edgard Marx, Paulo Viviurka do Carmo, Marcos Gôlo, and Sebastian Tramp
+
+- **Name of Event:** Second International TEXT2SPARQL Challenge (TEXT2SPARQL'26)
+- **Editors of the proceedings:** Edgard Marx, Paulo Viviurka do Carmo, Marcos Gôlo, and Sebastian Tramp
 
 The latest CEUR author agreement is available [here](https://ceur-ws.org/ceur-author-agreement-ccby-tp.pdf?ver=2026-04-09).
