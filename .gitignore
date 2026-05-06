@@ -9,3 +9,12 @@ tmp
 # ignore for results
 *_result_set*
 *_results*
+docs/results/*/*/*.md
+docs/results/*/*/*.html
+docs/results/*.html
+docs/results/*.css
+docs/results/*.yml
+docs/results/*.py
+docs/results/*.png
+docs/results/*/*.png
+
