@@ -1,0 +1,34 @@
+dataset: ck26
+questions: questions_ck26.yml
+languages: [en, de]
+language_names:
+  "-": overall
+  en: english
+  de: german
+metrics: [
+  set_recall,
+  set_P,
+  set_F,
+  ndcg,
+  set_F_ndcg
+]
+metrics_names: 
+  set_recall: recall
+  set_P: precison
+  set_F: F1-score
+  set_F_ndcg: F1-score/ndcg
+to_rank: F1-score/ndcg
+endpoints: [
+  ADFR,
+  INFAI-ETI-AND-FRIENDS-A,
+  INFAI-ETI-AND-FRIENDS-B,
+  INFAI-ETI-AND-FRIENDS-C,
+  IRIS,
+  LIBER-AI-CLAUDE,
+  LIBER-AI-QWEN,
+  SPARQL-LLM
+]
+generate_extra_md: False
+anulated_queries: [
+
+]

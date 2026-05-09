@@ -1,0 +1,134 @@
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+table {
+  min-width: 45vw;
+  max-width: 50vw;
+  width: auto;
+  flex: 1;
+  display: grid;
+  border-collapse: collapse;
+  /* These are just initial values which are overriden using JavaScript when a column is resized */
+}
+
+.with-order{
+    grid-template-columns: 
+    minmax(150px, 2.44fr)
+    minmax(150px, 1.67fr)
+    minmax(150px, 1.67fr)
+    minmax(150px, 1.67fr)
+    minmax(150px, 1.67fr)
+    minmax(150px, 1.67fr);
+}
+
+.without-order{
+    grid-template-columns: 
+    minmax(150px, 2.44fr)
+    minmax(150px, 1.67fr)
+    minmax(150px, 1.67fr)
+    minmax(150px, 1.67fr);
+}
+
+
+thead,
+tbody,
+tr {
+  display: contents;
+}
+
+th,
+td {
+  padding: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th {
+  top: 0;
+  background: #ffc59c;
+  text-align: left;
+  font-weight: normal;
+  color: black;
+}
+
+/* th:last-child {
+  border: 0;
+} */
+
+.resize-handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0;
+  width: 3px;
+  cursor: col-resize;
+}
+
+.resize-handle:hover,
+/* The following selector is needed so the handle is visible during resize even if the mouse isn't over the handle anymore */
+.header--being-resized .resize-handle {
+  opacity: 0.5;
+}
+
+th:hover .resize-handle {
+  opacity: 0.3;
+}
+
+td {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #505050;
+}
+
+tr:nth-child(even) td {
+  background: #ffebdd;
+}
+
+tr:nth-child(even) th {
+  background: #ffd3b4;
+}
+
+tr:hover { 
+   background: red; 
+}
+
+th a { 
+   display: block;
+   width: 100%;
+   height: 100%;
+   color: black;
+}
+
+td a { 
+   display: block;
+   width: 100%;
+   height: 100%;
+   color: #505050;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: orange;
+}
+
+a:active {
+  text-decoration: none;
+}
