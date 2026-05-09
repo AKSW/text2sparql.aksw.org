@@ -1,0 +1,19 @@
+language_names:
+  "-": overall
+  en: english
+to_rank: F1-score
+metrics: [
+  recall,
+  precison,
+  F1-score
+]
+endpoints: [
+  ADFR,
+  INFAI-ETI-AND-FRIENDS-A,
+  INFAI-ETI-AND-FRIENDS-B,
+  INFAI-ETI-AND-FRIENDS-C,
+  IRIS,
+  LIBER-AI-CLAUDE,
+  LIBER-AI-QWEN,
+  SPARQL-LLM
+]
