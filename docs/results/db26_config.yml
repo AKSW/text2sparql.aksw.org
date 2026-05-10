@@ -1,0 +1,31 @@
+dataset: db26
+questions: questions_db26.yml
+languages: [en, es]
+language_names:
+  "-": overall
+  en: english
+  es: spanish
+metrics: [
+  set_recall,
+  set_P,
+  set_F
+]
+metrics_names: 
+  set_recall: recall
+  set_P: precison
+  set_F: F1-score
+to_rank: F1-score
+endpoints: [
+  ADFR,
+  INFAI-ETI-AND-FRIENDS-A,
+  INFAI-ETI-AND-FRIENDS-B,
+  INFAI-ETI-AND-FRIENDS-C,
+  IRIS,
+  LIBER-AI-CLAUDE,
+  LIBER-AI-QWEN,
+  SPARQL-LLM
+]
+generate_extra_md: False
+anulated_queries: [
+
+]

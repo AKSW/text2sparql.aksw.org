@@ -2,7 +2,23 @@
 icon: material/chart-bar
 title: "Results"
 ---
-# Results
+# Ranks Table
+
+---
+
+--8<-- "docs/results/results_table_overall.html"
+
+---
+
+--8<-- "docs/results/results_table_ck26.html"
+
+---
+
+--8<-- "docs/results/results_table_db26.html"
+
+---
+
+# Results News
 
 !!! info "2026-04-20 - Endpoint Responses"
 
