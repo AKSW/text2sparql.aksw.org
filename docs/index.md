@@ -25,6 +25,11 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2026-05-13 - Thank you for participating!"
+
+    Thank you to all the participants in the Second International Text2SPARQL Challenge, and congratulations to our Top 3! All results are now online [:material-chart-bar: Challenge Results](results/index.md).
+    Moreover, we are collection feedback for a possible third edition [here](https://github.com/AKSW/text2sparql.aksw.org/issues/156).
+
 !!! info "2026-04-28 - Program added"
     
     We would like to remind all participants that the registration for the [ESWC pre-conference](https://2026.eswc-conferences.org/attending/registration/) is required for at least one of the team members.
