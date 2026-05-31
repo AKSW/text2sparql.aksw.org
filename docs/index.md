@@ -25,6 +25,11 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2026-05-31 - Submission Deadline extended!"
+
+    Submission deadline is extended to June 21st, 2026 PST. Follow-up dates and submission link is available at the [:material-file-check: Submission Guidelines](guidelines.md) page.
+
+
 !!! info "2026-05-13 - Thank you for participating!"
 
     Thank you to all the participants in the Second International Text2SPARQL Challenge, and congratulations to our Top 3! All results are now online [:material-chart-bar: Challenge Results](results/index.md).
