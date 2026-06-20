@@ -2,98 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://text2sparql.aksw.org/2026/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/guidelines/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/organizing-committee/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/program/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/participation/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/participation/challenge/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/participation/datasets/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/ck26/ADFR/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/ck26/INFAI-ETI-AND-FRIENDS-A/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/ck26/INFAI-ETI-AND-FRIENDS-B/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/ck26/INFAI-ETI-AND-FRIENDS-C/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/ck26/IRIS/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/ck26/LIBER-AI-CLAUDE/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/ck26/LIBER-AI-QWEN/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/ck26/SPARQL-LLM/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/db26/ADFR/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/db26/INFAI-ETI-AND-FRIENDS-A/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/db26/INFAI-ETI-AND-FRIENDS-B/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/db26/INFAI-ETI-AND-FRIENDS-C/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/db26/IRIS/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/db26/LIBER-AI-CLAUDE/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/db26/LIBER-AI-QWEN/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
     <url>
          <loc>https://text2sparql.aksw.org/2026/results/db26/SPARQL-LLM/</loc>
-         <lastmod>2026-05-31</lastmod>
+         <lastmod>2026-06-20</lastmod>
     </url>
 </urlset>
