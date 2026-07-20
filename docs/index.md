@@ -25,7 +25,11 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
-!!! info "2026-05-31 - Submission Deadline extended again!"
+!!! info "2026-07-20 - Review and camera ready deadline updates!"
+
+    Review and camera ready deadlines are now extended to July 31st and August 7th, 2026 PST. More info is available at the [:material-file-check: Submission Guidelines](guidelines.md) page.
+
+!!! info "2026-06-20 - Submission Deadline extended again!"
 
     Submission deadline is now extended to July 5th, 2026 PST. Follow-up dates and submission link is available at the [:material-file-check: Submission Guidelines](guidelines.md) page.
 

@@ -12,8 +12,8 @@ title: "Dates & Submission Guidelines"
 - Release of test dataset & results: April 20th, 2026 PST
     - :material-calendar-check: 2025-04-20 - [Test datasets and results](https://github.com/AKSW/text2sparql.aksw.org/tree/2026/docs/results)
 - Paper submission deadline: <s>June 1st, 2026 PST</s> <s>June 21st, 2026 PST</s> July 5th, 2026 PST
-- Notification & Reviews: <s>June 22nd, 2026 PST</s> <s>June 28th, 2026 PST</s> July 15th, 2026 PST
-- Submission of camera-ready papers: <s>June 27th, 2026 PST</s> <s>July 5th, 2026 PST</s> July 20th, 2026 PST
+- Notification & Reviews: <s>June 22nd, 2026 PST</s> <s>June 28th, 2026 PST</s> <s>July 15th, 2026 PST</s> July 31st, 2026 PST
+- Submission of camera-ready papers: <s>June 27th, 2026 PST</s> <s>July 5th, 2026 PST</s> <s>July 20th, 2026 PST</s> August 7th, 2026 PST
 
 ## Dataset Dates
 
