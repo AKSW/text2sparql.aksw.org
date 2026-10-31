@@ -25,6 +25,10 @@ Success in the TEXT2SPARQL Challenge has significant implications, from improvin
 
 ## Latest News
 
+!!! info "2026-10-31 - Second International Text2SPARQL challenge proceddings are out!"
+
+    The proceedings are published in Leibniz Hannover University repository and can be found at the following [:material-file: DOI](https://doi.org/10.15488/22504). Thank you for participant and making another successful edition of the challenge happen!
+
 !!! info "2026-07-20 - Review and camera ready deadline updates!"
 
     Review and camera ready deadlines are now extended to July 31st and August 7th, 2026 PST. More info is available at the [:material-file-check: Submission Guidelines](guidelines.md) page.
